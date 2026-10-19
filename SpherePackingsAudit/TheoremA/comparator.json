@@ -1,0 +1,14 @@
+{
+  "challenge_module": "SpherePackingsAudit.TheoremA.Challenge",
+  "solution_module": "SpherePackingsAudit.TheoremA.Solution",
+  "theorem_names": [
+    "SpherePackingsAudit.theoremA"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

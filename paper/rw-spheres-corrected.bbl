@@ -1,0 +1,354 @@
+\begin{thebibliography}{41}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Aizenman and Burchard(1999)]{AB1999}
+M.~Aizenman and A.~Burchard.
+\newblock H\"{o}lder regularity and dimension bounds for random curves.
+\newblock \emph{Duke Math. J.}, 99\penalty0 (3):\penalty0 419--453, 1999.
+\newblock ISSN 0012-7094,1547-7398.
+\newblock \doi{10.1215/S0012-7094-99-09914-3}.
+\newblock URL \url{https://doi.org/10.1215/S0012-7094-99-09914-3}.
+
+\bibitem[Armstrong et~al.(2019)Armstrong, Kuusi, and Mourrat]{AKMBook}
+Scott Armstrong, Tuomo Kuusi, and Jean-Christophe Mourrat.
+\newblock \emph{Quantitative stochastic homogenization and large-scale
+  regularity}, volume 352 of \emph{Grundlehren der mathematischen
+  Wissenschaften [Fundamental Principles of Mathematical Sciences]}.
+\newblock Springer, Cham, 2019.
+\newblock ISBN 978-3-030-15544-5; 978-3-030-15545-2; 978-3-030-15547-6.
+\newblock \doi{10.1007/978-3-030-15545-2}.
+\newblock URL \url{https://doi.org/10.1007/978-3-030-15545-2}.
+
+\bibitem[Armstrong and Smart(2016)]{armstrongsmart}
+Scott~N. Armstrong and Charles~K. Smart.
+\newblock Quantitative stochastic homogenization of convex integral
+  functionals.
+\newblock \emph{Ann. Sci. \'{E}c. Norm. Sup\'{e}r. (4)}, 49\penalty0
+  (2):\penalty0 423--481, 2016.
+\newblock ISSN 0012-9593,1873-2151.
+\newblock \doi{10.24033/asens.2287}.
+\newblock URL \url{https://doi.org/10.24033/asens.2287}.
+
+\bibitem[{B. Cerclé}(2022)]{cercle2022}
+{B. Cerclé}.
+\newblock {Liouville conformal field theory on even-dimensional spheres}.
+\newblock \emph{{Journal of Mathematical Physics}}, 63\penalty0 (1):\penalty0
+  013505, 2022.
+\newblock URL \url{{https://pubs.aip.org/aip/jmp/article/63/1/013505/2859762}}.
+
+\bibitem[Benjamini and Curien(2011)]{curienbenjamini}
+Itai Benjamini and Nicolas Curien.
+\newblock On limits of graphs sphere packed in {E}uclidean space and
+  applications.
+\newblock \emph{European J. Combin.}, 32\penalty0 (7):\penalty0 975--984, 2011.
+\newblock ISSN 0195-6698,1095-9971.
+\newblock \doi{10.1016/j.ejc.2011.03.016}.
+\newblock URL \url{https://doi.org/10.1016/j.ejc.2011.03.016}.
+
+\bibitem[Berestycki and Gwynne(2022)]{GB-LBM}
+Nathana\"{e}l Berestycki and Ewain Gwynne.
+\newblock Random walks on mated-{CRT} planar maps and {L}iouville {B}rownian
+  motion.
+\newblock \emph{Comm. Math. Phys.}, 395\penalty0 (2):\penalty0 773--857, 2022.
+\newblock ISSN 0010-3616,1432-0916.
+\newblock \doi{10.1007/s00220-022-04482-y}.
+\newblock URL \url{https://doi.org/10.1007/s00220-022-04482-y}.
+
+\bibitem[Berestycki and Powell(2024)]{berestycki2024gaussian}
+Nathana{\"e}l Berestycki and Ellen Powell.
+\newblock Gaussian free field and liouville quantum gravity.
+\newblock \emph{arXiv preprint arXiv:2404.16642}, 2024.
+
+\bibitem[Boutillier and de~Tili\`ere(2012)]{MR3372861}
+C\'{e}dric Boutillier and B\'{e}atrice de~Tili\`ere.
+\newblock Statistical mechanics on isoradial graphs.
+\newblock In \emph{Probability in complex physical systems}, volume~11 of
+  \emph{Springer Proc. Math.}, pages 491--512. Springer, Heidelberg, 2012.
+\newblock ISBN 978-3-642-23811-6; 978-3-642-23810-9.
+\newblock \doi{10.1007/978-3-642-23811-6\_20}.
+\newblock URL \url{https://doi.org/10.1007/978-3-642-23811-6_20}.
+
+\bibitem[Boutillier et~al.(2017)Boutillier, de~Tili\`ere, and
+  Raschel]{MR3621833}
+C\'{e}dric Boutillier, B\'{e}atrice de~Tili\`ere, and Kilian Raschel.
+\newblock The {$Z$}-invariant massive {L}aplacian on isoradial graphs.
+\newblock \emph{Invent. Math.}, 208\penalty0 (1):\penalty0 109--189, 2017.
+\newblock ISSN 0020-9910,1432-1297.
+\newblock \doi{10.1007/s00222-016-0687-z}.
+\newblock URL \url{https://doi.org/10.1007/s00222-016-0687-z}.
+
+\bibitem[Chelkak and Smirnov(2011)]{chelkaksmirnov}
+Dmitry Chelkak and Stanislav Smirnov.
+\newblock Discrete complex analysis on isoradial graphs.
+\newblock \emph{Adv. Math.}, 228\penalty0 (3):\penalty0 1590--1630, 2011.
+\newblock ISSN 0001-8708,1090-2082.
+\newblock \doi{10.1016/j.aim.2011.06.025}.
+\newblock URL \url{https://doi.org/10.1016/j.aim.2011.06.025}.
+
+\bibitem[Chelkak and Smirnov(2012)]{MR2957303}
+Dmitry Chelkak and Stanislav Smirnov.
+\newblock Universality in the 2{D} {I}sing model and conformal invariance of
+  fermionic observables.
+\newblock \emph{Invent. Math.}, 189\penalty0 (3):\penalty0 515--580, 2012.
+\newblock ISSN 0020-9910,1432-1297.
+\newblock \doi{10.1007/s00222-011-0371-2}.
+\newblock URL \url{https://doi.org/10.1007/s00222-011-0371-2}.
+
+\bibitem[Chelkak et~al.(2023)Chelkak, Laslier, and Russkikh]{CLM}
+Dmitry Chelkak, Beno\^{i}t Laslier, and Marianna Russkikh.
+\newblock Dimer model and holomorphic functions on t-embeddings of planar
+  graphs.
+\newblock \emph{Proc. Lond. Math. Soc. (3)}, 126\penalty0 (5):\penalty0
+  1656--1739, 2023.
+\newblock ISSN 0024-6115,1460-244X.
+\newblock \doi{10.1112/plms.12516}.
+\newblock URL \url{https://doi.org/10.1112/plms.12516}.
+
+\bibitem[Coudi\`ere et~al.(2001)Coudi\`ere, Gallou\"{e}t, and
+  Herbin]{MR1863279}
+Yves Coudi\`ere, Thierry Gallou\"{e}t, and Rapha\`ele Herbin.
+\newblock Discrete {S}obolev inequalities and {$L^p$} error estimates for
+  finite volume solutions of convection diffusion equations.
+\newblock \emph{M2AN Math. Model. Numer. Anal.}, 35\penalty0 (4):\penalty0
+  767--778, 2001.
+\newblock ISSN 0764-583X,1290-3841.
+\newblock \doi{10.1051/m2an:2001135}.
+\newblock URL \url{https://doi.org/10.1051/m2an:2001135}.
+
+\bibitem[de~Tili\`ere(2007)]{MR3252428}
+B\'{e}atrice de~Tili\`ere.
+\newblock Scaling limit of isoradial dimer models and the case of triangular
+  quadri-tilings.
+\newblock \emph{Ann. Inst. H. Poincar\'{e} Probab. Statist.}, 43\penalty0
+  (6):\penalty0 729--750, 2007.
+\newblock ISSN 0246-0203.
+\newblock \doi{10.1016/j.anihpb.2006.10.002}.
+\newblock URL \url{https://doi.org/10.1016/j.anihpb.2006.10.002}.
+
+\bibitem[Delmotte(1997)]{delmotte}
+T.~Delmotte.
+\newblock In\'{e}galit\'{e} de {H}arnack elliptique sur les graphes.
+\newblock \emph{Colloq. Math.}, 72\penalty0 (1):\penalty0 19--37, 1997.
+\newblock ISSN 0010-1354,1730-6302.
+\newblock \doi{10.4064/cm-72-1-19-37}.
+\newblock URL \url{https://doi.org/10.4064/cm-72-1-19-37}.
+
+\bibitem[Ding et~al.(2023)Ding, Gwynne, and Zhuang]{ding2023tightness}
+Jian Ding, Ewain Gwynne, and Zijie Zhuang.
+\newblock Tightness of exponential metrics for log-correlated gaussian fields
+  in arbitrary dimension.
+\newblock \emph{arXiv preprint arXiv:2310.03996}, 2023.
+
+\bibitem[Droniou et~al.(2018)Droniou, Eymard, Gallou\"{e}t, Guichard, and
+  Herbin]{droniou2018gradient}
+J\'{e}r\^{o}me Droniou, Robert Eymard, Thierry Gallou\"{e}t, Cindy Guichard,
+  and Rapha\`ele Herbin.
+\newblock \emph{The gradient discretisation method}, volume~82 of
+  \emph{Math\'{e}matiques \& Applications (Berlin) [Mathematics \&
+  Applications]}.
+\newblock Springer, Cham, 2018.
+\newblock ISBN 978-3-319-79042-8; 978-3-319-79041-1.
+\newblock \doi{10.1007/978-3-319-79042-8}.
+\newblock URL \url{https://doi.org/10.1007/978-3-319-79042-8}.
+
+\bibitem[Dubejko(1999)]{MR1692623}
+T.~Dubejko.
+\newblock Discrete solutions of {D}irichlet problems, finite volumes, and
+  circle packings.
+\newblock \emph{Discrete Comput. Geom.}, 22\penalty0 (1):\penalty0 19--39,
+  1999.
+\newblock ISSN 0179-5376,1432-0444.
+\newblock \doi{10.1007/PL00009447}.
+\newblock URL \url{https://doi.org/10.1007/PL00009447}.
+
+\bibitem[Duffin(1968)]{duffin}
+R.~J. Duffin.
+\newblock Potential theory on a rhombic lattice.
+\newblock \emph{J. Combinatorial Theory}, 5:\penalty0 258--272, 1968.
+\newblock ISSN 0021-9800.
+
+\bibitem[Duminil-Copin et~al.(2018)Duminil-Copin, Li, and Manolescu]{MR3858924}
+Hugo Duminil-Copin, Jhih-Huang Li, and Ioan Manolescu.
+\newblock Universality for the random-cluster model on isoradial graphs.
+\newblock \emph{Electron. J. Probab.}, 23:\penalty0 Paper No. 96, 70, 2018.
+\newblock ISSN 1083-6489.
+\newblock \doi{10.1214/18-EJP223}.
+\newblock URL \url{https://doi.org/10.1214/18-EJP223}.
+
+\bibitem[Evans(2010)]{evans2022partial}
+Lawrence~C. Evans.
+\newblock \emph{Partial differential equations}, volume~19 of \emph{Graduate
+  Studies in Mathematics}.
+\newblock American Mathematical Society, Providence, RI, second edition, 2010.
+\newblock ISBN 978-0-8218-4974-3.
+\newblock \doi{10.1090/gsm/019}.
+\newblock URL \url{https://doi.org/10.1090/gsm/019}.
+
+\bibitem[Eymard et~al.(2000)Eymard, Gallou\"{e}t, and Herbin]{eymard2000finite}
+Robert Eymard, Thierry Gallou\"{e}t, and Rapha\`ele Herbin.
+\newblock Finite volume methods.
+\newblock In \emph{Handbook of numerical analysis, {V}ol. {VII}}, volume VII of
+  \emph{Handb. Numer. Anal.}, pages 713--1020. North-Holland, Amsterdam, 2000.
+\newblock ISBN 0-444-50350-1.
+\newblock \doi{10.1016/S1570-8659(00)07005-8}.
+\newblock URL \url{https://doi.org/10.1016/S1570-8659(00)07005-8}.
+
+\bibitem[Grimmett and Manolescu(2014)]{MR3201923}
+Geoffrey~R. Grimmett and Ioan Manolescu.
+\newblock Bond percolation on isoradial graphs: criticality and universality.
+\newblock \emph{Probab. Theory Related Fields}, 159\penalty0 (1-2):\penalty0
+  273--327, 2014.
+\newblock ISSN 0178-8051,1432-2064.
+\newblock \doi{10.1007/s00440-013-0507-y}.
+\newblock URL \url{https://doi.org/10.1007/s00440-013-0507-y}.
+
+\bibitem[Gurel-Gurevich and Seidel(2022)]{MR4425348}
+Ori Gurel-Gurevich and Matan Seidel.
+\newblock Recurrence of a weighted random walk on a circle packing with
+  parabolic carrier.
+\newblock \emph{Israel J. Math.}, 247\penalty0 (2):\penalty0 547--591, 2022.
+\newblock ISSN 0021-2172,1565-8511.
+\newblock \doi{10.1007/s11856-022-2286-6}.
+\newblock URL \url{https://doi.org/10.1007/s11856-022-2286-6}.
+
+\bibitem[Gurel-Gurevich et~al.(2020)Gurel-Gurevich, Jerison, and
+  Nachmias]{gurel2020dirichlet}
+Ori Gurel-Gurevich, Daniel~C. Jerison, and Asaf Nachmias.
+\newblock The {D}irichlet problem for orthodiagonal maps.
+\newblock \emph{Adv. Math.}, 374:\penalty0 107379, 53, 2020.
+\newblock ISSN 0001-8708,1090-2082.
+\newblock \doi{10.1016/j.aim.2020.107379}.
+\newblock URL \url{https://doi.org/10.1016/j.aim.2020.107379}.
+
+\bibitem[Gwynne(2020)]{GwynneSurvey}
+Ewain Gwynne.
+\newblock Random surfaces and {L}iouville quantum gravity.
+\newblock \emph{Notices Amer. Math. Soc.}, 67\penalty0 (4):\penalty0 484--491,
+  2020.
+\newblock ISSN 0002-9920,1088-9477.
+\newblock \doi{10.1090/noti}.
+\newblock URL \url{https://doi.org/10.1090/noti}.
+
+\bibitem[Gwynne et~al.(2021)Gwynne, Miller, and Sheffield]{GMS-Tutte}
+Ewain Gwynne, Jason Miller, and Scott Sheffield.
+\newblock The {T}utte embedding of the mated-{CRT} map converges to {L}iouville
+  quantum gravity.
+\newblock \emph{Ann. Probab.}, 49\penalty0 (4):\penalty0 1677--1717, 2021.
+\newblock ISSN 0091-1798,2168-894X.
+\newblock \doi{10.1214/20-aop1487}.
+\newblock URL \url{https://doi.org/10.1214/20-aop1487}.
+
+\bibitem[Gwynne et~al.(2022)Gwynne, Miller, and Sheffield]{GMSInvariance}
+Ewain Gwynne, Jason Miller, and Scott Sheffield.
+\newblock An invariance principle for ergodic scale-free random environments.
+\newblock \emph{Acta Math.}, 228\penalty0 (2):\penalty0 303--384, 2022.
+\newblock ISSN 0001-5962,1871-2509.
+
+\bibitem[Kahane(1985)]{kahane1985chaos}
+Jean-Pierre Kahane.
+\newblock Sur le chaos multiplicatif.
+\newblock \emph{Ann. Sci. Math. Qu\'{e}bec}, 9\penalty0 (2):\penalty0 105--150,
+  1985.
+\newblock ISSN 0707-9109.
+
+\bibitem[Kallenberg(2021)]{MR4226142}
+Olav Kallenberg.
+\newblock \emph{Foundations of modern probability}, volume~99 of
+  \emph{Probability Theory and Stochastic Modelling}.
+\newblock Springer, Cham, third edition, 2021.
+\newblock ISBN 978-3-030-61871-1; 978-3-030-61870-4.
+\newblock \doi{10.1007/978-3-030-61871-1}.
+\newblock URL \url{https://doi.org/10.1007/978-3-030-61871-1}.
+
+\bibitem[Kenyon(2002)]{kenyon2002}
+R.~Kenyon.
+\newblock The {L}aplacian and {D}irac operators on critical planar graphs.
+\newblock \emph{Invent. Math.}, 150\penalty0 (2):\penalty0 409--439, 2002.
+\newblock ISSN 0020-9910,1432-1297.
+\newblock \doi{10.1007/s00222-002-0249-4}.
+\newblock URL \url{https://doi.org/10.1007/s00222-002-0249-4}.
+
+\bibitem[Mercat(2001)]{mercat}
+Christian Mercat.
+\newblock Discrete {R}iemann surfaces and the {I}sing model.
+\newblock \emph{Comm. Math. Phys.}, 218\penalty0 (1):\penalty0 177--216, 2001.
+\newblock ISSN 0010-3616,1432-0916.
+\newblock \doi{10.1007/s002200000348}.
+\newblock URL \url{https://doi.org/10.1007/s002200000348}.
+
+\bibitem[M{\o}ller(1994)]{mollerLectures}
+Jesper M{\o}ller.
+\newblock \emph{Lectures on random {V}orono\u{\i} tessellations}, volume~87 of
+  \emph{Lecture Notes in Statistics}.
+\newblock Springer-Verlag, New York, 1994.
+\newblock ISBN 0-387-94264-5.
+\newblock \doi{10.1007/978-1-4612-2652-9}.
+\newblock URL \url{https://doi.org/10.1007/978-1-4612-2652-9}.
+
+\bibitem[Nachmias(2020)]{NachmiasStFlour}
+Asaf Nachmias.
+\newblock \emph{Planar maps, random walks and circle packing}, volume 2243 of
+  \emph{Lecture Notes in Mathematics}.
+\newblock Springer, Cham, 2020.
+\newblock ISBN 978-3-030-27967-7; 978-3-030-27968-4.
+\newblock \doi{10.1007/978-3-030-27968-4}.
+\newblock URL \url{https://doi.org/10.1007/978-3-030-27968-4}.
+\newblock \'{E}cole d'\'{e}t\'{e} de probabilit\'{e}s de Saint-Flour
+  XLVIII---2018, \'{E}cole d'\'{E}t\'{e} de Probabilit\'{e}s de Saint-Flour.
+  [Saint-Flour Probability Summer School].
+
+\bibitem[Rhodes and Vargas(2014)]{rhodes2014gaussian}
+R\'{e}mi Rhodes and Vincent Vargas.
+\newblock Gaussian multiplicative chaos and applications: a review.
+\newblock \emph{Probab. Surv.}, 11:\penalty0 315--392, 2014.
+\newblock \doi{10.1214/13-PS218}.
+\newblock URL \url{https://doi.org/10.1214/13-PS218}.
+
+\bibitem[Schiavo et~al.(2021)Schiavo, Herry, Kopfer, and
+  Sturm]{schiavo2021conformally}
+Lorenzo~Dello Schiavo, Ronan Herry, Eva Kopfer, and Karl-Theodor Sturm.
+\newblock Conformally invariant random fields, quantum liouville measures, and
+  random paneitz operators on riemannian manifolds of even dimension.
+\newblock \emph{arXiv preprint arXiv:2105.13925}, 2021.
+
+\bibitem[Sheffield(2023)]{MR4680280}
+Scott Sheffield.
+\newblock What is a random surface?
+\newblock In \emph{ICM---International Congress of Mathematicians. Vol. 2.
+  Plenary lectures}, pages 1202--1258. EMS Press, Berlin, 2023.
+\newblock ISBN 978-3-98547-060-0, 978-3-98547-560-5, 978-3-98547-058-7.
+
+\bibitem[Skopenkov(2013)]{skopenkov2013boundary}
+M.~Skopenkov.
+\newblock The boundary value problem for discrete analytic functions.
+\newblock \emph{Adv. Math.}, 240:\penalty0 61--87, 2013.
+\newblock ISSN 0001-8708,1090-2082.
+\newblock \doi{10.1016/j.aim.2013.03.002}.
+\newblock URL \url{https://doi.org/10.1016/j.aim.2013.03.002}.
+
+\bibitem[Smirnov(2010)]{smirnovicm}
+Stanislav Smirnov.
+\newblock Discrete complex analysis and probability.
+\newblock In \emph{Proceedings of the {I}nternational {C}ongress of
+  {M}athematicians. {V}olume {I}}, pages 595--621. Hindustan Book Agency, New
+  Delhi, 2010.
+\newblock ISBN 978-81-85931-08-3; 978-981-4324-31-1; 981-4324-31-0.
+
+\bibitem[Telcs(2006)]{Telcs2006}
+Andr\'{a}s Telcs.
+\newblock \emph{The art of random walks}, volume 1885 of \emph{Lecture Notes in
+  Mathematics}.
+\newblock Springer-Verlag, Berlin, 2006.
+\newblock ISBN 978-3-540-33027-1; 3-540-33027-5.
+
+\bibitem[Werness(2015)]{werness2015discrete}
+Brent~M Werness.
+\newblock Discrete analytic functions on non-uniform lattices without global
+  geometric control.
+\newblock \emph{arXiv preprint arXiv:1511.01209}, 2015.
+
+\end{thebibliography}

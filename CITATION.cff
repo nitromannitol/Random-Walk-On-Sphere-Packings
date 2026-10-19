@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite it as below, together with the paper."
+title: "Random walk on sphere packings and Delaunay triangulations in arbitrary dimension"
+type: software
+repository-code: "https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings"
+abstract: >-
+  A machine-checked Lean 4 and Mathlib formalization of the paper of Bou-Rabee and Gwynne on
+  random walk on orthogonal tilings: convergence of the conductance-weighted walk to Brownian
+  motion modulo time parametrization and of the discrete Dirichlet problem (Theorems A and B),
+  their hypotheses for Poisson-Voronoi tessellations (Proposition 1.1), and a sphere packing on
+  which simple random walk does not converge (Theorem 6.1). Every labelled result is proved, as
+  printed or as in a corrected version of the paper. The library contains no sorry and no custom
+  axiom, and each main theorem has a Mathlib-only comparator challenge.
+authors:
+  - family-names: "Bou-Rabee"
+    given-names: "Ahmed"
+keywords:
+  - Lean
+  - mathlib
+  - formal verification
+  - random walk
+  - orthogonal tilings
+  - Delaunay triangulations
+  - sphere packings
+license: Apache-2.0
+references:
+  - type: article
+    title: "Random walk on sphere packings and Delaunay triangulations in arbitrary dimension"
+    authors:
+      - family-names: "Bou-Rabee"
+        given-names: "Ahmed"
+      - family-names: "Gwynne"
+        given-names: "Ewain"
+    identifiers:
+      - type: other
+        value: "arXiv:2405.11673v2"
+    url: "https://arxiv.org/abs/2405.11673"
+    notes: "The paper formalized by this repository. Its source, a corrected version and their PDFs are in paper/."
+  - type: software
+    title: "lean-formalizations: results/bou-rabee-gwynne"
+    authors:
+      - family-names: "Bonanno"
+        given-names: "Leonardo"
+        alias: "leobon12"
+    url: "https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne"
+    notes: "Formalization of Theorem A and Theorem B(a), on which this formalization is based."

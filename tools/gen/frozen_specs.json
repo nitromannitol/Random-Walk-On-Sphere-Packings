@@ -1,0 +1,194 @@
+[
+ {
+  "file": "Lemma22AffineKernel.lean",
+  "name": "lemma22_affine_kernel",
+  "source": "SpherePackings/Support/Section2/AffineKernel.lean",
+  "theorem": "discreteLaplacian_affine_eq_zero_of_complete",
+  "full": "SpherePackings.discreteLaplacian_affine_eq_zero_of_complete",
+  "import": "import SpherePackings.Support.Section2.AffineKernel",
+  "opens": "open BouRabeeGwynne SpherePackings\n",
+  "doc": "Lemma 2.2 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:657-659` (label `lemma:linear-lie-in-kernel`): for every\n`p ∈ ℝ^d` and `c ∈ ℝ`, the affine function `ℓ_p(x) = p ⬝ x + c` satisfies `Δ_a ℓ_p = 0`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Correction 4): at every vertex whose cell is\ncomplete (finitely many neighbours, and every boundary point of the cell lies in the cell of a\nneighbour).  The published identity is false at a cell with a facet shared with no other cell (two\nunit squares: `ℓ(x) = x₁` has discrete Laplacian `1` at the left square).  Proved from leobon12's\npolytope Gauss–Green identity."
+ },
+ {
+  "file": "Lemma23DualVariational.lean",
+  "name": "lemma23_dual_variational",
+  "source": "SpherePackings/Support/Section2/DualVariational.lean",
+  "theorem": "dual_variational_principle_incident",
+  "full": "SpherePackings.dual_variational_principle_incident",
+  "import": "import SpherePackings.Support.Section2.DualVariational",
+  "opens": "open BouRabeeGwynne BouRabeeGwynne.FiniteConductanceNetwork SpherePackings\nopen scoped BigOperators\n\nopen Classical in",
+  "doc": "Lemma 2.3 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:684-690` (label `lemma:dual-variational-principle`): for a finite\nset `A`, `f` zero on `∂A` and a vector field `θ` on `E[Ā]` with `div θ = div(∇_a f)` on `A`,\n`∑_{e ∈ E[Ā]} a(e)⁻¹ |∇_a f(e)|² ≤ ∑_{e ∈ E[Ā]} a(e)⁻¹ θ(e)²`.\n\nStated for a finite network with arbitrary symmetric nonnegative conductances (the tiling\nconductances on a finite set of vertices are one); `E[Ā]` is the set of directed edges of positive\nconductance with an endpoint in `A`, and `θ` vanishes off it.  Proved from leobon12's dual\nvariational lemmas."
+ },
+ {
+  "file": "Lemma24DualVolume.lean",
+  "name": "lemma24_dual_volume",
+  "source": "BouRabeeGwynne/DualVolume.lean",
+  "theorem": "edgeLength_mul_facetVolume_eq_dim_mul_dualVolume",
+  "full": "BouRabeeGwynne.OrthogonalTiling.edgeLength_mul_facetVolume_eq_dim_mul_dualVolume",
+  "prefix": "{d : ℕ} (T : BouRabeeGwynne.OrthogonalTiling d) ",
+  "import": "import BouRabeeGwynne.DualVolume",
+  "opens": "open scoped ENNReal MeasureTheory\nopen MeasureTheory BouRabeeGwynne\n",
+  "doc": "Lemma 2.4 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:739-744` (label `lemma:geometry-bound`): for each edge\n`e = (w, v)`, `‖w - v‖ vol_{d-1}(H_e) = d vol_d(Q_e)`, where `Q_e = conv(w, H_e) ∪ conv(v, H_e)`.\n\nleobon12's theorem; `dualVolume` is the volume of `dualPolytope v w`, the union of the two\npyramids over the contact."
+ },
+ {
+  "file": "Lemma31Poincare.lean",
+  "name": "lemma31_poincare",
+  "source": "SpherePackings/Support/Complete/Columns.lean",
+  "theorem": "column_poincare_measure_bound_of_complete",
+  "full": "SpherePackings.column_poincare_measure_bound_of_complete",
+  "prefix": "{d : ℕ} ",
+  "import": "import SpherePackings.Support.Complete.Columns",
+  "opens": "open scoped Classical BigOperators MeasureTheory ENNReal\nopen MeasureTheory BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings\n",
+  "doc": "Lemma 3.1 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:937-943` (label `lemma:ptype-inequality`): for `f` zero on\n`∂V[U]`, the `(d-1)`-volume of the set of `y ∈ π_j(U)` with\n`max_{v ∈ L_y^j[U]} |f(v)| > k (D(f, U) ∑_{e ∈ E[Ū]} d vol_d(Q_e))^{1/2}` is at most `1/k`.\n\nOn a finite set `R` of vertices containing the neighbours of `A`: columns in any direction `e ≠ 0`;\nthe bad set is the set of `y` in the projection of the cell of a vertex of `A` with `|f| > τ`;\n`incidentEnergy` is `D(f, U)` and `incidentMass` is `∑ ‖e‖ vol_{d-1}(H_e)`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Correction 4): the cells of `A` are complete.  The\npublished lemma is false without it: for two unit squares in a row and `U` containing both\ncentres, `∂V[U]` is empty, and `f = 1` has `D(f, U) = 0` while the bad set at threshold `0` is\n`π_1(U)`, of positive length.  Proved from leobon12's column lemmas, adapted to complete cells."
+ },
+ {
+  "file": "Theorem33Planar.lean",
+  "name": "theorem33_planar",
+  "source": "SpherePackings/Support/Section3/PlanarInternal.lean",
+  "theorem": "planar_dirichlet_bound_internal",
+  "full": "SpherePackings.planar_dirichlet_bound_internal",
+  "import": "import SpherePackings.Support.Section3.PlanarInternal",
+  "opens": "open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings\nopen scoped MeasureTheory Laplacian\n",
+  "doc": "Theorem 3.3 of rw-spheres.tex, the bound, frozen.\n\nPaper statement, `rw-spheres.tex:1030-1049` (label `theorem:2d`): in the plane,\n`sup_{V[U]} |h_D - h_C| ≤ inf_{k > 0} (6 k M ε vol(Û) + 2 (√2 k⁻¹ + ε) L)`, with\n`ε = sup_{V̄[U]} diam(P_v)`, `L = sup_Û |∇ h_C|`, `M = sup_Û |∇² h_C|`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Corrections 4 and 8 and the revised Theorem 3.3,\ncorrections items 1, 5 and 6): `sup_{V[U]} |h_D - h_C| ≤ 3 M₀ ε² + inf_{k > 0} (6 k M ε vol(Û) +\n(M/2)(√2 k⁻¹ + ε)²)`, where `M₀` bounds the Hessian on the cells of `V̄[U]` and `M ≥ M₀` the finite\nTaylor remainder `|h(w) - h(v) - ∇h(v)·(w - v)| ≤ (M/2) ‖w - v‖²` on the internal edges (both\nendpoints in `V[U]`); the cells of `V[U]` are complete (finitely many neighbours, boundary covered\nby the cells of the neighbours); `h_C` is `C²` on an open set containing the cells of `V̄[U]` and\nharmonic on the cells of `V[U]` (the corrected paper asks harmonicity on `Û`, all cells of `V̄[U]`:\na stronger statement).  No local oscillation or Lipschitz condition.  The printed theorem is false\nwithout completeness (check G4 in `GAP-CHECKS.md`: on the square grid of mesh `1/n`, `n` odd, of `D\n= [0,1] × [0,2]`, with `U = (0,1) × (1/2, 3/2)` and `h_C = cosh(π(x - 1/2)) cos(π(y - 1))`, the\ndiscrete solution is `0` while `h_C → 1` near the centre, and the printed bound tends to `0`).\nWhether the published linear bound holds is not settled here, and whether the theorem holds with the\npublished cell Hessian constant alone is open.  Proof: the error is split, after leobon12, into a\nboundary correction of size at most `2 M₀ ε²` and a corrected error whose energy gives good\nrectangles (Lemma 3.1) and which is controlled inside them by the subharmonic comparison with `(M/2)\n‖· - v‖²`."
+ },
+ {
+  "file": "Theorem33Rate.lean",
+  "name": "theorem33_rate",
+  "source": "SpherePackings/Support/Section3/PlanarInternal.lean",
+  "theorem": "planar_rate_internal",
+  "full": "SpherePackings.planar_rate_internal",
+  "import": "import SpherePackings.Support.Section3.PlanarInternal",
+  "opens": "open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings\nopen scoped MeasureTheory Laplacian\n",
+  "doc": "Theorem 3.3 of rw-spheres.tex, the \"in particular\" clause, frozen.\n\nPaper statement, `rw-spheres.tex:1050-1053` (label `theorem:2d`): in the plane there is\n`C = C(U, M, L) < ∞` with `sup_{V[U]} |h_D - h_C| ≤ C ε^{1/2}`, where `ε = sup_{V̄[U]} diam(P_v)`,\n`L = sup_Û |∇ h_C|` and `M = sup_Û |∇² h_C|`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Corrections 4 and 8 and the revised Theorem 3.3,\ncorrections items 1, 5 and 6): for `0 < ε ≤ 1/2`, `sup_{V[U]} |h_D - h_C| ≤ C ε^{2/3}` (hence `≤ C\nε^{1/2}`), with `C = M (3 + 6 vol(B_{R₀+1}) + (√2 + 1)²/2)`, `R₀` a bound on `‖x‖` over `U`, and `M₀\n≤ M` as in the bound (`M₀` the Hessian bound on the cells of `V̄[U]`, `M` the finite Taylor constant\nof the internal edges); the cells of `V[U]` are complete (finitely many neighbours, boundary covered\nby the cells of the neighbours); `h_C` is `C²` on an open set containing the cells of `V̄[U]` and\nharmonic on the cells of `V[U]` (the corrected paper asks harmonicity on `Û`, all cells of `V̄[U]`:\na stronger statement).  The published rate is false with a constant uniform over all meshes: for\nlarge `ε`, a product tiling with a large central cell has an error of order `ε`; the range `ε ≤ 1/2`\nis the correction.  The printed theorem is false without completeness (check G4 in `GAP-CHECKS.md`:\non the square grid of mesh `1/n`, `n` odd, of `D = [0,1] × [0,2]`, with `U = (0,1) × (1/2, 3/2)` and\n`h_C = cosh(π(x - 1/2)) cos(π(y - 1))`, the discrete solution is `0` while `h_C → 1` near the\ncentre, and the printed bound tends to `0`).  Whether the rate holds with the published cell Hessian\nconstant alone is open.  Proof: the bound with `k = ε^{-1/3}`."
+ },
+ {
+  "file": "Lemma35WeightedEnergy.lean",
+  "name": "lemma35_weighted_energy",
+  "source": "BouRabeeGwynne/Section3WeightedEnergy.lean",
+  "theorem": "weighted_gradient_energy_estimate_on_edges",
+  "full": "BouRabeeGwynne.OrthogonalTiling.weighted_gradient_energy_estimate_on_edges",
+  "prefix": "{d : ℕ} (T : BouRabeeGwynne.OrthogonalTiling d) ",
+  "import": "import BouRabeeGwynne.Section3WeightedEnergy",
+  "opens": "open scoped BigOperators Classical\nopen BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling\n",
+  "doc": "Lemma 3.5 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1128-1135` (label `lemma:gradient-energy-estimate`):\n`∑_{e ∈ E[Ā]} d vol_d(Q_e) 1{|∇f(e)| > δ} ≤ D(f, A)` for every `δ ≥ sup_{e ∈ E[Ā]} ‖e‖`.\n\nleobon12's theorem, for any finite family of edges with lengths at most `δ`, in the form\n`d vol_d(Q_e) = ‖e‖ vol_{d-1}(H_e)` (Lemma 2.4)."
+ },
+ {
+  "file": "Theorem36Rate.lean",
+  "name": "theorem36_rate",
+  "source": "SpherePackings/Support/Section3/GeneralInternal.lean",
+  "theorem": "generaldim_full_internal",
+  "full": "SpherePackings.generaldim_full_internal",
+  "import": "import SpherePackings.Support.Section3.GeneralInternal",
+  "opens": "open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings\nopen scoped MeasureTheory Laplacian\n",
+  "doc": "Theorem 3.6 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1147-1176` (label `theorem:generaldim`): there is `C = C(U)` such\nthat for `ε < (C M)⁻¹`, `sup_{V[U]} |h_D - h_C| ≤ C M K ε log(1/ε) + D L`, where `ε = sup_{V̄[U]}\ndiam(P_v)`, `L = sup_Û |∇ h_C|`, `M = sup_Û |∇² h_C| ∨ 1`, `K ≥ 1` is arbitrary, `𝒜 = {v ∈ V̄[U] :\nvol_d(P_v) < ε^K}` and `D` is the largest total diameter of a connected component of `𝒜`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Corrections 4, 8 and 11; Theorem 3.6 with `M =\nM_U°(h_C) ∨ 1`): the cells of `V[U]` are complete (finitely many neighbours, boundary covered by the\ncells of the neighbours); `h_C` is `C²` on an open set containing the cells of `V̄[U]` and harmonic\non the cells of `V[U]` (the corrected paper asks harmonicity on `Û`, all cells of `V̄[U]`: a\nstronger statement); `M ≥ 1` bounds the Hessian on the cells of `V̄[U]` and the finite Taylor\nremainder `|h(w) - h(v) - ∇h(v)·(w - v)| ≤ (M/2) ‖w - v‖²` on the internal edges (both endpoints in\n`V[U]`); `L` bounds the gradient on the cells of `V̄[U]`; `D` bounds the total diameter of every\nconnected set of cells of `𝒜`.  The printed theorem is false without completeness (check G4 in\n`GAP-CHECKS.md`: on the square grid of mesh `1/n`, `n` odd, of `D = [0,1] × [0,2]`, with `U = (0,1)\n× (1/2, 3/2)` and `h_C = cosh(π(x - 1/2)) cos(π(y - 1))`, the discrete solution is `0` while `h_C →\n1` near the centre, and the printed bound tends to `0`).  Whether the theorem holds with the\npublished cell Hessian constant alone is open.  The constant is explicit in `d` and a bound `R₀` on\n`‖x‖` over `U`; the smallness condition is `12 M ε ≤ 1` and `ε ≤ 1/2`, an instance of the paper's `ε\n< (C M)⁻¹`.  The printed proof has gaps (the exit cell, and estimates on boundary cells that the\niteration does not control); the proof here uses leobon12's corrected iteration, whose boundary-edge\nTaylor remainders are bounded by the cell Hessian alone, and on a remaining component `Q` bounds the\nerror by both `L (D_Q + ε)` and `M ρ²`.",
+  "prefix": "{d : ℕ} "
+ },
+ {
+  "file": "Prop42General.lean",
+  "name": "prop42_general",
+  "source": "SpherePackings/Support/Section4General/Prop42.lean",
+  "theorem": "prop42_general",
+  "full": "SpherePackings.prop42_general",
+  "import": "import SpherePackings.Support.Section4General.Prop42",
+  "opens": "open MeasureTheory Metric Filter Set BouRabeeGwynne SpherePackings\n",
+  "doc": "Proposition 4.2 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1511-1516` (label `prop:convergence-of-harmonic-measure`): under\nAssumption D, `lim_{n → ∞} sup_{x ∈ B} d_P(hm_n(x), hm(x)) = 0` for the unit ball `B`, where\n`hm_n(x)` is the discrete harmonic measure of `∂V_n[B]` seen from `x^n` and `hm(x)` the Brownian\nharmonic measure of `∂B` seen from `x`.\n\nFormalized for any sequence of nearest-neighbour walks on graphs in `ℝ^d` (`NearestNeighbourWalk`)\nunder Assumption D as printed (`AssumptionD`; the existence of the discrete Dirichlet solutions,\nwhich the paper presupposes, is not assumed, and (4.2) is required of every solution), for every ball whose closure lies in\n`B_δ(D)`, the set on which Assumption D speaks (the unit ball when its closure lies there).\nCorrection: the printed statement leaves implicit that the unit ball lies in `B_δ(D)` (its proof\napplies (4.2) to the unit ball), and fails without it (a walk that is simple random walk near `D` and moves deterministically near the\nunit ball satisfies Assumption D).  `x^n` is the vertex selection of Assumption D, any one\nsatisfying (4.1).  The uniformity is over the whole open ball.",
+  "prefix": "{d : ℕ} "
+ },
+ {
+  "file": "Lemma51Inner.lean",
+  "name": "lemma51a_inner",
+  "source": "SpherePackings/Support/Voronoi/GeometricConstraint.lean",
+  "theorem": "geometric_constraint_inner_collar",
+  "full": "SpherePackings.Voronoi.geometric_constraint_inner_collar",
+  "prefix": "{d : ℕ} ",
+  "import": "import SpherePackings.Support.Voronoi.GeometricConstraint",
+  "opens": "open Metric SpherePackings.Voronoi\n",
+  "doc": "Lemma 5.1(a) of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1627-1634` (label `lemma:geometric-constraint`): if every cube\n`x + [-2r, 2r]^d`, `x ∈ r ℤ^d ∩ U`, contains at most one point of `S`, then `B_r(s) ⊆ 𝒞_s` for every\n`s ∈ S ∩ U`.\n\nThe statement of the corrected paper (`rw-spheres-corrected.tex`, Correction 15): the condition is\nasked of every grid point `x ∈ r ℤ^d` with `(x + [-r, r]^d) ∩ U ≠ ∅`.  The published version is false:\nin `ℝ`, `U = (0, 10)`, `r = 1` and `S = {0.1, -1.5}` satisfy its hypothesis, but\n`B_1(0.1) ⊄ 𝒞_{0.1} = [-0.7, ∞)` (an informal counterexample).  The conclusion is for the closed ball."
+ },
+ {
+  "file": "Lemma51Outer.lean",
+  "name": "lemma51b_outer",
+  "source": "SpherePackings/Support/Voronoi/GeometricConstraint.lean",
+  "theorem": "geometric_constraint_outer",
+  "full": "SpherePackings.Voronoi.geometric_constraint_outer",
+  "prefix": "{d : ℕ} ",
+  "import": "import SpherePackings.Support.Voronoi.GeometricConstraint",
+  "opens": "open Metric SpherePackings.Voronoi\n",
+  "doc": "Lemma 5.1(b) of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1635-1641` (label `lemma:geometric-constraint`): there is\n`δ = δ(d) ∈ (0, 1)` such that if every cube `y + [-δk, δk]^d`, `y ∈ k ℤ^d ∩ B_{2k}(U)`, contains a\npoint of `S`, then `𝒞_s ⊆ B_{4k√d}(s)` for every `s ∈ S ∩ U`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Lemma 5.1(b)): there are constants\n`δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that, with the grid points of `k ℤ^d ∩ B_{Rk}(U)`, the\nsame conclusion holds.  Stated here for arbitrary sets `U` and `S` (the paper's bounded domain `U`\nand locally finite `S` are not needed).  The proof takes `δ = 1/10` and `R = max(2, 1.1√d)`.  The\npublished radius `2k` holds for `d ≤ 3` (then `R = 2`) and, with a smaller `δ`, for `4 ≤ d ≤ 12`\n(a separate rounding argument, not formalized: there the registered statement is weaker than the\nprinted one).  It fails for every `d ≥ 13`: with `k = 1`, `s = (-1/100, 1/2, …, 1/2)`,\n`U = B_{1/1000}(s)` and `S = {s} ∪ (ℤ^d ∩ B_2(U))`, every tested cube contains a point of `S` for\nevery `δ > 0`, while `s + 5√d e₁ ∈ 𝒞_s`."
+ },
+ {
+  "file": "Lemma52DualPolytope.lean",
+  "name": "lemma52_dual_polytope",
+  "source": "SpherePackings/Support/Voronoi/DualPolytopeBound.lean",
+  "theorem": "dual_polytope_bound",
+  "full": "SpherePackings.Voronoi.dual_polytope_bound",
+  "prefix": "{d : ℕ} ",
+  "import": "import SpherePackings.Support.Voronoi.DualPolytopeBound",
+  "opens": "open Metric SpherePackings.Voronoi\n",
+  "doc": "Lemma 5.2 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1650-1653` (label `lemma:dual-polytope-bound`): there is\n`δ'(d) ∈ (0, 1)` such that for all `x^{(i±)} ∈ [-δ', δ']^d ± e_i`, the polar\n`P* = {y : x ⬝ y ≤ 1 ∀ x ∈ P}` of `P = conv(x^{(1+)}, x^{(1-)}, …, x^{(d+)}, x^{(d-)})` lies in\n`B_{2√d}`.  As printed, for `d ≥ 1`."
+ },
+ {
+  "file": "Theorem61Counterexample.lean",
+  "name": "theorem61_counterexample",
+  "source": "SpherePackings/Support/Counterexample/Theorem.lean",
+  "theorem": "simpleRandomWalk_counterexample",
+  "full": "SpherePackings.simpleRandomWalk_counterexample",
+  "import": "import SpherePackings.Support.Counterexample.Theorem",
+  "opens": "open MeasureTheory Metric Filter Set BouRabeeGwynne SpherePackings\nopen scoped ENNReal Topology\n",
+  "doc": "Theorem 6.1 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1791-1794` (label `theorem:counter-example`): for all `d ≥ 3` there\nis a sphere packing of `ℝ^d` on which simple random walk with unit conductance does not converge to\nBrownian motion modulo time parametrization in the scaling limit; the radii are `1` or `1/2` and\neach sphere is tangent to a bounded number of others.\n\n\"Does not converge\" is formalized for the walk started at the centre `0`, positions scaled by `1/n`,\nstopped on leaving the unit ball: these laws exist and do not converge to the law of Brownian motion\nfrom `0` stopped on leaving the unit ball, in the Lévy–Prokhorov distance for curves modulo time\nparametrization.  In dimension three the packing is the printed one, and every sphere is covered\n(`rw-spheres.tex:331-333`: the hyperplanes tangent to it at its contact points bound a bounded\npolytope).  For `d ≥ 4` the packing differs\nfrom the printed one (small spheres at even coordinates beyond the third), for which the printed\nhitting computation fails; this packing does not cover `ℝ^d` (a small sphere other than the middle\nones touches others only in the first three coordinate directions).  The statement, like the\nprinted one, does not ask that the packing cover `ℝ^d`."
+ },
+ {
+  "file": "Lemma25DualCoverage.lean",
+  "name": "lemma25_dual_coverage",
+  "source": "SpherePackings/Support/Complete/Basic.lean",
+  "theorem": "dual_coverage_complete",
+  "full": "SpherePackings.dual_coverage_complete",
+  "import": "import SpherePackings.Support.Complete.Basic",
+  "opens": "open BouRabeeGwynne SpherePackings\n",
+  "doc": "Lemma 2.5 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:769-784` (label `lemma:easy-global-qe-bounds`): for every bounded\n`U ⊆ D`, `U ⊆ ⋃_{e ∈ E[Ū]} Q_e ⊆ Ĝ_U`.\n\nThe statement of the corrected paper (`rw-spheres-corrected.tex`, Corrections 4 and 7): when the\ncells of `V[U]` are complete (finitely many neighbours, and every boundary point of the cell lies in\nthe cell of a neighbour), `⋃_{v ∈ V[U]} P_v ⊆ ⋃_{e ∈ E[Ū]} Q_e ⊆ Ĝ_U`.  The published first inclusion\nis false (informal counterexample: a small ball inside one square of the unit grid contains no\nvertex, so the union is empty), and without completeness the cells need not be covered (two unit\nsquares).  The second inclusion holds as printed.  Proved from leobon12's cell pyramids."
+ },
+ {
+  "file": "Prop26Energy.lean",
+  "name": "prop26_energy",
+  "source": "SpherePackings/Support/Section3/EnergyComplete.lean",
+  "theorem": "harmonic_energy_bound_complete",
+  "full": "SpherePackings.harmonic_energy_bound_complete",
+  "import": "import SpherePackings.Support.Section3.EnergyComplete",
+  "opens": "open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings\nopen scoped MeasureTheory Laplacian\n",
+  "doc": "Proposition 2.6 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:822-844` (label `prop:energy-bound`):\n`D(h_D - h_C, U) ≤ 9 M² ε² ∑_{e ∈ E[Ū]} d vol_d(Q_e)`, with `ε = sup_{V̄[U]} diam(P_v)` and\n`M = sup_{Û} |∇² h_C|`, for `h_C ∈ C²(Û)` harmonic on `Û`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Corrections 4 and 8): the cells of `V[U]` are\ncomplete; `h_C` is `C²` on an open set containing the cells of `V̄[U]` and harmonic on the cells of\n`V[U]`; `M` bounds the Hessian on the cells of `V[U]` and, for each edge of `E[Ū]`, the finite\nTaylor remainder at one active endpoint, `|h(w) - h(v) - ∇h(v)·(w - v)| ≤ (M/2) ‖w - v‖²`\n(harmonicity and the Hessian bound are asked only on the cells of `V[U]`, not on all cells of\n`V̄[U]` as in the corrected paper: a stronger statement).  The\npublished version is false: without completeness (two unit squares, energy `2`, right side `0`),\nand, with complete cells, for a slit-domain harmonic function (the Hessian bound on the cells does\nnot control the edge segments that leave `Û`; check G2 in `GAP-CHECKS.md`).  A Hessian bound `M`\non the edge segments implies the Taylor condition.  `incidentEnergy` and `incidentMass` sum over\nundirected edges, each half the printed directed sum, so the constant `9` is unchanged.  Proved\nfrom leobon12's flux-residual bounds.",
+  "prefix": "{d : ℕ} "
+ },
+ {
+  "file": "Prop32Columns.lean",
+  "name": "prop32_columns",
+  "source": "SpherePackings/Support/Section3/EnergyComplete.lean",
+  "theorem": "harmonic_column_bound_complete",
+  "full": "SpherePackings.harmonic_column_bound_complete",
+  "import": "import SpherePackings.Support.Section3.EnergyComplete",
+  "opens": "open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings\nopen scoped MeasureTheory Laplacian\n",
+  "doc": "Proposition 3.2 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:980-1001` (label `prop:energy-poincare-bound`): the\n`(d-1)`-volume of the set of `y ∈ π_j(U)` with\n`max_{v ∈ L_y^j[U]} |h_D(v) - h_C(v)| > 3 k M ε ∑_{e ∈ E[Ū]} d vol_d(Q_e)` is at most `1/k`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Corrections 4 and 8), with the hypotheses of the\ncorrected Proposition 2.6: complete cells of `V[U]`, and `M` bounding the Hessian on the cells of\n`V[U]` and the finite Taylor remainder at one active endpoint of each edge of `E[Ū]` (harmonicity\nand the Hessian bound only on the cells of `V[U]`: stronger than the corrected paper).  The\npublished version is false: without completeness (two unit squares, `U` a small disk around the\ncentre of one and `h_C(x) = x₁`: `M = 0` while the error at that centre is `1`), and, with complete\ncells, for a thin reflected Voronoi configuration in which the Hessian bound on `Û` alone does not\ncontrol the edge segments.  Columns in any direction `e ≠ 0`, the bad set being the set of `y` in\nthe projection of the cell of a vertex of `V[U]` where the error exceeds the threshold.\n`incidentMass` is the undirected sum, half the printed one, so the threshold is half the printed one\n(stronger).  Proved from leobon12's column lemmas, adapted to complete cells.",
+  "prefix": "{d : ℕ} "
+ },
+ {
+  "file": "Theorem41.lean",
+  "name": "theorem41",
+  "source": "SpherePackings/Support/Section4General/Theorem41.lean",
+  "theorem": "theorem41",
+  "full": "SpherePackings.theorem41",
+  "import": "import SpherePackings.Support.Section4General.Theorem41",
+  "opens": "open MeasureTheory Metric Filter Set BouRabeeGwynne SpherePackings\nopen scoped ENNReal Topology\n",
+  "doc": "Theorem 4.1 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1481-1488` (label `theorem:general-clt`): if Assumption D holds and\n`U ⊆ D` is a bounded Lipschitz domain, the supremum over `z ∈ U` of the Prokhorov distance between\nthe laws of the walk from `z^n`, interpolated and stopped at its first exit from `V_n[U]`, and of\nBrownian motion from `z` stopped at its exit from `U`, in the metric (1.2), tends to `0`.\n\nFormalized for any sequence of nearest-neighbour walks on graphs with vertices in `ℝ^d`\n(`NearestNeighbourWalk`: a Markov kernel on the vertex set whose steps follow the edges of an\nundirected graph) under Assumption D as printed (`AssumptionD`; the existence of the discrete Dirichlet solutions,\nwhich the paper presupposes, is not assumed, and (4.2) is required of every solution).  `z^n` is any nearest\nvertex of `z` (the paper breaks ties lexicographically).  The laws are on curves modulo time\nparametrization with the metric (1.2), the distance is Lévy–Prokhorov, and the walk is also shown\nto leave `V_n[U]` almost surely for large `n`.  The proof adapts leobon12's coupling from his\nproof of Theorem A to an arbitrary kernel.",
+  "prefix": "{d : ℕ} "
+ },
+ {
+  "file": "Theorem37Rate.lean",
+  "name": "theorem37_rate",
+  "source": "SpherePackings/Support/Section3/DecayInternal.lean",
+  "theorem": "generaldim_decay_rate_internal",
+  "full": "SpherePackings.generaldim_decay_rate_internal",
+  "prefix": "{d : ℕ} ",
+  "import": "import SpherePackings.Support.Section3.DecayInternal",
+  "opens": "open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings\nopen scoped ENNReal MeasureTheory Laplacian\n",
+  "doc": "Theorem 3.7 of rw-spheres.tex, frozen.\n\nPaper statement, `rw-spheres.tex:1314-1340` (label `theorem:generaldim-decay`): under\n`diam(P_v) ≤ F sup_{e = (w, v)} vol_d(Q_e)^α` for `v ∈ V[U]`, there is `C = C(U, F, α)` such that\nfor `ε < (C M)⁻¹`, `sup_{V[U]} |h_D - h_C| ≤ C M ε log(1/ε)`, with `ε = sup_{V̄[U]} diam(P_v)` and\n`M = sup_Û |∇² h_C| ∨ 1`.\n\nCorrected statement (`rw-spheres-corrected.tex`, Corrections 4, 8 and 11; Theorem 3.7 with `M =\nM_U°(h_C) ∨ 1`): the cells of `V[U]` are complete (finitely many neighbours, boundary covered by the\ncells of the neighbours); `h_C` is `C²` on an open set containing the cells of `V̄[U]` and harmonic\non the cells of `V[U]` (the corrected paper asks harmonicity on `Û`, all cells of `V̄[U]`: a\nstronger statement); `M ≥ 1` bounds the Hessian on the cells of `V̄[U]` and the finite Taylor\nremainder `|h(w) - h(v) - ∇h(v)·(w - v)| ≤ (M/2) ‖w - v‖²` on the internal edges (both endpoints in\n`V[U]`).  The printed theorem is false without completeness (check G4 in `GAP-CHECKS.md`: on the\nsquare grid of mesh `1/n`, `n` odd, of `D = [0,1] × [0,2]`, with `U = (0,1) × (1/2, 3/2)` and `h_C =\ncosh(π(x - 1/2)) cos(π(y - 1))`, the discrete solution is `0` while `h_C → 1` near the centre, and\nthe printed bound tends to `0`).  Whether the theorem holds with the published cell Hessian constant\nalone is open.  The rate has an explicit constant (`hypIIIRateConstant`, in `d`, `F`, `α` and a\nbound `R₀` on `‖x‖` over `U`); the smallness condition is `12 M ε ≤ 1` and `ε ≤ 1/2`, an instance of\nthe paper's `ε < (C M)⁻¹`.  The printed proof has a gap at `rw-spheres.tex:1371` (check G1,\n`GAP-CHECKS.md`); the proof here uses leobon12's corrected iteration, whose boundary-edge Taylor\nremainders are bounded by the cell Hessian alone.  The decay hypothesis is in leobon12's form\n`diam(P_v) ≤ F sup_w (‖w - v‖ vol_{d-1}(P_v ∩ P_w))^α`, equivalent to the printed one by Lemma 2.4\n(`F` scaled by `d^α`)."
+ }
+]

@@ -1,0 +1,127 @@
+-- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
+-- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
+-- (file `BouRabeeGwynne/TheoremBStatement.lean` at commit cf73d6e); unchanged apart from this header.
+import BouRabeeGwynne.Approximation
+import BouRabeeGwynne.Harmonic
+import BouRabeeGwynne.LipschitzDomain
+import BouRabeeGwynne.TilingDirichlet
+import BouRabeeGwynne.BoundaryGeometry
+import BouRabeeGwynne.EventualLocalRegion
+
+/-!
+# Theorem B: explicit, unproved geometric targets
+
+These propositions state the two branches of Bou-Rabee--Gwynne's convergence
+of the Dirichlet problem, using the actual orthogonal tiling, conductances,
+closed graph region, discrete harmonic equation and continuum function.
+They are target definitions; no proof of either convergence theorem is claimed.
+
+The approved deviations from the literal publication are explicit: both branches
+use `closure U ⊆ interior D`, and branch (b) samples the boundary trace at any
+nearest point of `closure U`, without an own-cell restriction. See
+`STATEMENT_SPEC.md`. Branch (a) has no Lipschitz-domain hypothesis. Branch (b)
+does not assume harmonicity or smoothness through the continuum boundary.
+-/
+
+open scoped Topology ENNReal
+
+namespace BouRabeeGwynne
+
+namespace OrthogonalTiling
+
+/-- Actual existence and uniqueness of the Dirichlet extension on the closed
+graph region. Values at unrelated ambient vertices are deliberately not part of
+uniqueness: the finite Dirichlet equations do not determine them. -/
+def HasUniqueDirichletExtension {d : ℕ} (T : OrthogonalTiling d)
+    (U : Set (Euc d)) (g : T.V → ℝ) : Prop :=
+  ∃ hD : T.V → ℝ, T.SolvesDirichlet U g hD ∧
+    ∀ k : T.V → ℝ, T.SolvesDirichlet U g k →
+      Set.EqOn k hD (T.closedVertices U)
+
+end OrthogonalTiling
+
+/-- Equation (1.5) for actual Dirichlet solutions, with eventual finite
+well-posedness included in the conclusion. Every positive tolerance has one
+index after which it bounds the error at every interior vertex and for every
+solution. The existence clause prevents the solution quantifier from being
+vacuous. No auxiliary error sequence or convergence-transfer premise is used. -/
+def DirichletApproximationTarget {d : ℕ} (G : TilingSequence d)
+    (U : Set (Euc d)) (hC : Euc d → ℝ)
+    (g : (n : ℕ) → (G.tiling n).V → ℝ) : Prop :=
+  (∀ᶠ n in Filter.atTop,
+    ((G.tiling n).closedVertices U).Finite ∧
+      (G.tiling n).HasUniqueDirichletExtension U (g n)) ∧
+  ∀ η : ℝ, 0 < η → ∀ᶠ n in Filter.atTop,
+    ∀ hD : (G.tiling n).V → ℝ,
+      (G.tiling n).SolvesDirichlet U (g n) hD →
+        (G.tiling n).DirichletError U hC hD η
+
+/-- The permitted branch-(b) boundary samples, indexed only by actual external
+graph-boundary vertices. Minimization is over the whole continuum closure. -/
+structure NearestClosureBoundaryChoices {d : ℕ} (G : TilingSequence d)
+    (U : Set (Euc d)) : Type 1 where
+  point : (n : ℕ) → (G.tiling n).boundaryVertices U → Euc d
+  mem_closure : ∀ n (v : (G.tiling n).boundaryVertices U), point n v ∈ closure U
+  isNearest : ∀ n (v : (G.tiling n).boundaryVertices U), ∀ y ∈ closure U,
+    dist ((G.tiling n).pos v) (point n v) ≤ dist ((G.tiling n).pos v) y
+
+namespace NearestClosureBoundaryChoices
+
+/-- Proper Euclidean space supplies a concrete allowed sampling choice. -/
+noncomputable def ofNonempty {d : ℕ} (G : TilingSequence d)
+    (U : Set (Euc d)) (hU : U.Nonempty) : NearestClosureBoundaryChoices G U where
+  point n v := nearestClosurePoint U hU ((G.tiling n).pos v)
+  mem_closure n v := nearestClosurePoint_mem_closure U hU ((G.tiling n).pos v)
+  isNearest n v _y hy := nearestClosurePoint_dist_le U hU ((G.tiling n).pos v) hy
+
+/-- Only the external boundary values enter `SolvesDirichlet`. The value zero
+away from that boundary is a harmless total extension of these prescribed data. -/
+noncomputable def boundaryData {d : ℕ} {G : TilingSequence d} {U : Set (Euc d)}
+    (S : NearestClosureBoundaryChoices G U) (hC : Euc d → ℝ)
+    (n : ℕ) (v : (G.tiling n).V) : ℝ := by
+  classical
+  exact if hv : v ∈ (G.tiling n).boundaryVertices U then hC (S.point n ⟨v, hv⟩) else 0
+
+@[simp] lemma boundaryData_apply_boundary {d : ℕ} {G : TilingSequence d}
+    {U : Set (Euc d)} (S : NearestClosureBoundaryChoices G U) (hC : Euc d → ℝ)
+    (n : ℕ) (v : (G.tiling n).boundaryVertices U) :
+    S.boundaryData hC n v = hC (S.point n v) := by
+  simp only [boundaryData, v.property, dite_eq_left]
+
+end NearestClosureBoundaryChoices
+
+/-- Theorem B(a), as an unproved target. `HarmonicNearClosure` chooses one fixed
+open neighborhood of `closure U`, independent of the tiling index. The proved
+`eventually_closedVertices_in_neighborhood` lemma ensures that the eventual
+boundary samples lie in every such neighborhood. No Lipschitz hypothesis is
+imposed on `U`. -/
+def TheoremBPartAStatement : Prop :=
+  ∀ (d : ℕ) (G : TilingSequence d) (N : NearestVertexData G)
+    (U : Set (Euc d)) (hC : Euc d → ℝ),
+    1 ≤ d → IsDomain U → Bornology.IsBounded U →
+    HasAmbientCollar U G.domain → N.ApproximationCondition → PaperRegularity G →
+    HarmonicNearClosure hC U →
+      DirichletApproximationTarget G U hC (fun n v => hC ((G.tiling n).pos v))
+
+/-- Theorem B(b), as an unproved target. The sampling class is explicitly
+nonempty, every allowed sample must lie on the continuum frontier and satisfy
+the eventual two-mesh distance estimate, and convergence holds for every choice
+of nearest-closure samples. Only values of `hC` on `closure U` are used. -/
+def TheoremBPartBStatement : Prop :=
+  ∀ (d : ℕ) (G : TilingSequence d) (N : NearestVertexData G)
+    (U : Set (Euc d)) (hC : Euc d → ℝ),
+    1 ≤ d → IsLipschitzDomain U → Bornology.IsBounded U →
+    HasAmbientCollar U G.domain → N.ApproximationCondition → PaperRegularity G →
+    IsHarmonicOn hC U → ContinuousOnClosure hC U →
+      Nonempty (NearestClosureBoundaryChoices G U) ∧
+      ∀ S : NearestClosureBoundaryChoices G U,
+        (∀ n v, S.point n v ∈ frontier U) ∧
+        (∀ᶠ n in Filter.atTop, ∀ v : (G.tiling n).boundaryVertices U,
+          dist ((G.tiling n).pos v) (S.point n v) ≤ 2 * (G.tiling n).mesh.toReal) ∧
+        DirichletApproximationTarget G U hC (S.boundaryData hC)
+
+/-- Both branches of the approved Theorem B target; not yet a proved theorem. -/
+def TheoremBStatement : Prop :=
+  TheoremBPartAStatement ∧ TheoremBPartBStatement
+
+end BouRabeeGwynne

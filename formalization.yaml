@@ -1,0 +1,275 @@
+version: "v0.4"
+
+project:
+  name: "Random walk on sphere packings and Delaunay triangulations in arbitrary dimension"
+  description: >-
+    A Lean 4 formalization of the paper "Random walk on sphere packings and Delaunay
+    triangulations in arbitrary dimension" by Bou-Rabee and Gwynne: on orthogonal
+    tilings with small mesh and one of three regularity hypotheses, the stopped
+    conductance-weighted random walk converges to stopped Brownian motion modulo time
+    parametrization (Theorem A) and the discrete Dirichlet problem converges (Theorem B,
+    both alternatives); Poisson-Voronoi tessellations satisfy the hypotheses
+    (Proposition 1.1); and simple random walk on a bounded-degree sphere packing need
+    not converge (Theorem 6.1); for any nearest-neighbour walks under Assumption D the
+    stopped walk converges to stopped Brownian motion (Theorem 4.1). Every labelled
+    result is registered and proved, as printed or as in the corrected paper
+    (paper/rw-spheres-corrected.tex), where the printed statement is false, not well
+    defined, or changed with the published version open (README.md); Lemma 5.1(b) is
+    registered with dimension-dependent constants, which is weaker than the printed
+    statement in dimensions 4 to 12, where the printed radius also holds but is not
+    needed. Theorem A and
+    Theorem B(a) are Leonardo Bonanno's (leobon12) formalization, imported with
+    attribution.
+  authors:
+    - "Ahmed Bou-Rabee"
+  responsible_maintainers:
+    - "Ahmed Bou-Rabee"
+  license: "Apache-2.0"
+
+classification:
+  arxiv: ["math.PR"]
+  msc2020: ["60G50", "60K37", "65M08"]
+
+sources:
+  - title: "Random walk on sphere packings and Delaunay triangulations in arbitrary dimension"
+    authors:
+      - "Ahmed Bou-Rabee"
+      - "Ewain Gwynne"
+    id: "arXiv:2405.11673v2"
+    url: "https://arxiv.org/abs/2405.11673"
+    type: "paper"
+    relationship: "formalizes"
+    location: "paper/"
+    note: >-
+      The paper under formalization, as posted on arXiv (version 2): its source,
+      bibliography, figures and compiled PDF are included under paper/
+      (rw-spheres.tex, pinned by SHA-256 in ledger/manifest.yaml). Several printed
+      statements are false as stated; the corrected paper,
+      paper/rw-spheres-corrected.tex (the same source with marked corrections, also
+      pinned, with its compiled PDF), states the corrected versions, which are listed
+      in README.md and CORRESPONDENCE.md. CORRESPONDENCE.md maps the statements of the
+      arXiv version, by line and label, to Lean declarations.
+    license: "CC-BY-4.0"
+    author_endorsement: "participated"
+
+related_formalizations:
+  - id: "https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne"
+    relationship: "builds-on"
+    note: >-
+      Leonardo Bonanno's (leobon12) formalization of Theorem A and Theorem B(a)
+      (commit cf73d6e), with the ambient-collar correction and the edge reading. Its
+      319 BouRabeeGwynne/ files are copied unchanged apart from a header naming the
+      source and, in 13 walk files, `omit [Fintype V] in` before declarations that do
+      not use finiteness; they also provide the statement of Theorem B(b), the results
+      registered here as Lemmas 2.4, 3.1 and 3.5, the qualitative forms of Theorems
+      3.6 and 3.7 (used for Theorem B(a)), and the corrected iteration behind the rate
+      of Theorem 3.7.
+
+status:
+  scope: >-
+    Every labelled theorem, lemma and proposition: Theorem A, Theorem B (a) and (b),
+    Proposition 1.1 (cell bounds, and the conclusions of Theorems A and B for
+    Poisson-Voronoi tilings), Lemmas 2.1 to 2.5, Proposition 2.6, Lemma 3.1, Proposition
+    3.2, Theorem 3.3, Lemma 3.5, Theorems 3.6 and 3.7 with their bounds, Theorem 4.1 and
+    Proposition 4.2 for any nearest-neighbour walks under Assumption D as printed,
+    Lemmas 5.1 and 5.2 and Theorem 6.1, as in the corrected paper where the printed
+    statement is changed. 24 registered statements and seven guards. SCOPE BOUNDARY:
+    Theorems 3.3, 3.6 and 3.7 are proved with the corrected paper's constant (the
+    Hessian bound on the cells and finite Taylor control on the internal edges); whether
+    they hold with the published cell Hessian constant alone is open, and so is the
+    published linear bound of Theorem 3.3. No Lean example constructs a Poisson point
+    process. Not formalized: Remarks 1.2 and 3.4 and the open problems. Nothing is
+    assumed (ASSUMPTIONS.md).
+  sorry_count: 0
+  sorry_count_scope: "SpherePackings and BouRabeeGwynne libraries"
+  comparator_challenge_sorry_count: 6
+  sorry_in_definitions: 0
+  axioms:
+    - "propext"
+    - "Classical.choice"
+    - "Quot.sound"
+  main_results:
+    - declaration: "SpherePackings.theorem_A"
+      file: "SpherePackings/MainTheorems.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "SpherePackingsAudit/TheoremA/comparator.json"
+      literature_dependencies: []
+    - declaration: "SpherePackings.theorem_B_a"
+      file: "SpherePackings/MainTheorems.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "SpherePackingsAudit/TheoremB/comparator.json"
+      literature_dependencies: []
+    - declaration: "SpherePackings.theorem_B_b"
+      file: "SpherePackings/MainTheorems.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "SpherePackingsAudit/TheoremB/comparator.json"
+      literature_dependencies: []
+    - declaration: "SpherePackings.prop_1_1"
+      file: "SpherePackings/MainTheorems.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "SpherePackingsAudit/Prop11/comparator.json"
+      literature_dependencies: []
+    - declaration: "SpherePackings.prop_1_1_theorems_A_B"
+      file: "SpherePackings/MainTheorems.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "SpherePackingsAudit/Prop11TheoremsAB/comparator.json"
+      literature_dependencies: []
+    - declaration: "SpherePackings.theorem_6_1"
+      file: "SpherePackings/MainTheorems.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "SpherePackingsAudit/Theorem61/comparator.json"
+      literature_dependencies: []
+    - declaration: "SpherePackings.theorem_4_1"
+      file: "SpherePackings/MainTheorems.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "SpherePackingsAudit/Theorem41/comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "claude-opus-5-5"
+        - "claude-haiku-5-5"
+      framework: "Claude Code (Anthropic)"
+      tool_setup: >-
+        Claude Opus 5.5 wrote the plan, the statements and the main proofs, and
+        reviewed bounded lemma proofs written by Claude Haiku 5.5, which also
+        audited the adapted modules (AUDIT.md). Lake builds under
+        leanprover/lean4:v4.34.0-rc2 with Mathlib at a4c8ef0, gated by the
+        axiom-closure and warning-free-build checks; the comparator pairs are
+        checked with leanprover/comparator, lean4export, landrun and nanoda at the
+        revisions recorded in .github/workflows/comparator.yml. The imported
+        BouRabeeGwynne/ files are leobon12's work.
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "local Linux machine"
+      prompting_notes: >-
+        Human-directed work on author-specified statements. Statement differences
+        from the paper are listed under fidelity.divergences.
+    - method: "agent"
+      models:
+        - "gpt-6.1-sol"
+        - "gpt-6-astra"
+      framework: "OpenAI models, run as agents"
+      tool_setup: >-
+        Analysis of the paper, producing mathematical text rather than Lean code:
+        the gap checks of GAP-CHECKS.md (GPT-6.1-Sol, through the Codex CLI), and
+        the repair of the printed statements behind the corrected paper
+        (GPT-6.1-Sol, and GPT-6-Astra for the internal-edge Taylor constant of
+        Section 3 and the dimension threshold of Lemma 5.1(b)). The resulting
+        statements were formalized and proved with the Claude models above.
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "API-only"
+      prompting_notes: >-
+        Human-directed read-only work on the paper; every statement of the corrected
+        paper that is registered here is proved in Lean.
+  spend_usd: "not tracked"
+  notes: >-
+    The Lean code was written with AI assistance under the direction of the author, who
+    fixed the statements to be formalized. Every proof is checked by the Lean kernel and
+    Mathlib, and the library contains no sorry and no custom axiom. The six Mathlib-only
+    comparator challenge files (SpherePackingsAudit/*/Challenge.lean) each contain
+    exactly one intentional statement-level sorry, which the corresponding Solution.lean
+    proves and leanprover/comparator checks. The model versions listed above are the
+    ones recorded during the work; wall time and spend were not tracked.
+
+fidelity:
+  divergences: >-
+    README.md and CORRESPONDENCE.md record every place where a Lean statement is not
+    literally the paper's, following the corrected paper. In summary: the ambient collar
+    closure U ⊆ interior D and the rule that every codimension-one contact is an edge (a
+    reading, leobon12); finite degree in Lemma 2.1; complete cells of V[U] (finitely
+    many neighbours, boundary covered by the neighbours' cells) in Lemmas 2.2, 2.5 and
+    3.1, Propositions 2.6 and 3.2 and Theorems 3.3, 3.6 and 3.7; in Propositions 2.6 and
+    3.2 a constant bounding the cell Hessian and the finite Taylor remainder at one
+    active endpoint of each edge; in Theorems 3.3, 3.6 and 3.7 the Hessian bound on the
+    cells and the finite Taylor remainder on the internal edges only (the published
+    versions with the cell Hessian alone are open); the bound of Theorem 3.3 with a
+    quadratic term and 3 M₀ ε², and its rate ε^{2/3} for ε ≤ 1/2; nearest points of
+    closure U as boundary samples in Theorem B(b); the mass bounds of Proposition 1.1 on
+    a neighbourhood W of closure U, with only the points in W assumed to form a Poisson
+    process; in Lemma 5.1(a) the grid cubes that meet U, in Lemma 5.1(b)
+    dimension-dependent constants δ(d), R(d) ≥ 2 (the printed radius 2k fails for d ≥
+    13; for 4 ≤ d ≤ 12 it also holds, with a smaller δ, by an argument not formalized,
+    so there the registered statement is weaker than the printed one); the natural inclusion of Lemma 2.5; a modified packing in Theorem 6.1 for d ≥
+    4, which does not cover ℝ^d (in dimension three every sphere is covered);
+    Proposition 4.2 for balls whose closure lies in the δ-neighbourhood of D. The
+    counterexamples are informal; four claims about the paper (a gap in the proof of the
+    rate of Theorem 3.7, Proposition 2.6 false as printed, Lemma 5.1(b) as printed for d
+    ≤ 3 and false for d ≥ 14, and Theorems 3.3, 3.6 and 3.7 false without complete
+    cells) were checked independently (GAP-CHECKS.md).
+
+review:
+  status: "model review"
+  reviewers:
+    - "Claude Opus 5.5, separate read-only review of the statements and corrections against the paper (2026-10-19)"
+    - "GPT-6.1-Sol (Codex), the gap checks G1-G4 of GAP-CHECKS.md (2026-10-18 and 2026-10-19)"
+  notes: >-
+    Correctness of every proof is guaranteed by the Lean kernel and Mathlib (no sorry,
+    no custom axiom). The statements and corrections were reviewed against the paper in
+    a separate, read-only Claude Opus 5.5 review, and the claims about the paper listed
+    in GAP-CHECKS.md were checked by Codex (GPT-6.1-sol). The repairs in the corrected
+    paper were drafted with Codex (GPT-6.1-sol) and GPT-6-Astra and checked in the same
+    separate review. This is not external peer review.
+
+alignment:
+  namespace: "SpherePackings"
+  statements:
+    - source: "Theorem A (theorem:convergence-of-rw-trace)"
+      lean: "SpherePackings.theorem_A"
+      module: "SpherePackings.MainTheorems"
+      status: "proved"
+      note: "leobon12's theorem; comparator pair SpherePackingsAudit/TheoremA/."
+    - source: "Theorem B (theorem:convergence-of-the-dirichlet-problem), alternative (a)"
+      lean: "SpherePackings.theorem_B_a"
+      module: "SpherePackings.MainTheorems"
+      status: "proved"
+      note: "leobon12's theorem; comparator pair SpherePackingsAudit/TheoremB/."
+    - source: "Theorem B, alternative (b)"
+      lean: "SpherePackings.theorem_B_b"
+      module: "SpherePackings.MainTheorems"
+      status: "proved"
+      note: "leobon12's statement, proved here; comparator pair SpherePackingsAudit/TheoremB/."
+    - source: "Proposition 1.1 (prop:min-max-edge-length)"
+      lean: "SpherePackings.prop_1_1"
+      module: "SpherePackings.MainTheorems"
+      status: "proved"
+      note: "Corrected mass-bound hypothesis; comparator pair SpherePackingsAudit/Prop11/."
+    - source: "Proposition 1.1, in particular clause"
+      lean: "SpherePackings.prop_1_1_theorems_A_B"
+      module: "SpherePackings.MainTheorems"
+      status: "proved"
+      note: "Comparator pair SpherePackingsAudit/Prop11TheoremsAB/."
+    - source: "Theorem 6.1 (theorem:counter-example)"
+      lean: "SpherePackings.theorem_6_1"
+      module: "SpherePackings.MainTheorems"
+      status: "proved"
+      note: "Comparator pair SpherePackingsAudit/Theorem61/."
+    - source: "Theorem 4.1 (theorem:general-clt)"
+      lean: "SpherePackings.theorem_4_1"
+      module: "SpherePackings.MainTheorems"
+      status: "proved"
+      note: "Comparator pair SpherePackingsAudit/Theorem41/."
+    - source: "Sections 2 to 5: the lemmas, propositions and theorems"
+      lean: "SpherePackings.Frozen.*"
+      module: "SpherePackings.Frozen"
+      status: "proved"
+      note: "One registered statement per result; the full map is in README.md and CORRESPONDENCE.md."
+
+acknowledgements: >-
+  The paper is joint work with Ewain Gwynne. Theorem A and Theorem B(a) were formalized by
+  Leonardo Bonanno (leobon12)
+  (https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne),
+  whose files this formalization imports and adapts, with attribution in their headers.
+  Built on Lean 4, Mathlib, Lake, leanprover/comparator, lean4export, nanoda and landrun.

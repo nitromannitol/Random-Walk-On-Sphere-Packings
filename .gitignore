@@ -1,0 +1,10 @@
+.lake/
+*.olean
+*.ilean
+*.trace
+scratch/
+__pycache__/
+paper/*.aux
+paper/*.blg
+paper/*.log
+paper/*.out
