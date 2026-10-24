@@ -56,7 +56,7 @@ No new `def`, `structure` or `instance`. Definitions used: `surfaceTaylorRemaind
 - Header: "Corrections 4, 8 and 10". The corrected paper has no Correction 10. Its list (`paper/rw-spheres-corrected.tex:634–650`) has nine items, and its TeX tags are CORRECTION 4 and 8 and CLOSE 3 for this theorem. README items 5 and 6 are the right references. NOTE.
 - Header says the corrected statement has "`h_C` … harmonic on the cells of `V[U]`". The corrected Theorem 2d says `h_C ∈ C²(Û)` harmonic on `Û` (corrected paper lines 1248–1253). The Lean hypothesis is weaker, so the theorem is stronger, but the header misquotes the paper.
 - The printed bound quoted in the header (`rw-spheres.tex:1031–1049`) is the printed `inf_k(6kMε vol(Û) + 2(√2k⁻¹+ε)L)`, as stated. ✓
-- G4 consistency: with sites at cell centres, the rows `y = 1/2, 3/2` are the vertex-boundary rows where `h_C = 0`, so `h_D ≡ 0` is consistent with the counterexample. I checked consistency only; I did not re-verify the Codex verdict in `ledger/gap-checks/`.
+- G4 consistency: with sites at cell centres, the rows `y = 1/2, 3/2` are the vertex-boundary rows where `h_C = 0`, so `h_D ≡ 0` is consistent with the counterexample. I checked consistency only; I did not re-verify the verdict recorded in `GAP-CHECKS.md`.
 
 ## SpherePackings.Frozen.Theorem33Rate
 - Statement is clause-for-clause identical to `planar_rate_internal` (constant `M(3 + 6 vol(B_{R₀+1}) + (√2+1)²/2)`, `ε ≤ 1/2`, `ε^{2/3}`). Stronger than the paper's `∃ C ≤ C ε^{1/2}`. The header's "hence" is valid since `ε^{2/3} ≤ ε^{1/2}` for `ε ≤ 1`.

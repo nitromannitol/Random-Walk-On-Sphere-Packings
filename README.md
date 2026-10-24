@@ -62,7 +62,7 @@ its certified counterpart in `SpherePackings/Frozen/`:
 The statements are those of the corrected paper [`paper/rw-spheres-corrected.tex`](paper/rw-spheres-corrected.tex),
 with the corrections listed below.  Every labelled theorem, lemma and proposition of the paper has a
 registered statement; one proved only under a hypothesis stronger than the corrected paper's would
-be marked `PARTIAL` (in the status below and in `STATUS.md`).  Not formalized: the two remarks, the
+be marked `PARTIAL` (in the status below).  Not formalized: the two remarks, the
 examples of Section 1.2 other than Voronoi tessellations, and the open problems.
 
 The paper-to-Lean correspondence, with every difference in formulation, is in
@@ -427,10 +427,8 @@ CONTRIBUTING.md        building notes
 CI_ARTIFACTS.md        the continuous-integration jobs, caches and artifacts
 CITATION.cff           citation metadata
 formalization.yaml     models, tooling, review and fidelity disclosure
-STATUS.md              working status and inventory
 ledger/manifest.yaml   one row per registered statement: hash, paper source, form
 ledger/audit/          the audit reports, one per batch
-ledger/gap-checks/     the prompts and verdicts of the gap checks
 paper/                 the paper (rw-spheres.tex, unchanged) and the corrected paper
                        (rw-spheres-corrected.tex), both pinned by SHA-256 in ledger/manifest.yaml,
                        with figures, bibliography and compiled PDFs
@@ -484,8 +482,10 @@ Much of this formalization is based on the formalization of the paper by **Leona
   guards.
 
 The verification of leobon12's release (its pinned toolchain and Mathlib, the BouRabeeGwynne part of
-its `Certificate.lean`, and its whole-declaration axiom audit) was re-run before the import; see
-`STATUS.md`.
+its `Certificate.lean`, and its whole-declaration axiom audit, 3,458 declarations with 72,575
+reachable) was re-run before the import: it builds with its pinned toolchain
+`leanprover/lean4:v4.34.0-rc2` and Mathlib `a4c8ef0`, and Theorems A and B(a) use only `propext`,
+`Classical.choice` and `Quot.sound`.
 
 This formalization is built on [Lean 4](https://lean-lang.org) and
 [Mathlib](https://github.com/leanprover-community/mathlib4); the comparator audit uses
