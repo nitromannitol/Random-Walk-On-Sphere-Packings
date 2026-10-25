@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HalfspaceFibers.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.HalfspaceBoundary
-import Mathlib.Data.Finset.Lattice.Fold
-import Mathlib.Tactic.Linarith
+public import BouRabeeGwynne.HalfspaceBoundary
+public import Mathlib.Data.Finset.Lattice.Fold
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 namespace BouRabeeGwynne.ConvexPolytope
 

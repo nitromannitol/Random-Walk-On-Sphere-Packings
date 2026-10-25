@@ -1,10 +1,14 @@
-import SpherePackings.Support.Counterexample.WalkLawExists
-import SpherePackings.Support.Counterexample.Covering
-import SpherePackings.Support.Counterexample.Harmonic
-import SpherePackings.Support.Counterexample.BrownianAsymmetry
-import SpherePackings.Support.LevyProkhorovIntegral
-import BouRabeeGwynne.HarmonicMeasureBridge
-import BouRabeeGwynne.LevyProkhorovMaps
+module
+
+public import SpherePackings.Support.Counterexample.WalkLawExists
+public import SpherePackings.Support.Counterexample.Covering
+public import SpherePackings.Support.Counterexample.Harmonic
+public import SpherePackings.Support.Counterexample.BrownianAsymmetry
+public import SpherePackings.Support.LevyProkhorovIntegral
+public import BouRabeeGwynne.HarmonicMeasureBridge
+public import BouRabeeGwynne.LevyProkhorovMaps
+
+@[expose] public section
 
 /-!
 # Theorem 6.1: a sphere packing on which simple random walk is not asymptotically Brownian

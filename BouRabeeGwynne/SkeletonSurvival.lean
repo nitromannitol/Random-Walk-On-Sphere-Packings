@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/SkeletonSurvival.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.SkeletonCoupling
+public import BouRabeeGwynne.SkeletonCoupling
+
+@[expose] public section
 
 /-! Multiplicative survival bounds for actual history-dependent trajectory
 laws. The transition estimate is needed only on surviving histories. -/

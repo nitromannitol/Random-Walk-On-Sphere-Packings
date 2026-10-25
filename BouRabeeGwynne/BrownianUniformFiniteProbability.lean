@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianUniformFiniteProbability.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianFiniteProbability
+public import BouRabeeGwynne.BrownianFiniteProbability
+
+@[expose] public section
 
 /-! The boundary cutoff is uniform before the later ball-label type is chosen.
 After fixing that type and the geometric margin, the stage count remains uniform

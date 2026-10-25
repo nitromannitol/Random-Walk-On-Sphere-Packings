@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WeakExcursionRecovery.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WeakExcursionClock
+public import BouRabeeGwynne.WeakExcursionClock
+
+@[expose] public section
 
 /-! Pasting the actual restrictions of a path recovers its Fréchet class even
 when some physical intervals have zero duration. -/

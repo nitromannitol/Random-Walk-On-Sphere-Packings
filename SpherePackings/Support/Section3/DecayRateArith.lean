@@ -1,8 +1,12 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.HypIIICostBound
-import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import BouRabeeGwynne.HypIIICostBound
+public import Mathlib.Analysis.SpecialFunctions.Log.Basic
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+
+@[expose] public section
 
 /-!
 # The corrected Case III cost is `O(M ε log(1/ε))`

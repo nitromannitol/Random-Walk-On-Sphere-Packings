@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianUniformLanding.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianGaussianReference
-import Mathlib.MeasureTheory.Measure.OpenPos
-import Mathlib.Data.Finset.Lattice.Fold
+public import BouRabeeGwynne.BrownianGaussianReference
+public import Mathlib.MeasureTheory.Measure.OpenPos
+public import Mathlib.Data.Finset.Lattice.Fold
+
+@[expose] public section
 
 /-! A uniform positive unit-time landing probability over a compact set of
 centers. Full support comes from the strictly positive Gaussian density and

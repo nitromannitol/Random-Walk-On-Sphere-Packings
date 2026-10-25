@@ -1,10 +1,14 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Section3.DecayRateArith
-import SpherePackings.Support.Section3.DecaySegment
-import SpherePackings.Support.Section3.GeneralRateFull
-import BouRabeeGwynne.Section3CaseIIITarget
-import BouRabeeGwynne.Section3CaseIITarget
+public import SpherePackings.Support.Section3.DecayRateArith
+public import SpherePackings.Support.Section3.DecaySegment
+public import SpherePackings.Support.Section3.GeneralRateFull
+public import BouRabeeGwynne.Section3CaseIIITarget
+public import BouRabeeGwynne.Section3CaseIITarget
+
+@[expose] public section
 
 /-!
 # Theorem 3.7 with its rate (intermediate result)

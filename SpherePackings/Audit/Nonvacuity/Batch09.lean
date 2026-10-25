@@ -1,7 +1,11 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 09;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import BouRabeeGwynne.Section3CaseIITarget
-import SpherePackings.Support.Guards.LatticeTilings
+public import BouRabeeGwynne.Section3CaseIITarget
+public import SpherePackings.Support.Guards.LatticeTilings
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

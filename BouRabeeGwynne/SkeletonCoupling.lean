@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/SkeletonCoupling.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.TrajectoryCoupling
+public import BouRabeeGwynne.TrajectoryCoupling
+
+@[expose] public section
 
 /-! Actual joint Markov skeleton paths and an adaptive first-failure bound.
 The one-step estimate is required only on histories with no earlier failure.

@@ -1,4 +1,8 @@
-import SpherePackings.MainTheorems
+module
+
+public import SpherePackings.MainTheorems
+
+@[expose] public section
 
 /-!
 # Solution: Theorem B (`theorem:convergence-of-the-dirichlet-problem`), both alternatives

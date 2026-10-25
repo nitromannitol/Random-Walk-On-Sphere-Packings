@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HypIIICorrectedTrimming.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BoundaryCorrectedSurfaceEnergy
-import BouRabeeGwynne.BoundaryCorrectedIteration
-import BouRabeeGwynne.Section3MassDecay
+public import BouRabeeGwynne.BoundaryCorrectedSurfaceEnergy
+public import BouRabeeGwynne.BoundaryCorrectedIteration
+public import BouRabeeGwynne.Section3MassDecay
+
+@[expose] public section
 
 /-! Actual mass contraction at the current interior diameter scale. -/
 

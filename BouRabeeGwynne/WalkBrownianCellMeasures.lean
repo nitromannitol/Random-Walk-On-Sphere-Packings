@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkBrownianCellMeasures.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkBrownianCoupling
+public import BouRabeeGwynne.WalkBrownianCoupling
+
+@[expose] public section
 
 /-! Exact cell masses of genuine whole excursions. The finite graph support
 restriction does not change the actual walk exit probabilities. -/

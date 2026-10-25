@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianSkeletonOscillation.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.UnitCurveOscillation
-import BouRabeeGwynne.BrownianStoppedSkeleton
+public import BouRabeeGwynne.UnitCurveOscillation
+public import BouRabeeGwynne.BrownianStoppedSkeleton
+
+@[expose] public section
 
 /-! Transfer the original Brownian boundary-interval oscillation estimate to
 the measurable finite excursion representative, with only the active-tail loss. -/

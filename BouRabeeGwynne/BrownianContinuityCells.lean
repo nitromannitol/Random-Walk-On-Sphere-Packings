@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianContinuityCells.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianExitReference
-import BouRabeeGwynne.ContinuityCells
+public import BouRabeeGwynne.BrownianExitReference
+public import BouRabeeGwynne.ContinuityCells
+
+@[expose] public section
 
 /-!
 # One continuity partition for a finite family of actual Brownian exit laws

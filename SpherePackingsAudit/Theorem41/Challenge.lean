@@ -1,6 +1,10 @@
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Section4General.StoppedWalkLaw
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Section4General.AssumptionD
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LipschitzDomain
+module
+
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Section4General.StoppedWalkLaw
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Section4General.AssumptionD
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LipschitzDomain
+
+@[expose] public section
 
 /-!
 # Comparator challenge: Theorem 4.1 (`theorem:general-clt`)

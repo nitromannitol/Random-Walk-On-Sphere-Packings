@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 2.3 of rw-spheres.tex, frozen.
 
@@ -10,7 +12,9 @@ conductances on a finite set of vertices are one); `E[Ā]` is the set of directe
 conductance with an endpoint in `A`, and `θ` vanishes off it.  Proved from leobon12's dual
 variational lemmas.
 -/
-import SpherePackings.Support.Section2.DualVariational
+public import SpherePackings.Support.Section2.DualVariational
+
+@[expose] public section
 
 open BouRabeeGwynne BouRabeeGwynne.FiniteConductanceNetwork SpherePackings
 open scoped BigOperators

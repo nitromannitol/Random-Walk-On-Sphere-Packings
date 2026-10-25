@@ -1,11 +1,15 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (file
 -- `BouRabeeGwynne/Section4BallExitLevyProkhorov.lean` at commit cf73d6e): the declarations of that
 -- file that use the regularity hypothesis `PaperRegularity G`, with the hypothesis replaced by the
 -- localized Assumption D `TilingAssumptionD G` and deprecated names updated; the other declarations
 -- are imported.
-import BouRabeeGwynne.Section4BallExitLevyProkhorov
-import SpherePackings.Support.Section4.BallExitConvergence
+public import BouRabeeGwynne.Section4BallExitLevyProkhorov
+public import SpherePackings.Support.Section4.BallExitConvergence
+
+@[expose] public section
 
 /-! Section 4 of rw-spheres.tex under the localized Assumption D: the declarations of
 leobon12's `BouRabeeGwynne.Section4BallExitLevyProkhorov` that use the regularity hypothesis. -/

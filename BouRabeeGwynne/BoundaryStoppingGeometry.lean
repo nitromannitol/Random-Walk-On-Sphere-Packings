@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BoundaryStoppingGeometry.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BoundaryStoppingComparison
-import BouRabeeGwynne.StoppedCurvePrefixes
-import Mathlib.Topology.MetricSpace.Thickening
+public import BouRabeeGwynne.BoundaryStoppingComparison
+public import BouRabeeGwynne.StoppedCurvePrefixes
+public import Mathlib.Topology.MetricSpace.Thickening
+
+@[expose] public section
 
 /-! Geometric bracketing for the actual discrete vertex exit. Before that
 vertex, polygonal edges need only stay in a mesh collar of the domain. -/

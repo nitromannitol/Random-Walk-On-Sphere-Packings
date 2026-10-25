@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianObservedHistory.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianNextExit
+public import BouRabeeGwynne.BrownianNextExit
+
+@[expose] public section
 
 /-! Actual completed excursions are observable at their exit times. Freezing
 supplies this fact for arbitrary measurable history payloads, including flags

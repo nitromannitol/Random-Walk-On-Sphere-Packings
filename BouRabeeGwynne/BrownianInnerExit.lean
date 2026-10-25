@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianInnerExit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ContinuousExitProperties
-import Mathlib.Topology.MetricSpace.HausdorffDistance
+public import BouRabeeGwynne.ContinuousExitProperties
+public import Mathlib.Topology.MetricSpace.HausdorffDistance
+
+@[expose] public section
 
 /-! The inner boundary approach uses the actual first exit from the open set
 of points whose distance to the complement exceeds the prescribed clearance. -/

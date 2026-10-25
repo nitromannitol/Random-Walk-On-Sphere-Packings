@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 2.1 of rw-spheres.tex, frozen.
 
@@ -10,7 +12,9 @@ and the edge sum are finite sums.  The paper states the lemma "for general graph
 an infinite star the divergence is an infinite sum.  Boundary vertices may have infinite degree.
 Stated for an arbitrary simple graph.
 -/
-import SpherePackings.Providers.Lemma21FiniteDegrees
+public import SpherePackings.Providers.Lemma21FiniteDegrees
+
+@[expose] public section
 
 open Finset
 open scoped Classical

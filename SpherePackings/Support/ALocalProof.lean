@@ -1,12 +1,16 @@
-import SpherePackings.Support.Definitions.VertexBoundary
-import SpherePackings.Support.Membership.MemVertexBoundary
-import SpherePackings.Support.Definitions.OfInterior
-import SpherePackings.Support.Definitions.EdgeTail
-import SpherePackings.Support.Definitions.EdgeHead
-import SpherePackings.Support.Definitions.ReverseEdge
-import SpherePackings.Support.Definitions.IncomingDivergence
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Tactic.Ring
+module
+
+public import SpherePackings.Support.Definitions.VertexBoundary
+public import SpherePackings.Support.Membership.MemVertexBoundary
+public import SpherePackings.Support.Definitions.OfInterior
+public import SpherePackings.Support.Definitions.EdgeTail
+public import SpherePackings.Support.Definitions.EdgeHead
+public import SpherePackings.Support.Definitions.ReverseEdge
+public import SpherePackings.Support.Definitions.IncomingDivergence
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 open Finset
 open scoped Classical

@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkSkeletonKernel.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ClockedWalkExcursion
-import BouRabeeGwynne.AbsorbingExcursionKernel
-import BouRabeeGwynne.ExcursionEndpointExtension
+public import BouRabeeGwynne.ClockedWalkExcursion
+public import BouRabeeGwynne.AbsorbingExcursionKernel
+public import BouRabeeGwynne.ExcursionEndpointExtension
+
+@[expose] public section
 
 /-! The measurable history kernels for the actual clocked walk skeleton.
 Each row retains the whole excursion and is defined at every spatial start. -/

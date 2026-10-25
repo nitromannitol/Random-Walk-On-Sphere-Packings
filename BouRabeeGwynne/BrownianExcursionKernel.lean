@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianExcursionKernel.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedBrownianMeasurable
-import BouRabeeGwynne.BrownianHarmonicExit
-import Mathlib.Probability.Kernel.Basic
-import Mathlib.MeasureTheory.Measure.Prod
+public import BouRabeeGwynne.StoppedBrownianMeasurable
+public import BouRabeeGwynne.BrownianHarmonicExit
+public import Mathlib.Probability.Kernel.Basic
+public import Mathlib.MeasureTheory.Measure.Prod
+
+@[expose] public section
 
 /-!
 # Actual Brownian excursion laws as a kernel in the starting point

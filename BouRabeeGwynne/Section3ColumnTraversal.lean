@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3ColumnTraversal.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ProjectedBase
-import BouRabeeGwynne.LocalFacetCoverage
-import Mathlib.Topology.Order.DenselyOrdered
+public import BouRabeeGwynne.ProjectedBase
+public import BouRabeeGwynne.LocalFacetCoverage
+public import Mathlib.Topology.Order.DenselyOrdered
+
+@[expose] public section
 
 /-!
 # Section 3: moving forward through a column

@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PolynomialBallIdentity.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PaperObjects
-import Mathlib.Algebra.MvPolynomial.Funext
-import Mathlib.Order.Interval.Set.Infinite
+public import BouRabeeGwynne.PaperObjects
+public import Mathlib.Algebra.MvPolynomial.Funext
+public import Mathlib.Order.Interval.Set.Infinite
+
+@[expose] public section
 
 /-! A polynomial vanishing on a nonempty Euclidean ball is the zero polynomial.
 This gives the injectivity step for the finite-dimensional ball Dirichlet operator. -/

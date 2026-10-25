@@ -1,8 +1,12 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/Section4BallExitConvergence.lean` and
 -- `BouRabeeGwynne/Section4BallExitLevyProkhorov.lean` at commit cf73d6e): Proposition 4.2 for tilings.
-import SpherePackings.Support.Section4.BallExitLevyProkhorov
+public import SpherePackings.Support.Section4.BallExitLevyProkhorov
+
+@[expose] public section
 
 /-!
 # A partial form of Proposition 4.2 for orthogonal tilings

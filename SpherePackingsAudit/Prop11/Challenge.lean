@@ -1,6 +1,10 @@
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Voronoi.PoissonCells
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Poisson.Basic
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Voronoi.Basic
+module
+
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Voronoi.PoissonCells
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Poisson.Basic
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Voronoi.Basic
+
+@[expose] public section
 
 /-!
 # Comparator challenge: Proposition 1.1 (`prop:min-max-edge-length`), cell bounds

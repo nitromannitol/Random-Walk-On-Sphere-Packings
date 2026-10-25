@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem 3.3 of rw-spheres.tex, the bound, frozen.
 
@@ -22,7 +24,9 @@ boundary correction of size at most `2 M₀ ε²` and a corrected error whose en
 rectangles (Lemma 3.1) and which is controlled inside them by the subharmonic comparison with `(M/2)
 ‖· - v‖²`.
 -/
-import SpherePackings.Support.Section3.PlanarInternal
+public import SpherePackings.Support.Section3.PlanarInternal
+
+@[expose] public section
 
 open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings
 open scoped MeasureTheory Laplacian

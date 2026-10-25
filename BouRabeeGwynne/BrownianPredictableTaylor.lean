@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianPredictableTaylor.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianPredictableMoments
-import BouRabeeGwynne.BrownianTaylorBound
+public import BouRabeeGwynne.BrownianPredictableMoments
+public import BouRabeeGwynne.BrownianTaylorBound
+
+@[expose] public section
 
 /-!
 # Taylor expectation bounds with coefficients from the actual Brownian past

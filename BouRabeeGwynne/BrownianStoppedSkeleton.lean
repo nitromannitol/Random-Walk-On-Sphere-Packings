@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianStoppedSkeleton.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.UnitCurveExitMonotone
-import BouRabeeGwynne.PhysicalPrefixExit
-import BouRabeeGwynne.BrownianActiveSkeletonTail
-import BouRabeeGwynne.ReconstructedLawComparison
+public import BouRabeeGwynne.UnitCurveExitMonotone
+public import BouRabeeGwynne.PhysicalPrefixExit
+public import BouRabeeGwynne.BrownianActiveSkeletonTail
+public import BouRabeeGwynne.ReconstructedLawComparison
+
+@[expose] public section
 
 /-! Actual continuously stopped Brownian curves are recovered from a finite
 excursion prefix once it has reached the target exit. -/

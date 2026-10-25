@@ -1,9 +1,13 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Section4General.AssumptionD
-import SpherePackings.General.LevyProkhorovTest
-import BouRabeeGwynne.Section4BrownianBallHarmonicMeasure
-import BouRabeeGwynne.HarmonicPolynomialApproximation
+public import SpherePackings.Support.Section4General.AssumptionD
+public import SpherePackings.General.LevyProkhorovTest
+public import BouRabeeGwynne.Section4BrownianBallHarmonicMeasure
+public import BouRabeeGwynne.HarmonicPolynomialApproximation
+
+@[expose] public section
 
 /-!
 # Proposition 4.2: convergence of harmonic measure

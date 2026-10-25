@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/CouplingNeighborhoods.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FixedBallCover
+public import BouRabeeGwynne.FixedBallCover
+
+@[expose] public section
 
 /-! Choose the fixed outer boundary collar, ambient region and excursion balls
 before the skeleton length and the backward endpoint partitions. -/

@@ -1,6 +1,10 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 01;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import BouRabeeGwynne.ActualWalkSkeleton
+public import BouRabeeGwynne.ActualWalkSkeleton
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

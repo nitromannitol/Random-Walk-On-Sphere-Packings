@@ -1,4 +1,8 @@
-import Lean
+module
+
+public import Lean
+
+@[expose] public section
 /-!
 Dump the project declarations needed to state given theorems, with their source ranges.
 

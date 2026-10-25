@@ -1,12 +1,16 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HarmonicMeasureBridge.lean` at commit cf73d6e): its declarations that assume a
 -- finite state space or a finite conductance network, for the chain of an arbitrary Markov
 -- kernel on a measurable space.
-import BouRabeeGwynne.HarmonicMeasureBridge
-import SpherePackings.General.MarkovChain.Absorbed
-import SpherePackings.General.Walk.DiscreteHarmonicMeasure
-import SpherePackings.General.Walk.StoppedCurveMeasurable
+public import BouRabeeGwynne.HarmonicMeasureBridge
+public import SpherePackings.General.MarkovChain.Absorbed
+public import SpherePackings.General.Walk.DiscreteHarmonicMeasure
+public import SpherePackings.General.Walk.StoppedCurveMeasurable
+
+@[expose] public section
 
 /-! General-state-space version of `BouRabeeGwynne.HarmonicMeasureBridge`: the declarations of that file
 that assume a finite state space or a finite conductance network. -/

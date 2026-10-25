@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HypIIIRegionScale.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.HypIIIGeometricScale
-import BouRabeeGwynne.RegionDiameter
-import Mathlib.Analysis.SpecificLimits.Normed
+public import BouRabeeGwynne.HypIIIGeometricScale
+public import BouRabeeGwynne.RegionDiameter
+public import Mathlib.Analysis.SpecificLimits.Normed
+
+@[expose] public section
 
 /-! Hypothesis III turns geometric mass decay into vanishing current diameters. -/
 

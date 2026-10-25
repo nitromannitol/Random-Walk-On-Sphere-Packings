@@ -1,5 +1,9 @@
-import BouRabeeGwynne.HarmonicNearClosureBrownianExit
-import Mathlib.Topology.TietzeExtension
+module
+
+public import BouRabeeGwynne.HarmonicNearClosureBrownianExit
+public import Mathlib.Topology.TietzeExtension
+
+@[expose] public section
 
 /-!
 # Brownian exit representation for boundary-continuous harmonic functions

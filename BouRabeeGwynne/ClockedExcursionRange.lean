@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ClockedExcursionRange.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ExcursionOscillation
-import BouRabeeGwynne.TilingClockedExcursion
-import BouRabeeGwynne.Section4BallHarmonicMeasure
+public import BouRabeeGwynne.ExcursionOscillation
+public import BouRabeeGwynne.TilingClockedExcursion
+public import BouRabeeGwynne.Section4BallHarmonicMeasure
+
+@[expose] public section
 
 /-! The actual rich ambient walk excursion stays in the enlarged ball.
 The proof transfers the full clocked law to the ball's finite graph region. -/

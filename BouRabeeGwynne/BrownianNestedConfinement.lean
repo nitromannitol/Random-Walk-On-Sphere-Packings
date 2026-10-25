@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianNestedConfinement.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianNestedClock
-import BouRabeeGwynne.BrownianNestedSurvival
-import BouRabeeGwynne.BrownianExitRangeComparison
+public import BouRabeeGwynne.BrownianNestedClock
+public import BouRabeeGwynne.BrownianNestedSurvival
+public import BouRabeeGwynne.BrownianExitRangeComparison
+
+@[expose] public section
 
 /-! The finite nested-excursion survival estimate controls the whole actual
 outer-stopped path. The proof compares the original path's exit times. -/

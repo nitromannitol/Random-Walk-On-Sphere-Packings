@@ -1,6 +1,10 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.DualDirichlet
+public import BouRabeeGwynne.DualDirichlet
+
+@[expose] public section
 
 /-!
 # Lemma 2.3: the dual variational principle

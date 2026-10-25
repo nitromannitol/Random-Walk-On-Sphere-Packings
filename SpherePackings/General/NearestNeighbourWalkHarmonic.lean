@@ -1,7 +1,11 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.General.NearestNeighbourWalk
-import SpherePackings.General.Walk.FreeAbsorbed
+public import SpherePackings.General.NearestNeighbourWalk
+public import SpherePackings.General.Walk.FreeAbsorbed
+
+@[expose] public section
 
 /-!
 # The harmonic measure of a nearest-neighbour walk as an absorbed-chain exit law

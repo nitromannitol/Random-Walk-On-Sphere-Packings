@@ -1,3 +1,5 @@
+module
+
 /-
 Proposition 2.6 of rw-spheres.tex, frozen.
 
@@ -18,7 +20,9 @@ on the edge segments implies the Taylor condition.  `incidentEnergy` and `incide
 undirected edges, each half the printed directed sum, so the constant `9` is unchanged.  Proved
 from leobon12's flux-residual bounds.
 -/
-import SpherePackings.Support.Section3.EnergyComplete
+public import SpherePackings.Support.Section3.EnergyComplete
+
+@[expose] public section
 
 open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings
 open scoped MeasureTheory Laplacian

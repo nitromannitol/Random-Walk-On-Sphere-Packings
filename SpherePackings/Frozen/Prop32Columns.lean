@@ -1,3 +1,5 @@
+module
+
 /-
 Proposition 3.2 of rw-spheres.tex, frozen.
 
@@ -17,7 +19,9 @@ the projection of the cell of a vertex of `V[U]` where the error exceeds the thr
 `incidentMass` is the undirected sum, half the printed one, so the threshold is half the printed one
 (stronger).  Proved from leobon12's column lemmas, adapted to complete cells.
 -/
-import SpherePackings.Support.Section3.EnergyComplete
+public import SpherePackings.Support.Section3.EnergyComplete
+
+@[expose] public section
 
 open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings
 open scoped MeasureTheory Laplacian

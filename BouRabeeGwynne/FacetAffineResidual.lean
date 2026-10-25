@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FacetAffineResidual.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FacetFlux
+public import BouRabeeGwynne.FacetFlux
+
+@[expose] public section
 
 /-!
 # Contact flux compared with the interior affine approximation

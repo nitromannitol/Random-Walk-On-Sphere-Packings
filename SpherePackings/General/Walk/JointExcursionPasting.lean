@@ -1,15 +1,19 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/JointExcursionPasting.lean` at commit cf73d6e): its theorem for the chain
 -- of an arbitrary Markov kernel on a measurable space, with the deterministic bound on the
 -- excursion ranges replaced by their shape (a bound that holds on the good event only).
-import BouRabeeGwynne.JointExcursionPasting
-import SpherePackings.General.MarkovChain.Absorbed
-import SpherePackings.General.Walk.ActualWalkSkeleton
-import SpherePackings.General.Walk.GoodRange
-import SpherePackings.General.Walk.WalkBrownianCoupling
-import SpherePackings.General.Walk.WalkSkeletonLaw
-import SpherePackings.General.Walk.WalkSkeletonPrefix
+public import BouRabeeGwynne.JointExcursionPasting
+public import SpherePackings.General.MarkovChain.Absorbed
+public import SpherePackings.General.Walk.ActualWalkSkeleton
+public import SpherePackings.General.Walk.GoodRange
+public import SpherePackings.General.Walk.WalkBrownianCoupling
+public import SpherePackings.General.Walk.WalkSkeletonLaw
+public import SpherePackings.General.Walk.WalkSkeletonPrefix
+
+@[expose] public section
 
 /-! General-state-space version of `BouRabeeGwynne.JointExcursionPasting`.  leobon12's theorem
 assumes that every walk excursion stays within a fixed distance `R` of its start, which holds for

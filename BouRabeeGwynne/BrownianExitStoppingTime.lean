@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianExitStoppingTime.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ContinuousExitProperties
-import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
-import Mathlib.Probability.Process.Stopping
+public import BouRabeeGwynne.ContinuousExitProperties
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+public import Mathlib.Probability.Process.Stopping
+
+@[expose] public section
 
 /-!
 # The actual exit time in the canonical Brownian filtration

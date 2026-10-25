@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FacetFlux.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.DiscretePDE
-import BouRabeeGwynne.FluxResidual
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import BouRabeeGwynne.DiscretePDE
+public import BouRabeeGwynne.FluxResidual
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+
+@[expose] public section
 
 open scoped Topology ENNReal MeasureTheory
 open MeasureTheory

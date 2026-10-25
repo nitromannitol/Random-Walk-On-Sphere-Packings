@@ -1,7 +1,11 @@
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Voronoi.PoissonTilings
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Voronoi.PoissonCells
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TheoremBStatement
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedCurveLaws
+module
+
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Voronoi.PoissonTilings
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Voronoi.PoissonCells
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TheoremBStatement
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedCurveLaws
+
+@[expose] public section
 
 /-!
 # Comparator challenge: Proposition 1.1 (`prop:min-max-edge-length`), Theorems A and B for Poisson–Voronoi tilings

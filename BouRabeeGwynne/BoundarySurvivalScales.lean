@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BoundarySurvivalScales.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-! Scalar choices for finite nested boundary excursions: first fix the
 number of probability contractions, then fit every spatial scale. -/

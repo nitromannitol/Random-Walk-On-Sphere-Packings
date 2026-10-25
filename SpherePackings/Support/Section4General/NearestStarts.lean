@@ -1,7 +1,11 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Section4General.AssumptionD
-import BouRabeeGwynne.FixedBallCover
+public import SpherePackings.Support.Section4General.AssumptionD
+public import BouRabeeGwynne.FixedBallCover
+
+@[expose] public section
 
 /-!
 # Nearby starts for the coupling

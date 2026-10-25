@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4BrownianBallKernel.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section4BrownianBallHarmonicMeasure
-import BouRabeeGwynne.HarmonicPolynomialApproximation
+public import BouRabeeGwynne.Section4BrownianBallHarmonicMeasure
+public import BouRabeeGwynne.HarmonicPolynomialApproximation
+
+@[expose] public section
 
 /-! Continuity of the actual Brownian ball-exit probability kernel, obtained
 from the same harmonic polynomial boundary approximants as the discrete comparison. -/

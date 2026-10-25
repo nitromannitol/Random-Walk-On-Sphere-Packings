@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianStoppingOscillation.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianStoppingEvent
-import BouRabeeGwynne.BrownianExitInterval
-import BouRabeeGwynne.BrownianExcursionKernel
+public import BouRabeeGwynne.BrownianStoppingEvent
+public import BouRabeeGwynne.BrownianExitInterval
+public import BouRabeeGwynne.BrownianExcursionKernel
+
+@[expose] public section
 
 /-! A fresh-path range estimate controls oscillation on the original path's
 interval from an actual stopping time to its next exit. -/

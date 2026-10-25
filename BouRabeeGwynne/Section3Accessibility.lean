@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3Accessibility.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3ColumnPaths
-import BouRabeeGwynne.TilingNetwork
-import Mathlib.Analysis.Normed.Affine.AddTorsorBases
+public import BouRabeeGwynne.Section3ColumnPaths
+public import BouRabeeGwynne.TilingNetwork
+public import Mathlib.Analysis.Normed.Affine.AddTorsorBases
+
+@[expose] public section
 
 /-! Positive projected-base measure supplies actual positive-conductance boundary paths. -/
 

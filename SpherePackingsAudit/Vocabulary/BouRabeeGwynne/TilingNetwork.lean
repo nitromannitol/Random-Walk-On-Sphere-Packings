@@ -1,21 +1,25 @@
-import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Algebra.Order.BigOperators.Group.Finset
-import Mathlib.Analysis.Convex.Intrinsic
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Basic.Real.Basic
-import Mathlib.Data.Finset.Max
-import Mathlib.Geometry.Euclidean.Volume.Measure
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.Logic.Relation
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
-import Mathlib.Topology.MetricSpace.Thickening
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDE
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDEAlgebra
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LocalRegion
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.PaperObjects
+module
+
+public import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Group.Finset
+public import Mathlib.Analysis.Convex.Intrinsic
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Finset.Max
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+public import Mathlib.Logic.Relation
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.MetricSpace.Thickening
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDE
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDEAlgebra
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LocalRegion
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.PaperObjects
+
+@[expose] public section
 
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne

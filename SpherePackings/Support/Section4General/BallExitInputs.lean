@@ -1,9 +1,13 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4BallExitCouplingInputs.lean` at commit cf73d6e): the ball-exit
 -- inputs of the coupling, for any nearest-neighbour walk under Assumption D, from Proposition 4.2.
-import SpherePackings.Support.Section4General.Prop42
-import BouRabeeGwynne.Section4BallExitCouplingInputs
+public import SpherePackings.Support.Section4General.Prop42
+public import BouRabeeGwynne.Section4BallExitCouplingInputs
+
+@[expose] public section
 
 /-!
 # Ball-exit inputs of the coupling under Assumption D

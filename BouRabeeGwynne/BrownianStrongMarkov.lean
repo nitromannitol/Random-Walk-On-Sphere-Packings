@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianStrongMarkov.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BoundedBrownianMarkov
-import BouRabeeGwynne.BrownianFiniteExit
-import Mathlib.MeasureTheory.Measure.Continuity
+public import BouRabeeGwynne.BoundedBrownianMarkov
+public import BouRabeeGwynne.BrownianFiniteExit
+public import Mathlib.MeasureTheory.Measure.Continuity
+
+@[expose] public section
 
 /-!
 # Brownian strong Markov at actual finite exit times

@@ -1,10 +1,14 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 22;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import SpherePackings.Support.Guards.LatticeVoronoi
-import SpherePackings.Support.Voronoi.TilingProps
-import SpherePackings.Support.Complete.Basic
-import SpherePackings.Frozen.Lemma22AffineKernel
-import SpherePackings.Frozen.Lemma51Outer
+public import SpherePackings.Support.Guards.LatticeVoronoi
+public import SpherePackings.Support.Voronoi.TilingProps
+public import SpherePackings.Support.Complete.Basic
+public import SpherePackings.Frozen.Lemma22AffineKernel
+public import SpherePackings.Frozen.Lemma51Outer
+
+@[expose] public section
 
 /-! Nonvacuity examples for audit batch 22.
 

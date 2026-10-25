@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FiniteStoppedLawComparison.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkCanonicalStopping
-import BouRabeeGwynne.FiniteStoppedCurveComparison
-import BouRabeeGwynne.BrownianStoppedSkeleton
-import BouRabeeGwynne.WalkBrownianActiveTransfer
+public import BouRabeeGwynne.WalkCanonicalStopping
+public import BouRabeeGwynne.FiniteStoppedCurveComparison
+public import BouRabeeGwynne.BrownianStoppedSkeleton
+public import BouRabeeGwynne.WalkBrownianActiveTransfer
+
+@[expose] public section
 
 /-! The finite rich-sequence coupling controls the two reconstructed stopped
 laws. Its exceptional mass consists of first failure, the Brownian active

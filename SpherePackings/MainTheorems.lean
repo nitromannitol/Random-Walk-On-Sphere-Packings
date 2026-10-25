@@ -1,11 +1,15 @@
-import SpherePackings.Frozen.TheoremA
-import SpherePackings.Frozen.TheoremBa
-import SpherePackings.Frozen.TheoremBb
-import SpherePackings.Frozen.Prop11Cells
-import SpherePackings.Frozen.Prop11TheoremAB
-import SpherePackings.Frozen.Theorem61Counterexample
-import SpherePackings.Frozen.Theorem41
-import SpherePackings.Frozen.Prop42General
+module
+
+public import SpherePackings.Frozen.TheoremA
+public import SpherePackings.Frozen.TheoremBa
+public import SpherePackings.Frozen.TheoremBb
+public import SpherePackings.Frozen.Prop11Cells
+public import SpherePackings.Frozen.Prop11TheoremAB
+public import SpherePackings.Frozen.Theorem61Counterexample
+public import SpherePackings.Frozen.Theorem41
+public import SpherePackings.Frozen.Prop42General
+
+@[expose] public section
 
 /-!
 # Main results

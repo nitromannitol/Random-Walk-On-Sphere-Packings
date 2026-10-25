@@ -1,4 +1,8 @@
-import SpherePackings.MainTheorems
+module
+
+public import SpherePackings.MainTheorems
+
+@[expose] public section
 
 /-!
 # Axiom audit of the main results

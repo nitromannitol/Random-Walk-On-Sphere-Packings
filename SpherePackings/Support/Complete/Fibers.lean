@@ -1,11 +1,15 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.ProjectedBase
-import BouRabeeGwynne.FacetNull
-import Mathlib.Analysis.Convex.Intrinsic
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
-import Mathlib.Tactic.Module
-import Mathlib.Analysis.Convex.Measure
+public import BouRabeeGwynne.ProjectedBase
+public import BouRabeeGwynne.FacetNull
+public import Mathlib.Analysis.Convex.Intrinsic
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import Mathlib.Tactic.Module
+public import Mathlib.Analysis.Convex.Measure
+
+@[expose] public section
 
 /-!
 # Almost every line through a polytope meets it in a nondegenerate segment

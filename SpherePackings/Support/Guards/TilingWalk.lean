@@ -1,7 +1,11 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.General.NearestNeighbourWalk
-import BouRabeeGwynne.DiscretePDE
+public import SpherePackings.General.NearestNeighbourWalk
+public import BouRabeeGwynne.DiscretePDE
+
+@[expose] public section
 
 /-!
 # The conductance walk of a tiling as a nearest-neighbour walk

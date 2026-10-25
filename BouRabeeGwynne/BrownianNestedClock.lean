@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianNestedClock.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianNestedExit
-import BouRabeeGwynne.BrownianSkeletonExcursion
+public import BouRabeeGwynne.BrownianNestedExit
+public import BouRabeeGwynne.BrownianSkeletonExcursion
+
+@[expose] public section
 
 /-! Deterministic nested excursions use exactly the first exits of the
 original path, including infinite exit times. -/

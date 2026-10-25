@@ -1,8 +1,12 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FiniteStoppedLawComparison.lean` at commit cf73d6e): the walk-support
 -- hypothesis is required only on the event that all excursion pairs are good.
-import BouRabeeGwynne.FiniteStoppedLawComparison
+public import BouRabeeGwynne.FiniteStoppedLawComparison
+
+@[expose] public section
 
 /-! The comparison of reconstructed stopped laws, with the walk-support hypothesis required only
 on the good event (it is used only there).  This allows walks without a deterministic step bound. -/

@@ -1,8 +1,12 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 13;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import BouRabeeGwynne.Upstream.BrownianMotion.Continuity.KolmogorovChentsovInequality
-import BouRabeeGwynne.Upstream.BrownianMotion.Continuity.LimitModification
-import BouRabeeGwynne.EuclideanWienerLaw
+public import BouRabeeGwynne.Upstream.BrownianMotion.Continuity.KolmogorovChentsovInequality
+public import BouRabeeGwynne.Upstream.BrownianMotion.Continuity.LimitModification
+public import BouRabeeGwynne.EuclideanWienerLaw
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

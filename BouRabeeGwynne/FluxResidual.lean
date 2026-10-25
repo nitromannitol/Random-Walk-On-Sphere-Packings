@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FluxResidual.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Analysis.Calculus.MeanValue
-import Mathlib.Analysis.Calculus.ContDiff.Defs
-import Mathlib.Analysis.Normed.Group.Bounded
-import Mathlib.Topology.MetricSpace.Thickening
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
+public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.Analysis.Calculus.ContDiff.Defs
+public import Mathlib.Analysis.Normed.Group.Bounded
+public import Mathlib.Topology.MetricSpace.Thickening
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 open scoped Topology
 

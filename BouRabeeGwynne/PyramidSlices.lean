@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PyramidSlices.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.DualCells
-import Mathlib.Analysis.InnerProductSpace.Orthogonal
+public import BouRabeeGwynne.DualCells
+public import Mathlib.Analysis.InnerProductSpace.Orthogonal
+
+@[expose] public section
 
 open scoped Topology ENNReal MeasureTheory
 open MeasureTheory

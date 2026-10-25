@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TilingStoppedLawComparison.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ActualStoppedLawComparison
-import BouRabeeGwynne.WalkEdgeSupport
+public import BouRabeeGwynne.ActualStoppedLawComparison
+public import BouRabeeGwynne.WalkEdgeSupport
+
+@[expose] public section
 
 /-! Specialize the actual stopped-law comparison to the genuine ambient
 tiling walk. Every step bound and excursion range bound follows from the

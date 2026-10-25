@@ -1,5 +1,9 @@
-import SpherePackings.Support.HarmonicPolynomials
-import BouRabeeGwynne.HarmonicNearClosureBrownianExit
+module
+
+public import SpherePackings.Support.HarmonicPolynomials
+public import BouRabeeGwynne.HarmonicNearClosureBrownianExit
+
+@[expose] public section
 
 /-!
 # Brownian motion leaves the unit ball symmetrically

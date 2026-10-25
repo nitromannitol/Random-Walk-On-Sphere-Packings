@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/UnitCurveExit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedBrownianMeasurable
-import BouRabeeGwynne.ContinuousExitProperties
-import BouRabeeGwynne.StoppedCurvePrefixes
-import Mathlib.Topology.Order.ProjIcc
+public import BouRabeeGwynne.StoppedBrownianMeasurable
+public import BouRabeeGwynne.ContinuousExitProperties
+public import BouRabeeGwynne.StoppedCurvePrefixes
+public import Mathlib.Topology.Order.ProjIcc
+
+@[expose] public section
 
 /-! Measurable first-exit stopping of an actual continuous unit-interval curve.
 The curve is extended constantly beyond time one; absence of an exit retains

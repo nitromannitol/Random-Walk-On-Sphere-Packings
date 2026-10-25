@@ -1,8 +1,12 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 05;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import BouRabeeGwynne.BrownianSkeletonLaw
-import BouRabeeGwynne.BrownianActiveSkeletonTail
-import BouRabeeGwynne.EuclideanWienerLaw
+public import BouRabeeGwynne.BrownianSkeletonLaw
+public import BouRabeeGwynne.BrownianActiveSkeletonTail
+public import BouRabeeGwynne.EuclideanWienerLaw
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

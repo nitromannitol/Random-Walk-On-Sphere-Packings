@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianSkeletonTail.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianUniformModulus
-import BouRabeeGwynne.BrownianFiniteExit
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Push
+public import BouRabeeGwynne.BrownianUniformModulus
+public import BouRabeeGwynne.BrownianFiniteExit
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Push
+
+@[expose] public section
 
 /-!
 # Uniform bounds on Brownian ball-skeleton counts

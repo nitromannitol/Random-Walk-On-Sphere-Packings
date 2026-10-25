@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem 6.1 of rw-spheres.tex, frozen.
 
@@ -17,7 +19,9 @@ hitting computation fails; this packing does not cover `ℝ^d` (a small sphere o
 ones touches others only in the first three coordinate directions).  The statement, like the
 printed one, does not ask that the packing cover `ℝ^d`.
 -/
-import SpherePackings.Support.Counterexample.Theorem
+public import SpherePackings.Support.Counterexample.Theorem
+
+@[expose] public section
 
 open MeasureTheory Metric Filter Set BouRabeeGwynne SpherePackings
 open scoped ENNReal Topology

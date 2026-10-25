@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/DiscreteHarmonicMeasure.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.FiniteExit
-import BouRabeeGwynne.StoppedCurveMeasurable
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import BouRabeeGwynne.FiniteExit
+public import BouRabeeGwynne.StoppedCurveMeasurable
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+
+@[expose] public section
 
 /-!
 # Actual discrete harmonic measure

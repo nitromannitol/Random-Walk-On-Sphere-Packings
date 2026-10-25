@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4BallExitCouplingInputs.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section4BallExitLevyProkhorov
-import BouRabeeGwynne.Section4UniformExitCells
+public import BouRabeeGwynne.Section4BallExitLevyProkhorov
+public import BouRabeeGwynne.Section4UniformExitCells
+
+@[expose] public section
 
 /-! Nearby-start comparisons for actual fixed-ball exit laws. -/
 

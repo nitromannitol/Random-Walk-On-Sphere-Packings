@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ApproximationGeometry.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Approximation
-import BouRabeeGwynne.LocalGeometry
+public import BouRabeeGwynne.Approximation
+public import BouRabeeGwynne.LocalGeometry
+
+@[expose] public section
 
 open scoped ENNReal Topology
 

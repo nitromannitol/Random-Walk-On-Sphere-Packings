@@ -1,9 +1,13 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BackwardExitPartitions.lean` at commit cf73d6e): the backward choice of
 -- exit partitions, for any nearest-neighbour walk under Assumption D in place of tilings.
-import SpherePackings.Support.Section4General.BallExitInputs
-import BouRabeeGwynne.BackwardExitPartitions
+public import SpherePackings.Support.Section4General.BallExitInputs
+public import BouRabeeGwynne.BackwardExitPartitions
+
+@[expose] public section
 
 /-! Finite backwards choice of common continuity cells and their spatial moduli, for the walks of
 Assumption D.  The stage count is fixed before choosing cells; one eventual index works for every

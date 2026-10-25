@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3CellMass.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3EnergyNormalization
-import BouRabeeGwynne.CellVolumeBound
-import BouRabeeGwynne.DualVolume
+public import BouRabeeGwynne.Section3EnergyNormalization
+public import BouRabeeGwynne.CellVolumeBound
+public import BouRabeeGwynne.DualVolume
+
+@[expose] public section
 
 /-! Each actual interior tile volume is bounded by total incident mass. -/
 

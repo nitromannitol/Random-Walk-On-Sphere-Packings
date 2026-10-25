@@ -1,10 +1,14 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/ProjectedContactPartition.lean` and `BouRabeeGwynne/PolytopeGaussGreen.lean` at
 -- commit cf73d6e): the contact partition and the Gauss--Green identity, for complete cells.
-import SpherePackings.Support.Complete.Basic
-import SpherePackings.Support.Complete.Fibers
-import BouRabeeGwynne.PolytopeGaussGreen
+public import SpherePackings.Support.Complete.Basic
+public import SpherePackings.Support.Complete.Fibers
+public import BouRabeeGwynne.PolytopeGaussGreen
+
+@[expose] public section
 
 /-!
 # Gauss–Green on a complete cell

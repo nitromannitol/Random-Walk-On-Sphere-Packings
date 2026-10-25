@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TrajectoryIdentification.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.TrajectoryCoupling
+public import BouRabeeGwynne.TrajectoryCoupling
+
+@[expose] public section
 
 /-! Identify the full law of an actual sequence from its initial law and the
 joint laws of each observed finite history with its next state. -/

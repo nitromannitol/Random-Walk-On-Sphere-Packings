@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianFiniteExit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurveLaws
-import Mathlib.MeasureTheory.Measure.Continuity
-import Mathlib.Analysis.Normed.Group.Bounded
+public import BouRabeeGwynne.StoppedCurveLaws
+public import Mathlib.MeasureTheory.Measure.Continuity
+public import Mathlib.Analysis.Normed.Group.Bounded
+
+@[expose] public section
 
 /-!
 # Almost-sure exit of Brownian paths from bounded sets

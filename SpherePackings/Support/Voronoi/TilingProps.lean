@@ -1,5 +1,9 @@
-import SpherePackings.Support.Voronoi.Tiling
-import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+module
+
+public import SpherePackings.Support.Voronoi.Tiling
+public import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+
+@[expose] public section
 
 /-!
 # Mesh, tile volume and nearest vertices of Voronoi tilings

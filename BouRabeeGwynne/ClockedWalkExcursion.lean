@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ClockedWalkExcursion.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.WalkExcursionKernel
-import BouRabeeGwynne.WalkStoppedHistory
+public import BouRabeeGwynne.WalkExcursionKernel
+public import BouRabeeGwynne.WalkStoppedHistory
+
+@[expose] public section
 
 /-! The actual walk excursion retains its integer duration and all embedded
 vertices. Its normalized-curve and endpoint pushforwards are the previously

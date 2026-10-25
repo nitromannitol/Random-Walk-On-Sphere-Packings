@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/UnitCurveOscillation.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.UnitCurveExit
-import Mathlib.Topology.Order.IntermediateValue
+public import BouRabeeGwynne.UnitCurveExit
+public import Mathlib.Topology.Order.IntermediateValue
+
+@[expose] public section
 
 /-! A measurable oscillation event of the actual finite pasted curve, between
 its two first-exit parameters. -/

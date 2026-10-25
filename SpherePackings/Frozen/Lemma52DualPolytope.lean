@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 5.2 of rw-spheres.tex, frozen.
 
@@ -6,7 +8,9 @@ Paper statement, `rw-spheres.tex:1650-1653` (label `lemma:dual-polytope-bound`):
 `P* = {y : x ⬝ y ≤ 1 ∀ x ∈ P}` of `P = conv(x^{(1+)}, x^{(1-)}, …, x^{(d+)}, x^{(d-)})` lies in
 `B_{2√d}`.  As printed, for `d ≥ 1`.
 -/
-import SpherePackings.Support.Voronoi.DualPolytopeBound
+public import SpherePackings.Support.Voronoi.DualPolytopeBound
+
+@[expose] public section
 
 open Metric SpherePackings.Voronoi
 

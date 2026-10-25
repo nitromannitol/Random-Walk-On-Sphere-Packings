@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3HarmonicInput.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3EnergyNormalization
-import BouRabeeGwynne.SurfaceEnergyEstimate
+public import BouRabeeGwynne.Section3EnergyNormalization
+public import BouRabeeGwynne.SurfaceEnergyEstimate
+
+@[expose] public section
 
 /-! The actual harmonic surface-flux estimate in the Section 3 normalization. -/
 

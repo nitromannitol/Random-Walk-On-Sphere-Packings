@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ClockedWalkConcatenation.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ActualWalkSkeleton
+public import BouRabeeGwynne.ActualWalkSkeleton
+
+@[expose] public section
 
 /-! Measurable reconstruction of the complete padded vertex sequence from
 finitely many rich excursions. The concatenation retains integer duration. -/

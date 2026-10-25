@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ActualWalkSkeleton.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.WalkAdaptiveStopping
-import BouRabeeGwynne.WalkSelectedRestart
+public import BouRabeeGwynne.WalkAdaptiveStopping
+public import BouRabeeGwynne.WalkSelectedRestart
+
+@[expose] public section
 
 /-! Successive rich excursions of one original ambient walk. Stage zero is
 the actual first chosen-ball excursion. Elapsed clocks are never discarded. -/

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkStrongMarkov.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.WalkStoppedHistory
+public import BouRabeeGwynne.WalkStoppedHistory
+
+@[expose] public section
 
 /-! Full-path strong Markov factorization for the actual finite conductance
 walk, obtained by restricting the deterministic-time joint law and summing

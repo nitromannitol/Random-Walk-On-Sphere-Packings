@@ -1,11 +1,15 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/Section3Boxes.lean` and `BouRabeeGwynne/Section3PlanarEstimate.lean` at
 -- commit cf73d6e): the maximum principle on a good box, with cell diameters in place of the mesh.
-import SpherePackings.Support.Section3.PlanarCuts
-import SpherePackings.Support.Section3.EnergyMinimal
-import SpherePackings.Support.Section3.GeneralRateFull
-import BouRabeeGwynne.Section3PlanarEstimate
+public import SpherePackings.Support.Section3.PlanarCuts
+public import SpherePackings.Support.Section3.EnergyMinimal
+public import SpherePackings.Support.Section3.GeneralRateFull
+public import BouRabeeGwynne.Section3PlanarEstimate
+
+@[expose] public section
 
 /-!
 # Theorem 3.3 with its printed constant (intermediate result)

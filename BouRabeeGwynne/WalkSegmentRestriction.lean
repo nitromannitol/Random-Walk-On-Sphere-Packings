@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkSegmentRestriction.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ActualWalkSkeleton
-import BouRabeeGwynne.StoppedCurveProperties
+public import BouRabeeGwynne.ActualWalkSkeleton
+public import BouRabeeGwynne.StoppedCurveProperties
+
+@[expose] public section
 
 /-! Exact restrictions of the original polygonal walk. The scaled-time
 identity avoids division and includes zero total or segment duration. -/

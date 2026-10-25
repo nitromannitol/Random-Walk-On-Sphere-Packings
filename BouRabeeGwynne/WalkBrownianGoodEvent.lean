@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkBrownianGoodEvent.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkBrownianCoupling
-import BouRabeeGwynne.FiniteCellSelector
+public import BouRabeeGwynne.WalkBrownianCoupling
+public import BouRabeeGwynne.FiniteCellSelector
+
+@[expose] public section
 
 /-! Successful paired excursions either share a valid bounded endpoint cell,
 or have both terminated and retain their earlier endpoint-distance bound.

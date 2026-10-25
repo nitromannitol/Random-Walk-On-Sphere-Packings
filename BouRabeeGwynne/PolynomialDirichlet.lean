@@ -1,13 +1,17 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PolynomialDirichlet.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PolynomialDegree
-import BouRabeeGwynne.PolynomialBallIdentity
-import BouRabeeGwynne.PolynomialAnalyticLaplacian
-import BouRabeeGwynne.HarmonicNearClosureBrownianExit
-import BouRabeeGwynne.EuclideanWienerLaw
-import Mathlib.Algebra.MvPolynomial.CommRing
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+public import BouRabeeGwynne.PolynomialDegree
+public import BouRabeeGwynne.PolynomialBallIdentity
+public import BouRabeeGwynne.PolynomialAnalyticLaplacian
+public import BouRabeeGwynne.HarmonicNearClosureBrownianExit
+public import BouRabeeGwynne.EuclideanWienerLaw
+public import Mathlib.Algebra.MvPolynomial.CommRing
+public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+
+@[expose] public section
 
 /-! Every polynomial boundary datum on a Euclidean sphere has a globally
 harmonic polynomial extension. Injectivity of the finite-degree Dirichlet

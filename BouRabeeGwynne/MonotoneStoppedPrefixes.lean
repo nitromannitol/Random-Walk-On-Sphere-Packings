@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/MonotoneStoppedPrefixes.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurvePrefixes
+public import BouRabeeGwynne.StoppedCurvePrefixes
+
+@[expose] public section
 
 /-! Stopping a curve at corresponding points of a continuous monotone clock
 preserves its actual Fréchet class, including prefixes of duration zero. -/

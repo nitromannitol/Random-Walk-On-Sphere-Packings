@@ -1,3 +1,5 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (file
 -- `BouRabeeGwynne/Section4BallHarmonicMeasure.lean` at commit cf73d6e): the declarations of that
@@ -5,8 +7,10 @@
 -- localized Assumption D `TilingAssumptionD G` and deprecated names updated; the other declarations
 -- are imported. The two theorems are stated for a ball `U = Metric.ball c r`, the case Assumption D
 -- covers.
-import BouRabeeGwynne.Section4BallHarmonicMeasure
-import SpherePackings.Support.Section4.AssumptionD
+public import BouRabeeGwynne.Section4BallHarmonicMeasure
+public import SpherePackings.Support.Section4.AssumptionD
+
+@[expose] public section
 
 /-! Section 4 of rw-spheres.tex under the localized Assumption D: the declarations of
 leobon12's `BouRabeeGwynne.Section4BallHarmonicMeasure` that use the regularity hypothesis. -/

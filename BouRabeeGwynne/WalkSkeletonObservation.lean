@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkSkeletonObservation.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.ActualWalkSkeleton
+public import BouRabeeGwynne.ActualWalkSkeleton
+
+@[expose] public section
 
 /-! Recover the whole finite excursion prefix and its current vertex from
 the observed past of the same original walk. -/

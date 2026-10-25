@@ -1,10 +1,14 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/FluxResidual.lean` and `BouRabeeGwynne/FacetFlux.lean` at commit cf73d6e):
 -- the energy estimate, for complete cells and the finite Taylor inequalities.
-import SpherePackings.Support.Section3.TaylorEnergy
-import SpherePackings.Support.Complete.GaussGreen
-import SpherePackings.Support.Complete.Columns
+public import SpherePackings.Support.Section3.TaylorEnergy
+public import SpherePackings.Support.Complete.GaussGreen
+public import SpherePackings.Support.Complete.Columns
+
+@[expose] public section
 
 /-!
 # Propositions 2.6 and 3.2 as in the corrected paper

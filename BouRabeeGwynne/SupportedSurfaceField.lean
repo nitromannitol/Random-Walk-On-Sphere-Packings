@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/SupportedSurfaceField.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FacetFlux
-import BouRabeeGwynne.TilingNetwork
+public import BouRabeeGwynne.FacetFlux
+public import BouRabeeGwynne.TilingNetwork
+
+@[expose] public section
 
 open scoped BigOperators Classical
 

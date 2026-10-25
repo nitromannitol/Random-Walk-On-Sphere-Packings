@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PhysicalExcursionRecovery.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WeakExcursionRecovery
+public import BouRabeeGwynne.WeakExcursionRecovery
+
+@[expose] public section
 
 /-! Exact recovery of a continuous path's finite physical-time prefix from
 its consecutive excursions, allowing every physical duration to be zero. -/

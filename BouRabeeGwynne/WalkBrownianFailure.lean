@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkBrownianFailure.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkBrownianStep
+public import BouRabeeGwynne.WalkBrownianStep
+
+@[expose] public section
 
 /-! Finite first-failure control for the actual walk/Brownian coupling, with
 own-endpoint cell selectors and permanent termination. -/

@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PolygonalVertexExitGeometry.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurveProperties
-import Mathlib.Topology.MetricSpace.Thickening
-import Mathlib.Topology.Order.IntermediateValue
-import Mathlib.Algebra.Order.Floor.Semiring
+public import BouRabeeGwynne.StoppedCurveProperties
+public import Mathlib.Topology.MetricSpace.Thickening
+public import Mathlib.Topology.Order.IntermediateValue
+public import Mathlib.Algebra.Order.Floor.Semiring
+
+@[expose] public section
 
 /-! The first vertex exit on a fixed continuous representative of a finite walk.
 The reparametrizing clock may have constant intervals, including at the exit. -/

@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianNestedExit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianNextExit
+public import BouRabeeGwynne.BrownianNextExit
+
+@[expose] public section
 
 /-! Nested exits are the direct exits of the original path. The equalities
 include infinite exit times and use the actual shifted-path restart map. -/

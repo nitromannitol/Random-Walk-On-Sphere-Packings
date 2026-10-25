@@ -1,14 +1,18 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkCanonicalStopping.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.ClockedWalkExitParameter
-import BouRabeeGwynne.WalkSkeletonPrefix
-import BouRabeeGwynne.WalkReconstructionLaw
-import BouRabeeGwynne.MonotoneStoppedPrefixes
-import BouRabeeGwynne.PolygonalVertexExitGeometry
-import BouRabeeGwynne.UnitCurveExit
-import BouRabeeGwynne.BrownianBoundaryExcursion
+public import BouRabeeGwynne.ClockedWalkExitParameter
+public import BouRabeeGwynne.WalkSkeletonPrefix
+public import BouRabeeGwynne.WalkReconstructionLaw
+public import BouRabeeGwynne.MonotoneStoppedPrefixes
+public import BouRabeeGwynne.PolygonalVertexExitGeometry
+public import BouRabeeGwynne.UnitCurveExit
+public import BouRabeeGwynne.BrownianBoundaryExcursion
+
+@[expose] public section
 
 /-! The canonical measurable vertex-exit parameter stops the same pasted
 representative used in the finite coupling. Its geometric support is a

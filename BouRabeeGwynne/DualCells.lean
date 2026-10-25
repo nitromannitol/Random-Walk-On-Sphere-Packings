@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/DualCells.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FacetMeasure
-import BouRabeeGwynne.LocalGeometry
-import Mathlib.Analysis.Convex.Join
-import Mathlib.Analysis.Convex.Topology
+public import BouRabeeGwynne.FacetMeasure
+public import BouRabeeGwynne.LocalGeometry
+public import Mathlib.Analysis.Convex.Join
+public import Mathlib.Analysis.Convex.Topology
+
+@[expose] public section
 
 open scoped ENNReal MeasureTheory
 open MeasureTheory

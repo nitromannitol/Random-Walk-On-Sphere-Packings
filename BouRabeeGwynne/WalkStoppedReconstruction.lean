@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkStoppedReconstruction.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.ClockedWalkStopping
-import BouRabeeGwynne.WalkSkeletonLaw
+public import BouRabeeGwynne.ClockedWalkStopping
+public import BouRabeeGwynne.WalkSkeletonLaw
+
+@[expose] public section
 
 /-! Recover the actual stopped walk from a finite sequence of its rich
 excursions once that sequence reaches the domain's first vertex exit. -/

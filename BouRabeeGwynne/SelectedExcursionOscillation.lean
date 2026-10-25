@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/SelectedExcursionOscillation.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ClockedExcursionRange
-import BouRabeeGwynne.WalkBrownianStep
+public import BouRabeeGwynne.ClockedExcursionRange
+public import BouRabeeGwynne.WalkBrownianStep
+
+@[expose] public section
 
 /-! Whole-excursion oscillation bounds along the original selected processes.
 The walk's one-ball input is the actual enlarged-ball kernel bound. -/

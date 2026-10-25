@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianMoments.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Probability.BrownianMotion.Basic
-import Mathlib.Probability.Moments.MGFAnalytic
-import Mathlib.Tactic.Ring
+public import Mathlib.Probability.BrownianMotion.Basic
+public import Mathlib.Probability.Moments.MGFAnalytic
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-!
 # Exact fourth moments for the Brownian finite-dimensional laws

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianPathFreezing.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianExitRestart
-import BouRabeeGwynne.BrownianFiniteStopping
+public import BouRabeeGwynne.BrownianExitRestart
+public import BouRabeeGwynne.BrownianFiniteStopping
+
+@[expose] public section
 
 /-!
 # Freezing the canonical path at an observed time

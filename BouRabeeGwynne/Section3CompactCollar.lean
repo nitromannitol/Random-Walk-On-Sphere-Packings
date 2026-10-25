@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3CompactCollar.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Harmonic
-import BouRabeeGwynne.EventualLocalRegion
-import Mathlib.Analysis.Normed.Group.Bounded
+public import BouRabeeGwynne.Harmonic
+public import BouRabeeGwynne.EventualLocalRegion
+public import Mathlib.Analysis.Normed.Group.Bounded
+
+@[expose] public section
 
 /-! A single compact harmonic collar supplies all Section 3 analytic constants. -/
 

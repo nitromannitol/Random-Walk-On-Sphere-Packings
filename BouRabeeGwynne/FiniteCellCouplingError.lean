@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FiniteCellCouplingError.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FinitePartitionCoupling
-import Mathlib.Tactic.Linarith
+public import BouRabeeGwynne.FinitePartitionCoupling
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-! The continuous-cell mass errors bound the failure probability of the
 explicit full-excursion coupling. Only the second law needs to give total

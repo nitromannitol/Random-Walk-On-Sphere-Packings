@@ -1,8 +1,12 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.WalkBrownianGoodEvent
-import BouRabeeGwynne.ExcursionOscillation
-import BouRabeeGwynne.WalkExcursionKernel
+public import BouRabeeGwynne.WalkBrownianGoodEvent
+public import BouRabeeGwynne.ExcursionOscillation
+public import BouRabeeGwynne.WalkExcursionKernel
+
+@[expose] public section
 
 /-!
 # Walk excursion ranges on good pairs

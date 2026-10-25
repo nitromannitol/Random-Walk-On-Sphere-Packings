@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BoundarySampling.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Topology.MetricSpace.HausdorffDistance
-import Mathlib.Topology.UniformSpace.HeineCantor
-import Mathlib.Analysis.Normed.Module.RCLike.Real
+public import Mathlib.Topology.MetricSpace.HausdorffDistance
+public import Mathlib.Topology.UniformSpace.HeineCantor
+public import Mathlib.Analysis.Normed.Module.RCLike.Real
+
+@[expose] public section
 
 open scoped Topology
 

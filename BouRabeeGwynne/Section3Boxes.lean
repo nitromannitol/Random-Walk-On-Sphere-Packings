@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3Boxes.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3LocalMaximum
-import BouRabeeGwynne.Section3Iteration
-import BouRabeeGwynne.TilingNetwork
-import BouRabeeGwynne.LocalGeometry
-import Mathlib.Topology.Order.IntermediateValue
-import Mathlib.Analysis.Convex.Topology
+public import BouRabeeGwynne.Section3LocalMaximum
+public import BouRabeeGwynne.Section3Iteration
+public import BouRabeeGwynne.TilingNetwork
+public import BouRabeeGwynne.LocalGeometry
+public import Mathlib.Topology.Order.IntermediateValue
+public import Mathlib.Analysis.Convex.Topology
+
+@[expose] public section
 
 /-! Cell-contained boxes and the actual local maximum principle. -/
 

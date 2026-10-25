@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BoundaryCorrectedSurfaceEnergy.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.CorrectedSurfaceField
-import BouRabeeGwynne.PolytopeGaussGreen
-import BouRabeeGwynne.Section3EnergyNormalization
+public import BouRabeeGwynne.CorrectedSurfaceField
+public import BouRabeeGwynne.PolytopeGaussGreen
+public import BouRabeeGwynne.Section3EnergyNormalization
+
+@[expose] public section
 
 /-!
 # Actual corrected geometric energy estimate

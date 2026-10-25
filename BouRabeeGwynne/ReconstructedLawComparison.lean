@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ReconstructedLawComparison.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PartitionCouplingDistance
-import BouRabeeGwynne.StoppedCurveLaws
+public import BouRabeeGwynne.PartitionCouplingDistance
+public import BouRabeeGwynne.StoppedCurveLaws
+
+@[expose] public section
 
 /-! Compare an actual stopped law with its finite reconstruction on the same
 original sample. Only the mass of failed reconstruction is lost. -/

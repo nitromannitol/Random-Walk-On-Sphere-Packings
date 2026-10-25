@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PolynomialLaplacian.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Algebra.MvPolynomial.PDeriv
-import Mathlib.Data.Real.Basic
-import Mathlib.RingTheory.MvPolynomial.Homogeneous
-import Mathlib.Tactic.Ring
+public import Mathlib.Algebra.MvPolynomial.PDeriv
+public import Mathlib.Data.Real.Basic
+public import Mathlib.RingTheory.MvPolynomial.Homogeneous
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-!
 # The finite-degree polynomial Dirichlet operator

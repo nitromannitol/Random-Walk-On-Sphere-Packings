@@ -1,10 +1,14 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkPathStopping.lean` at commit cf73d6e): its declarations that assume a
 -- finite state space or a finite conductance network, for the chain of an arbitrary Markov
 -- kernel on a measurable space.
-import BouRabeeGwynne.WalkPathStopping
-import SpherePackings.General.MarkovChain.Absorbed
+public import BouRabeeGwynne.WalkPathStopping
+public import SpherePackings.General.MarkovChain.Absorbed
+
+@[expose] public section
 
 /-! General-state-space version of `BouRabeeGwynne.WalkPathStopping`: the declarations of that file
 that assume a finite state space or a finite conductance network. -/

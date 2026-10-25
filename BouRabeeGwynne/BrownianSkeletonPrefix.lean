@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianSkeletonPrefix.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianPhysicalSegments
-import BouRabeeGwynne.BrownianSkeletonLaw
-import BouRabeeGwynne.ExcursionTrajectory
+public import BouRabeeGwynne.BrownianPhysicalSegments
+public import BouRabeeGwynne.BrownianSkeletonLaw
+public import BouRabeeGwynne.ExcursionTrajectory
+
+@[expose] public section
 
 /-! The actual finite Brownian excursion prefix is the original path prefix
 with its genuine stopping duration. Both pointwise and Fréchet recovery are retained. -/

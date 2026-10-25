@@ -1,8 +1,12 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3Boxes.lean` at commit cf73d6e): the maximum principle on a good box,
 -- with a subharmonic comparison in place of the oscillation of `h_C`.
-import SpherePackings.Support.Section3.PlanarRateFull
+public import SpherePackings.Support.Section3.PlanarRateFull
+
+@[expose] public section
 
 /-!
 # Theorem 3.3 without a Lipschitz hypothesis (intermediate result)

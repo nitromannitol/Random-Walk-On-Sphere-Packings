@@ -1,4 +1,8 @@
-import SpherePackings.Support.Counterexample.Construction
+module
+
+public import SpherePackings.Support.Counterexample.Construction
+
+@[expose] public section
 
 /-!
 # Disjointness and tangency in the packing of Theorem 6.1

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FiniteCellSelector.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FixedBallCover
-import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+public import BouRabeeGwynne.FixedBallCover
+public import Mathlib.MeasureTheory.MeasurableSpace.Constructions
+
+@[expose] public section
 
 /-! Measurable cell labels and ball selectors. A point outside every bounded
 cell receives `none`, so a default label cannot certify a successful match. -/

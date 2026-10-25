@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HypIIICorrectedRegions.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.HypIIICorrectedTrimming
-import BouRabeeGwynne.RegionDiameter
+public import BouRabeeGwynne.HypIIICorrectedTrimming
+public import BouRabeeGwynne.RegionDiameter
+
+@[expose] public section
 
 /-! The actual adaptive corrected iteration and its geometric mass decay. -/
 

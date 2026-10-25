@@ -1,10 +1,14 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/FluxResidual.lean` and `BouRabeeGwynne/FacetFlux.lean` at commit cf73d6e):
 -- the flux-residual bounds, with the Hessian bound on the edge segment and the cell in place of the
 -- closed ball of radius twice the mesh.
-import BouRabeeGwynne.Section3PlanarTarget
-import Mathlib.Analysis.Normed.Affine.Convex
+public import BouRabeeGwynne.Section3PlanarTarget
+public import Mathlib.Analysis.Normed.Affine.Convex
+
+@[expose] public section
 
 /-!
 # Proposition 2.6 under the edge-segment hypothesis (intermediate result)

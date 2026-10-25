@@ -1,4 +1,8 @@
-import SpherePackings.Support.Counterexample.Tangency
+module
+
+public import SpherePackings.Support.Counterexample.Tangency
+
+@[expose] public section
 
 /-!
 # Covered spheres, and the packing of Theorem 6.1 in dimension three

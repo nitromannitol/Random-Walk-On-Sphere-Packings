@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TheoremBStatement.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Approximation
-import BouRabeeGwynne.Harmonic
-import BouRabeeGwynne.LipschitzDomain
-import BouRabeeGwynne.TilingDirichlet
-import BouRabeeGwynne.BoundaryGeometry
-import BouRabeeGwynne.EventualLocalRegion
+public import BouRabeeGwynne.Approximation
+public import BouRabeeGwynne.Harmonic
+public import BouRabeeGwynne.LipschitzDomain
+public import BouRabeeGwynne.TilingDirichlet
+public import BouRabeeGwynne.BoundaryGeometry
+public import BouRabeeGwynne.EventualLocalRegion
+
+@[expose] public section
 
 /-!
 # Theorem B: explicit, unproved geometric targets

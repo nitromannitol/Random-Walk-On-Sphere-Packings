@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FinitePartitionCouplingKernel.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FinitePartitionCoupling
-import Mathlib.Probability.Kernel.Composition.Prod
+public import BouRabeeGwynne.FinitePartitionCoupling
+public import Mathlib.Probability.Kernel.Composition.Prod
+
+@[expose] public section
 
 /-!
 # The explicit finite-cell coupling is a measurable kernel

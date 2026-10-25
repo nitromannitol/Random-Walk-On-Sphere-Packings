@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ContactCoordinateFlux.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.CoordinateHyperplane
-import BouRabeeGwynne.FacetProjection
-import BouRabeeGwynne.FacetMeasure
+public import BouRabeeGwynne.CoordinateHyperplane
+public import BouRabeeGwynne.FacetProjection
+public import BouRabeeGwynne.FacetMeasure
+
+@[expose] public section
 
 open scoped ENNReal MeasureTheory
 open MeasureTheory

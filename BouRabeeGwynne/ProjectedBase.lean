@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ProjectedBase.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FiberEndpoints
+public import BouRabeeGwynne.FiberEndpoints
+
+@[expose] public section
 
 namespace BouRabeeGwynne
 

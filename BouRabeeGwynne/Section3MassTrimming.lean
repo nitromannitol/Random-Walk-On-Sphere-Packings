@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3MassTrimming.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3EnergyNormalization
-import BouRabeeGwynne.Section3Iteration
+public import BouRabeeGwynne.Section3EnergyNormalization
+public import BouRabeeGwynne.Section3Iteration
+
+@[expose] public section
 
 /-! Exact finite trimming estimates, with the global edge length factor explicit. -/
 

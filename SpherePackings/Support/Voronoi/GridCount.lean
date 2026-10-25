@@ -1,6 +1,10 @@
-import SpherePackings.Support.Voronoi.Basic
-import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
-import Mathlib.Analysis.PSeries
+module
+
+public import SpherePackings.Support.Voronoi.Basic
+public import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
+public import Mathlib.Analysis.PSeries
+
+@[expose] public section
 
 /-!
 # Grid points in bounded sets, and two summable sequences

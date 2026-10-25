@@ -1,8 +1,12 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.PolytopeGaussGreen
-import SpherePackings.Support.Complete.GaussGreen
-import SpherePackings.Support.HarmonicPolynomials
+public import BouRabeeGwynne.PolytopeGaussGreen
+public import SpherePackings.Support.Complete.GaussGreen
+public import SpherePackings.Support.HarmonicPolynomials
+
+@[expose] public section
 
 /-!
 # Lemma 2.2: affine functions lie in the kernel of the discrete Laplacian

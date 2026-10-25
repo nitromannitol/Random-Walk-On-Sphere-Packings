@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianWeakMarkov.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurveLaws
-import BouRabeeGwynne.IndependentCoordinatePairs
-import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+public import BouRabeeGwynne.StoppedCurveLaws
+public import BouRabeeGwynne.IndependentCoordinatePairs
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+
+@[expose] public section
 
 /-!
 # Euclidean Brownian future independent of the entire past

@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem B, alternative (b), of rw-spheres.tex, frozen.
 
@@ -12,7 +14,9 @@ nearest point of `closure U`, for every choice of such points (the printed footn
 point; where it exists, the two statements agree); the statement also asserts that these points lie on the
 frontier of `U`, within two meshes of the vertex.
 -/
-import SpherePackings.Support.TheoremBPartB.Proof
+public import SpherePackings.Support.TheoremBPartB.Proof
+
+@[expose] public section
 
 open scoped Topology ENNReal
 open BouRabeeGwynne

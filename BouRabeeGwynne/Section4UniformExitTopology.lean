@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4UniformExitTopology.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PaperObjects
-import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
-import Mathlib.Topology.Sequences
+public import BouRabeeGwynne.PaperObjects
+public import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+public import Mathlib.Topology.Sequences
+
+@[expose] public section
 
 /-! Compact starting sets turn uniform continuous-test estimates into uniform
 Lévy–Prokhorov estimates. No assertion about masses of discontinuous cells is made. -/

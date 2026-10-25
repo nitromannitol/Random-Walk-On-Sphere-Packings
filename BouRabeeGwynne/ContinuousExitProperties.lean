@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ContinuousExitProperties.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurveLaws
-import Mathlib.Topology.Order.Monotone
-import Mathlib.Topology.Order.DenselyOrdered
+public import BouRabeeGwynne.StoppedCurveLaws
+public import Mathlib.Topology.Order.Monotone
+public import Mathlib.Topology.Order.DenselyOrdered
+
+@[expose] public section
 
 /-!
 # Actual continuous exit and the stopped endpoint

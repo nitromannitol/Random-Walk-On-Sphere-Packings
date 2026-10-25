@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ExcursionTrajectory.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.TrajectoryCoupling
-import BouRabeeGwynne.ExcursionConcatenation
-import BouRabeeGwynne.StoppedCurveLaws
+public import BouRabeeGwynne.TrajectoryCoupling
+public import BouRabeeGwynne.ExcursionConcatenation
+public import BouRabeeGwynne.StoppedCurveLaws
+
+@[expose] public section
 
 /-! Measurable finite excursion chains extracted from the actual trajectory
 law. Consecutive endpoints agree almost surely because the transition kernel

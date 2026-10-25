@@ -1,9 +1,13 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Section3.InternalTaylor
-import SpherePackings.Support.Section3.GeneralRateFull
-import SpherePackings.Support.Complete.Section3
-import BouRabeeGwynne.HypIIICorrectedRegions
+public import SpherePackings.Support.Section3.InternalTaylor
+public import SpherePackings.Support.Section3.GeneralRateFull
+public import SpherePackings.Support.Complete.Section3
+public import BouRabeeGwynne.HypIIICorrectedRegions
+
+@[expose] public section
 
 /-!
 # Theorem 3.6 as in the corrected paper

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/DualVolumeSums.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PyramidOverlap
-import BouRabeeGwynne.DualAdditivity
+public import BouRabeeGwynne.PyramidOverlap
+public import BouRabeeGwynne.DualAdditivity
+
+@[expose] public section
 
 open scoped ENNReal MeasureTheory BigOperators
 open MeasureTheory

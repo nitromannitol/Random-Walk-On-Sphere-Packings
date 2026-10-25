@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3Iteration.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FiniteDirichlet
-import Mathlib.Algebra.Order.Ring.Abs
+public import BouRabeeGwynne.FiniteDirichlet
+public import Mathlib.Algebra.Order.Ring.Abs
+
+@[expose] public section
 
 /-!
 # Section 3: a trimmed harmonic-replacement step

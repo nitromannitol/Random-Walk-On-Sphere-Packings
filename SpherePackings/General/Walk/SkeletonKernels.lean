@@ -1,11 +1,15 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/ClockedWalkExcursion.lean`, `ExcursionEndpointExtension.lean` and
 -- `WalkSkeletonKernel.lean` at commit cf73d6e): the excursion and skeleton kernels of the walk of a
 -- finite conductance network, for the chain of an arbitrary Markov kernel whose state space embeds
 -- measurably in `ℝ^d`.
-import SpherePackings.General.Walk.StoppedCurveMeasurable
-import BouRabeeGwynne.WalkSkeletonKernel
+public import SpherePackings.General.Walk.StoppedCurveMeasurable
+public import BouRabeeGwynne.WalkSkeletonKernel
+
+@[expose] public section
 
 /-!
 # Excursion and skeleton kernels of a Markov chain

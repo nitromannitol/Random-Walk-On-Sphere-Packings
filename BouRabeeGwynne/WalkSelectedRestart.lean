@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkSelectedRestart.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkStrongMarkov
-import BouRabeeGwynne.WalkAbsorption
-import BouRabeeGwynne.AbsorbingExcursionKernel
-import BouRabeeGwynne.DependentKernelMap
+public import BouRabeeGwynne.WalkStrongMarkov
+public import BouRabeeGwynne.WalkAbsorption
+public import BouRabeeGwynne.AbsorbingExcursionKernel
+public import BouRabeeGwynne.DependentKernelMap
+
+@[expose] public section
 
 /-! Exact conditional laws for whole clocked excursions selected from the
 observed past of the original ambient walk. -/

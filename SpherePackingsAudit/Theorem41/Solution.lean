@@ -1,4 +1,8 @@
-import SpherePackings.MainTheorems
+module
+
+public import SpherePackings.MainTheorems
+
+@[expose] public section
 
 /-!
 # Solution: Theorem 4.1 (`theorem:general-clt`)

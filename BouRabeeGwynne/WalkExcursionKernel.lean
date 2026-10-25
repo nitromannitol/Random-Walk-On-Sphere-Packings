@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkExcursionKernel.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.HarmonicMeasureBridge
-import BouRabeeGwynne.ExcursionConcatenation
-import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+public import BouRabeeGwynne.HarmonicMeasureBridge
+public import BouRabeeGwynne.ExcursionConcatenation
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+
+@[expose] public section
 
 /-! The full stopped polygonal excursion of the actual finite conductance
 walk, as a measurable Markov kernel in its starting vertex. Both its curve

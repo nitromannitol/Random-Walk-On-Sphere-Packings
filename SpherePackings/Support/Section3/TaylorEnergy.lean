@@ -1,9 +1,13 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/FluxResidual.lean` and `BouRabeeGwynne/FacetFlux.lean` at commit cf73d6e):
 -- the flux-residual bounds, from the finite Taylor inequalities and the Hessian on the active cell.
-import SpherePackings.Support.Section3.EnergyMinimal
-import SpherePackings.Support.Section3.ComponentLaplacian
+public import SpherePackings.Support.Section3.EnergyMinimal
+public import SpherePackings.Support.Section3.ComponentLaplacian
+
+@[expose] public section
 
 /-!
 # Finite Taylor control (`rw-spheres-corrected.tex`, Correction 8)

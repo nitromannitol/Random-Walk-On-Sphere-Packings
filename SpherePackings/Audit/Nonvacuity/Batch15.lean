@@ -1,7 +1,11 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 15;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import SpherePackings.General.MarkovChain.Dirichlet
-import SpherePackings.General.NearestNeighbourWalk
+public import SpherePackings.General.MarkovChain.Dirichlet
+public import SpherePackings.General.NearestNeighbourWalk
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

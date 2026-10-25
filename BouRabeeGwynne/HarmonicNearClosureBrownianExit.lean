@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HarmonicNearClosureBrownianExit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianHarmonicExit
-import BouRabeeGwynne.HarmonicCutoff
+public import BouRabeeGwynne.BrownianHarmonicExit
+public import BouRabeeGwynne.HarmonicCutoff
+
+@[expose] public section
 
 /-! Brownian harmonic measure represents the original functions harmonic near
 the domain closure, with no global smoothness or compact-support hypothesis. -/

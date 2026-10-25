@@ -1,5 +1,9 @@
-import SpherePackings.Support.Counterexample.Construction
-import BouRabeeGwynne.StoppedCurveLaws
+module
+
+public import SpherePackings.Support.Counterexample.Construction
+public import BouRabeeGwynne.StoppedCurveLaws
+
+@[expose] public section
 
 /-!
 # Simple random walk on a sphere packing, stopped on leaving a domain

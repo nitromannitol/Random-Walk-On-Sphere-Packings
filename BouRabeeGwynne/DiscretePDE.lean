@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/DiscretePDE.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Tactic.Ring
-import BouRabeeGwynne.LocalRegion
-import BouRabeeGwynne.FacetMeasure
+public import Mathlib.Tactic.Ring
+public import BouRabeeGwynne.LocalRegion
+public import BouRabeeGwynne.FacetMeasure
+
+@[expose] public section
 
 open scoped BigOperators ENNReal
 

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ExteriorBallBuffer.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.LipschitzUniformExteriorBalls
-import Mathlib.Topology.MetricSpace.Thickening
+public import BouRabeeGwynne.LipschitzUniformExteriorBalls
+public import Mathlib.Topology.MetricSpace.Thickening
+
+@[expose] public section
 
 /-! A smaller concentric part of an exterior ball lies strictly outside a
 closed collar of the domain. This supplies a buffer for the stopping comparison. -/

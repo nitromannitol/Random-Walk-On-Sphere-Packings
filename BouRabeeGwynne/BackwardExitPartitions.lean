@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BackwardExitPartitions.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianContinuityCells
-import BouRabeeGwynne.Section4BallExitCouplingInputs
+public import BouRabeeGwynne.BrownianContinuityCells
+public import BouRabeeGwynne.Section4BallExitCouplingInputs
+
+@[expose] public section
 
 /-! Finite backwards choice of common continuity cells and their spatial moduli.
 The stage count is fixed before choosing cells. Each preceding partition is

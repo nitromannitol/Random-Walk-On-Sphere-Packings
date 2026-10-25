@@ -1,4 +1,8 @@
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TheoremBStatement
+module
+
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TheoremBStatement
+
+@[expose] public section
 
 /-!
 # Comparator challenge: Theorem B (`theorem:convergence-of-the-dirichlet-problem`), both alternatives

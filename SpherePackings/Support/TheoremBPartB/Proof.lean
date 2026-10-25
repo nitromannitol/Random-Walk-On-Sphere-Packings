@@ -1,13 +1,17 @@
-import SpherePackings.Support.TheoremBPartB.BrownianContinuousExit
-import SpherePackings.Support.LevyProkhorovIntegral
-import BouRabeeGwynne.TheoremBStatement
-import BouRabeeGwynne.TheoremAProcessLaws
-import BouRabeeGwynne.UniformStoppedWalkConvergence
-import BouRabeeGwynne.Section3WellPosed
-import BouRabeeGwynne.Section3CaseIITarget
-import BouRabeeGwynne.HarmonicMeasureBridge
-import Mathlib.Topology.UrysohnsLemma
-import Mathlib.Topology.ContinuousMap.BoundedCompactlySupported
+module
+
+public import SpherePackings.Support.TheoremBPartB.BrownianContinuousExit
+public import SpherePackings.Support.LevyProkhorovIntegral
+public import BouRabeeGwynne.TheoremBStatement
+public import BouRabeeGwynne.TheoremAProcessLaws
+public import BouRabeeGwynne.UniformStoppedWalkConvergence
+public import BouRabeeGwynne.Section3WellPosed
+public import BouRabeeGwynne.Section3CaseIITarget
+public import BouRabeeGwynne.HarmonicMeasureBridge
+public import Mathlib.Topology.UrysohnsLemma
+public import Mathlib.Topology.ContinuousMap.BoundedCompactlySupported
+
+@[expose] public section
 
 /-!
 # Theorem B(b)

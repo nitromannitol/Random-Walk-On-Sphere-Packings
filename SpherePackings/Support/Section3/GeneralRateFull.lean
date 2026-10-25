@@ -1,11 +1,15 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Section3.ComponentChain
-import SpherePackings.Support.Section3.ComponentLaplacian
-import SpherePackings.Support.Section3.ComponentArith
-import SpherePackings.Support.Section3.EnergyMinimal
-import BouRabeeGwynne.Section3CaseIITarget
-import BouRabeeGwynne.Section3LocalMaximum
+public import SpherePackings.Support.Section3.ComponentChain
+public import SpherePackings.Support.Section3.ComponentLaplacian
+public import SpherePackings.Support.Section3.ComponentArith
+public import SpherePackings.Support.Section3.EnergyMinimal
+public import BouRabeeGwynne.Section3CaseIITarget
+public import BouRabeeGwynne.Section3LocalMaximum
+
+@[expose] public section
 
 /-!
 # Theorem 3.6 with its full bound (intermediate result)

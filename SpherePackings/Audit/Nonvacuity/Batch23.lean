@@ -1,10 +1,14 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 23;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together.
    They reuse the lattice tiling `GT` of `Audit20Nonvacuity` (Voronoi tiling of `(1/10) ℤ²` on the
    ball of radius `2`), its boundary accessibility and its interior-cell containment. -/
-import SpherePackings.Audit.Nonvacuity.Batch20
-import SpherePackings.Support.Section3.PlanarInternal
-import SpherePackings.Support.Section3.GeneralInternal
+public import SpherePackings.Audit.Nonvacuity.Batch20
+public import SpherePackings.Support.Section3.PlanarInternal
+public import SpherePackings.Support.Section3.GeneralInternal
+
+@[expose] public section
 
 
 open MeasureTheory Metric Set BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings

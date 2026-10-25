@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianLawUniqueness.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianWeakMarkov
-import Mathlib.MeasureTheory.Constructions.Projective
+public import BouRabeeGwynne.BrownianWeakMarkov
+public import Mathlib.MeasureTheory.Constructions.Projective
+
+@[expose] public section
 
 /-!
 # Uniqueness and stationary shifts of the actual Brownian path law

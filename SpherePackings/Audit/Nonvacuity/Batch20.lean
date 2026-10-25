@@ -1,7 +1,11 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 20;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import SpherePackings.Support.Guards.LatticeTilings
-import SpherePackings.Support.Section3.PlanarQuadratic
+public import SpherePackings.Support.Guards.LatticeTilings
+public import SpherePackings.Support.Section3.PlanarQuadratic
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

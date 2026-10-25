@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TheoremAProcessLaws.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.EuclideanWienerLaw
-import BouRabeeGwynne.BrownianFiniteExit
-import BouRabeeGwynne.StoppedBrownianMeasurable
-import BouRabeeGwynne.StoppedTilingWalkLaw
-import BouRabeeGwynne.Section3WellPosed
-import BouRabeeGwynne.CoordinateHyperplane
+public import BouRabeeGwynne.EuclideanWienerLaw
+public import BouRabeeGwynne.BrownianFiniteExit
+public import BouRabeeGwynne.StoppedBrownianMeasurable
+public import BouRabeeGwynne.StoppedTilingWalkLaw
+public import BouRabeeGwynne.Section3WellPosed
+public import BouRabeeGwynne.CoordinateHyperplane
+
+@[expose] public section
 
 /-! Construction and well-definedness of the actual process laws in Theorem A.
 The uniform walk-to-Brownian convergence is a separate remaining conclusion. -/

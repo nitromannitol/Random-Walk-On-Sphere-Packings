@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HyperplaneGraph.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.GraphMeasure
-import Mathlib.Basic.Real.Sign
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Linarith
+public import BouRabeeGwynne.GraphMeasure
+public import Mathlib.Basic.Real.Sign
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 open scoped BigOperators ENNReal MeasureTheory
 open MeasureTheory

@@ -1,16 +1,20 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkSkeletonLaw.lean` at commit cf73d6e): its declarations that assume a
 -- finite state space or a finite conductance network, for the chain of an arbitrary Markov
 -- kernel on a measurable space.
-import BouRabeeGwynne.WalkSkeletonLaw
-import SpherePackings.General.MarkovChain.Absorbed
-import SpherePackings.General.Walk.ActualWalkSkeleton
-import SpherePackings.General.Walk.SkeletonKernels
-import SpherePackings.General.Walk.WalkAbsorption
-import SpherePackings.General.Walk.WalkSelectedRestart
-import SpherePackings.General.Walk.WalkSkeletonKernel
-import SpherePackings.General.Walk.WalkSkeletonObservation
+public import BouRabeeGwynne.WalkSkeletonLaw
+public import SpherePackings.General.MarkovChain.Absorbed
+public import SpherePackings.General.Walk.ActualWalkSkeleton
+public import SpherePackings.General.Walk.SkeletonKernels
+public import SpherePackings.General.Walk.WalkAbsorption
+public import SpherePackings.General.Walk.WalkSelectedRestart
+public import SpherePackings.General.Walk.WalkSkeletonKernel
+public import SpherePackings.General.Walk.WalkSkeletonObservation
+
+@[expose] public section
 
 /-! General-state-space version of `BouRabeeGwynne.WalkSkeletonLaw`: the declarations of that file
 that assume a finite state space or a finite conductance network. -/

@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkSkeletonPrefix.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.WalkSkeletonLaw
-import BouRabeeGwynne.WalkExcursionRecovery
-import BouRabeeGwynne.ExcursionTrajectory
+public import BouRabeeGwynne.WalkSkeletonLaw
+public import BouRabeeGwynne.WalkExcursionRecovery
+public import BouRabeeGwynne.ExcursionTrajectory
+
+@[expose] public section
 
 /-! Exact recovery of the finite excursion prefix of one original walk.
 The monotone clock and all integer stage times are retained, even when the

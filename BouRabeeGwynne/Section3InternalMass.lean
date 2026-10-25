@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3InternalMass.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3MassTrimming
-import BouRabeeGwynne.Section3CylinderVolume
-import BouRabeeGwynne.DualVolume
-import BouRabeeGwynne.DualVolumeSums
+public import BouRabeeGwynne.Section3MassTrimming
+public import BouRabeeGwynne.Section3CylinderVolume
+public import BouRabeeGwynne.DualVolume
+public import BouRabeeGwynne.DualVolumeSums
+
+@[expose] public section
 
 /-! Actual bad-bad dual cells and their cylinder mass bound. -/
 

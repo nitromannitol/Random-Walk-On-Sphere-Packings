@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 3.5 of rw-spheres.tex, frozen.
 
@@ -7,7 +9,9 @@ Paper statement, `rw-spheres.tex:1128-1135` (label `lemma:gradient-energy-estima
 leobon12's theorem, for any finite family of edges with lengths at most `δ`, in the form
 `d vol_d(Q_e) = ‖e‖ vol_{d-1}(H_e)` (Lemma 2.4).
 -/
-import BouRabeeGwynne.Section3WeightedEnergy
+public import BouRabeeGwynne.Section3WeightedEnergy
+
+@[expose] public section
 
 open scoped BigOperators Classical
 open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling

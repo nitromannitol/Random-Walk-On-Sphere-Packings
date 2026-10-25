@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/EventualLocalRegion.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ApproximationGeometry
-import BouRabeeGwynne.LocalRegion
-import BouRabeeGwynne.NearestVertexExistence
+public import BouRabeeGwynne.ApproximationGeometry
+public import BouRabeeGwynne.LocalRegion
+public import BouRabeeGwynne.NearestVertexExistence
+
+@[expose] public section
 
 open scoped ENNReal Topology
 

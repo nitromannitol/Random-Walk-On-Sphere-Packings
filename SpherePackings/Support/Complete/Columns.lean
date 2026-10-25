@@ -1,12 +1,16 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/Section3ColumnTraversal.lean`, `Section3ColumnPaths.lean` and
 -- `Section3ColumnEstimate.lean` at commit cf73d6e): the column lemmas, for complete cells.
-import SpherePackings.Support.Complete.Basic
-import SpherePackings.Support.Complete.Fibers
-import BouRabeeGwynne.Section3ColumnEstimate
-import BouRabeeGwynne.FacetNormals
-import BouRabeeGwynne.Section3ParallelFacetProjection
+public import SpherePackings.Support.Complete.Basic
+public import SpherePackings.Support.Complete.Fibers
+public import BouRabeeGwynne.Section3ColumnEstimate
+public import BouRabeeGwynne.FacetNormals
+public import BouRabeeGwynne.Section3ParallelFacetProjection
+
+@[expose] public section
 
 /-!
 # Columns through complete cells (Lemma 3.1)

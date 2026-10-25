@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkExcursionRecovery.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkSegmentRestriction
-import BouRabeeGwynne.WeakExcursionRecovery
+public import BouRabeeGwynne.WalkSegmentRestriction
+public import BouRabeeGwynne.WeakExcursionRecovery
+
+@[expose] public section
 
 /-! Pasting actual discrete excursions recovers the original polygonal path
 in the Fréchet quotient, including repeated clocks and zero total duration. -/

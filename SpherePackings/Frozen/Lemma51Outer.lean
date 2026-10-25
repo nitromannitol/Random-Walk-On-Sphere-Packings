@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 5.1(b) of rw-spheres.tex, frozen.
 
@@ -15,7 +17,9 @@ printed one).  It fails for every `d ≥ 13`: with `k = 1`, `s = (-1/100, 1/2, �
 `U = B_{1/1000}(s)` and `S = {s} ∪ (ℤ^d ∩ B_2(U))`, every tested cube contains a point of `S` for
 every `δ > 0`, while `s + 5√d e₁ ∈ 𝒞_s`.
 -/
-import SpherePackings.Support.Voronoi.GeometricConstraint
+public import SpherePackings.Support.Voronoi.GeometricConstraint
+
+@[expose] public section
 
 open Metric SpherePackings.Voronoi
 

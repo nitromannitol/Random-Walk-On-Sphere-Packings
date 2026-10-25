@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FacetNormals.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PolytopeBoundary
-import Mathlib.Analysis.LocallyConvex.Separation
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
+public import BouRabeeGwynne.PolytopeBoundary
+public import Mathlib.Analysis.LocallyConvex.Separation
+public import Mathlib.LinearAlgebra.Dual.Lemmas
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 open scoped Pointwise
 

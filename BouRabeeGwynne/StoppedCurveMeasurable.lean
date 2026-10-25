@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/StoppedCurveMeasurable.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurveLaws
+public import BouRabeeGwynne.StoppedCurveLaws
+
+@[expose] public section
 
 /-!
 # Measurability of stopped polygonal curves

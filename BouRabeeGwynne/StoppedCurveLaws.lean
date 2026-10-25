@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/StoppedCurveLaws.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.CurveSpace
-import BouRabeeGwynne.StoppedWalk
-import BouRabeeGwynne.TilingNetwork
-import Mathlib.Probability.BrownianMotion.Basic
-import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+public import BouRabeeGwynne.CurveSpace
+public import BouRabeeGwynne.StoppedWalk
+public import BouRabeeGwynne.TilingNetwork
+public import Mathlib.Probability.BrownianMotion.Basic
+public import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+
+@[expose] public section
 
 /-!
 # The actual laws occurring in Theorem A

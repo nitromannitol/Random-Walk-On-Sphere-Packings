@@ -1,3 +1,5 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/DyadicExitApprox.lean` at commit cf73d6e); unchanged apart from this header.
@@ -15,11 +17,13 @@ UniformIntegrable, or Approximable typeclass import is used.
 The original Apache-2.0 license is retained in
 BouRabeeGwynne/Upstream/BrownianMotion/LICENSE. See the provenance record there.
 -/
-import Mathlib.Probability.Process.Stopping
-import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+public import Mathlib.Probability.Process.Stopping
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 open Filter TopologicalSpace Function
 open scoped NNReal ENNReal Topology

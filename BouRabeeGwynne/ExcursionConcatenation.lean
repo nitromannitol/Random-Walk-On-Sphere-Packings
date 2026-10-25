@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ExcursionConcatenation.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.SkeletonCurveComparison
-import Mathlib.Topology.Order.ProjIcc
-import Mathlib.Topology.ContinuousOn
-import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+public import BouRabeeGwynne.SkeletonCurveComparison
+public import Mathlib.Topology.Order.ProjIcc
+public import Mathlib.Topology.ContinuousOn
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+
+@[expose] public section
 
 /-! Actual concatenation of a finite sequence of continuous excursions.
 Matching endpoints are the only compatibility condition. Fixed-partition

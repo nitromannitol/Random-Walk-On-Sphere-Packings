@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ContinuityCells.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.MeasureTheory.Measure.Portmanteau
-import Mathlib.Order.Disjointed
+public import Mathlib.MeasureTheory.Measure.Portmanteau
+public import Mathlib.Order.Disjointed
+
+@[expose] public section
 
 /-!
 # Common small continuity cells on a compact spatial region

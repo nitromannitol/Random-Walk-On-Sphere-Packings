@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianHessianGenerator.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianQuadraticMoments
-import BouRabeeGwynne.Harmonic
+public import BouRabeeGwynne.BrownianQuadraticMoments
+public import BouRabeeGwynne.Harmonic
+
+@[expose] public section
 
 /-!
 # The Brownian quadratic term is the actual continuum Laplacian

@@ -1,5 +1,9 @@
-import SpherePackings.Support.Voronoi.Basic
-import Mathlib.Analysis.Convex.Combination
+module
+
+public import SpherePackings.Support.Voronoi.Basic
+public import Mathlib.Analysis.Convex.Combination
+
+@[expose] public section
 
 /-!
 # Lemma 5.2: the polar of a perturbed cross-polytope is bounded

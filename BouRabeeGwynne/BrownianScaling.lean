@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianScaling.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianLawUniqueness
+public import BouRabeeGwynne.BrownianLawUniqueness
+
+@[expose] public section
 
 /-! Positive parabolic scaling preserves the actual continuous Euclidean
 Brownian path law. The coordinate scaling theorem is the pinned mathlib

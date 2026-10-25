@@ -1,7 +1,11 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.PaperObjects
-import Mathlib.Combinatorics.SimpleGraph.Paths
+public import BouRabeeGwynne.PaperObjects
+public import Mathlib.Combinatorics.SimpleGraph.Paths
+
+@[expose] public section
 
 /-!
 # Chains of adjacent cells

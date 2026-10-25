@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianExitRangeComparison.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianExcursionRange
-import BouRabeeGwynne.BrownianExcursionKernel
-import Mathlib.Topology.MetricSpace.Thickening
+public import BouRabeeGwynne.BrownianExcursionRange
+public import BouRabeeGwynne.BrownianExcursionKernel
+public import Mathlib.Topology.MetricSpace.Thickening
+
+@[expose] public section
 
 /-! Exit-time comparisons control every point of the original stopped curve.
 The collar inclusion uses the closure of the open outer thickening. -/

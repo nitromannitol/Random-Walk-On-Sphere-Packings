@@ -1,129 +1,133 @@
-import Mathlib.Algebra.BigOperators.Field
-import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Algebra.MvPolynomial.CommRing
-import Mathlib.Algebra.MvPolynomial.Funext
-import Mathlib.Algebra.MvPolynomial.PDeriv
-import Mathlib.Algebra.Order.Archimedean.Real.Basic
-import Mathlib.Algebra.Order.BigOperators.Group.Finset
-import Mathlib.Algebra.Order.Chebyshev
-import Mathlib.Algebra.Order.Ring.Abs
-import Mathlib.Analysis.Analytic.Polynomial
-import Mathlib.Analysis.Calculus.ContDiff.Comp
-import Mathlib.Analysis.Calculus.ContDiff.Defs
-import Mathlib.Analysis.Calculus.Deriv.Mul
-import Mathlib.Analysis.Calculus.Deriv.Pow
-import Mathlib.Analysis.Calculus.FDeriv.CompCLM
-import Mathlib.Analysis.Calculus.FDeriv.Mul
-import Mathlib.Analysis.Calculus.MeanValue
-import Mathlib.Analysis.Convex.Intrinsic
-import Mathlib.Analysis.Convex.Join
-import Mathlib.Analysis.Convex.Segment
-import Mathlib.Analysis.Convex.Topology
-import Mathlib.Analysis.InnerProductSpace.Laplacian
-import Mathlib.Analysis.InnerProductSpace.NormDet
-import Mathlib.Analysis.InnerProductSpace.Orthogonal
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Analysis.LocallyConvex.Separation
-import Mathlib.Analysis.Normed.Affine.AddTorsorBases
-import Mathlib.Analysis.Normed.Group.Bounded
-import Mathlib.Analysis.Normed.Group.Tannery
-import Mathlib.Analysis.Normed.Module.Basic
-import Mathlib.Analysis.Normed.Module.Convex
-import Mathlib.Analysis.Normed.Module.RCLike.Real
-import Mathlib.Analysis.Real.Sqrt
-import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Analysis.SpecialFunctions.Sqrt
-import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.Analysis.SpecificLimits.Normed
-import Mathlib.Basic.Real.Basic
-import Mathlib.Basic.Real.Sign
-import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
-import Mathlib.Combinatorics.SimpleGraph.Finite
-import Mathlib.Data.Finset.Lattice.Fold
-import Mathlib.Data.Finset.Max
-import Mathlib.Data.Real.Basic
-import Mathlib.Data.Set.Finite.Lemmas
-import Mathlib.Geometry.Euclidean.Volume.Measure
-import Mathlib.Geometry.Manifold.PartitionOfUnity
-import Mathlib.LinearAlgebra.AffineSpace.FiniteDimensional
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.LinearAlgebra.Matrix.SchurComplement
-import Mathlib.Logic.Equiv.Fin.Basic
-import Mathlib.Logic.Relation
-import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
-import Mathlib.MeasureTheory.Constructions.BorelSpace.WithTop
-import Mathlib.MeasureTheory.Constructions.Pi
-import Mathlib.MeasureTheory.Constructions.Projective
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
-import Mathlib.MeasureTheory.Integral.Bochner.Basic
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
-import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Measure.Continuity
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
-import Mathlib.MeasureTheory.Measure.Portmanteau
-import Mathlib.Order.Filter.Finite
-import Mathlib.Order.Interval.Set.Infinite
-import Mathlib.Probability.BrownianMotion.Basic
-import Mathlib.Probability.HasLaw
-import Mathlib.Probability.Independence.Basic
-import Mathlib.Probability.Independence.Integration
-import Mathlib.Probability.Kernel.Composition.Lemmas
-import Mathlib.Probability.Kernel.IonescuTulcea.Traj
-import Mathlib.Probability.Moments.Covariance
-import Mathlib.Probability.Moments.MGFAnalytic
-import Mathlib.Probability.ProbabilityMassFunction.Constructions
-import Mathlib.Probability.ProbabilityMassFunction.Integrals
-import Mathlib.Probability.Process.HittingTime
-import Mathlib.Probability.Process.Stopping
-import Mathlib.RingTheory.MvPolynomial.Basic
-import Mathlib.RingTheory.MvPolynomial.Homogeneous
-import Mathlib.Tactic.Abel
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
-import Mathlib.Topology.ContinuousMap.Compact
-import Mathlib.Topology.ContinuousMap.SecondCountableSpace
-import Mathlib.Topology.ContinuousMap.StoneWeierstrass
-import Mathlib.Topology.Instances.ENNReal.Lemmas
-import Mathlib.Topology.MetricSpace.Basic
-import Mathlib.Topology.MetricSpace.HausdorffDistance
-import Mathlib.Topology.MetricSpace.Thickening
-import Mathlib.Topology.Order.DenselyOrdered
-import Mathlib.Topology.Order.IntermediateValue
-import Mathlib.Topology.Order.Lattice
-import Mathlib.Topology.Order.Monotone
-import Mathlib.Topology.Order.MonotoneContinuity
-import Mathlib.Topology.Order.MonotoneConvergence
-import Mathlib.Topology.Sequences
-import Mathlib.Topology.UniformSpace.HeineCantor
-import Mathlib.Topology.UnitInterval
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.Approximation
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.CurveSpace
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDE
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDEAlgebra
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.Harmonic
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LipschitzDomain
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LocalRegion
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.PaperObjects
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedCurveLaws
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedWalk
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TheoremBStatement
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TilingNetwork
-import SpherePackingsAudit.Vocabulary.SpherePackings.General.MarkovChain.Basic
-import SpherePackingsAudit.Vocabulary.SpherePackings.General.MarkovChain.Dirichlet
-import SpherePackingsAudit.Vocabulary.SpherePackings.General.NearestNeighbourWalk
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Section4General.AssumptionD
+module
+
+public import Mathlib.Algebra.BigOperators.Field
+public import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.MvPolynomial.CommRing
+public import Mathlib.Algebra.MvPolynomial.Funext
+public import Mathlib.Algebra.MvPolynomial.PDeriv
+public import Mathlib.Algebra.Order.Archimedean.Real.Basic
+public import Mathlib.Algebra.Order.BigOperators.Group.Finset
+public import Mathlib.Algebra.Order.Chebyshev
+public import Mathlib.Algebra.Order.Ring.Abs
+public import Mathlib.Analysis.Analytic.Polynomial
+public import Mathlib.Analysis.Calculus.ContDiff.Comp
+public import Mathlib.Analysis.Calculus.ContDiff.Defs
+public import Mathlib.Analysis.Calculus.Deriv.Mul
+public import Mathlib.Analysis.Calculus.Deriv.Pow
+public import Mathlib.Analysis.Calculus.FDeriv.CompCLM
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.Analysis.Convex.Intrinsic
+public import Mathlib.Analysis.Convex.Join
+public import Mathlib.Analysis.Convex.Segment
+public import Mathlib.Analysis.Convex.Topology
+public import Mathlib.Analysis.InnerProductSpace.Laplacian
+public import Mathlib.Analysis.InnerProductSpace.NormDet
+public import Mathlib.Analysis.InnerProductSpace.Orthogonal
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Analysis.LocallyConvex.Separation
+public import Mathlib.Analysis.Normed.Affine.AddTorsorBases
+public import Mathlib.Analysis.Normed.Group.Bounded
+public import Mathlib.Analysis.Normed.Group.Tannery
+public import Mathlib.Analysis.Normed.Module.Basic
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.Analysis.Normed.Module.RCLike.Real
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Analysis.SpecificLimits.Normed
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Basic.Real.Sign
+public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+public import Mathlib.Combinatorics.SimpleGraph.Finite
+public import Mathlib.Data.Finset.Lattice.Fold
+public import Mathlib.Data.Finset.Max
+public import Mathlib.Data.Real.Basic
+public import Mathlib.Data.Set.Finite.Lemmas
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
+public import Mathlib.LinearAlgebra.AffineSpace.FiniteDimensional
+public import Mathlib.LinearAlgebra.Dual.Lemmas
+public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+public import Mathlib.LinearAlgebra.Matrix.SchurComplement
+public import Mathlib.Logic.Equiv.Fin.Basic
+public import Mathlib.Logic.Relation
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.WithTop
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Constructions.Projective
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import Mathlib.MeasureTheory.Integral.Bochner.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.MeasureTheory.Integral.Prod
+public import Mathlib.MeasureTheory.Measure.Continuity
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+public import Mathlib.MeasureTheory.Measure.Portmanteau
+public import Mathlib.Order.Filter.Finite
+public import Mathlib.Order.Interval.Set.Infinite
+public import Mathlib.Probability.BrownianMotion.Basic
+public import Mathlib.Probability.HasLaw
+public import Mathlib.Probability.Independence.Basic
+public import Mathlib.Probability.Independence.Integration
+public import Mathlib.Probability.Kernel.Composition.Lemmas
+public import Mathlib.Probability.Kernel.IonescuTulcea.Traj
+public import Mathlib.Probability.Moments.Covariance
+public import Mathlib.Probability.Moments.MGFAnalytic
+public import Mathlib.Probability.ProbabilityMassFunction.Constructions
+public import Mathlib.Probability.ProbabilityMassFunction.Integrals
+public import Mathlib.Probability.Process.HittingTime
+public import Mathlib.Probability.Process.Stopping
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.RingTheory.MvPolynomial.Homogeneous
+public import Mathlib.Tactic.Abel
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.ContinuousMap.Compact
+public import Mathlib.Topology.ContinuousMap.SecondCountableSpace
+public import Mathlib.Topology.ContinuousMap.StoneWeierstrass
+public import Mathlib.Topology.Instances.ENNReal.Lemmas
+public import Mathlib.Topology.MetricSpace.Basic
+public import Mathlib.Topology.MetricSpace.HausdorffDistance
+public import Mathlib.Topology.MetricSpace.Thickening
+public import Mathlib.Topology.Order.DenselyOrdered
+public import Mathlib.Topology.Order.IntermediateValue
+public import Mathlib.Topology.Order.Lattice
+public import Mathlib.Topology.Order.Monotone
+public import Mathlib.Topology.Order.MonotoneContinuity
+public import Mathlib.Topology.Order.MonotoneConvergence
+public import Mathlib.Topology.Sequences
+public import Mathlib.Topology.UniformSpace.HeineCantor
+public import Mathlib.Topology.UnitInterval
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.Approximation
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.CurveSpace
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDE
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDEAlgebra
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.Harmonic
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LipschitzDomain
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LocalRegion
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.PaperObjects
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedCurveLaws
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedWalk
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TheoremBStatement
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TilingNetwork
+public import SpherePackingsAudit.Vocabulary.SpherePackings.General.MarkovChain.Basic
+public import SpherePackingsAudit.Vocabulary.SpherePackings.General.MarkovChain.Dirichlet
+public import SpherePackingsAudit.Vocabulary.SpherePackings.General.NearestNeighbourWalk
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Section4General.AssumptionD
+
+@[expose] public section
 
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).

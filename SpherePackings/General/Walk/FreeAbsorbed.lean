@@ -1,7 +1,11 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.General.Walk.WalkAbsorption
-import SpherePackings.General.Walk.DiscreteHarmonicMeasure
+public import SpherePackings.General.Walk.WalkAbsorption
+public import SpherePackings.General.Walk.DiscreteHarmonicMeasure
+
+@[expose] public section
 
 /-!
 # The free chain and the absorbed chains

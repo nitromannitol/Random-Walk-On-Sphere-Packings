@@ -1,8 +1,12 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Section2.DualCoverage
-import BouRabeeGwynne.PolytopeBoundary
-import BouRabeeGwynne.RadialBoundary
+public import SpherePackings.Support.Section2.DualCoverage
+public import BouRabeeGwynne.PolytopeBoundary
+public import BouRabeeGwynne.RadialBoundary
+
+@[expose] public section
 
 /-!
 # Complete cells

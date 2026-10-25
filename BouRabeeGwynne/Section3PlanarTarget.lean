@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3PlanarTarget.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3PlanarEstimate
-import BouRabeeGwynne.Section3CompactCollar
-import BouRabeeGwynne.Section3HarmonicInput
-import BouRabeeGwynne.Section3InternalMass
-import BouRabeeGwynne.Section3WellPosed
+public import BouRabeeGwynne.Section3PlanarEstimate
+public import BouRabeeGwynne.Section3CompactCollar
+public import BouRabeeGwynne.Section3HarmonicInput
+public import BouRabeeGwynne.Section3InternalMass
+public import BouRabeeGwynne.Section3WellPosed
+
+@[expose] public section
 
 /-! The planar branch of the actual Theorem B(a) target. -/
 

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianProjectiveLaw.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Upstream.KolmogorovExtension.KolmogorovExtension
-import Mathlib.Probability.BrownianMotion.Basic
+public import BouRabeeGwynne.Upstream.KolmogorovExtension.KolmogorovExtension
+public import Mathlib.Probability.BrownianMotion.Basic
+
+@[expose] public section
 
 /-!
 # An actual projective Brownian law

@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PolynomialAnalyticLaplacian.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PolynomialLaplacian
-import BouRabeeGwynne.Harmonic
-import Mathlib.Analysis.Analytic.Polynomial
-import Mathlib.Analysis.Calculus.FDeriv.CompCLM
-import Mathlib.Analysis.Calculus.FDeriv.Mul
+public import BouRabeeGwynne.PolynomialLaplacian
+public import BouRabeeGwynne.Harmonic
+public import Mathlib.Analysis.Analytic.Polynomial
+public import Mathlib.Analysis.Calculus.FDeriv.CompCLM
+public import Mathlib.Analysis.Calculus.FDeriv.Mul
+
+@[expose] public section
 
 /-!
 # Formal polynomial derivatives are the actual Euclidean derivatives

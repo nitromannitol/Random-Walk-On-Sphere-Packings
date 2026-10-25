@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianPhysicalSegments.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PhysicalExcursionRecovery
-import BouRabeeGwynne.BrownianNextExit
+public import BouRabeeGwynne.PhysicalExcursionRecovery
+public import BouRabeeGwynne.BrownianNextExit
+
+@[expose] public section
 
 /-! The actual normalized Brownian excursions are exactly the restrictions
 of their original physical-time path, not merely endpoint-equivalent curves. -/

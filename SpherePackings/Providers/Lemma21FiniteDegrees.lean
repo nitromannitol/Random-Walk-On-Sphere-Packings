@@ -1,4 +1,8 @@
-import SpherePackings.Support.ALocalProof
+module
+
+public import SpherePackings.Support.ALocalProof
+
+@[expose] public section
 
 open Finset
 open scoped Classical

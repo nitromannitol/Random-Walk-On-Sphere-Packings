@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/CoordinateLaplacian.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Harmonic
-import Mathlib.Analysis.Calculus.FDeriv.CompCLM
-import Mathlib.Analysis.Calculus.ContDiff.Comp
+public import BouRabeeGwynne.Harmonic
+public import Mathlib.Analysis.Calculus.FDeriv.CompCLM
+public import Mathlib.Analysis.Calculus.ContDiff.Comp
+
+@[expose] public section
 
 /-!
 # The actual continuum Laplacian as a coordinate divergence

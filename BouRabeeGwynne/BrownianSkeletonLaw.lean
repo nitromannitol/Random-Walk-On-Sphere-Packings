@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianSkeletonLaw.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianSkeletonExcursion
-import BouRabeeGwynne.DependentKernelMap
-import BouRabeeGwynne.TrajectoryIdentification
+public import BouRabeeGwynne.BrownianSkeletonExcursion
+public import BouRabeeGwynne.DependentKernelMap
+public import BouRabeeGwynne.TrajectoryIdentification
+
+@[expose] public section
 
 /-! Exact joint law of the successive genuine Brownian excursions. The proof
 uses the observed full history at the original path's stopping clock. -/

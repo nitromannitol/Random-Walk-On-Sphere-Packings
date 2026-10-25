@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/CouplingErrorBudget.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Basic.ENNReal.Real
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Ring
+public import Mathlib.Basic.ENNReal.Real
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-! Numerical choices for the finite coupling and the three stopped-law
 comparisons in Theorem A. -/

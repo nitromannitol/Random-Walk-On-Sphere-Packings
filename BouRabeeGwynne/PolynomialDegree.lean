@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PolynomialDegree.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Algebra.MvPolynomial.PDeriv
-import Mathlib.RingTheory.MvPolynomial.Basic
-import Mathlib.Data.Real.Basic
+public import Mathlib.Algebra.MvPolynomial.PDeriv
+public import Mathlib.RingTheory.MvPolynomial.Basic
+public import Mathlib.Data.Real.Basic
+
+@[expose] public section
 
 /-! The finite-degree polynomial space is preserved by q ↦ Δ(Aq) when A is
 quadratic. This is the finite-dimensional Dirichlet operator for a ball. -/

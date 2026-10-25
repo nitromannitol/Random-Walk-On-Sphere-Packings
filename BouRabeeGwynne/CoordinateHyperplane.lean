@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/CoordinateHyperplane.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.HyperplaneGraph
-import BouRabeeGwynne.PaperObjects
-import BouRabeeGwynne.ProjectedBase
-import Mathlib.Logic.Equiv.Fin.Basic
+public import BouRabeeGwynne.HyperplaneGraph
+public import BouRabeeGwynne.PaperObjects
+public import BouRabeeGwynne.ProjectedBase
+public import Mathlib.Logic.Equiv.Fin.Basic
+
+@[expose] public section
 
 /-! Coordinate versions of the exact affine-hyperplane area and flux formulas. -/
 

@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkMemoryless.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkRestart
+public import BouRabeeGwynne.WalkRestart
+
+@[expose] public section
 
 /-! Whole-path continuation of the actual finite conductance walk. The proof
 identifies every finite suffix law, then uses cylinder uniqueness; it does not

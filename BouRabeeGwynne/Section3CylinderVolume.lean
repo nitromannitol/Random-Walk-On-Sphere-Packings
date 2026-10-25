@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3CylinderVolume.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3Projection
-import BouRabeeGwynne.PyramidSlices
+public import BouRabeeGwynne.Section3Projection
+public import BouRabeeGwynne.PyramidSlices
+
+@[expose] public section
 
 /-!
 # Section 3: volume of an orthogonal cylinder

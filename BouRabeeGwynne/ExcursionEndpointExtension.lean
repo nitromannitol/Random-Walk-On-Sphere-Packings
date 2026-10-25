@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ExcursionEndpointExtension.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.WalkExcursionKernel
-import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+public import BouRabeeGwynne.WalkExcursionKernel
+public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+
+@[expose] public section
 
 /-! Extend a genuine finite-vertex excursion kernel to arbitrary spatial
 starting points, using constant paths off the embedded vertex set. The

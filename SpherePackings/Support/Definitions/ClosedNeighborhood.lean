@@ -1,7 +1,11 @@
-import Mathlib.Combinatorics.SimpleGraph.Finite
-import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-import Mathlib.Basic.Real.Basic
-import Mathlib.Data.Set.Finite.Basic
+module
+
+public import Mathlib.Combinatorics.SimpleGraph.Finite
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Set.Finite.Basic
+
+@[expose] public section
 
 open Finset
 open scoped Classical

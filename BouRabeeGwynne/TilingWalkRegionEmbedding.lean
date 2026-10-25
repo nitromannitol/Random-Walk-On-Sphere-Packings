@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TilingWalkRegionEmbedding.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkAbsorption
-import BouRabeeGwynne.TilingNetwork
+public import BouRabeeGwynne.WalkAbsorption
+public import BouRabeeGwynne.TilingNetwork
+
+@[expose] public section
 
 /-! Enlarging a finite tiling region preserves the actual absorbed walk law
 provided every neighbor of each active vertex was already retained. -/

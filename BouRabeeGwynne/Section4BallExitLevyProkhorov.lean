@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4BallExitLevyProkhorov.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section4BallExitConvergence
-import BouRabeeGwynne.Section4BrownianBallKernel
-import BouRabeeGwynne.Section4UniformExitTopology
+public import BouRabeeGwynne.Section4BallExitConvergence
+public import BouRabeeGwynne.Section4BrownianBallKernel
+public import BouRabeeGwynne.Section4UniformExitTopology
+
+@[expose] public section
 
 /-! Uniform LP convergence of the actual exit measures from a fixed ball,
 on compact sets of interior starting points. -/

@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianUniformModulus.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurveLaws
-import Mathlib.Topology.UniformSpace.HeineCantor
-import Mathlib.MeasureTheory.Measure.Continuity
+public import BouRabeeGwynne.StoppedCurveLaws
+public import Mathlib.Topology.UniformSpace.HeineCantor
+public import Mathlib.MeasureTheory.Measure.Continuity
+
+@[expose] public section
 
 /-!
 # A measurable uniform modulus on bounded time intervals

@@ -1,3 +1,5 @@
+module
+
 /-
 Proposition 1.1 of rw-spheres.tex, "in particular" clause, frozen.
 
@@ -11,7 +13,9 @@ Same correction of (1.4) as in the first part, and only the points in `W` are as
 Poisson point process, of intensity `m μ|_W`; in addition `Λ_m` has finitely many points in every
 bounded set.  Both follow from `Λ_m` being a Poisson point process of intensity `m μ`.
 -/
-import SpherePackings.Support.Voronoi.PoissonLocal
+public import SpherePackings.Support.Voronoi.PoissonLocal
+
+@[expose] public section
 
 open MeasureTheory Metric Filter Set SpherePackings SpherePackings.Voronoi BouRabeeGwynne
 open scoped ENNReal NNReal Topology

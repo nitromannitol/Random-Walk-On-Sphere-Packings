@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianFiniteProbability.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianBoundaryOscillation
-import BouRabeeGwynne.BrownianSkeletonOscillation
+public import BouRabeeGwynne.BrownianBoundaryOscillation
+public import BouRabeeGwynne.BrownianSkeletonOscillation
+
+@[expose] public section
 
 /-! The uniform Brownian probability input for the finite coupling argument.
 The boundary cutoff precedes the fixed margin and stage count, and the stage

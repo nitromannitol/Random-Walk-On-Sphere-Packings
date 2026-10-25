@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/UnitCurveExitMonotone.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.UnitCurveExit
-import BouRabeeGwynne.MonotoneStoppedPrefixes
+public import BouRabeeGwynne.UnitCurveExit
+public import BouRabeeGwynne.MonotoneStoppedPrefixes
+
+@[expose] public section
 
 /-! Actual first-exit stopping commutes with continuous monotone clocks
 at the level of the genuine Fréchet quotient. -/

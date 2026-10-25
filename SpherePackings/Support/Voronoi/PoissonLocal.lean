@@ -1,6 +1,10 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Voronoi.PoissonTilings
+public import SpherePackings.Support.Voronoi.PoissonTilings
+
+@[expose] public section
 
 /-!
 # Proposition 1.1 for the process restricted to `W`

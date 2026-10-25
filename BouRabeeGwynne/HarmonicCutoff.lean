@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HarmonicCutoff.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Harmonic
-import Mathlib.Geometry.Manifold.PartitionOfUnity
+public import BouRabeeGwynne.Harmonic
+public import Mathlib.Geometry.Manifold.PartitionOfUnity
+
+@[expose] public section
 
 /-! Local harmonic functions have compactly supported C² extensions used
 in the stopped Brownian Taylor argument. -/

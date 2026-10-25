@@ -1,8 +1,12 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 00;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import BouRabeeGwynne.FiniteExit
-import BouRabeeGwynne.FiniteDirichlet
-import BouRabeeGwynne.EuclideanWienerLaw
+public import BouRabeeGwynne.FiniteExit
+public import BouRabeeGwynne.FiniteDirichlet
+public import BouRabeeGwynne.EuclideanWienerLaw
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/JointExcursionPasting.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.SelectedExcursionOscillation
-import BouRabeeGwynne.WalkSkeletonPrefix
-import BouRabeeGwynne.BrownianSkeletonPrefix
+public import BouRabeeGwynne.SelectedExcursionOscillation
+public import BouRabeeGwynne.WalkSkeletonPrefix
+public import BouRabeeGwynne.BrownianSkeletonPrefix
+
+@[expose] public section
 
 /-! A pointwise comparison under the actual joint excursion law. Compatibility,
 initial starts, and whole-excursion oscillations are transferred from its exact

@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/AbsorbingExcursionKernel.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Probability.Kernel.Composition.MapComap
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
-import Mathlib.MeasureTheory.Measure.GiryMonad
+public import Mathlib.Probability.Kernel.Composition.MapComap
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
+public import Mathlib.MeasureTheory.Measure.GiryMonad
+
+@[expose] public section
 
 /-! A common measurable selector for whole excursions, with a permanent
 termination flag. The state space may retain an integer clock and all vertices,

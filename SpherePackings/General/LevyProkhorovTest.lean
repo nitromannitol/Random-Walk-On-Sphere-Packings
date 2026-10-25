@@ -1,8 +1,12 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.Topology.MetricSpace.Thickening
+public import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.Topology.MetricSpace.Thickening
+
+@[expose] public section
 
 /-!
 # The Lévy–Prokhorov distance from finitely many test functions

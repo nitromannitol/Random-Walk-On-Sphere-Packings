@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3ColumnPaths.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3ColumnTraversal
-import BouRabeeGwynne.Section3Projection
-import BouRabeeGwynne.Section3GraphPaths
-import BouRabeeGwynne.FacetNull
+public import BouRabeeGwynne.Section3ColumnTraversal
+public import BouRabeeGwynne.Section3Projection
+public import BouRabeeGwynne.Section3GraphPaths
+public import BouRabeeGwynne.FacetNull
+
+@[expose] public section
 
 /-! Almost every column has actual adjacent boundary paths and a telescoping bound. -/
 

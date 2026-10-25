@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/DualVolume.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PyramidVolume
-import BouRabeeGwynne.FacetPyramidHeights
-import BouRabeeGwynne.DualAdditivity
+public import BouRabeeGwynne.PyramidVolume
+public import BouRabeeGwynne.FacetPyramidHeights
+public import BouRabeeGwynne.DualAdditivity
+
+@[expose] public section
 
 open scoped ENNReal MeasureTheory
 open MeasureTheory

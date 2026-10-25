@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/LocalRegion.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.LocalGeometry
+public import BouRabeeGwynne.LocalGeometry
+
+@[expose] public section
 
 namespace BouRabeeGwynne
 

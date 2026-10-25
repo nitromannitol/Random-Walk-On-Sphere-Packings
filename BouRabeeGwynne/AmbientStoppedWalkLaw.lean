@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/AmbientStoppedWalkLaw.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.TilingClockedExcursion
-import BouRabeeGwynne.StoppedTilingWalkLaw
+public import BouRabeeGwynne.TilingClockedExcursion
+public import BouRabeeGwynne.StoppedTilingWalkLaw
+
+@[expose] public section
 
 /-! Identify the theorem's stopped tiling-walk law with the stopped curve
 extracted from the finite ambient walk used in the actual coupling. -/

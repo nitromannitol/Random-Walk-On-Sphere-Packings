@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/LipschitzChartExteriorBalls.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.LipschitzExteriorBalls
+public import BouRabeeGwynne.LipschitzExteriorBalls
+
+@[expose] public section
 
 /-! An exterior ball in an actual rigid Lipschitz chart. The explicit cylinder
 margins ensure every point of the ball is covered by the chart equivalence. -/

@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/UniformStoppedWalkConvergence.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.TheoremACouplingSetup
-import BouRabeeGwynne.CouplingPartitions
-import BouRabeeGwynne.NearestCouplingStarts
-import BouRabeeGwynne.TilingStoppedLawComparison
-import BouRabeeGwynne.AmbientStoppedWalkLaw
-import BouRabeeGwynne.CouplingErrorBudget
+public import BouRabeeGwynne.TheoremACouplingSetup
+public import BouRabeeGwynne.CouplingPartitions
+public import BouRabeeGwynne.NearestCouplingStarts
+public import BouRabeeGwynne.TilingStoppedLawComparison
+public import BouRabeeGwynne.AmbientStoppedWalkLaw
+public import BouRabeeGwynne.CouplingErrorBudget
+
+@[expose] public section
 
 /-! Uniform convergence of the actual stopped tiling-walk laws. The fixed
 geometry and skeleton length precede the fine partitions and the eventual

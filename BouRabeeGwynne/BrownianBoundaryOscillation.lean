@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianBoundaryOscillation.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianNestedConfinement
-import BouRabeeGwynne.BoundarySurvivalScales
-import BouRabeeGwynne.BrownianStoppingOscillation
-import BouRabeeGwynne.BrownianInnerExit
+public import BouRabeeGwynne.BrownianNestedConfinement
+public import BouRabeeGwynne.BoundarySurvivalScales
+public import BouRabeeGwynne.BrownianStoppingOscillation
+public import BouRabeeGwynne.BrownianInnerExit
+
+@[expose] public section
 
 /-! Uniform control of the original Brownian path between its inner and
 outer boundary approaches, including an immediate inner exit. -/

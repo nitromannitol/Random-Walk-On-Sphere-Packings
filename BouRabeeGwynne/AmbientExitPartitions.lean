@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/AmbientExitPartitions.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BackwardExitPartitions
-import BouRabeeGwynne.TilingClockedExcursion
+public import BouRabeeGwynne.BackwardExitPartitions
+public import BouRabeeGwynne.TilingClockedExcursion
+
+@[expose] public section
 
 /-! Exact transfer of the backward partition estimates to one finite ambient
 tiling network. The full clocked-excursion inclusion theorem identifies the

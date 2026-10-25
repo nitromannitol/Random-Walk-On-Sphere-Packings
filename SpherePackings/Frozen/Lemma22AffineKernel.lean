@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 2.2 of rw-spheres.tex, frozen.
 
@@ -10,7 +12,9 @@ neighbour).  The published identity is false at a cell with a facet shared with 
 unit squares: `ℓ(x) = x₁` has discrete Laplacian `1` at the left square).  Proved from leobon12's
 polytope Gauss–Green identity.
 -/
-import SpherePackings.Support.Section2.AffineKernel
+public import SpherePackings.Support.Section2.AffineKernel
+
+@[expose] public section
 
 open BouRabeeGwynne SpherePackings
 

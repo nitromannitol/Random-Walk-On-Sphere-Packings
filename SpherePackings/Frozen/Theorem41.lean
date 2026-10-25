@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem 4.1 of rw-spheres.tex, frozen.
 
@@ -15,7 +17,9 @@ parametrization with the metric (1.2), the distance is Lévy–Prokhorov, and th
 to leave `V_n[U]` almost surely for large `n`.  The proof adapts leobon12's coupling from his
 proof of Theorem A to an arbitrary kernel.
 -/
-import SpherePackings.Support.Section4General.Theorem41
+public import SpherePackings.Support.Section4General.Theorem41
+
+@[expose] public section
 
 open MeasureTheory Metric Filter Set BouRabeeGwynne SpherePackings
 open scoped ENNReal Topology

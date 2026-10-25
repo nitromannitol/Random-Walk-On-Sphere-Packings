@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem 3.3 of rw-spheres.tex, the "in particular" clause, frozen.
 
@@ -20,7 +22,9 @@ on the square grid of mesh `1/n`, `n` odd, of `D = [0,1] × [0,2]`, with `U = (0
 centre, and the printed bound tends to `0`).  Whether the rate holds with the published cell Hessian
 constant alone is open.  Proof: the bound with `k = ε^{-1/3}`.
 -/
-import SpherePackings.Support.Section3.PlanarInternal
+public import SpherePackings.Support.Section3.PlanarInternal
+
+@[expose] public section
 
 open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings
 open scoped MeasureTheory Laplacian

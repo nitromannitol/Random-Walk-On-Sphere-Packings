@@ -1,9 +1,13 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.DualCoverage
-import BouRabeeGwynne.DualNull
-import BouRabeeGwynne.LocalRegion
-import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+public import BouRabeeGwynne.DualCoverage
+public import BouRabeeGwynne.DualNull
+public import BouRabeeGwynne.LocalRegion
+public import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+
+@[expose] public section
 
 /-!
 # Lemma 2.5: dual polytopes cover the cells

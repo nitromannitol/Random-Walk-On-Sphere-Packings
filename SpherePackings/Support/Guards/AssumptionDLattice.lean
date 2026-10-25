@@ -1,12 +1,16 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Guards.TilingWalk
-import SpherePackings.Support.Guards.LatticeTilings
-import SpherePackings.Support.Section4General.AssumptionD
-import BouRabeeGwynne.Section3TheoremBPartA
-import BouRabeeGwynne.ApproximationGeometry
-import BouRabeeGwynne.EuclideanWienerLaw
-import SpherePackings.Support.Guards.LipschitzBall
+public import SpherePackings.Support.Guards.TilingWalk
+public import SpherePackings.Support.Guards.LatticeTilings
+public import SpherePackings.Support.Section4General.AssumptionD
+public import BouRabeeGwynne.Section3TheoremBPartA
+public import BouRabeeGwynne.ApproximationGeometry
+public import BouRabeeGwynne.EuclideanWienerLaw
+public import SpherePackings.Support.Guards.LipschitzBall
+
+@[expose] public section
 
 /-!
 # Assumption D is satisfiable

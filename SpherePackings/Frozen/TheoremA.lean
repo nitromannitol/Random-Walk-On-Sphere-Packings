@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem A of rw-spheres.tex, frozen.
 
@@ -16,7 +18,9 @@ stricter reading, in which `P_v ∩ P_w` must be a whole facet of both cells, ro
 staggered by `1/2` would be an orthogonal tiling on which the walk moves only horizontally.  The
 conclusion also asserts that the Brownian law and the walk laws exist.
 -/
-import BouRabeeGwynne.TheoremAProved
+public import BouRabeeGwynne.TheoremAProved
+
+@[expose] public section
 
 open scoped ENNReal Topology
 open MeasureTheory BouRabeeGwynne

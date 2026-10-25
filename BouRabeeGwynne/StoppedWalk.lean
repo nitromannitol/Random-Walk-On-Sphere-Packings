@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/StoppedWalk.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.DiscretePDEAlgebra
-import Mathlib.Algebra.BigOperators.Field
-import Mathlib.Probability.ProbabilityMassFunction.Constructions
-import Mathlib.Probability.ProbabilityMassFunction.Integrals
-import Mathlib.Probability.Kernel.IonescuTulcea.Traj
-import Mathlib.Probability.Process.HittingTime
+public import BouRabeeGwynne.DiscretePDEAlgebra
+public import Mathlib.Algebra.BigOperators.Field
+public import Mathlib.Probability.ProbabilityMassFunction.Constructions
+public import Mathlib.Probability.ProbabilityMassFunction.Integrals
+public import Mathlib.Probability.Kernel.IonescuTulcea.Traj
+public import Mathlib.Probability.Process.HittingTime
+
+@[expose] public section
 
 /-!
 # Finite conductance transitions with absorption

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/LipschitzUniformExteriorBalls.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.LipschitzLocalExteriorBalls
-import Mathlib.Data.Finset.Lattice.Fold
+public import BouRabeeGwynne.LipschitzLocalExteriorBalls
+public import Mathlib.Data.Finset.Lattice.Fold
+
+@[expose] public section
 
 /-! Compactness makes the exterior-ball scale and relative radius uniform
 over the entire boundary of a bounded Lipschitz domain. -/

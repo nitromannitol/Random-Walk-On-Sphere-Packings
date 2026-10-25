@@ -5,7 +5,7 @@ open Lake DSL
 package «random-walk-on-sphere-packings» where
 
 require mathlib from git
-  "https://github.com/leanprover-community/mathlib4.git" @ "a4c8ef0a69f52ec80525d5086bb3542f4660faaf"
+  "https://github.com/leanprover-community/mathlib4.git" @ "065356127b1dc0016f66b7283ce0ce2c4055aa55"
 
 /-- The formalization of Theorem A and Theorem B(a) by leobon12
 (https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne),

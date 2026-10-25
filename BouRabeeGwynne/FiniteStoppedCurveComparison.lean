@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FiniteStoppedCurveComparison.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BoundaryStoppingGeometry
-import BouRabeeGwynne.BrownianInnerExit
-import BouRabeeGwynne.UnitCurveOscillation
+public import BouRabeeGwynne.BoundaryStoppingGeometry
+public import BouRabeeGwynne.BrownianInnerExit
+public import BouRabeeGwynne.UnitCurveOscillation
+
+@[expose] public section
 
 /-! The deterministic middle comparison uses the actual measurable first-exit
 parameters and the finite Brownian representative's boundary oscillation. -/

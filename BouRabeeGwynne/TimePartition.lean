@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TimePartition.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Topology.UnitInterval
-import Mathlib.Topology.Order.MonotoneContinuity
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.Linarith
+public import Mathlib.Topology.UnitInterval
+public import Mathlib.Topology.Order.MonotoneContinuity
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-! Finite ordered time partitions and their actual affine matching map. -/
 

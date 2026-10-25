@@ -1,10 +1,14 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TheoremAProved.lean` at commit cf73d6e), with the regularity hypothesis
 -- `PaperRegularity G` replaced by the localized Assumption D `TilingAssumptionD G`.
-import BouRabeeGwynne.TheoremAStatement
-import BouRabeeGwynne.TheoremAProcessLaws
-import SpherePackings.Support.Section4.UniformStoppedWalkConvergence
+public import BouRabeeGwynne.TheoremAStatement
+public import BouRabeeGwynne.TheoremAProcessLaws
+public import SpherePackings.Support.Section4.UniformStoppedWalkConvergence
+
+@[expose] public section
 
 /-! Theorem 4.1 of rw-spheres.tex for the conductance-weighted walk on orthogonal tilings: under
 (1.3) and the localized Assumption D, the stopped walks converge to stopped Brownian motion

@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ClockedWalkStopping.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ClockedWalkConcatenation
+public import BouRabeeGwynne.ClockedWalkConcatenation
+
+@[expose] public section
 
 /-! Stop reconstructed spatial vertex sequences at their actual first vertex
 outside the domain. Measurability uses the domain's measurable complement. -/

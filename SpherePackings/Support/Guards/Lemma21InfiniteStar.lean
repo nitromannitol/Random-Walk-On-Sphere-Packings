@@ -1,4 +1,8 @@
-import SpherePackings.Frozen.Lemma21FiniteDegrees
+module
+
+public import SpherePackings.Frozen.Lemma21FiniteDegrees
+
+@[expose] public section
 
 open Finset
 open scoped Classical

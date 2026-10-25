@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4BallHarmonicMeasure.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3TheoremBPartA
-import BouRabeeGwynne.HarmonicMeasureBridge
+public import BouRabeeGwynne.Section3TheoremBPartA
+public import BouRabeeGwynne.HarmonicMeasureBridge
+
+@[expose] public section
 
 /-! Actual spatial exit measures and the ball-exit comparison used in Section 4. -/
 

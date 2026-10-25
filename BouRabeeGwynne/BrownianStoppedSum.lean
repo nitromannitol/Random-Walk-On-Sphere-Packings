@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianStoppedSum.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianStoppedStep
-import BouRabeeGwynne.BrownianStoppingApprox
+public import BouRabeeGwynne.BrownianStoppedStep
+public import BouRabeeGwynne.BrownianStoppingApprox
+
+@[expose] public section
 
 /-!
 # Exact stopped dyadic telescoping and its harmonic expectation bound

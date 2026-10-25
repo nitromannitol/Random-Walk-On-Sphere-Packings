@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkEdgeSupport.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.TilingClockedExcursion
-import BouRabeeGwynne.ExcursionTrajectory
-import BouRabeeGwynne.LocalGeometry
+public import BouRabeeGwynne.TilingClockedExcursion
+public import BouRabeeGwynne.ExcursionTrajectory
+public import BouRabeeGwynne.LocalGeometry
+
+@[expose] public section
 
 /-! Actual conductance-walk transitions use a positive edge or are constant.
 Consequently the ambient tiling walk has the required mesh-sized steps. -/

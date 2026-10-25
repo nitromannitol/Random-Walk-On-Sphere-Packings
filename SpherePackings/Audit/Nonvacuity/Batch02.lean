@@ -1,7 +1,11 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 02;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import BouRabeeGwynne.WalkSkeletonLaw
-import BouRabeeGwynne.WalkReconstructionLaw
+public import BouRabeeGwynne.WalkSkeletonLaw
+public import BouRabeeGwynne.WalkReconstructionLaw
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

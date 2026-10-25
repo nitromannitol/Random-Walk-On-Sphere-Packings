@@ -1,11 +1,15 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 14;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import SpherePackings.Support.Section4.AssumptionD
-import SpherePackings.Support.Section4.Theorem41
-import SpherePackings.Support.Section4.Prop42
-import SpherePackings.Support.Guards.LatticeTilings
-import SpherePackings.Support.Guards.LipschitzBall
-import BouRabeeGwynne.EuclideanWienerLaw
+public import SpherePackings.Support.Section4.AssumptionD
+public import SpherePackings.Support.Section4.Theorem41
+public import SpherePackings.Support.Section4.Prop42
+public import SpherePackings.Support.Guards.LatticeTilings
+public import SpherePackings.Support.Guards.LipschitzBall
+public import BouRabeeGwynne.EuclideanWienerLaw
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

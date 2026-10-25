@@ -1,10 +1,14 @@
+module
+
 /- Nonvacuity examples written by the independent reviewer (Claude Haiku 5.5) of audit batch 03;
    see `AUDIT.md`. They show that the hypothesis bundles named below can hold together. -/
-import BouRabeeGwynne.BrownianStoppedStep
-import BouRabeeGwynne.BrownianUniformLanding
-import BouRabeeGwynne.EuclideanWienerLaw
-import BouRabeeGwynne.HarmonicCutoff
-import BouRabeeGwynne.PolynomialAnalyticLaplacian
+public import BouRabeeGwynne.BrownianStoppedStep
+public import BouRabeeGwynne.BrownianUniformLanding
+public import BouRabeeGwynne.EuclideanWienerLaw
+public import BouRabeeGwynne.HarmonicCutoff
+public import BouRabeeGwynne.PolynomialAnalyticLaplacian
+
+@[expose] public section
 
 -- The reviewer's examples, kept as written.
 set_option linter.unusedVariables false

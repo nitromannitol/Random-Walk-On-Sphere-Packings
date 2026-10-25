@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PartitionCouplingDistance.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FinitePartitionCoupling
-import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+public import BouRabeeGwynne.FinitePartitionCoupling
+public import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+
+@[expose] public section
 
 /-!
 # From the explicit spatial coupling to the actual law distance

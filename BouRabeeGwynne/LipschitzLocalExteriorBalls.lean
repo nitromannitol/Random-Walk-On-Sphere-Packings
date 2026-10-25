@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/LipschitzLocalExteriorBalls.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.LipschitzChartExteriorBalls
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Ring
+public import BouRabeeGwynne.LipschitzChartExteriorBalls
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-! A single Lipschitz chart supplies exterior balls uniformly at all nearby
 boundary points and at every sufficiently small spatial scale. -/

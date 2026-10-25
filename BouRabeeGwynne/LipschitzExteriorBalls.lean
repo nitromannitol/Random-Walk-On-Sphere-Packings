@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/LipschitzExteriorBalls.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.LipschitzExteriorGeometry
-import Mathlib.Topology.MetricSpace.Lipschitz
+public import BouRabeeGwynne.LipschitzExteriorGeometry
+public import Mathlib.Topology.MetricSpace.Lipschitz
+
+@[expose] public section
 
 /-! Balls below a Lipschitz graph give the exterior balls used for boundary
 escape. The graph is the one in the approved geometric domain definition. -/

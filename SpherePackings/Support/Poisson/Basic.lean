@@ -1,7 +1,11 @@
-import Mathlib.Probability.Distributions.Poisson.Basic
-import Mathlib.Probability.HasLaw
-import Mathlib.Probability.Independence.Basic
-import Mathlib.Analysis.InnerProductSpace.PiL2
+module
+
+public import Mathlib.Probability.Distributions.Poisson.Basic
+public import Mathlib.Probability.HasLaw
+public import Mathlib.Probability.Independence.Basic
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+
+@[expose] public section
 
 /-!
 # Poisson point processes

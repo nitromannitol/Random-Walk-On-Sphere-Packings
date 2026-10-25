@@ -1,8 +1,12 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Section2.AffineKernel
-import BouRabeeGwynne.TilingNetwork
-import Mathlib.Analysis.Normed.Affine.Convex
+public import SpherePackings.Support.Section2.AffineKernel
+public import BouRabeeGwynne.TilingNetwork
+public import Mathlib.Analysis.Normed.Affine.Convex
+
+@[expose] public section
 
 /-!
 # Discrete Laplacians of quadratic and `C²` functions at interior vertices

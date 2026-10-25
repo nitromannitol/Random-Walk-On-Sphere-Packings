@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FixedBallCover.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PaperObjects
-import Mathlib.Topology.MetricSpace.Pseudo.Basic
-import Mathlib.Topology.MetricSpace.Thickening
-import Mathlib.Tactic.Linarith
+public import BouRabeeGwynne.PaperObjects
+public import Mathlib.Topology.MetricSpace.Pseudo.Basic
+public import Mathlib.Topology.MetricSpace.Thickening
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-! Fixed balls for the finite excursion coupling. The ball radius and its
 inner margin are chosen before the skeleton length and the stage partitions.

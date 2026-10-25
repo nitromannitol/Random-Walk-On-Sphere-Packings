@@ -1,49 +1,53 @@
-import SpherePackings.MainTheorems
-import SpherePackings.Frozen.Lemma21FiniteDegrees
-import SpherePackings.Frozen.Lemma22AffineKernel
-import SpherePackings.Frozen.Lemma23DualVariational
-import SpherePackings.Frozen.Lemma24DualVolume
-import SpherePackings.Frozen.Lemma25DualCoverage
-import SpherePackings.Frozen.Prop26Energy
-import SpherePackings.Frozen.Lemma31Poincare
-import SpherePackings.Frozen.Prop32Columns
-import SpherePackings.Frozen.Theorem33Planar
-import SpherePackings.Frozen.Theorem33Rate
-import SpherePackings.Frozen.Lemma35WeightedEnergy
-import SpherePackings.Frozen.Theorem36Rate
-import SpherePackings.Frozen.Theorem37Rate
-import SpherePackings.Frozen.Prop42General
-import SpherePackings.Frozen.Theorem41
-import SpherePackings.Frozen.Lemma51Inner
-import SpherePackings.Frozen.Lemma51Outer
-import SpherePackings.Frozen.Lemma52DualPolytope
-import SpherePackings.Support.Guards.LipschitzBall
-import SpherePackings.Support.Guards.LatticeVoronoi
-import SpherePackings.Support.Guards.LatticeTilings
-import SpherePackings.Support.Guards.AssumptionDLattice
-import SpherePackings.Meta.AxiomsAudit
-import SpherePackings.Support.Guards.Lemma21InfiniteStar
-import SpherePackings.Audit.Nonvacuity.Batch00
-import SpherePackings.Audit.Nonvacuity.Batch01
-import SpherePackings.Audit.Nonvacuity.Batch02
-import SpherePackings.Audit.Nonvacuity.Batch03
-import SpherePackings.Audit.Nonvacuity.Batch04
-import SpherePackings.Audit.Nonvacuity.Batch05
-import SpherePackings.Audit.Nonvacuity.Batch06
-import SpherePackings.Audit.Nonvacuity.Batch07
-import SpherePackings.Audit.Nonvacuity.Batch08
-import SpherePackings.Audit.Nonvacuity.Batch09
-import SpherePackings.Audit.Nonvacuity.Batch10
-import SpherePackings.Audit.Nonvacuity.Batch11
-import SpherePackings.Audit.Nonvacuity.Batch12
-import SpherePackings.Audit.Nonvacuity.Batch13
-import SpherePackings.Audit.Nonvacuity.Batch14
-import SpherePackings.Audit.Nonvacuity.Batch15
-import SpherePackings.Audit.Nonvacuity.Batch16
-import SpherePackings.Audit.Nonvacuity.Batch17
-import SpherePackings.Audit.Nonvacuity.Batch18
-import SpherePackings.Audit.Nonvacuity.Batch19
-import SpherePackings.Audit.Nonvacuity.Batch20
-import SpherePackings.Audit.Nonvacuity.Batch21
-import SpherePackings.Audit.Nonvacuity.Batch22
-import SpherePackings.Audit.Nonvacuity.Batch23
+module
+
+public import SpherePackings.MainTheorems
+public import SpherePackings.Frozen.Lemma21FiniteDegrees
+public import SpherePackings.Frozen.Lemma22AffineKernel
+public import SpherePackings.Frozen.Lemma23DualVariational
+public import SpherePackings.Frozen.Lemma24DualVolume
+public import SpherePackings.Frozen.Lemma25DualCoverage
+public import SpherePackings.Frozen.Prop26Energy
+public import SpherePackings.Frozen.Lemma31Poincare
+public import SpherePackings.Frozen.Prop32Columns
+public import SpherePackings.Frozen.Theorem33Planar
+public import SpherePackings.Frozen.Theorem33Rate
+public import SpherePackings.Frozen.Lemma35WeightedEnergy
+public import SpherePackings.Frozen.Theorem36Rate
+public import SpherePackings.Frozen.Theorem37Rate
+public import SpherePackings.Frozen.Prop42General
+public import SpherePackings.Frozen.Theorem41
+public import SpherePackings.Frozen.Lemma51Inner
+public import SpherePackings.Frozen.Lemma51Outer
+public import SpherePackings.Frozen.Lemma52DualPolytope
+public import SpherePackings.Support.Guards.LipschitzBall
+public import SpherePackings.Support.Guards.LatticeVoronoi
+public import SpherePackings.Support.Guards.LatticeTilings
+public import SpherePackings.Support.Guards.AssumptionDLattice
+public import SpherePackings.Meta.AxiomsAudit
+public import SpherePackings.Support.Guards.Lemma21InfiniteStar
+public import SpherePackings.Audit.Nonvacuity.Batch00
+public import SpherePackings.Audit.Nonvacuity.Batch01
+public import SpherePackings.Audit.Nonvacuity.Batch02
+public import SpherePackings.Audit.Nonvacuity.Batch03
+public import SpherePackings.Audit.Nonvacuity.Batch04
+public import SpherePackings.Audit.Nonvacuity.Batch05
+public import SpherePackings.Audit.Nonvacuity.Batch06
+public import SpherePackings.Audit.Nonvacuity.Batch07
+public import SpherePackings.Audit.Nonvacuity.Batch08
+public import SpherePackings.Audit.Nonvacuity.Batch09
+public import SpherePackings.Audit.Nonvacuity.Batch10
+public import SpherePackings.Audit.Nonvacuity.Batch11
+public import SpherePackings.Audit.Nonvacuity.Batch12
+public import SpherePackings.Audit.Nonvacuity.Batch13
+public import SpherePackings.Audit.Nonvacuity.Batch14
+public import SpherePackings.Audit.Nonvacuity.Batch15
+public import SpherePackings.Audit.Nonvacuity.Batch16
+public import SpherePackings.Audit.Nonvacuity.Batch17
+public import SpherePackings.Audit.Nonvacuity.Batch18
+public import SpherePackings.Audit.Nonvacuity.Batch19
+public import SpherePackings.Audit.Nonvacuity.Batch20
+public import SpherePackings.Audit.Nonvacuity.Batch21
+public import SpherePackings.Audit.Nonvacuity.Batch22
+public import SpherePackings.Audit.Nonvacuity.Batch23
+
+@[expose] public section

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/GaussianIncrementBounds.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianMoments
-import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import BouRabeeGwynne.BrownianMoments
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+
+@[expose] public section
 
 /-!
 # Fourth-moment probability bounds for the actual Gaussian laws

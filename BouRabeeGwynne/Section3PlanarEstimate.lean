@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3PlanarEstimate.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3Boxes
-import BouRabeeGwynne.Section3GoodLines
-import BouRabeeGwynne.Section3ColumnEstimate
-import BouRabeeGwynne.CoordinateHyperplane
-import Mathlib.Tactic.FinCases
+public import BouRabeeGwynne.Section3Boxes
+public import BouRabeeGwynne.Section3GoodLines
+public import BouRabeeGwynne.Section3ColumnEstimate
+public import BouRabeeGwynne.CoordinateHyperplane
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 
 /-! Planar good boxes and the uniform error estimate from actual column measures. -/
 

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3WellPosed.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3Accessibility
-import BouRabeeGwynne.TheoremBStatement
+public import BouRabeeGwynne.Section3Accessibility
+public import BouRabeeGwynne.TheoremBStatement
+
+@[expose] public section
 
 /-! Eventual well-posedness follows from actual collar geometry and column paths. -/
 

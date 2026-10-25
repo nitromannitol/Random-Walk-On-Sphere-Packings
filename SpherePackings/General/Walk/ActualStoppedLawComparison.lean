@@ -1,14 +1,18 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ActualStoppedLawComparison.lean` at commit cf73d6e): its theorem for the
 -- chain of an arbitrary Markov kernel on a measurable space, with the deterministic step and range
 -- bounds of the walk replaced by the shape of its excursions.
-import BouRabeeGwynne.ActualStoppedLawComparison
-import SpherePackings.General.Walk.CanonicalStoppingRange
-import SpherePackings.General.Walk.FiniteStoppedLawComparisonGood
-import SpherePackings.General.Walk.JointExcursionPasting
-import SpherePackings.General.Walk.WalkBrownianActiveTransfer
-import SpherePackings.General.Walk.WalkReconstructionLaw
+public import BouRabeeGwynne.ActualStoppedLawComparison
+public import SpherePackings.General.Walk.CanonicalStoppingRange
+public import SpherePackings.General.Walk.FiniteStoppedLawComparisonGood
+public import SpherePackings.General.Walk.JointExcursionPasting
+public import SpherePackings.General.Walk.WalkBrownianActiveTransfer
+public import SpherePackings.General.Walk.WalkReconstructionLaw
+
+@[expose] public section
 
 /-! General-state-space version of `BouRabeeGwynne.ActualStoppedLawComparison`.  leobon12's
 theorem assumes a deterministic bound on the steps of the walk and on the ranges of its

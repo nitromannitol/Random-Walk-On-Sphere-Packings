@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3ColumnEnergy.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3Projection
-import BouRabeeGwynne.Section3WeightedEnergy
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.Analysis.Real.Sqrt
+public import BouRabeeGwynne.Section3Projection
+public import BouRabeeGwynne.Section3WeightedEnergy
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.Analysis.Real.Sqrt
+
+@[expose] public section
 
 /-!
 # Section 3: the integrated column-gradient estimate

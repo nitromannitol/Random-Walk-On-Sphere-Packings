@@ -1,4 +1,8 @@
-import BouRabeeGwynne.Harmonic
+module
+
+public import BouRabeeGwynne.Harmonic
+
+@[expose] public section
 
 /-!
 # Two harmonic polynomials

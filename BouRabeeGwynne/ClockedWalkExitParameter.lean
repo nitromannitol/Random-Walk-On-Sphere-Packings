@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ClockedWalkExitParameter.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ClockedWalkStopping
-import BouRabeeGwynne.WalkExcursionRecovery
+public import BouRabeeGwynne.ClockedWalkStopping
+public import BouRabeeGwynne.WalkExcursionRecovery
+
+@[expose] public section
 
 /-! A measurable choice of a vertex-exit parameter on a fixed pasted walk.
 The choice uses only the countable data of cumulative integer durations and

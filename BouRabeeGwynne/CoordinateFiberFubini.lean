@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/CoordinateFiberFubini.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.CoordinateHyperplane
-import BouRabeeGwynne.CoordinateVolume
-import BouRabeeGwynne.SupportFaceProjection
-import BouRabeeGwynne.FiberCalculus
-import Mathlib.MeasureTheory.Function.LocallyIntegrable
+public import BouRabeeGwynne.CoordinateHyperplane
+public import BouRabeeGwynne.CoordinateVolume
+public import BouRabeeGwynne.SupportFaceProjection
+public import BouRabeeGwynne.FiberCalculus
+public import Mathlib.MeasureTheory.Function.LocallyIntegrable
+
+@[expose] public section
 
 open scoped ENNReal MeasureTheory
 open MeasureTheory

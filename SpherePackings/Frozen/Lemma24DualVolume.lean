@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 2.4 of rw-spheres.tex, frozen.
 
@@ -7,7 +9,9 @@ Paper statement, `rw-spheres.tex:739-744` (label `lemma:geometry-bound`): for ea
 leobon12's theorem; `dualVolume` is the volume of `dualPolytope v w`, the union of the two
 pyramids over the contact.
 -/
-import BouRabeeGwynne.DualVolume
+public import BouRabeeGwynne.DualVolume
+
+@[expose] public section
 
 open scoped ENNReal MeasureTheory
 open MeasureTheory BouRabeeGwynne

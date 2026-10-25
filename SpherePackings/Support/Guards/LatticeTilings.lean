@@ -1,5 +1,9 @@
-import SpherePackings.Support.Voronoi.PoissonTilings
-import SpherePackings.Support.Guards.LatticeVoronoi
+module
+
+public import SpherePackings.Support.Voronoi.PoissonTilings
+public import SpherePackings.Support.Guards.LatticeVoronoi
+
+@[expose] public section
 
 /-!
 # The hypotheses of Theorems A and B are satisfiable

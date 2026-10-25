@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkAbsorption.lean` at commit cf73d6e); unchanged apart from this header and
 -- from `omit [Fintype V] in` before declarations that do not use finiteness.
-import BouRabeeGwynne.WalkPathStopping
-import BouRabeeGwynne.ClockedWalkExcursion
-import BouRabeeGwynne.DependentKernelMap
+public import BouRabeeGwynne.WalkPathStopping
+public import BouRabeeGwynne.ClockedWalkExcursion
+public import BouRabeeGwynne.DependentKernelMap
+
+@[expose] public section
 
 /-! Stopping the ambient conductance walk in a smaller vertex set gives the
 actual absorbed trajectory law in that set. This is a whole-path identity,

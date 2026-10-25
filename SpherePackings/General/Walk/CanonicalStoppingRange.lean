@@ -1,7 +1,11 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.General.Walk.WalkCanonicalStopping
-import SpherePackings.General.Walk.ExcursionSteps
+public import SpherePackings.General.Walk.WalkCanonicalStopping
+public import SpherePackings.General.Walk.ExcursionSteps
+
+@[expose] public section
 
 /-!
 # Canonical stopping support from excursion ranges

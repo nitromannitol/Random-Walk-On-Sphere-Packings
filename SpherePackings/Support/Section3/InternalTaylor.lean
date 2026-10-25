@@ -1,15 +1,19 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/BoundaryCorrectedSurfaceEnergy.lean` and `BouRabeeGwynne/HypIIIErrorBound.lean`
 -- at commit cf73d6e): the boundary-corrected error, for complete cells and Taylor control on
 -- internal edges only.
-import SpherePackings.Support.Section3.TaylorEnergy
-import SpherePackings.Support.Complete.GaussGreen
-import SpherePackings.Support.Section2.AffineKernel
-import BouRabeeGwynne.BoundaryCorrectedIteration
-import BouRabeeGwynne.BoundaryCorrectedSurfaceEnergy
-import BouRabeeGwynne.FacetAffineResidual
-import BouRabeeGwynne.Section3LocalMaximum
+public import SpherePackings.Support.Section3.TaylorEnergy
+public import SpherePackings.Support.Complete.GaussGreen
+public import SpherePackings.Support.Section2.AffineKernel
+public import BouRabeeGwynne.BoundaryCorrectedIteration
+public import BouRabeeGwynne.BoundaryCorrectedSurfaceEnergy
+public import BouRabeeGwynne.FacetAffineResidual
+public import BouRabeeGwynne.Section3LocalMaximum
+
+@[expose] public section
 
 /-!
 # Internal-edge Taylor control

@@ -1,8 +1,12 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.Support.Section3.InternalTaylor
-import SpherePackings.Support.Section3.PlanarQuadratic
-import SpherePackings.Support.Complete.Section3
+public import SpherePackings.Support.Section3.InternalTaylor
+public import SpherePackings.Support.Section3.PlanarQuadratic
+public import SpherePackings.Support.Complete.Section3
+
+@[expose] public section
 
 /-!
 # Theorem 3.3 as in the corrected paper

@@ -1,13 +1,17 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/Section3Accessibility.lean`, `CellVolumeBound.lean`, `Section3CellMass.lean`,
 -- `Section3InternalMass.lean`, `Section3MassDecay.lean` and `HypIIICorrectedTrimming.lean` at commit
 -- cf73d6e): the Section 3 mass estimates, for complete cells.
-import SpherePackings.Support.Complete.Columns
-import BouRabeeGwynne.Section3Accessibility
-import BouRabeeGwynne.Section3CellMass
-import BouRabeeGwynne.Section3MassDecay
-import BouRabeeGwynne.HypIIICorrectedTrimming
+public import SpherePackings.Support.Complete.Columns
+public import BouRabeeGwynne.Section3Accessibility
+public import BouRabeeGwynne.Section3CellMass
+public import BouRabeeGwynne.Section3MassDecay
+public import BouRabeeGwynne.HypIIICorrectedTrimming
+
+@[expose] public section
 
 /-!
 # Section 3 estimates for complete cells

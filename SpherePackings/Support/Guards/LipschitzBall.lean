@@ -1,4 +1,8 @@
-import BouRabeeGwynne.LipschitzDomain
+module
+
+public import BouRabeeGwynne.LipschitzDomain
+
+@[expose] public section
 
 /-!
 # The unit ball is a Lipschitz domain

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkStoppedHistory.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkJointRestart
-import Mathlib.MeasureTheory.Constructions.BorelSpace.WithTop
+public import BouRabeeGwynne.WalkJointRestart
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.WithTop
+
+@[expose] public section
 
 /-! Measurable observed histories and countable decomposition at a genuine
 almost surely finite stopping time. The value at infinity is only a measurable

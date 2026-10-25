@@ -1,9 +1,13 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/StoppedWalk.lean` and `WalkStrongMarkov.lean` at commit cf73d6e): the
 -- absorbed walk of a finite conductance network is replaced by the chain of an arbitrary Markov
 -- kernel absorbed outside a measurable set.
-import SpherePackings.General.MarkovChain.Dirichlet
+public import SpherePackings.General.MarkovChain.Dirichlet
+
+@[expose] public section
 
 /-!
 # Absorbed chains and the strong Markov property

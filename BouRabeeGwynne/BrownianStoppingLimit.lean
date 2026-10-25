@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianStoppingLimit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianFiniteStopping
-import Mathlib.MeasureTheory.Measure.HasOuterApproxClosed
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.Topology.Metrizable.ContinuousMap
+public import BouRabeeGwynne.BrownianFiniteStopping
+public import Mathlib.MeasureTheory.Measure.HasOuterApproxClosed
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.Topology.Metrizable.ContinuousMap
+
+@[expose] public section
 
 /-!
 # Passing actual stopped Brownian laws through a continuous time limit

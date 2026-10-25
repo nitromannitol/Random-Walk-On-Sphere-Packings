@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkRestart.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.DiscreteHarmonicMeasure
-import BouRabeeGwynne.TrajectoryCoupling
+public import BouRabeeGwynne.DiscreteHarmonicMeasure
+public import BouRabeeGwynne.TrajectoryCoupling
+
+@[expose] public section
 
 /-! Exact discrete restart identities for the actual first vertex exit.
 These pathwise identities retain the complete shifted path and the same exit

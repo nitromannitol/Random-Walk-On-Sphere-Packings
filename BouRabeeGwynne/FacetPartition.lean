@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FacetPartition.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.TripleContact
-import BouRabeeGwynne.LocalFacetCoverage
-import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import BouRabeeGwynne.TripleContact
+public import BouRabeeGwynne.LocalFacetCoverage
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+
+@[expose] public section
 
 open scoped BigOperators ENNReal MeasureTheory
 open MeasureTheory

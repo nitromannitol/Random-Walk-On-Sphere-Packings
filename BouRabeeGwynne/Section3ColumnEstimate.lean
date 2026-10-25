@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3ColumnEstimate.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3ColumnEdgeIndex
+public import BouRabeeGwynne.Section3ColumnEdgeIndex
+
+@[expose] public section
 
 /-! The complete column-measure estimate in facet form, including zero energy. -/
 

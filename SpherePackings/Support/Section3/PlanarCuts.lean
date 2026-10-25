@@ -1,6 +1,10 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.Section3GoodLines
+public import BouRabeeGwynne.Section3GoodLines
+
+@[expose] public section
 
 /-!
 # Optimal cuts around a point of a line

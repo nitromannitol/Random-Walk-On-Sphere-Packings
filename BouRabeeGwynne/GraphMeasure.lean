@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/GraphMeasure.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Analysis.InnerProductSpace.NormDet
-import Mathlib.LinearAlgebra.Matrix.SchurComplement
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.Tactic.Ring
+public import Mathlib.Analysis.InnerProductSpace.NormDet
+public import Mathlib.LinearAlgebra.Matrix.SchurComplement
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 open scoped BigOperators ENNReal MeasureTheory
 open MeasureTheory

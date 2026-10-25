@@ -1,8 +1,12 @@
-import SpherePackings.Support.Voronoi.CountsToCells
-import SpherePackings.Support.Voronoi.GridCount
-import SpherePackings.Support.Poisson.Tails
-import SpherePackings.Support.MeasureOverlap
-import Mathlib.MeasureTheory.OuterMeasure.BorelCantelli
+module
+
+public import SpherePackings.Support.Voronoi.CountsToCells
+public import SpherePackings.Support.Voronoi.GridCount
+public import SpherePackings.Support.Poisson.Tails
+public import SpherePackings.Support.MeasureOverlap
+public import Mathlib.MeasureTheory.OuterMeasure.BorelCantelli
+
+@[expose] public section
 
 /-!
 # Proposition 1.1: Voronoi cells of Poisson point processes

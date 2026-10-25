@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianLandingRange.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianScaledLanding
-import BouRabeeGwynne.ContinuousPathRange
+public import BouRabeeGwynne.BrownianScaledLanding
+public import BouRabeeGwynne.ContinuousPathRange
+
+@[expose] public section
 
 /-! A positive probability of scaled landing with a deterministic bound on
 the entire preceding path. -/

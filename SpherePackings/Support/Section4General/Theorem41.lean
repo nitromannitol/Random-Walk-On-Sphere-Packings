@@ -1,10 +1,14 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import BouRabeeGwynne.TheoremACouplingSetup
-import BouRabeeGwynne.CouplingErrorBudget
-import SpherePackings.Support.Section4General.CouplingPartitions
-import SpherePackings.Support.Section4General.NearestStarts
-import SpherePackings.General.Walk.BallStoppedLawComparison
+public import BouRabeeGwynne.TheoremACouplingSetup
+public import BouRabeeGwynne.CouplingErrorBudget
+public import SpherePackings.Support.Section4General.CouplingPartitions
+public import SpherePackings.Support.Section4General.NearestStarts
+public import SpherePackings.General.Walk.BallStoppedLawComparison
+
+@[expose] public section
 
 /-!
 # Theorem 4.1

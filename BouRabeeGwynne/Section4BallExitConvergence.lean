@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4BallExitConvergence.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section4BrownianBallHarmonicMeasure
-import BouRabeeGwynne.HarmonicPolynomialApproximation
+public import BouRabeeGwynne.Section4BrownianBallHarmonicMeasure
+public import BouRabeeGwynne.HarmonicPolynomialApproximation
+
+@[expose] public section
 
 /-! Uniform comparison of actual discrete and Brownian exit measures from a
 fixed ball, using the proved Theorem B(a) and harmonic polynomial approximants. -/

@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkBrownianCoupling.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkSkeletonLaw
-import BouRabeeGwynne.BrownianSkeletonLaw
-import BouRabeeGwynne.FinitePartitionCouplingKernel
-import BouRabeeGwynne.FiniteCellCouplingError
-import BouRabeeGwynne.SkeletonCoupling
+public import BouRabeeGwynne.WalkSkeletonLaw
+public import BouRabeeGwynne.BrownianSkeletonLaw
+public import BouRabeeGwynne.FinitePartitionCouplingKernel
+public import BouRabeeGwynne.FiniteCellCouplingError
+public import BouRabeeGwynne.SkeletonCoupling
+
+@[expose] public section
 
 /-! A concrete coupling of the original walk and Brownian excursion sequences.
 The walk retains its integer clock and padded vertices; matching cells refer

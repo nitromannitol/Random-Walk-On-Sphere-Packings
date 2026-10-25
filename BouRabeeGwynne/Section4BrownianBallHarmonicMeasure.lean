@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4BrownianBallHarmonicMeasure.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section4BallHarmonicMeasure
-import BouRabeeGwynne.HarmonicNearClosureBrownianExit
+public import BouRabeeGwynne.Section4BallHarmonicMeasure
+public import BouRabeeGwynne.HarmonicNearClosureBrownianExit
+
+@[expose] public section
 
 /-! The actual Brownian endpoint measure and its harmonic boundary approximation. -/
 

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianExitRestart.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ContinuousExitProperties
-import BouRabeeGwynne.BrownianWeakMarkov
+public import BouRabeeGwynne.ContinuousExitProperties
+public import BouRabeeGwynne.BrownianWeakMarkov
+
+@[expose] public section
 
 /-!
 # Deterministic restart of the actual continuous exit

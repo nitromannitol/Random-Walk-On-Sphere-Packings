@@ -1,6 +1,10 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+public import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+
+@[expose] public section
 
 /-!
 # Lévy–Prokhorov distance and integrals

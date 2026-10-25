@@ -1,13 +1,17 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkBrownianCellMeasures.lean` at commit cf73d6e): its declarations that assume a
 -- finite state space or a finite conductance network, for the chain of an arbitrary Markov
 -- kernel on a measurable space.
-import BouRabeeGwynne.WalkBrownianCellMeasures
-import SpherePackings.General.MarkovChain.Absorbed
-import SpherePackings.General.Walk.ClockedWalkExcursion
-import SpherePackings.General.Walk.DiscreteHarmonicMeasure
-import SpherePackings.General.Walk.SkeletonKernels
+public import BouRabeeGwynne.WalkBrownianCellMeasures
+public import SpherePackings.General.MarkovChain.Absorbed
+public import SpherePackings.General.Walk.ClockedWalkExcursion
+public import SpherePackings.General.Walk.DiscreteHarmonicMeasure
+public import SpherePackings.General.Walk.SkeletonKernels
+
+@[expose] public section
 
 /-! General-state-space version of `BouRabeeGwynne.WalkBrownianCellMeasures`: the declarations of that file
 that assume a finite state space or a finite conductance network. -/

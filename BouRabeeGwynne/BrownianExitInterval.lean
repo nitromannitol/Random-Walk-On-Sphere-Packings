@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianExitInterval.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianNextExit
-import BouRabeeGwynne.BrownianExcursionRange
+public import BouRabeeGwynne.BrownianNextExit
+public import BouRabeeGwynne.BrownianExcursionRange
+
+@[expose] public section
 
 /-! Every time between an actual stopping time and its next exit occurs in
 the normalized restarted excursion. Thus a range bound controls the whole

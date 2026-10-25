@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianBoundaryExcursion.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianLandingRange
-import BouRabeeGwynne.BrownianExcursionRange
-import BouRabeeGwynne.BrownianExcursionKernel
-import BouRabeeGwynne.ExteriorBallBuffer
+public import BouRabeeGwynne.BrownianLandingRange
+public import BouRabeeGwynne.BrownianExcursionRange
+public import BouRabeeGwynne.BrownianExcursionKernel
+public import BouRabeeGwynne.ExteriorBallBuffer
+
+@[expose] public section
 
 /-! A uniform contraction of boundary-collar survival for the actual full
 Brownian excursion out of a larger ball. -/

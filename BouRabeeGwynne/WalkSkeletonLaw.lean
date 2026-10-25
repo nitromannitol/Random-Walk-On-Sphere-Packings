@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkSkeletonLaw.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkSkeletonObservation
-import BouRabeeGwynne.WalkSkeletonKernel
-import BouRabeeGwynne.DependentKernelMapAE
-import BouRabeeGwynne.TrajectoryIdentification
+public import BouRabeeGwynne.WalkSkeletonObservation
+public import BouRabeeGwynne.WalkSkeletonKernel
+public import BouRabeeGwynne.DependentKernelMapAE
+public import BouRabeeGwynne.TrajectoryIdentification
+
+@[expose] public section
 
 /-! The exact full trajectory law of the rich excursions extracted from one
 original ambient walk. Spatial selectors act on each marginal's own past. -/

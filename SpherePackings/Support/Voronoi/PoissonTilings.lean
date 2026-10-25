@@ -1,7 +1,11 @@
-import SpherePackings.Support.Voronoi.PoissonCells
-import SpherePackings.Support.Voronoi.TilingProps
-import SpherePackings.Support.TheoremBPartB.Proof
-import BouRabeeGwynne.TheoremAProved
+module
+
+public import SpherePackings.Support.Voronoi.PoissonCells
+public import SpherePackings.Support.Voronoi.TilingProps
+public import SpherePackings.Support.TheoremBPartB.Proof
+public import BouRabeeGwynne.TheoremAProved
+
+@[expose] public section
 
 /-!
 # Proposition 1.1, second part: Theorems A and B for Poisson–Voronoi tilings

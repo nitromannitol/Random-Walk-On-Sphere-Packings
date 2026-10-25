@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem B, alternative (a), of rw-spheres.tex, frozen.
 
@@ -9,7 +11,9 @@ Statement of leobon12 (`BouRabeeGwynne.TheoremBPartAStatement`) with the ambient
 `closure U ⊆ interior D`; it also asserts eventual existence and uniqueness of the discrete
 solution.
 -/
-import BouRabeeGwynne.Section3TheoremBPartA
+public import BouRabeeGwynne.Section3TheoremBPartA
+
+@[expose] public section
 
 open scoped Topology ENNReal
 open BouRabeeGwynne

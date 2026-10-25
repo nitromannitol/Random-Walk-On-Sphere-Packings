@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HypIIIErrorBound.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.HypIIICorrectedRegions
-import BouRabeeGwynne.HypIIIRegionScale
-import BouRabeeGwynne.HypIIITaylorCost
-import BouRabeeGwynne.HypIIICostBound
+public import BouRabeeGwynne.HypIIICorrectedRegions
+public import BouRabeeGwynne.HypIIIRegionScale
+public import BouRabeeGwynne.HypIIITaylorCost
+public import BouRabeeGwynne.HypIIICostBound
+
+@[expose] public section
 
 /-! The actual finite Dirichlet error is bounded by the corrected cost series. -/
 

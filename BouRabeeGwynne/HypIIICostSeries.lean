@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HypIIICostSeries.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Analysis.Normed.Group.Tannery
-import Mathlib.Analysis.SpecificLimits.Normed
-import Mathlib.Analysis.SpecialFunctions.Sqrt
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Linarith
+public import Mathlib.Analysis.Normed.Group.Tannery
+public import Mathlib.Analysis.SpecificLimits.Normed
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-!
 # Convergence of the corrected hypothesis III iteration cost

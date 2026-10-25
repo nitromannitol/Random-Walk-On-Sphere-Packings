@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianQuadraticMoments.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurveLaws
-import BouRabeeGwynne.GaussianIncrementBounds
-import Mathlib.Algebra.Order.Chebyshev
-import Mathlib.Probability.Independence.Integration
-import Mathlib.Probability.Moments.Covariance
+public import BouRabeeGwynne.StoppedCurveLaws
+public import BouRabeeGwynne.GaussianIncrementBounds
+public import Mathlib.Algebra.Order.Chebyshev
+public import Mathlib.Probability.Independence.Integration
+public import Mathlib.Probability.Moments.Covariance
+
+@[expose] public section
 
 /-!
 # The exact Gaussian quadratic generator term

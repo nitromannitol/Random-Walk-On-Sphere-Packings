@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianStoppingEvent.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianStoppingHistory
+public import BouRabeeGwynne.BrownianStoppingHistory
+
+@[expose] public section
 
 /-! A uniform bound for fresh Brownian futures transfers to the original
 path at its actual stopping time, with the entire observed history retained. -/

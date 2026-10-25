@@ -1,43 +1,47 @@
-import Mathlib.Algebra.BigOperators.Field
-import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Algebra.Order.BigOperators.Group.Finset
-import Mathlib.Analysis.Convex.Intrinsic
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Basic.Real.Basic
-import Mathlib.Data.Finset.Max
-import Mathlib.Geometry.Euclidean.Volume.Measure
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.Logic.Relation
-import Mathlib.MeasureTheory.Constructions.BorelSpace.WithTop
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
-import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
-import Mathlib.Probability.BrownianMotion.Basic
-import Mathlib.Probability.Kernel.Composition.Lemmas
-import Mathlib.Probability.Kernel.IonescuTulcea.Traj
-import Mathlib.Probability.ProbabilityMassFunction.Constructions
-import Mathlib.Probability.ProbabilityMassFunction.Integrals
-import Mathlib.Probability.Process.HittingTime
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
-import Mathlib.Topology.ContinuousMap.Compact
-import Mathlib.Topology.ContinuousMap.SecondCountableSpace
-import Mathlib.Topology.MetricSpace.Basic
-import Mathlib.Topology.MetricSpace.Thickening
-import Mathlib.Topology.Order.MonotoneContinuity
-import Mathlib.Topology.Order.MonotoneConvergence
-import Mathlib.Topology.UnitInterval
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.CurveSpace
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDE
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDEAlgebra
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LocalRegion
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.PaperObjects
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedCurveLaws
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedWalk
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TilingNetwork
-import SpherePackingsAudit.Vocabulary.SpherePackings.General.MarkovChain.Basic
-import SpherePackingsAudit.Vocabulary.SpherePackings.General.MarkovChain.Dirichlet
+module
+
+public import Mathlib.Algebra.BigOperators.Field
+public import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Group.Finset
+public import Mathlib.Analysis.Convex.Intrinsic
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Finset.Max
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+public import Mathlib.Logic.Relation
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.WithTop
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+public import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
+public import Mathlib.Probability.BrownianMotion.Basic
+public import Mathlib.Probability.Kernel.Composition.Lemmas
+public import Mathlib.Probability.Kernel.IonescuTulcea.Traj
+public import Mathlib.Probability.ProbabilityMassFunction.Constructions
+public import Mathlib.Probability.ProbabilityMassFunction.Integrals
+public import Mathlib.Probability.Process.HittingTime
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.ContinuousMap.Compact
+public import Mathlib.Topology.ContinuousMap.SecondCountableSpace
+public import Mathlib.Topology.MetricSpace.Basic
+public import Mathlib.Topology.MetricSpace.Thickening
+public import Mathlib.Topology.Order.MonotoneContinuity
+public import Mathlib.Topology.Order.MonotoneConvergence
+public import Mathlib.Topology.UnitInterval
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.CurveSpace
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDE
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.DiscretePDEAlgebra
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LocalRegion
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.PaperObjects
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedCurveLaws
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.StoppedWalk
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.TilingNetwork
+public import SpherePackingsAudit.Vocabulary.SpherePackings.General.MarkovChain.Basic
+public import SpherePackingsAudit.Vocabulary.SpherePackings.General.MarkovChain.Dirichlet
+
+@[expose] public section
 
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).

@@ -1,4 +1,8 @@
-import SpherePackings.MainTheorems
+module
+
+public import SpherePackings.MainTheorems
+
+@[expose] public section
 
 /-!
 # Solution: Theorem A (`theorem:convergence-of-rw-trace`)

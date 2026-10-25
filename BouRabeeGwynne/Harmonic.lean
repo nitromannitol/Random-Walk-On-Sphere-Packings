@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Harmonic.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Analysis.InnerProductSpace.Laplacian
-import BouRabeeGwynne.PaperObjects
+public import Mathlib.Analysis.InnerProductSpace.Laplacian
+public import BouRabeeGwynne.PaperObjects
+
+@[expose] public section
 
 open scoped Topology InnerProductSpace
 open InnerProductSpace Laplacian

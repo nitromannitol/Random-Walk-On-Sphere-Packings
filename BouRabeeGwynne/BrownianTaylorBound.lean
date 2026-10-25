@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianTaylorBound.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianHessianGenerator
+public import BouRabeeGwynne.BrownianHessianGenerator
+
+@[expose] public section
 
 /-!
 # Actual one-step harmonic Taylor error for Brownian motion

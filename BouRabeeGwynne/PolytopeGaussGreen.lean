@@ -1,11 +1,15 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PolytopeGaussGreen.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ContactCoordinateFlux
-import BouRabeeGwynne.ProjectedContactPartition
-import BouRabeeGwynne.CoordinateFiberFubini
-import BouRabeeGwynne.CoordinateLaplacian
-import BouRabeeGwynne.FacetFlux
+public import BouRabeeGwynne.ContactCoordinateFlux
+public import BouRabeeGwynne.ProjectedContactPartition
+public import BouRabeeGwynne.CoordinateFiberFubini
+public import BouRabeeGwynne.CoordinateLaplacian
+public import BouRabeeGwynne.FacetFlux
+
+@[expose] public section
 
 open scoped BigOperators ENNReal MeasureTheory
 open MeasureTheory Laplacian

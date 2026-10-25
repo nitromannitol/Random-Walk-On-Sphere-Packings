@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkBrownianStep.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkBrownianCellMeasures
-import BouRabeeGwynne.WalkBrownianGoodEvent
+public import BouRabeeGwynne.WalkBrownianCellMeasures
+public import BouRabeeGwynne.WalkBrownianGoodEvent
+
+@[expose] public section
 
 /-! The actual selected next-excursion coupling inherits the spatial exit-cell
 error bound. This uses the current full state, including its stopping flag. -/

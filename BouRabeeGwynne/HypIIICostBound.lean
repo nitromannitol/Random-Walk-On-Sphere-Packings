@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HypIIICostBound.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.HypIIICostSeries
+public import BouRabeeGwynne.HypIIICostSeries
+
+@[expose] public section
 
 /-! Every finite corrected-iteration cost is bounded by its convergent series. -/
 

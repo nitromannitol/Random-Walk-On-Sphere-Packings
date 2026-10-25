@@ -1,4 +1,8 @@
-import SpherePackings.Support.Voronoi.GeometricConstraint
+module
+
+public import SpherePackings.Support.Voronoi.GeometricConstraint
+
+@[expose] public section
 
 /-!
 # From cube counts to inner and outer balls of Voronoi cells

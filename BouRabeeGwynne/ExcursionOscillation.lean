@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ExcursionOscillation.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkBrownianGoodEvent
-import BouRabeeGwynne.ExcursionTrajectory
-import BouRabeeGwynne.BrownianExcursionKernel
+public import BouRabeeGwynne.WalkBrownianGoodEvent
+public import BouRabeeGwynne.ExcursionTrajectory
+public import BouRabeeGwynne.BrownianExcursionKernel
+
+@[expose] public section
 
 /-! Whole-excursion range bounds and literal pointwise comparison of the
 two actual representatives pasted on the same fixed time partition. -/

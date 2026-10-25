@@ -1,10 +1,14 @@
-import Mathlib.Analysis.Convex.Intrinsic
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Geometry.Euclidean.Volume.Measure
-import Mathlib.Tactic.Ring
-import Mathlib.Topology.MetricSpace.Thickening
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LocalRegion
-import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.PaperObjects
+module
+
+public import Mathlib.Analysis.Convex.Intrinsic
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Geometry.Euclidean.Volume.Measure
+public import Mathlib.Tactic.Ring
+public import Mathlib.Topology.MetricSpace.Thickening
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LocalRegion
+public import SpherePackingsAudit.Vocabulary.BouRabeeGwynne.PaperObjects
+
+@[expose] public section
 
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne

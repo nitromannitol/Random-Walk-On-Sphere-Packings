@@ -1,5 +1,9 @@
-import SpherePackings.Support.Voronoi.Basic
-import SpherePackings.Support.Voronoi.GridCount
+module
+
+public import SpherePackings.Support.Voronoi.Basic
+public import SpherePackings.Support.Voronoi.GridCount
+
+@[expose] public section
 
 /-!
 # Lemma 5.1: inner and outer balls for Voronoi cells

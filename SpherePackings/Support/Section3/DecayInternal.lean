@@ -1,11 +1,15 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/HypIIIErrorBound.lean` and `BouRabeeGwynne/HypIIICorrectedTrimming.lean` at
 -- commit cf73d6e): the corrected iteration of Theorem 3.7, for complete cells and Taylor control on
 -- internal edges only.
-import SpherePackings.Support.Section3.InternalTaylor
-import SpherePackings.Support.Section3.GeneralDecayRate
-import SpherePackings.Support.Complete.Section3
+public import SpherePackings.Support.Section3.InternalTaylor
+public import SpherePackings.Support.Section3.GeneralDecayRate
+public import SpherePackings.Support.Complete.Section3
+
+@[expose] public section
 
 /-!
 # Theorem 3.7 as in the corrected paper

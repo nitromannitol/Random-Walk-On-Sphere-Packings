@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianHarmonicExit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianStoppedLimit
-import BouRabeeGwynne.BrownianFiniteExit
-import BouRabeeGwynne.BrownianExitStoppingTime
-import BouRabeeGwynne.StoppedBrownianMeasurable
+public import BouRabeeGwynne.BrownianStoppedLimit
+public import BouRabeeGwynne.BrownianFiniteExit
+public import BouRabeeGwynne.BrownianExitStoppingTime
+public import BouRabeeGwynne.StoppedBrownianMeasurable
+
+@[expose] public section
 
 /-!
 # Harmonic expectation at the actual Brownian exit

@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 5.1(a) of rw-spheres.tex, frozen.
 
@@ -10,7 +12,9 @@ asked of every grid point `x ∈ r ℤ^d` with `(x + [-r, r]^d) ∩ U ≠ ∅`. 
 in `ℝ`, `U = (0, 10)`, `r = 1` and `S = {0.1, -1.5}` satisfy its hypothesis, but
 `B_1(0.1) ⊄ 𝒞_{0.1} = [-0.7, ∞)` (an informal counterexample).  The conclusion is for the closed ball.
 -/
-import SpherePackings.Support.Voronoi.GeometricConstraint
+public import SpherePackings.Support.Voronoi.GeometricConstraint
+
+@[expose] public section
 
 open Metric SpherePackings.Voronoi
 

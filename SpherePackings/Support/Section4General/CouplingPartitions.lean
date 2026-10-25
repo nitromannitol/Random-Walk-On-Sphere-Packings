@@ -1,12 +1,16 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (file
 -- `BouRabeeGwynne/CouplingPartitions.lean` at commit cf73d6e): its main theorem for an arbitrary
 -- nearest-neighbour walk under Assumption D as printed.
-import BouRabeeGwynne.CouplingPartitions
-import SpherePackings.Support.Section4General.ExitPartitions
-import SpherePackings.Support.Section4General.StoppedWalkLaw
-import SpherePackings.General.NearestNeighbourWalkHarmonic
-import SpherePackings.General.Walk.WalkBrownianFailure
+public import BouRabeeGwynne.CouplingPartitions
+public import SpherePackings.Support.Section4General.ExitPartitions
+public import SpherePackings.Support.Section4General.StoppedWalkLaw
+public import SpherePackings.General.NearestNeighbourWalkHarmonic
+public import SpherePackings.General.Walk.WalkBrownianFailure
+
+@[expose] public section
 
 /-! Section 4 of rw-spheres.tex: couplings of the walk and Brownian excursions from finitely many
 balls, with partitions of the exit points whose cells are small, for a nearest-neighbour walk

@@ -1,10 +1,14 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.General.Walk.WalkSkeletonPrefix
-import BouRabeeGwynne.PolygonalVertexExitGeometry
-import BouRabeeGwynne.ExcursionOscillation
-import BouRabeeGwynne.SelectedExcursionOscillation
-import SpherePackings.General.Walk.GoodRange
+public import SpherePackings.General.Walk.WalkSkeletonPrefix
+public import BouRabeeGwynne.PolygonalVertexExitGeometry
+public import BouRabeeGwynne.ExcursionOscillation
+public import BouRabeeGwynne.SelectedExcursionOscillation
+public import SpherePackings.General.Walk.GoodRange
+
+@[expose] public section
 
 /-!
 # Walk steps from excursion ranges

@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/CurvePauses.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.CurveSpace
-import Mathlib.Topology.Order.IntermediateValue
-import Mathlib.Topology.Order.ProjIcc
-import Mathlib.Order.Hom.Set
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
+public import BouRabeeGwynne.CurveSpace
+public import Mathlib.Topology.Order.IntermediateValue
+public import Mathlib.Topology.Order.ProjIcc
+public import Mathlib.Order.Hom.Set
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-! Constant pauses do not change the actual Fréchet curve class. A continuous
 nondecreasing time map is approximated by explicit strictly increasing

@@ -1,6 +1,10 @@
-import SpherePackings.Support.Voronoi.Tiling
-import SpherePackings.Support.Voronoi.GridCount
-import SpherePackings.Support.Voronoi.GeometricConstraint
+module
+
+public import SpherePackings.Support.Voronoi.Tiling
+public import SpherePackings.Support.Voronoi.GridCount
+public import SpherePackings.Support.Voronoi.GeometricConstraint
+
+@[expose] public section
 
 /-!
 # Voronoi cells of the lattice `h ℤ^d`

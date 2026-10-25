@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WalkReconstructionLaw.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.WalkStoppedReconstruction
-import BouRabeeGwynne.ReconstructedLawComparison
+public import BouRabeeGwynne.WalkStoppedReconstruction
+public import BouRabeeGwynne.ReconstructedLawComparison
+
+@[expose] public section
 
 /-! Terminated actual excursion prefixes recover the stopped walk law.
 The only loss in replacing that law by the finite reconstruction is the

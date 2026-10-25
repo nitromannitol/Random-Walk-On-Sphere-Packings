@@ -1,13 +1,17 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/HypIIIErrorBound.lean` and `BouRabeeGwynne/BoundaryCorrectedSurfaceEnergy.lean`
 -- at commit cf73d6e): the error and energy estimates of the corrected iteration, with the Hessian
 -- bound on the cells and the edge segments in place of the balls of radius twice the mesh.
-import SpherePackings.Support.Section3.EnergyMinimal
-import BouRabeeGwynne.HypIIIErrorBound
-import BouRabeeGwynne.BoundaryCorrectedSurfaceEnergy
-import BouRabeeGwynne.HypIIICorrectedTrimming
-import BouRabeeGwynne.FacetAffineResidual
+public import SpherePackings.Support.Section3.EnergyMinimal
+public import BouRabeeGwynne.HypIIIErrorBound
+public import BouRabeeGwynne.BoundaryCorrectedSurfaceEnergy
+public import BouRabeeGwynne.HypIIICorrectedTrimming
+public import BouRabeeGwynne.FacetAffineResidual
+
+@[expose] public section
 
 /-!
 # The corrected iteration of Theorem 3.7 under the edge-segment hypothesis (intermediate result)

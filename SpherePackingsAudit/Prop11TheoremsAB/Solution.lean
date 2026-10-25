@@ -1,4 +1,8 @@
-import SpherePackings.MainTheorems
+module
+
+public import SpherePackings.MainTheorems
+
+@[expose] public section
 
 /-!
 # Solution: Proposition 1.1 (`prop:min-max-edge-length`), Theorems A and B for Poisson–Voronoi tilings

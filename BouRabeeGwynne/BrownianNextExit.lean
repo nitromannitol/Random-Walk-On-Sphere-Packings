@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianNextExit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianPathFreezing
-import BouRabeeGwynne.BrownianExcursionKernel
-import BouRabeeGwynne.BrownianStoppingHistory
+public import BouRabeeGwynne.BrownianPathFreezing
+public import BouRabeeGwynne.BrownianExcursionKernel
+public import BouRabeeGwynne.BrownianStoppingHistory
+
+@[expose] public section
 
 /-! The actual next exit after a previously observed time. The time is defined
 from the original continuous path and its increment shift, including the

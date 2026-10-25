@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3CaseII.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3MassDecay
-import BouRabeeGwynne.Section3CellMass
-import BouRabeeGwynne.Section3GeometricCutoff
-import BouRabeeGwynne.Section3HarmonicInput
+public import BouRabeeGwynne.Section3MassDecay
+public import BouRabeeGwynne.Section3CellMass
+public import BouRabeeGwynne.Section3GeometricCutoff
+public import BouRabeeGwynne.Section3HarmonicInput
+
+@[expose] public section
 
 /-! Termination and uniform error under the actual tile-volume lower bound. -/
 

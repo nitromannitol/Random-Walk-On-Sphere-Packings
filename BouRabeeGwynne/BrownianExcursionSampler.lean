@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianExcursionSampler.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.AbsorbingExcursionKernel
-import BouRabeeGwynne.BrownianExcursionKernel
+public import BouRabeeGwynne.AbsorbingExcursionKernel
+public import BouRabeeGwynne.BrownianExcursionKernel
+
+@[expose] public section
 
 /-! Actual full-excursion sampling from a fresh continuous Brownian path.
 The permanent termination flag is retained, and the sampled laws agree exactly

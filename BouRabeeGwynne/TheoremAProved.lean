@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TheoremAProved.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.TheoremAStatement
-import BouRabeeGwynne.TheoremAProcessLaws
-import BouRabeeGwynne.UniformStoppedWalkConvergence
+public import BouRabeeGwynne.TheoremAStatement
+public import BouRabeeGwynne.TheoremAProcessLaws
+public import BouRabeeGwynne.UniformStoppedWalkConvergence
+
+@[expose] public section
 
 /-! Theorem A with its approved statement unchanged: existence of the actual
 process laws and uniform convergence of the stopped conductance walks. -/

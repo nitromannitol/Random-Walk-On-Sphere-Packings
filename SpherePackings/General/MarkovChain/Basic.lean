@@ -1,9 +1,13 @@
+module
+
 -- Adapted from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (files `BouRabeeGwynne/StoppedWalk.lean`, `WalkMemoryless.lean`, `WalkJointRestart.lean` and
 -- `WalkStrongMarkov.lean` at commit cf73d6e): the walk of a finite conductance network is replaced
 -- by the chain of an arbitrary Markov kernel on a measurable space.
-import BouRabeeGwynne.WalkStrongMarkov
+public import BouRabeeGwynne.WalkStrongMarkov
+
+@[expose] public section
 
 /-!
 # The Markov chain of a Markov kernel

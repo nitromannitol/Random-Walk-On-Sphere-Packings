@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HypIIIGeometricScale.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3EnergyNormalization
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import BouRabeeGwynne.Section3EnergyNormalization
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+
+@[expose] public section
 
 /-! The actual hypothesis III bounds local tile diameters by incident mass. -/
 

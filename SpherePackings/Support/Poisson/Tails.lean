@@ -1,4 +1,8 @@
-import SpherePackings.Support.Poisson.Basic
+module
+
+public import SpherePackings.Support.Poisson.Basic
+
+@[expose] public section
 
 /-!
 # Tail bounds for Poisson counts

@@ -1,8 +1,12 @@
+module
+
 -- Adapted in part from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (commit cf73d6e): it uses its `exitTime` and `exitVertex`, and `exitVertex_not_mem'` is its
 -- `exitVertex_not_mem` (file `BouRabeeGwynne/DiscreteHarmonicMeasure.lean`) for any state space.
-import SpherePackings.General.MarkovChain.Basic
+public import SpherePackings.General.MarkovChain.Basic
+
+@[expose] public section
 
 /-!
 # Exit values and the Dirichlet problem for a Markov kernel

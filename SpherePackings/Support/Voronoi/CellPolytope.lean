@@ -1,5 +1,9 @@
-import SpherePackings.Support.Voronoi.Basic
-import BouRabeeGwynne.PaperObjects
+module
+
+public import SpherePackings.Support.Voronoi.Basic
+public import BouRabeeGwynne.PaperObjects
+
+@[expose] public section
 
 /-!
 # Bounded Voronoi cells are convex polytopes

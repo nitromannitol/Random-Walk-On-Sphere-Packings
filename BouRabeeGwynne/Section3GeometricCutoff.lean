@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3GeometricCutoff.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3HarmonicIteration
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Algebra.Order.Archimedean.Real.Basic
+public import BouRabeeGwynne.Section3HarmonicIteration
+public import Mathlib.Analysis.SpecialFunctions.Pow.Real
+public import Mathlib.Algebra.Order.Archimedean.Real.Basic
+
+@[expose] public section
 
 /-! The actual hypothesis II witness terminates the harmonic-replacement iteration. -/
 

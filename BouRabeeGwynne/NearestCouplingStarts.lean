@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/NearestCouplingStarts.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FixedBallCover
-import BouRabeeGwynne.ApproximationGeometry
-import BouRabeeGwynne.LocalRegion
+public import BouRabeeGwynne.FixedBallCover
+public import BouRabeeGwynne.ApproximationGeometry
+public import BouRabeeGwynne.LocalRegion
+
+@[expose] public section
 
 /-! The approximation condition places every actual nearest starting vertex
 in the same fixed inner ball as its continuum start, uniformly in that start. -/

@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/NearestVertexExistence.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.LocalGeometry
-import Mathlib.Data.Set.Finite.Lemmas
+public import BouRabeeGwynne.LocalGeometry
+public import Mathlib.Data.Set.Finite.Lemmas
+
+@[expose] public section
 
 open scoped ENNReal
 

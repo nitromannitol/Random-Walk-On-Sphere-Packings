@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HypIIITaylorCost.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.CorrectedSurfaceField
+public import BouRabeeGwynne.CorrectedSurfaceField
+
+@[expose] public section
 
 /-! A sufficient quadratic bound for actual new boundary Taylor rewards. -/
 

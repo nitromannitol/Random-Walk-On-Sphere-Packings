@@ -1,4 +1,8 @@
-import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Counterexample.WalkLaw
+module
+
+public import SpherePackingsAudit.Vocabulary.SpherePackings.Support.Counterexample.WalkLaw
+
+@[expose] public section
 
 /-!
 # Comparator challenge: Theorem 6.1 (`theorem:counter-example`)

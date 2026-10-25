@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/WeakExcursionClock.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.ExcursionConcatenation
-import BouRabeeGwynne.CurvePauses
-import Mathlib.Algebra.BigOperators.Intervals
+public import BouRabeeGwynne.ExcursionConcatenation
+public import BouRabeeGwynne.CurvePauses
+public import Mathlib.Algebra.BigOperators.Intervals
+
+@[expose] public section
 
 /-! A genuine continuous monotone clock for consecutive pieces with possibly
 zero physical duration. The source partition remains strictly increasing. -/

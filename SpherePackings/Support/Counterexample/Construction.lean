@@ -1,4 +1,8 @@
-import BouRabeeGwynne.PaperObjects
+module
+
+public import BouRabeeGwynne.PaperObjects
+
+@[expose] public section
 
 /-!
 # The sphere packing of Theorem 6.1

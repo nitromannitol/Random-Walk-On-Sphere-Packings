@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/CurveSpace.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Topology.ContinuousMap.Compact
-import Mathlib.Topology.ContinuousMap.SecondCountableSpace
-import Mathlib.Topology.Order.MonotoneContinuity
-import Mathlib.Topology.UnitInterval
-import Mathlib.Topology.MetricSpace.Basic
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Topology.ContinuousMap.Compact
+public import Mathlib.Topology.ContinuousMap.SecondCountableSpace
+public import Mathlib.Topology.Order.MonotoneContinuity
+public import Mathlib.Topology.UnitInterval
+public import Mathlib.Topology.MetricSpace.Basic
+
+@[expose] public section
 
 /-!
 # Continuous curves modulo increasing changes of time

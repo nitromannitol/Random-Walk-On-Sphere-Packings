@@ -1,8 +1,12 @@
+module
+
 -- Built on Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne (commit cf73d6e).
-import SpherePackings.General.Walk.ActualStoppedLawComparison
-import SpherePackings.General.Walk.ExcursionSteps
-import BouRabeeGwynne.SelectedExcursionOscillation
+public import SpherePackings.General.Walk.ActualStoppedLawComparison
+public import SpherePackings.General.Walk.ExcursionSteps
+public import BouRabeeGwynne.SelectedExcursionOscillation
+
+@[expose] public section
 
 /-!
 # The stopped-law comparison for excursions from balls

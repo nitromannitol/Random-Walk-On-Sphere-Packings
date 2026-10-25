@@ -1,3 +1,5 @@
+module
+
 /-
 Proposition 1.1 of rw-spheres.tex, first part, frozen.
 
@@ -15,7 +17,9 @@ of intensity `m μ` (`IsPoissonPointProcess.restrict_inter`), and allows `μ` to
 process has finitely many points in every bounded set (`IsPoissonPointProcess`), so the intensity
 may have infinite total mass, as Lebesgue measure on `ℝ^d` does.
 -/
-import SpherePackings.Support.Voronoi.PoissonLocal
+public import SpherePackings.Support.Voronoi.PoissonLocal
+
+@[expose] public section
 
 open MeasureTheory Metric Filter Set SpherePackings SpherePackings.Voronoi
 open scoped ENNReal NNReal Topology

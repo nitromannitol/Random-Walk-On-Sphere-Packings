@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TrajectoryCoupling.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Probability.Kernel.IonescuTulcea.Traj
-import Mathlib.Probability.Kernel.Composition.Lemmas
+public import Mathlib.Probability.Kernel.IonescuTulcea.Traj
+public import Mathlib.Probability.Kernel.Composition.Lemmas
+
+@[expose] public section
 
 /-! Pushforwards of actual Ionescu–Tulcea trajectory laws. The transition
 intertwining is checked on the entire finite history, so the conclusion gives

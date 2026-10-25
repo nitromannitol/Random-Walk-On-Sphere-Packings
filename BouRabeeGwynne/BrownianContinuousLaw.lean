@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianContinuousLaw.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianProjectiveLaw
-import BouRabeeGwynne.GaussianIncrementBounds
-import BouRabeeGwynne.Upstream.BrownianMotion.Continuity.KolmogorovChentsov
-import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+public import BouRabeeGwynne.BrownianProjectiveLaw
+public import BouRabeeGwynne.GaussianIncrementBounds
+public import BouRabeeGwynne.Upstream.BrownianMotion.Continuity.KolmogorovChentsov
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousMap
+
+@[expose] public section
 
 /-!
 # Construction of an actual continuous real Brownian law

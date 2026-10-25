@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/LocalFacetResidual.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FacetAffineResidual
+public import BouRabeeGwynne.FacetAffineResidual
+
+@[expose] public section
 
 /-! The contact residual at the diameter scale of its two incident cells. -/
 

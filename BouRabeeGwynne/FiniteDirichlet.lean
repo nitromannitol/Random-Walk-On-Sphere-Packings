@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/FiniteDirichlet.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.DiscretePDEAlgebra
-import Mathlib.Data.Finset.Max
-import Mathlib.Logic.Relation
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+public import BouRabeeGwynne.DiscretePDEAlgebra
+public import Mathlib.Data.Finset.Max
+public import Mathlib.Logic.Relation
+public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+
+@[expose] public section
 
 open scoped BigOperators Classical
 

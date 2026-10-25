@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 2.5 of rw-spheres.tex, frozen.
 
@@ -11,7 +13,9 @@ is false (informal counterexample: a small ball inside one square of the unit gr
 vertex, so the union is empty), and without completeness the cells need not be covered (two unit
 squares).  The second inclusion holds as printed.  Proved from leobon12's cell pyramids.
 -/
-import SpherePackings.Support.Complete.Basic
+public import SpherePackings.Support.Complete.Basic
+
+@[expose] public section
 
 open BouRabeeGwynne SpherePackings
 

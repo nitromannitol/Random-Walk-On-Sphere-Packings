@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianStoppedEndpoint.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianStoppedSkeleton
+public import BouRabeeGwynne.BrownianStoppedSkeleton
+
+@[expose] public section
 
 /-! Permanent absorption keeps the actual current endpoint outside the
 selector's continuation set; the finite pasted representative has that endpoint. -/

@@ -1,3 +1,5 @@
+module
+
 /-
 Proposition 4.2 of rw-spheres.tex, frozen.
 
@@ -15,7 +17,9 @@ applies (4.2) to the unit ball), and fails without it (a walk that is simple ran
 unit ball satisfies Assumption D).  `x^n` is the vertex selection of Assumption D, any one
 satisfying (4.1).  The uniformity is over the whole open ball.
 -/
-import SpherePackings.Support.Section4General.Prop42
+public import SpherePackings.Support.Section4General.Prop42
+
+@[expose] public section
 
 open MeasureTheory Metric Filter Set BouRabeeGwynne SpherePackings
 

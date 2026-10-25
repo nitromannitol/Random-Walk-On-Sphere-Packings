@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem 3.6 of rw-spheres.tex, frozen.
 
@@ -24,7 +26,9 @@ iteration does not control); the proof here uses leobon12's corrected iteration,
 Taylor remainders are bounded by the cell Hessian alone, and on a remaining component `Q` bounds the
 error by both `L (D_Q + ε)` and `M ρ²`.
 -/
-import SpherePackings.Support.Section3.GeneralInternal
+public import SpherePackings.Support.Section3.GeneralInternal
+
+@[expose] public section
 
 open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings
 open scoped MeasureTheory Laplacian

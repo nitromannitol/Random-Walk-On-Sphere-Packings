@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3EdgeSums.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
-import Mathlib.Basic.Real.Basic
-import Mathlib.Tactic.Ring
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-!
 # Section 3: exact weighted handshaking

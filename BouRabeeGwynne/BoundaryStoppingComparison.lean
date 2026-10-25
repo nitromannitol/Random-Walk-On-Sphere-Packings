@@ -1,7 +1,11 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BoundaryStoppingComparison.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.CurvePauses
+public import BouRabeeGwynne.CurvePauses
+
+@[expose] public section
 
 /-! Deterministic comparison of stopped ambient curves. The stopping parameters
 may differ, and the discrete parameter may be zero. The Brownian boundary-time

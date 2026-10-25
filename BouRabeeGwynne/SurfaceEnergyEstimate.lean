@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/SurfaceEnergyEstimate.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FiniteFluxEnergy
-import BouRabeeGwynne.SupportedSurfaceField
-import BouRabeeGwynne.PolytopeGaussGreen
+public import BouRabeeGwynne.FiniteFluxEnergy
+public import BouRabeeGwynne.SupportedSurfaceField
+public import BouRabeeGwynne.PolytopeGaussGreen
+
+@[expose] public section
 
 open scoped BigOperators Classical
 

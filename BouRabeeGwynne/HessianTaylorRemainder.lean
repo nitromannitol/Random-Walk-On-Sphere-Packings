@@ -1,12 +1,16 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/HessianTaylorRemainder.lean` at commit cf73d6e); unchanged apart from this header.
-import Mathlib.Analysis.Calculus.MeanValue
-import Mathlib.Analysis.Calculus.Deriv.Pow
-import Mathlib.Analysis.Normed.Module.Convex
-import Mathlib.Analysis.Calculus.ContDiff.Comp
-import Mathlib.Analysis.Normed.Group.Bounded
-import Mathlib.Topology.UniformSpace.HeineCantor
+public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.Analysis.Calculus.Deriv.Pow
+public import Mathlib.Analysis.Normed.Module.Convex
+public import Mathlib.Analysis.Calculus.ContDiff.Comp
+public import Mathlib.Analysis.Normed.Group.Bounded
+public import Mathlib.Topology.UniformSpace.HeineCantor
+
+@[expose] public section
 
 /-!
 # A C² Taylor remainder from oscillation of the actual Hessian

@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section4UniformExitCells.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section4UniformExitTopology
-import Mathlib.MeasureTheory.Measure.Portmanteau
-import Mathlib.Topology.UniformSpace.HeineCantor
+public import BouRabeeGwynne.Section4UniformExitTopology
+public import Mathlib.MeasureTheory.Measure.Portmanteau
+public import Mathlib.Topology.UniformSpace.HeineCantor
+
+@[expose] public section
 
 /-! Uniform continuity-set comparison for a compact family of exit laws. -/
 

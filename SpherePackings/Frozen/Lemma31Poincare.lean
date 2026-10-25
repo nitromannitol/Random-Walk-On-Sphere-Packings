@@ -1,3 +1,5 @@
+module
+
 /-
 Lemma 3.1 of rw-spheres.tex, frozen.
 
@@ -14,7 +16,9 @@ published lemma is false without it: for two unit squares in a row and `U` conta
 centres, `∂V[U]` is empty, and `f = 1` has `D(f, U) = 0` while the bad set at threshold `0` is
 `π_1(U)`, of positive length.  Proved from leobon12's column lemmas, adapted to complete cells.
 -/
-import SpherePackings.Support.Complete.Columns
+public import SpherePackings.Support.Complete.Columns
+
+@[expose] public section
 
 open scoped Classical BigOperators MeasureTheory ENNReal
 open MeasureTheory BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings

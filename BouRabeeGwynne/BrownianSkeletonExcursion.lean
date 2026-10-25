@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/BrownianSkeletonExcursion.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianSkeletonClock
-import BouRabeeGwynne.BrownianObservedHistory
-import BouRabeeGwynne.BrownianExcursionSampler
+public import BouRabeeGwynne.BrownianSkeletonClock
+public import BouRabeeGwynne.BrownianObservedHistory
+public import BouRabeeGwynne.BrownianExcursionSampler
+
+@[expose] public section
 
 /-! Successive full excursions extracted from one actual continuous path.
 The clock remains the original path's clock, and termination is permanent. -/

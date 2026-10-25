@@ -1,5 +1,9 @@
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Topology.MetricSpace.Thickening
+module
+
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import Mathlib.Topology.MetricSpace.Thickening
+
+@[expose] public section
 
 /-!
 # Voronoi cells, grids and cubes

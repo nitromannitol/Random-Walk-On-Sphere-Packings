@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ContinuousPathRange.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.StoppedCurveLaws
-import Mathlib.Analysis.Normed.Group.Bounded
-import Mathlib.MeasureTheory.Measure.Continuity
+public import BouRabeeGwynne.StoppedCurveLaws
+public import Mathlib.Analysis.Normed.Group.Bounded
+public import Mathlib.MeasureTheory.Measure.Continuity
+
+@[expose] public section
 
 /-! Every finite measure on continuous paths gives arbitrarily high mass to
 a deterministic bound on a fixed compact time interval. -/

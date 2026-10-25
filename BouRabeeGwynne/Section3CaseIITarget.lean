@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/Section3CaseIITarget.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.Section3CaseII
-import BouRabeeGwynne.Section3CompactCollar
-import BouRabeeGwynne.Section3WellPosed
-import BouRabeeGwynne.CoordinateHyperplane
+public import BouRabeeGwynne.Section3CaseII
+public import BouRabeeGwynne.Section3CompactCollar
+public import BouRabeeGwynne.Section3WellPosed
+public import BouRabeeGwynne.CoordinateHyperplane
+
+@[expose] public section
 
 /-! The actual small-tile branch of Theorem B(a). -/
 

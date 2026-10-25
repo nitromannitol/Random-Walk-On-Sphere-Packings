@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/ActualStoppedLawComparison.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.FiniteStoppedLawComparison
-import BouRabeeGwynne.WalkReconstructionLaw
-import BouRabeeGwynne.BrownianStoppedEndpoint
-import BouRabeeGwynne.JointExcursionPasting
+public import BouRabeeGwynne.FiniteStoppedLawComparison
+public import BouRabeeGwynne.WalkReconstructionLaw
+public import BouRabeeGwynne.BrownianStoppedEndpoint
+public import BouRabeeGwynne.JointExcursionPasting
+
+@[expose] public section
 
 /-! Compare the actual stopped walk and Brownian laws through their finite
 reconstructions. All support statements are derived from the exact original

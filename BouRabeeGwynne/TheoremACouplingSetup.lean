@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/TheoremACouplingSetup.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianUniformFiniteProbability
-import BouRabeeGwynne.CouplingNeighborhoods
+public import BouRabeeGwynne.BrownianUniformFiniteProbability
+public import BouRabeeGwynne.CouplingNeighborhoods
+
+@[expose] public section
 
 /-! Fix the geometric and Brownian probability data for Theorem A before
 the finite backward partitions and the approximation index are chosen. -/

@@ -1,10 +1,14 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/CoordinateVolume.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.PaperObjects
-import Mathlib.MeasureTheory.Constructions.Pi
-import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
-import Mathlib.MeasureTheory.Integral.Prod
+public import BouRabeeGwynne.PaperObjects
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+public import Mathlib.MeasureTheory.Integral.Prod
+
+@[expose] public section
 
 /-! Exact volume-preserving coordinate splitting for polytope slicing. -/
 

@@ -1,3 +1,5 @@
+module
+
 /-
 Theorem 3.7 of rw-spheres.tex, frozen.
 
@@ -24,7 +26,9 @@ remainders are bounded by the cell Hessian alone.  The decay hypothesis is in le
 `diam(P_v) ≤ F sup_w (‖w - v‖ vol_{d-1}(P_v ∩ P_w))^α`, equivalent to the printed one by Lemma 2.4
 (`F` scaled by `d^α`).
 -/
-import SpherePackings.Support.Section3.DecayInternal
+public import SpherePackings.Support.Section3.DecayInternal
+
+@[expose] public section
 
 open BouRabeeGwynne BouRabeeGwynne.OrthogonalTiling SpherePackings
 open scoped ENNReal MeasureTheory Laplacian

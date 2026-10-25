@@ -1,7 +1,11 @@
-import SpherePackings.Support.Counterexample.Tangency
-import SpherePackings.Support.Counterexample.WalkLaw
-import BouRabeeGwynne.FiniteExit
-import BouRabeeGwynne.StoppedCurveMeasurable
+module
+
+public import SpherePackings.Support.Counterexample.Tangency
+public import SpherePackings.Support.Counterexample.WalkLaw
+public import BouRabeeGwynne.FiniteExit
+public import BouRabeeGwynne.StoppedCurveMeasurable
+
+@[expose] public section
 
 /-!
 # The stopped simple random walk laws of Theorem 6.1 exist

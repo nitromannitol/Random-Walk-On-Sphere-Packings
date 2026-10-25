@@ -1,9 +1,13 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/EuclideanWienerLaw.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.BrownianContinuousLaw
-import BouRabeeGwynne.StoppedCurveLaws
-import Mathlib.Probability.Independence.Basic
+public import BouRabeeGwynne.BrownianContinuousLaw
+public import BouRabeeGwynne.StoppedCurveLaws
+public import Mathlib.Probability.Independence.Basic
+
+@[expose] public section
 
 /-!
 # Actual Euclidean Wiener law

@@ -1,4 +1,8 @@
-import SpherePackings.Support.Voronoi.CellPolytope
+module
+
+public import SpherePackings.Support.Voronoi.CellPolytope
+
+@[expose] public section
 
 /-!
 # Voronoi tilings

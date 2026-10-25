@@ -1,8 +1,12 @@
+module
+
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
 -- (file `BouRabeeGwynne/PhysicalPrefixExit.lean` at commit cf73d6e); unchanged apart from this header.
-import BouRabeeGwynne.UnitCurveExit
-import BouRabeeGwynne.BrownianPhysicalSegments
+public import BouRabeeGwynne.UnitCurveExit
+public import BouRabeeGwynne.BrownianPhysicalSegments
+
+@[expose] public section
 
 /-! First-exit stopping of a genuine physical-time prefix recovers the
 original normalized stopped path whenever the prefix reaches its exit. -/
