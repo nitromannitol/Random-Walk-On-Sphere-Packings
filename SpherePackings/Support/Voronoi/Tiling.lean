@@ -101,19 +101,19 @@ theorem inner_sub_eq_zero_of_mem_cell_inter (S : Set (Euc d)) {s s' x y : Euc d}
   rw [inner_sub_right, inner_sub_eq_of_dist_eq hxd, inner_sub_eq_of_dist_eq hyd, sub_self]
 
 /-- An active point lies within `R` of a point of `D`. -/
-private lemma exists_mem_dist_le {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+lemma exists_mem_dist_le {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     {s : Euc d} (hs : s ∈ activePoints S D) : ∃ y ∈ D, dist s y ≤ R := by
   obtain ⟨y, hy, hyD⟩ := hs.2
   exact ⟨y, hyD, by rw [dist_comm]; exact mem_closedBall.1 (h.outer s hs hy)⟩
 
 /-- Active points lie in the finite set `S ∩ cthickening (6 R) D`. -/
-private lemma active_mem_thickening {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+lemma active_mem_thickening {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     {s : Euc d} (hs : s ∈ activePoints S D) : s ∈ S ∩ cthickening (6 * R) D := by
   obtain ⟨y, hyD, hy⟩ := exists_mem_dist_le h hs
   exact ⟨hs.1, mem_cthickening_of_dist_le s y (6 * R) D hyD (by linarith [h.R_pos])⟩
 
 /-- The points of `S` within `4 R` of an active point form a finite set. -/
-private lemma finite_truncate {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+lemma finite_truncate {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     {s : Euc d} (hs : s ∈ activePoints S D) : (S ∩ closedBall s (4 * R)).Finite := by
   refine h.finite.subset fun x hx => ⟨hx.1, ?_⟩
   obtain ⟨y, hyD, hy⟩ := exists_mem_dist_le h hs
@@ -122,18 +122,18 @@ private lemma finite_truncate {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S
     (by linarith [dist_triangle x s y, h.R_pos])
 
 /-- Truncating `S` to the points within `4 R` does not change the cell of an active point. -/
-private lemma cell_truncate_eq {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+lemma cell_truncate_eq {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     {s : Euc d} (hs : s ∈ activePoints S D) :
     cell (S ∩ closedBall s (4 * R)) s = cell S s :=
   (cell_eq_of_subset_closedBall S h.R_pos (h.outer s hs)).symm
 
-private lemma truncate_inner {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+lemma truncate_inner {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     {s : Euc d} (hs : s ∈ activePoints S D) :
     closedBall s r ⊆ cell (S ∩ closedBall s (4 * R)) s := by
   rw [cell_truncate_eq h hs]
   exact h.inner s hs
 
-private lemma truncate_outer {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+lemma truncate_outer {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     {s : Euc d} (hs : s ∈ activePoints S D) :
     cell (S ∩ closedBall s (4 * R)) s ⊆ closedBall s R := by
   rw [cell_truncate_eq h hs]
@@ -141,17 +141,17 @@ private lemma truncate_outer {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S 
 
 /-- The Voronoi cell of an active point, as a convex polytope cut out by the points of `S`
 within `4 R` of it. -/
-private noncomputable def activeCell {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+noncomputable def activeCell {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     (v : ↥(activePoints S D)) : ConvexPolytope d :=
   cellPolytope (S ∩ closedBall v.1 (4 * R))
     (fun _ => (finite_truncate h v.2).subset Set.inter_subset_left) v.1 h.r_pos
     (truncate_inner h v.2) (truncate_outer h v.2)
 
-private lemma activeCell_carrier {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+lemma activeCell_carrier {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     (v : ↥(activePoints S D)) : (activeCell h v).carrier = cell S v.1 :=
   cell_truncate_eq h v.2
 
-private lemma active_mem_interior {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
+lemma active_mem_interior {S D : Set (Euc d)} {r R : ℝ} (h : GoodVoronoi S D r R)
     (v : ↥(activePoints S D)) : v.1 ∈ interior (cell S v.1) :=
   interior_maximal (ball_subset_closedBall.trans (h.inner v.1 v.2)) isOpen_ball
     (mem_ball_self h.r_pos)

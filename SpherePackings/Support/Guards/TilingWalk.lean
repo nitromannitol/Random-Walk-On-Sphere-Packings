@@ -57,13 +57,13 @@ lemma walkWeight_of_finite {a : T.V} (h : (T.neighbors a).Finite) :
   classical
   simp only [walkWeight, h, dite_true]
 
-private lemma stepMeasure_of_walkActive {a : T.V} (h : (WalkActive T) a) :
+lemma stepMeasure_of_walkActive {a : T.V} (h : (WalkActive T) a) :
     (stepMeasure T) a = ∑ w ∈ T.neighborFinset a h.1,
       ENNReal.ofReal (T.conductanceReal a w / (walkWeight T) a) • Measure.dirac ((tilingEquiv T) w) := by
   unfold stepMeasure
   simp only [h, ↓reduceDIte]
 
-private lemma stepMeasure_of_not_walkActive {a : T.V} (h : ¬ (WalkActive T) a) :
+lemma stepMeasure_of_not_walkActive {a : T.V} (h : ¬ (WalkActive T) a) :
     (stepMeasure T) a = Measure.dirac ((tilingEquiv T) a) := by
   unfold stepMeasure
   simp only [h, ↓reduceDIte]
@@ -83,12 +83,12 @@ lemma stepMeasure_isProbabilityMeasure (a : T.V) : IsProbabilityMeasure ((stepMe
 
 instance [Countable T.V] : Countable (tilingPoints T) := (tilingEquiv T).symm.injective.countable
 
-private lemma measurableSet_tilingPoints [Countable T.V] (s : Set (tilingPoints T)) :
+lemma measurableSet_tilingPoints [Countable T.V] (s : Set (tilingPoints T)) :
     MeasurableSet s :=
   s.to_countable.measurableSet
 
 /-- Every step from a vertex `x` of the walk follows an edge (or stays put at an absorbing `x`). -/
-private lemma ae_stepMeasure [Countable T.V] (x : tilingPoints T) :
+lemma ae_stepMeasure [Countable T.V] (x : tilingPoints T) :
     ∀ᵐ b ∂(stepMeasure T) ((tilingEquiv T).symm x),
       T.adj ((tilingEquiv T).symm x) ((tilingEquiv T).symm b) ∨
         (x = b ∧ ¬ (WalkActive T) ((tilingEquiv T).symm x)) := by

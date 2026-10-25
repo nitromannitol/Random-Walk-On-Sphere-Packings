@@ -15,7 +15,7 @@ open scoped unitInterval
 
 namespace BouRabeeGwynne
 
-private lemma prefix_mul_le (a t : unitInterval) : a * t ≤ a := by
+lemma prefix_mul_le (a t : unitInterval) : a * t ≤ a := by
   change (a : ℝ) * (t : ℝ) ≤ a
   exact mul_le_of_le_one_right a.property.1 t.property.2
 

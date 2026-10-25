@@ -19,7 +19,7 @@ namespace BouRabeeGwynne
 variable {d : ℕ} {J : Type*} [Countable J]
   [MeasurableSpace (Option J)] [MeasurableSingletonClass (Option J)]
 
-private lemma measurable_skeletonConstantExcursion :
+lemma measurable_skeletonConstantExcursion :
     Measurable (fun x : Euc d ↦ ContinuousMap.const unitInterval x) :=
   ContinuousMap.measurable_iff_eval.mpr (fun _ ↦ measurable_id)
 

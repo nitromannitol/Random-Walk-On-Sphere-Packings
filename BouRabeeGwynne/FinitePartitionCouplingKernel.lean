@@ -23,7 +23,7 @@ namespace BouRabeeGwynne
 
 variable {S X Y ι : Type*} [MeasurableSpace S] [MeasurableSpace X] [MeasurableSpace Y]
 
-private noncomputable def weightedKernel (κ : Kernel S X) (c : S → ℝ≥0∞)
+noncomputable def weightedKernel (κ : Kernel S X) (c : S → ℝ≥0∞)
     (hc : Measurable c) : Kernel S X where
   toFun a := c a • κ a
   measurable' := by
@@ -32,12 +32,12 @@ private noncomputable def weightedKernel (κ : Kernel S X) (c : S → ℝ≥0∞
     simp only [Measure.smul_apply, smul_eq_mul]
     exact hc.mul (κ.measurable_coe hA)
 
-private noncomputable def cappedCellKernel (κ : Kernel S X) (ν : Kernel S Y)
+noncomputable def cappedCellKernel (κ : Kernel S X) (ν : Kernel S Y)
     {E : Set X} {F : Set Y} (hE : MeasurableSet E) (hF : MeasurableSet F) : Kernel S X :=
   weightedKernel (κ.restrict hE) (fun a ↦ min (κ a E) (ν a F) / κ a E)
     (((κ.measurable_coe hE).min (ν.measurable_coe hF)).div (κ.measurable_coe hE))
 
-private lemma cappedCellKernel_apply (κ : Kernel S X) (ν : Kernel S Y)
+lemma cappedCellKernel_apply (κ : Kernel S X) (ν : Kernel S Y)
     {E : Set X} {F : Set Y} (hE : MeasurableSet E) (hF : MeasurableSet F) (a : S) :
     cappedCellKernel κ ν hE hF a = cappedRestrict (κ a) E (min (κ a E) (ν a F)) := rfl
 
@@ -49,24 +49,24 @@ private instance cappedCellKernel_isFinite (κ : Kernel S X) (ν : Kernel S Y)
   intro a A
   exact (cappedRestrict_le (κ a) E (min_le_left _ _) A).trans (Measure.restrict_le_self A)
 
-private noncomputable def balancedProductKernel (κ : Kernel S X) (ν : Kernel S Y)
+noncomputable def balancedProductKernel (κ : Kernel S X) (ν : Kernel S Y)
     [IsFiniteKernel κ] [IsFiniteKernel ν] : Kernel S (X × Y) :=
   weightedKernel (κ ×ₖ ν) (fun a ↦ (κ a univ)⁻¹)
     (κ.measurable_coe MeasurableSet.univ).inv
 
-private lemma balancedProductKernel_apply (κ : Kernel S X) (ν : Kernel S Y)
+lemma balancedProductKernel_apply (κ : Kernel S X) (ν : Kernel S Y)
     [IsFiniteKernel κ] [IsFiniteKernel ν] (a : S) :
     balancedProductKernel κ ν a = balancedProduct (κ a) (ν a) := by
   change (κ a univ)⁻¹ • (κ ×ₖ ν) a = _
   rw [Kernel.prod_apply]
   rfl
 
-private noncomputable def matchedCellKernel (κ : Kernel S X) (ν : Kernel S Y)
+noncomputable def matchedCellKernel (κ : Kernel S X) (ν : Kernel S Y)
     [IsFiniteKernel κ] [IsFiniteKernel ν]
     {E : Set X} {F : Set Y} (hE : MeasurableSet E) (hF : MeasurableSet F) : Kernel S (X × Y) :=
   balancedProductKernel (cappedCellKernel κ ν hE hF) (cappedCellKernel ν κ hF hE)
 
-private lemma matchedCellKernel_apply (κ : Kernel S X) (ν : Kernel S Y)
+lemma matchedCellKernel_apply (κ : Kernel S X) (ν : Kernel S Y)
     [IsFiniteKernel κ] [IsFiniteKernel ν]
     {E : Set X} {F : Set Y} (hE : MeasurableSet E) (hF : MeasurableSet F) (a : S) :
     matchedCellKernel κ ν hE hF a = matchedCellCoupling (κ a) (ν a) E F := by
@@ -80,7 +80,7 @@ noncomputable def finiteMatchedKernel [Fintype ι]
     (hE : ∀ i, MeasurableSet (E i)) (hF : ∀ i, MeasurableSet (F i)) : Kernel S (X × Y) :=
   Kernel.sum (fun i ↦ matchedCellKernel κ ν (hE i) (hF i))
 
-private lemma finiteMatchedKernel_apply [Fintype ι]
+lemma finiteMatchedKernel_apply [Fintype ι]
     (κ : Kernel S X) (ν : Kernel S Y) [IsFiniteKernel κ] [IsFiniteKernel ν]
     {E : ι → Set X} {F : ι → Set Y}
     (hE : ∀ i, MeasurableSet (E i)) (hF : ∀ i, MeasurableSet (F i)) (a : S) :
@@ -99,7 +99,7 @@ private instance finiteMatchedKernel_isFinite [Fintype ι]
       Finset.sum_le_sum (fun i hi ↦ (min_le_left _ _).trans prob_le_one)
     _ = _ := by simp
 
-private noncomputable def residualKernel (κ η : Kernel S X) [IsFiniteKernel η]
+noncomputable def residualKernel (κ η : Kernel S X) [IsFiniteKernel η]
     (hle : ∀ a, η a ≤ κ a) : Kernel S X where
   toFun a := κ a - η a
   measurable' := by
