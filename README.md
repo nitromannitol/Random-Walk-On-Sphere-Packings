@@ -324,8 +324,8 @@ The following words have fixed meanings.
 - **Continuous integration.**  The CI build rejects any warning in this repository's modules and
   any `sorry`, checks the axiom reports of the main theorems and runs `tools/verify.py`; the
   comparator workflow checks every pair (see [Running the comparators](#running-the-comparators)).
-- **Pinned toolchain.**  Lean `v4.34.0-rc2` ([`lean-toolchain`](lean-toolchain)) and Mathlib at
-  `a4c8ef0a69f52ec80525d5086bb3542f4660faaf`, the pins of leobon12's release, recorded in
+- **Pinned toolchain.**  Lean `v4.35.0-rc2` ([`lean-toolchain`](lean-toolchain)) and Mathlib at
+  `065356127b1dc0016f66b7283ce0ce2c4055aa55`, recorded in
   [`lakefile.lean`](lakefile.lean) and [`lake-manifest.json`](lake-manifest.json).
 - **The paper is part of the repository.**  [`paper/`](paper/) holds the arXiv source and the
   corrected source, both pinned by SHA-256 in `ledger/manifest.yaml`, with their compiled PDFs.
@@ -508,3 +508,8 @@ Comparator configuration to check. It records the dispatched commit and runs wit
 minimum, source-module, Challenge-closure, licensing and metadata requirements before
 dispatch. A passing preflight is advisory; it is separate from submission, editorial
 review and a public registry record.
+
+The module-system compatibility port preserves the theorem statements and mathematical
+definitions. It makes imported interfaces and the helpers needed by public definition
+bodies public. The Theorem A Challenge includes its existing vocabulary directly and
+imports only Mathlib; its comparison still selects `SpherePackingsAudit.theoremA`.

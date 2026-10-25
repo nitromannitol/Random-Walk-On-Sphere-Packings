@@ -18,7 +18,7 @@ namespace BouRabeeGwynne
 
 variable {d : ℕ} {J : Type*}
 
-private lemma measurable_constantBrownianExcursion :
+lemma measurable_constantBrownianExcursion :
     Measurable (fun z : Euc d => ContinuousMap.const unitInterval z) :=
   ContinuousMap.measurable_iff_eval.mpr (fun _ => measurable_id)
 

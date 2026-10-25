@@ -174,7 +174,7 @@ private lemma dist_inl_inr_sq_ge (x : BigIdx k) (y : SmallIdx k) :
   exact big_small_ge (Real.sqrt 7) (Real.sq_sqrt (by norm_num)) (Real.sqrt_nonneg _) _ _ _ _ h0 hR
 
 /-- Distinct spheres are at distance at least the sum of their radii. -/
-private lemma radius_add_le_dist (i j : Idx k) (hij : i ≠ j) :
+lemma radius_add_le_dist (i j : Idx k) (hij : i ≠ j) :
     radius k i + radius k j ≤ dist (center k i) (center k j) := by
   refine (sq_le_sq₀ (add_nonneg (radius_nonneg k i) (radius_nonneg k j)) dist_nonneg).1 ?_
   rcases i with x | y <;> rcases j with x' | y'

@@ -54,7 +54,7 @@ lemma vertexTime_scaled (D : WalkPrefixTimeData n) (m : ℕ) :
   change (D.duration : ℝ) * ((min m D.duration : ℕ) / (D.duration : ℝ)) = _
   rw [mul_comm, div_mul_cancel₀ _ (Nat.cast_ne_zero.mpr hM)]
 
-private lemma exists_preimage_vertexTime (P : TimePartition n) (D : WalkPrefixTimeData n)
+lemma exists_preimage_vertexTime (P : TimePartition n) (D : WalkPrefixTimeData n)
     (m : ℕ) : ∃ a : unitInterval, P.weakClock (D.knots P) a = D.vertexTime m := by
   have hb : D.vertexTime m ∈ Icc (P.weakClock (D.knots P) 0) (P.weakClock (D.knots P) 1) := by
     rw [P.weakClock_zero, P.weakClock_one]

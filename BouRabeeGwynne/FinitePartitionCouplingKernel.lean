@@ -74,7 +74,7 @@ private lemma matchedCellKernel_apply (κ : Kernel S X) (ν : Kernel S Y)
     cappedCellKernel_apply]
   simp only [matchedCellCoupling, min_comm (ν a F) (κ a E)]
 
-private noncomputable def finiteMatchedKernel [Fintype ι]
+noncomputable def finiteMatchedKernel [Fintype ι]
     (κ : Kernel S X) (ν : Kernel S Y) [IsFiniteKernel κ] [IsFiniteKernel ν]
     {E : ι → Set X} {F : ι → Set Y}
     (hE : ∀ i, MeasurableSet (E i)) (hF : ∀ i, MeasurableSet (F i)) : Kernel S (X × Y) :=

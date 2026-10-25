@@ -93,7 +93,7 @@ theorem cell_eq_of_subset_closedBall (S : Set (EuclideanSpace ℝ (Fin d)))
     exact hA y hy (le_trans (hB y hy) (by linarith))
 
 /-- The points of `S` within a closed ball of any center and radius form a finite set. -/
-private lemma finite_inter_closedBall (S : Set (EuclideanSpace ℝ (Fin d)))
+lemma finite_inter_closedBall (S : Set (EuclideanSpace ℝ (Fin d)))
     (hS : ∀ R : ℝ, (S ∩ closedBall 0 R).Finite) (s : EuclideanSpace ℝ (Fin d)) (R : ℝ) :
     (S ∩ closedBall s R).Finite := by
   refine (hS (‖s‖ + R)).subset ?_
