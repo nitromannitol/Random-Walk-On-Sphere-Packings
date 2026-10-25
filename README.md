@@ -498,3 +498,13 @@ paper in [`paper/`](paper/) is posted on arXiv under the Creative Commons Attrib
 International license ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)); the corrected
 version is a modified version of it, with the changes marked, distributed under the same license.
 These licences are not set by the software licence.
+
+## Palomar preflight
+
+The manually dispatched [Palomar full preflight](.github/workflows/palomar-preflight.yml)
+calls Palomar's complete verifier at a pinned revision. Select the repository-relative
+Comparator configuration to check. It records the dispatched commit and runs with
+`mode: full` and `execution_profile: palomar-standard-v1`. Resolve the current Lean
+minimum, source-module, Challenge-closure, licensing and metadata requirements before
+dispatch. A passing preflight is advisory; it is separate from submission, editorial
+review and a public registry record.
