@@ -41,7 +41,7 @@ lemma cappedCellKernel_apply (κ : Kernel S X) (ν : Kernel S Y)
     {E : Set X} {F : Set Y} (hE : MeasurableSet E) (hF : MeasurableSet F) (a : S) :
     cappedCellKernel κ ν hE hF a = cappedRestrict (κ a) E (min (κ a E) (ν a F)) := rfl
 
-private instance cappedCellKernel_isFinite (κ : Kernel S X) (ν : Kernel S Y)
+instance cappedCellKernel_isFinite (κ : Kernel S X) (ν : Kernel S Y)
     [IsFiniteKernel κ] {E : Set X} {F : Set Y}
     (hE : MeasurableSet E) (hF : MeasurableSet F) :
     IsFiniteKernel (cappedCellKernel κ ν hE hF) := by
@@ -87,7 +87,7 @@ lemma finiteMatchedKernel_apply [Fintype ι]
     finiteMatchedKernel κ ν hE hF a = finiteMatchedCoupling (κ a) (ν a) E F := by
   simp only [finiteMatchedKernel, Kernel.sum_apply, matchedCellKernel_apply, finiteMatchedCoupling]
 
-private instance finiteMatchedKernel_isFinite [Fintype ι]
+instance finiteMatchedKernel_isFinite [Fintype ι]
     (κ : Kernel S X) (ν : Kernel S Y) [IsMarkovKernel κ] [IsMarkovKernel ν]
     {E : ι → Set X} {F : ι → Set Y}
     (hE : ∀ i, MeasurableSet (E i)) (hF : ∀ i, MeasurableSet (F i)) :
@@ -108,7 +108,7 @@ noncomputable def residualKernel (κ η : Kernel S X) [IsFiniteKernel η]
     simp only [Measure.sub_apply hA (hle _)]
     exact (κ.measurable_coe hA).sub (η.measurable_coe hA)
 
-private instance residualKernel_isFinite (κ η : Kernel S X)
+instance residualKernel_isFinite (κ η : Kernel S X)
     [IsFiniteKernel κ] [IsFiniteKernel η] (hle : ∀ a, η a ≤ κ a) :
     IsFiniteKernel (residualKernel κ η hle) := by
   apply isFiniteKernel_of_le (ν := κ)
