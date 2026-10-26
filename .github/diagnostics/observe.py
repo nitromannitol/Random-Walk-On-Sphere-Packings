@@ -13,12 +13,41 @@ def run(args,*,env=None,cwd=None,output=None):
 lean=pathlib.Path(subprocess.check_output(['elan','which','lean'],text=True).strip());lake=lean.parent/'lake'
 assert hashlib.sha256(lean.read_bytes()).hexdigest()=='bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38'
 def locked(args,**kw):return run(['/usr/bin/flock','-x',LOCK,'/usr/bin/prlimit','--as='+CAP,'--',*args],**kw)
-locked([lake,'exe','cache','get'],output='cache.log')
-manifest=json.loads((P/'lake-manifest.json').read_text());packages={x['name']:P/'.lake/packages'/x['name'] for x in manifest['packages']}
+manifest=json.loads((P/'lake-manifest.json').read_text())
+packages={x['name'].removeprefix('«').removesuffix('»'):P/'.lake/packages'/x['name'].removeprefix('«').removesuffix('»') for x in manifest['packages']}
+for x in manifest['packages']:
+    name=x['name'].removeprefix('«').removesuffix('»');d=packages[name];d.mkdir(parents=True,exist_ok=True)
+    run(['git','init',d],output='fetch-'+name+'.log')
+    run(['git','-C',d,'remote','add','origin',x['url']],output='remote-'+name+'.log')
+    run(['git','-C',d,'fetch','--depth=1','origin',x['rev']],output='fetch-'+name+'.log')
+    run(['git','-C',d,'checkout','--detach',x['rev']],output='checkout-'+name+'.log')
+# Bootstrap only the exact pinned cache client's small source closure, serially.
+# No Lake process, configuration edit, toolchain wrapper or project build cache is used.
+bootstrap_roots=list(packages.values());core=lean.parent.parent/'lib/lean'
+cacheenv=os.environ.copy();cacheenv['LEAN_PATH']=os.pathsep.join([str(d/'.lake/build/lib/lean') for d in bootstrap_roots]+[str(core)])
+cacheenv['LEAN_SRC_PATH']=os.pathsep.join(str(d) for d in bootstrap_roots)
+cache_seen=set()
+def cache_build(module):
+    if module in cache_seen:return
+    cache_seen.add(module);rel=pathlib.Path(*module.split('.')).with_suffix('.lean')
+    match=next(((d,d/rel) for d in bootstrap_roots if (d/rel).is_file()),None)
+    if match is None:return
+    root,source=match
+    for group in re.findall(r'(?m)^(?:(?:public|private|meta) )*import\s+([^\n]+)',source.read_text()):
+        for dep in group.split('--')[0].split():cache_build(dep)
+    out=root/'.lake/build/lib/lean'/rel.with_suffix('.olean');out.parent.mkdir(parents=True,exist_ok=True)
+    locked([lean,'-j1','-o',out,source],cwd=root,env=cacheenv,output='bootstrap-'+module+'.log')
+cache_build('Cache.Main')
+mathlib=packages['mathlib']
+# Preserve the pinned package layout expected by the official cache client.
+for n,d in packages.items():
+    if n=='mathlib':continue
+    link=mathlib/'.lake/packages'/n;link.parent.mkdir(parents=True,exist_ok=True);link.symlink_to(d,target_is_directory=True)
+locked([lean,'-j1','--run',mathlib/'Cache/Main.lean','get'],cwd=mathlib,env=cacheenv,output='cache.log')
 bindings=[]
 for x in manifest['packages']:
-    d=packages[x['name']];head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=d,text=True).strip();assert head==x['rev'],(x['name'],head,x['rev'])
-    bindings.append({'name':x['name'],'commit':head})
+    d=packages[x['name'].removeprefix('«').removesuffix('»')];head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=d,text=True).strip();assert head==x['rev'],(x['name'],head,x['rev'])
+    bindings.append({'name':x['name'].removeprefix('«').removesuffix('»'),'commit':head})
 assert next(x for x in bindings if x['name']=='mathlib')['commit']=='065356127b1dc0016f66b7283ce0ce2c4055aa55'
 (O/'bindings.json').write_text(json.dumps({'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'lean_sha256':hashlib.sha256(lean.read_bytes()).hexdigest(),'dependencies':bindings},indent=2)+'\n')
 # No old project artifact is restored. Only exact pinned Mathlib cache data is used.
