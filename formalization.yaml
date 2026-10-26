@@ -211,17 +211,8 @@ fidelity:
     cells) were checked independently (GAP-CHECKS.md).
 
 review:
-  status: "model review"
-  reviewers:
-    - "Claude Opus 5.5, separate read-only review of the statements and corrections against the paper (2026-10-19)"
-    - "GPT-6.1-Sol (Codex), the gap checks G1-G4 of GAP-CHECKS.md (2026-10-18 and 2026-10-19)"
-  notes: >-
-    Correctness of every proof is guaranteed by the Lean kernel and Mathlib (no sorry,
-    no custom axiom). The statements and corrections were reviewed against the paper in
-    a separate, read-only Claude Opus 5.5 review, and the claims about the paper listed
-    in GAP-CHECKS.md were checked by Codex (GPT-6.1-sol). The repairs in the corrected
-    paper were drafted with Codex (GPT-6.1-sol) and GPT-6-Astra and checked in the same
-    separate review. This is not external peer review.
+  status: unchecked
+  notes: The current supported-toolchain revision has not completed a full independent source review. A focused compatibility audit checked the complete cylinder coordinate formula on its whole carrier, definitional equality to the previous formula, real geometry consumers and a narrow exported-definition comparison. These checks do not certify the complete Solution or constitute external peer review. Earlier release review does not certify this maintenance revision.
 
 alignment:
   namespace: "SpherePackings"
