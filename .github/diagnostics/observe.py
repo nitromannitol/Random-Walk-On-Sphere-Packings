@@ -81,6 +81,15 @@ base_root=O/'baseline-source';base_file=base_root/'BouRabeeGwynne/LipschitzDomai
 base_file.parent.mkdir(parents=True,exist_ok=True);base_file.write_text(base_source)
 base_lib=O/'baseline/lib/lean';base_out=base_lib/'BouRabeeGwynne/LipschitzDomain.olean'
 base_out.parent.mkdir(parents=True,exist_ok=True)
+# Lean selects a namespace directory from the first search-path entry. Mirror
+# the already built, unchanged imports into this separate output view.
+for artifact in builds[0].rglob('*'):
+    if not artifact.is_file():continue
+    relative=artifact.relative_to(builds[0])
+    if str(relative).startswith('BouRabeeGwynne/LipschitzDomain.'):continue
+    target=base_lib/relative;target.parent.mkdir(parents=True,exist_ok=True)
+    assert not target.exists() and not target.is_symlink()
+    target.symlink_to(artifact)
 base_env=env.copy();base_env['LEAN_PATH']=str(base_lib)+os.pathsep+env['LEAN_PATH']
 locked([lean,'-j1','-o',base_out,base_file],cwd=base_root,env=base_env,output='baseline-definition.log')
 
