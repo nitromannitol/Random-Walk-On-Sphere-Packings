@@ -99,9 +99,9 @@ def check_probe(name,text,probe_env):
 
 check_probe('original-definition-equality',r"""import BouRabeeGwynne.LipschitzDomain
 open BouRabeeGwynne
-example : (Nat.cast (R := ℝ≥0∞) 2) = (2 : ℝ≥0∞) := by rfl
+example : (Nat.cast (R := ENNReal) 2) = (2 : ENNReal) := by rfl
 example (d : ℕ) (q : Euc (d - 1)) (t : ℝ) :
-    (WithLp.toLp (Nat.cast (R := ℝ≥0∞) 2)
+    (WithLp.toLp (Nat.cast (R := ENNReal) 2)
       (fun i => Option.casesOn i t (fun j => q j)) :
       EuclideanSpace ℝ (Option (Fin (d - 1)))) =
     cylinderCoordinates (d := d) q t := by rfl
@@ -123,7 +123,7 @@ example (d : ℕ) (q : Euc (d - 1)) (t : ℝ) (j : Fin (d - 1)) :
 build('BouRabeeGwynne.LipschitzLocalExteriorBalls')
 build('SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LipschitzDomain')
 challenge=P/'SpherePackingsAudit/TheoremA/Challenge.lean'
-assert hashlib.sha256(challenge.read_bytes()).hexdigest()=='720cf2ff00523bb5b3517c636ef8a9ca7b5e507778652e512ea394507365d5be'
+assert hashlib.sha256(challenge.read_bytes()).hexdigest()=='889e53d7ae5b72a6e285adfdf2193750096e66c171d1ab69bd4483d56804ffec'
 canonical=O/'canonical';alias='PalomarCanonical15d1a49827b361d0ae68e5d4.Challenge';olean=canonical/pathlib.Path(*alias.split('.')).with_suffix('.olean');olean.parent.mkdir(parents=True,exist_ok=True)
 locked([lean,'-j1','-o',olean,challenge],env=trustedenv,output='canonical-build.log')
 canenv=trustedenv.copy();canenv['LEAN_PATH']=str(canonical)+os.pathsep+trustedenv['LEAN_PATH']
