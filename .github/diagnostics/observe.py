@@ -1,6 +1,6 @@
 import os,sys,json,hashlib,re,subprocess,pathlib,time
 P=pathlib.Path.cwd();O=P/'diagnostic-output';O.mkdir(exist_ok=True)
-LOCK='/home/bourabbe/.lake-global.lock';CAP='12884901888'
+LOCK=str(pathlib.Path(os.environ['RUNNER_TEMP'])/'lean-build.lock');CAP='12884901888'
 def run(args,*,env=None,cwd=None,output=None):
     command=[str(x) for x in args]
     with (O/'commands.jsonl').open('a') as f:f.write(json.dumps({'argv':command,'cwd':str(cwd or P),'at':time.time()})+'\n')
@@ -73,13 +73,56 @@ def build(module):
     locked([lean,'-j1',*opts,'-o',out,source],cwd=root,env=env,output='build-'+module+'.log')
     with (O/'compiled.jsonl').open('a') as f:f.write(json.dumps({'module':module,'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'olean_sha256':hashlib.sha256(out.read_bytes()).hexdigest()})+'\n')
 MODE='sphere'
+# Check the exact original definition in a distinct physical output directory.
+build('BouRabeeGwynne.PaperObjects')
+base_revision='f4d021bc8a311a64d835230928adef8bf905f113'
+base_source=subprocess.check_output(['git','show',base_revision+':BouRabeeGwynne/LipschitzDomain.lean'],text=True)
+base_root=O/'baseline-source';base_file=base_root/'BouRabeeGwynne/LipschitzDomain.lean'
+base_file.parent.mkdir(parents=True,exist_ok=True);base_file.write_text(base_source)
+base_lib=O/'baseline/lib/lean';base_out=base_lib/'BouRabeeGwynne/LipschitzDomain.olean'
+base_out.parent.mkdir(parents=True,exist_ok=True)
+base_env=env.copy();base_env['LEAN_PATH']=str(base_lib)+os.pathsep+env['LEAN_PATH']
+locked([lean,'-j1','-o',base_out,base_file],cwd=base_root,env=base_env,output='baseline-definition.log')
+
+def check_probe(name,text,probe_env):
+    source=O/(name.replace('-','_')+'.lean');source.write_text(text)
+    locked([lean,'-j1','-DautoImplicit=false','-DrelaxedAutoImplicit=false','-DwarningAsError=true',source],env=probe_env,output=name+'.log')
+
+check_probe('original-definition-equality',r"""import BouRabeeGwynne.LipschitzDomain
+open BouRabeeGwynne
+example : (Nat.cast (R := ℝ≥0∞) 2) = (2 : ℝ≥0∞) := by rfl
+example (d : ℕ) (q : Euc (d - 1)) (t : ℝ) :
+    (WithLp.toLp (Nat.cast (R := ℝ≥0∞) 2)
+      (fun i => Option.casesOn i t (fun j => q j)) :
+      EuclideanSpace ℝ (Option (Fin (d - 1)))) =
+    cylinderCoordinates (d := d) q t := by rfl
+""",base_env)
 build('BouRabeeGwynne.LipschitzDomain')
+check_probe('revised-definition-equality',r"""import BouRabeeGwynne.LipschitzDomain
+open BouRabeeGwynne
+example (d : ℕ) (q : Euc (d - 1)) (t : ℝ) :
+    cylinderCoordinates (d := d) q t =
+      (WithLp.toLp 2 (fun i => Option.casesOn i t (fun j => q j)) :
+        EuclideanSpace ℝ (Option (Fin (d - 1)))) := by rfl
+example (d : ℕ) (q : Euc (d - 1)) (t : ℝ) :
+    (cylinderCoordinates (d := d) q t) none = t := by rfl
+example (d : ℕ) (q : Euc (d - 1)) (t : ℝ) (j : Fin (d - 1)) :
+    (cylinderCoordinates (d := d) q t) (some j) = q j := by rfl
+#print axioms BouRabeeGwynne.cylinderCoordinates
+""",env)
+# Real geometry consumers exercise reconstruction, norm and exterior-ball APIs.
+build('BouRabeeGwynne.LipschitzLocalExteriorBalls')
+build('SpherePackingsAudit.Vocabulary.BouRabeeGwynne.LipschitzDomain')
 challenge=P/'SpherePackingsAudit/TheoremA/Challenge.lean'
-assert hashlib.sha256(challenge.read_bytes()).hexdigest()=='e2e2bb93d80f493e15a3d30c390b1a7057c72f18e65bab2509e804f583fc9ee4'
+assert hashlib.sha256(challenge.read_bytes()).hexdigest()=='720cf2ff00523bb5b3517c636ef8a9ca7b5e507778652e512ea394507365d5be'
 canonical=O/'canonical';alias='PalomarCanonical15d1a49827b361d0ae68e5d4.Challenge';olean=canonical/pathlib.Path(*alias.split('.')).with_suffix('.olean');olean.parent.mkdir(parents=True,exist_ok=True)
 locked([lean,'-j1','-o',olean,challenge],env=trustedenv,output='canonical-build.log')
 canenv=trustedenv.copy();canenv['LEAN_PATH']=str(canonical)+os.pathsep+trustedenv['LEAN_PATH']
 locked([lean.parent/'leanexport',alias,'--','BouRabeeGwynne.cylinderCoordinates'],env=canenv,output='canonical.ndjson')
 locked([lean.parent/'leanexport','BouRabeeGwynne.LipschitzDomain','--','BouRabeeGwynne.cylinderCoordinates'],env=env,output='defining-module.ndjson')
 locked([lean,'-j1','--run',P/'.github/diagnostics/CompareExports.lean',O/'canonical.ndjson',O/'defining-module.ndjson'],output='comparison.log')
-(O/'scope.txt').write_text('Actual canonical Challenge versus real narrow defining module. This is not full Solution ABI evidence. No predicates, definitions, Frozen statements, definition_names or comparator rules changed.\n')
+comparison=(O/'comparison.log').read_text()
+assert 'COMPARE BouRabeeGwynne.cylinderCoordinates: ConstantInfo=true; type=true' in comparison, 'Root ABI still differs'
+assert re.search(r'CLOSURE checked=\d+; mismatches=0(?:\s|$)',comparison), 'Dependency closure still differs'
+(O/'scope.txt').write_text('Actual canonical Challenge versus real narrow defining module, with original/revised all-carrier rfl checks, none/some coordinate checks and real geometry-consumer builds. This is not full Solution ABI evidence or an official comparator acceptance. No predicates, types, Frozen statements, definition_names or comparator rules changed.\n')
+(O/'summary.json').write_text(json.dumps({'state':'PASS_NARROW_DEFINITIONAL_EQUALITY_AND_ABI','original_and_revised_all_carrier_rfl_checks':True,'coordinate_none_some_checks':True,'geometry_consumers_built':True,'vocabulary_context_built':True,'root_constant_info_equal':True,'root_closure_mismatches':0,'full_solution_comparator':False,'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()},indent=2)+'\n')

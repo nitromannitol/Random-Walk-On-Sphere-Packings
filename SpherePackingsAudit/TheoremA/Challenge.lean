@@ -842,7 +842,7 @@ namespace BouRabeeGwynne
 For `d = 1`, the horizontal coordinate space has dimension zero. -/
 def cylinderCoordinates {d : ℕ} (q : Euc (d - 1)) (t : ℝ) :
     EuclideanSpace ℝ (Option (Fin (d - 1))) :=
-  WithLp.toLp 2 (fun i => Option.casesOn i t (fun j => q j))
+  WithLp.toLp (Nat.cast (R := ℝ≥0∞) 2) (fun i => Option.casesOn i t (fun j => q j))
 
 /-- Genuine local Lipschitz graph charts for the boundary. Each chart is a rigid
 orthogonal coordinate system centered at a boundary point; in a positive open
