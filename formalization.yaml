@@ -161,19 +161,25 @@ automation:
         - "gpt-6-astra"
       framework: "OpenAI models, run as agents"
       tool_setup: >-
-        Analysis of the paper, producing mathematical text rather than Lean code:
+        Original analysis of the paper, producing mathematical text:
         the gap checks of GAP-CHECKS.md (GPT-6.1-Sol, through the Codex CLI), and
         the repair of the printed statements behind the corrected paper
         (GPT-6.1-Sol, and GPT-6-Astra for the internal-edge Taylor constant of
         Section 3 and the dimension threshold of Lemma 5.1(b)). The resulting
         statements were formalized and proved with the Claude models above.
+        Subsequent maintenance updated the supported toolchain, proof API calls
+        and comparator wiring. A source-equivalent coordinate representation
+        was checked on its full carrier, with coordinate equations, geometric
+        consumers and a focused exported-definition comparison. The maintenance
+        revision has not completed a full independent source review.
       cost:
         wall_time: "not tracked"
         spend_usd: "not tracked"
         hardware: "API-only"
       prompting_notes: >-
-        Human-directed read-only work on the paper; every statement of the corrected
-        paper that is registered here is proved in Lean.
+        The original paper analysis was read-only. Later maintenance preserved
+        the frozen statements and used focused source and compatibility checks;
+        the current review status records their limited scope.
   spend_usd: "not tracked"
   notes: >-
     The Lean code was written with AI assistance under the direction of the author, who
