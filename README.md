@@ -136,7 +136,7 @@ Supporting statements that establish properties of the formal model:
 
 <!-- PAPER-MAP-END -->
 
-### Corrections to the printed paper
+## Corrections to the published version
 
 The corrected paper, [`paper/rw-spheres-corrected.tex`](paper/rw-spheres-corrected.tex), is the
 arXiv v2 source with the corrections marked in comments; it is pinned by its SHA-256 in
@@ -252,22 +252,22 @@ Neither is needed for the registered statements, which are those of the correcte
 
 ## Standing assumptions and scope
 
-1. **One registered statement per result.**  Every theorem, lemma and proposition of the paper is
-   registered as a Lean declaration, one per statement (two for Theorem B, Proposition 1.1,
-   Theorem 3.3 and Lemma 5.1), with supporting statements about the model (the guards above).
-   `tools/check_coverage.py` confirms that every labelled result of `paper/rw-spheres.tex` is
-   registered or listed as not formalized, with its reason; it is a review aid and does not prove
-   equivalence between LaTeX and Lean.
-2. **Nothing is assumed.**  No result the paper cites is taken as a hypothesis; see
-   [`ASSUMPTIONS.md`](ASSUMPTIONS.md).  The library contains no `sorry`, no `admit`, no
-   `native_decide` and no new `axiom`, and every registered statement depends on exactly
-   `propext`, `Classical.choice` and `Quot.sound`.
-3. **The formal objects.**  Tilings, polytopes, conductances, the discrete Dirichlet problem,
+1. **The formal objects.**  Tilings, polytopes, conductances, the discrete Dirichlet problem,
    curves modulo time parametrization, the stopped walk and Brownian laws are leobon12's
    definitions; the statements of Theorems A and B are leobon12's, and Theorem A and B(a) are
    leobon12's theorems, whose proofs are in `BouRabeeGwynne/`.  Every contact of dimension `d - 1`
    of two cells is an edge (the paper's reading).  The conventions are listed in
    [`CORRESPONDENCE.md`](CORRESPONDENCE.md#conventions).
+2. **Axioms and incomplete proofs.**  The library contains no `sorry`, no `admit`, no
+   `native_decide` and no new `axiom`, and every registered statement depends on exactly
+   `propext`, `Classical.choice` and `Quot.sound`.  Nothing is assumed: no result the paper cites
+   is taken as a hypothesis; see [`ASSUMPTIONS.md`](ASSUMPTIONS.md).
+3. **One registered statement per result.**  Every theorem, lemma and proposition of the paper is
+   registered as a Lean declaration, one per statement (two for Theorem B, Proposition 1.1,
+   Theorem 3.3 and Lemma 5.1), with supporting statements about the model (the guards above).
+   `tools/check_coverage.py` confirms that every labelled result of `paper/rw-spheres.tex` is
+   registered or listed as not formalized, with its reason; it is a review aid and does not prove
+   equivalence between LaTeX and Lean.
 4. **The corrected statements.**  Where the printed statement is changed, the registered statement
    is the corrected paper's, or stronger; the list above says, for each change, whether the
    printed version is false (with a counterexample) or open.  One registered statement is weaker
@@ -294,15 +294,33 @@ The following words have fixed meanings.
 
 ## Guarantees
 
-- **No `sorry`** in the library: `tools/check_manifest.py` fails on any `sorry`, `admit`, `axiom`,
-  `sorryAx`, `native_decide`, `implemented_by`, `extern`, `unsafe`, `opaque`, `ofReduceBool`,
-  `reduceBool` or `skipKernelTC` under `SpherePackings/` and `BouRabeeGwynne/`.  The
-  comparator challenges under `SpherePackingsAudit/` each contain one intentional statement-level
-  `sorry`, which the corresponding solution proves.
-- **No custom axiom.**  [`SpherePackings/Meta/AxiomsAudit.lean`](SpherePackings/Meta/AxiomsAudit.lean)
-  prints the axioms of the main theorems and `tools/check_axioms.py` those of every registered
-  statement and guard, failing on anything beyond the three standard axioms.
-  [`CERTIFICATE.md`](CERTIFICATE.md) records the result with the SHA-256 of each frozen statement.
+- **No `sorry`.**  The library has none: `tools/check_manifest.py` fails on any `sorry`, `admit`,
+  `axiom`, `sorryAx`, `native_decide`, `implemented_by`, `extern`, `unsafe`, `opaque`,
+  `ofReduceBool`, `reduceBool` or `skipKernelTC` under `SpherePackings/` and `BouRabeeGwynne/`.
+  The six comparator challenges under `SpherePackingsAudit/` each contain one intentional
+  statement-level `sorry`, which the corresponding solution proves.
+- **Standard axioms only.**  The axiom report of every registered statement lists exactly
+  `propext`, `Classical.choice` and `Quot.sound`.
+  [`SpherePackings/Meta/AxiomsAudit.lean`](SpherePackings/Meta/AxiomsAudit.lean) prints the axioms
+  of the main theorems and `tools/check_axioms.py` those of every registered statement and guard,
+  failing on anything beyond the three standard axioms.  [`CERTIFICATE.md`](CERTIFICATE.md)
+  records the result with the SHA-256 of each frozen statement.
+- **Independent check of the statements.**  The main theorems are restated in comparator
+  challenges that import only Mathlib and vocabulary modules copying, verbatim and under their
+  repository names, exactly the declarations needed to state them
+  ([`SpherePackingsAudit/`](SpherePackingsAudit/README.md)); `tools/check_vocabulary.py` re-derives
+  the copies from the repository.  There is one pair each for Theorem A, Theorem B (both
+  alternatives), the cell bounds of Proposition 1.1, its conclusions for Theorems A and B,
+  Theorem 4.1 and Theorem 6.1.  [leanprover/comparator](https://github.com/leanprover/comparator)
+  checks that each solution proves the challenge statement, with the same dependency closure, using
+  only the permitted axioms, with the Lean kernel and the independent nanoda kernel; see
+  [`SpherePackingsAudit/COMPARATOR_RUNS.md`](SpherePackingsAudit/COMPARATOR_RUNS.md).
+- **Pinned toolchain and dependencies.**  Lean `v4.34.0-rc2` ([`lean-toolchain`](lean-toolchain)),
+  a release candidate, and Mathlib at the commit `a4c8ef0a69f52ec80525d5086bb3542f4660faaf`,
+  the pins of leobon12's release, recorded in [`lakefile.lean`](lakefile.lean) and
+  [`lake-manifest.json`](lake-manifest.json) (see [Building](#building)).
+- **The paper is part of the repository.**  [`paper/`](paper/) holds the arXiv source and the
+  corrected source, both pinned by SHA-256 in `ledger/manifest.yaml`, with their compiled PDFs.
 - **Audit of the adapted code.**  The 319 modules copied from Leonardo Bonanno's formalization, the
   modules of `SpherePackings/` that adapt its code or put its results in paper form (Sections 2–4
   and the general walk layer), and, in batches 22 and 23, the modules and frozen statements added
@@ -313,29 +331,17 @@ The following words have fixed meanings.
   weaker than claimed.  [`AUDIT.md`](AUDIT.md) records the verdict for each module, and
   `SpherePackings/Audit/Nonvacuity/` the reviewers' nonvacuity examples, which build with the
   library.
-- **Independent check of the statements.**  The main theorems are restated in comparator
-  challenges that import only Mathlib and vocabulary modules copying, verbatim and under their
-  repository names, exactly the declarations needed to state them
-  ([`SpherePackingsAudit/`](SpherePackingsAudit/README.md)); `tools/check_vocabulary.py` re-derives
-  the copies from the repository.  [leanprover/comparator](https://github.com/leanprover/comparator)
-  checks that each solution proves the challenge statement, with the same dependency closure, using
-  only the permitted axioms, with the Lean kernel and the independent nanoda kernel; see
-  [`SpherePackingsAudit/COMPARATOR_RUNS.md`](SpherePackingsAudit/COMPARATOR_RUNS.md).
 - **Continuous integration.**  The CI build rejects any warning in this repository's modules and
   any `sorry`, checks the axiom reports of the main theorems and runs `tools/verify.py`; the
   comparator workflow checks every pair (see [Running the comparators](#running-the-comparators)).
-- **Pinned toolchain.**  Lean `v4.34.0-rc2` ([`lean-toolchain`](lean-toolchain)) and Mathlib at
-  `a4c8ef0a69f52ec80525d5086bb3542f4660faaf`, the pins of leobon12's release, recorded in
-  [`lakefile.lean`](lakefile.lean) and [`lake-manifest.json`](lake-manifest.json).
-- **The paper is part of the repository.**  [`paper/`](paper/) holds the arXiv source and the
-  corrected source, both pinned by SHA-256 in `ledger/manifest.yaml`, with their compiled PDFs.
 
 ## Size
 
-About 23,400 lines of Lean in 179 files under `SpherePackings/` and `SpherePackings.lean`, on top of
-leobon12's 37,300 lines in 319 files under `BouRabeeGwynne/` (including 21 files vendored from
-Rémy Degenne's Brownian-motion and Kolmogorov-extension projects) and mathlib.  The comparator
-surface `SpherePackingsAudit/` is not counted.
+The library contains 181 Lean files with 23,768 physical lines (`SpherePackings.lean` and
+`SpherePackings/`), on top of leobon12's 319 files with 37,350 physical lines under
+`BouRabeeGwynne/` (including 21 files vendored from Rémy Degenne's Brownian-motion and
+Kolmogorov-extension projects) and mathlib.  The comparator sources under `SpherePackingsAudit/`
+are counted separately: 37 Lean files with 2,642 physical lines.
 
 ## Building
 
@@ -354,6 +360,7 @@ lake env lean SpherePackings/Meta/AxiomsAudit.lean 2>&1 | tee .lake/axioms-audit
 python3 scripts/check_axioms.py .lake/axioms-audit.log
 ```
 
+`import SpherePackings` loads the main theorems and what they use.
 `lake build SpherePackingsAudit` builds the comparator challenges and solutions.
 
 The checkers need Python 3.10 or newer and PyYAML (`python3 -m pip install -r
@@ -396,13 +403,16 @@ Logs are kept under `.lake/comparator-logs/`.  The runs recorded on a local mach
 
 There are two continuous-integration workflows: **CI** builds the library, checks the axiom
 reports and runs the registry checks; **Comparator audit** checks all six challenge/solution pairs,
-one job per pair.  Both run on pushes to `main` and can be started manually from the
+one job per pair.  CI runs on pushes to `main` that change anything but the paper PDFs,
+`CITATION.cff`, `CONTRIBUTING.md` and `CI_ARTIFACTS.md`; the comparator audit runs on pushes that
+change Lean sources, `SpherePackingsAudit/`, `scripts/run_comparators.sh` or the build
+configuration.  Both can be started manually from the
 [Actions page](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions); see
 [`CI_ARTIFACTS.md`](CI_ARTIFACTS.md) and, for build conventions, [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Repository layout
 
-```
+```text
 SpherePackings/
   MainTheorems.lean    the main results, stated in full
   Frozen/              the certified statement surface, one frozen statement per file
@@ -418,6 +428,9 @@ BouRabeeGwynne/        leobon12's formalization of Theorems A and B(a), unchange
                        header naming the source (and, in 13 walk files, `omit [Fintype V] in`)
 SpherePackings.lean    the root module
 SpherePackingsAudit/   Mathlib-only comparator challenges, solutions and vocabulary
+LICENSE                the Apache License 2.0
+lakefile.lean, lake-manifest.json, lean-toolchain
+                       the build configuration and the pinned dependencies
 ASSUMPTIONS.md         the cited results assumed (none)
 AUDIT.md               the audit of the code copied or adapted from leobon12
 GAP-CHECKS.md          the independent checks of four claims about the paper
@@ -497,4 +510,8 @@ The Lean development is licensed under the Apache License 2.0; see [`LICENSE`](L
 paper in [`paper/`](paper/) is posted on arXiv under the Creative Commons Attribution 4.0
 International license ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)); the corrected
 version is a modified version of it, with the changes marked, distributed under the same license.
-These licences are not set by the software licence.
+These licences are not set by the software licence.  The files under `BouRabeeGwynne/Upstream/`
+and `BouRabeeGwynne/DyadicExitApprox.lean` come from Rémy Degenne's Brownian-motion and
+Kolmogorov-extension projects (see [Acknowledgments](#acknowledgments)) and keep their own
+Apache License 2.0 notices; see the `LICENSE` and `PROVENANCE.md` files in
+`BouRabeeGwynne/Upstream/BrownianMotion/` and `BouRabeeGwynne/Upstream/KolmogorovExtension/`.
