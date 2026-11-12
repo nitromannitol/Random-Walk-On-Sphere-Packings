@@ -30,43 +30,128 @@ probability proportional to the conductance `vol_{d-1}(P_v ∩ P_w) / ‖w - v�
 tessellations and tangency graphs of sphere packings are examples.
 
 The two main theorems say that, as the mesh tends to zero and under one of three mild regularity
-hypotheses (I) planarity, (II) no exponentially small tiles, (III) a polynomial control of the
-tile diameters,
+hypotheses, (I) planarity, (II) no exponentially small tiles or (III) a polynomial control of the
+tile diameters, the walk stopped on leaving a bounded Lipschitz domain converges to stopped
+Brownian motion (Theorem A), and the discrete harmonic extensions of a harmonic function converge
+to it uniformly (Theorem B).  Proposition 1.1 shows that the Voronoi tessellations of Poisson
+processes satisfy hypothesis (II), Theorem 4.1 is a central limit theorem for nearest-neighbour
+walks under the paper's Assumption D, and Theorem 6.1 gives a bounded-degree sphere packing on
+which *simple* random walk does not converge to Brownian motion.  The model is stated precisely in
+[Standing assumptions and scope](#standing-assumptions-and-scope).
 
-* **Theorem A**: the walk started near `z` and stopped on leaving a bounded Lipschitz domain `U`
-  converges in law to Brownian motion started at `z` and stopped on leaving `U`, for curves modulo
-  time parametrization, uniformly in `z`;
-* **Theorem B**: the discrete harmonic extensions of `h_C` converge uniformly to `h_C`, when
-  (a) `h_C` is harmonic near `closure U`, or (b) `U` is Lipschitz and `h_C` is harmonic on `U` and
-  continuous on `closure U`.
-
-Proposition 1.1 shows that, near `U`, the Voronoi tessellations of Poisson processes of intensity
-`m μ` satisfy hypothesis (II), for measures `μ` with polynomial mass bounds on a neighbourhood of
-`closure U` (the paper's Remark 1.2, which is not formalized, gives Gaussian multiplicative chaos as
-an example).  Theorem 6.1 gives a bounded-degree sphere packing on which *simple* random walk does
-not converge to Brownian motion.
-
-The main results are stated in full in
+The statements are those of the corrected paper
+[`paper/rw-spheres-corrected.tex`](paper/rw-spheres-corrected.tex), with the corrections listed
+under [Corrections to the published version](#corrections-to-the-published-version).  The main
+results, formalized as stated in the corrected paper, are collected in
 [`SpherePackings/MainTheorems.lean`](SpherePackings/MainTheorems.lean), each proved by `exact` of
-its certified counterpart in `SpherePackings/Frozen/`:
+its certified counterpart in [`SpherePackings/Frozen/`](SpherePackings/Frozen/).  Theorem A and
+Theorem B(a) are Leonardo Bonanno's theorems, in the copied code under `BouRabeeGwynne/` (see
+[Copied code](#copied-code)); the other results are proved in this repository.
 
-* **`SpherePackings.theorem_A`** (Theorem A, `theorem:convergence-of-rw-trace`), leobon12's theorem;
-* **`SpherePackings.theorem_B_a`** (Theorem B(a)), leobon12's theorem;
-* **`SpherePackings.theorem_B_b`** (Theorem B(b)), proved here;
-* **`SpherePackings.prop_1_1`** and **`SpherePackings.prop_1_1_theorems_A_B`** (Proposition 1.1, the
-  cell bounds and the conclusions of Theorems A and B for Poisson–Voronoi tilings), proved here;
-* **`SpherePackings.theorem_4_1`** (Theorem 4.1, `theorem:general-clt`), any nearest-neighbour walks
-  under Assumption D, proved here from leobon12's proof of Theorem A;
-* **`SpherePackings.theorem_6_1`** (Theorem 6.1, `theorem:counter-example`), proved here.
+| Paper | Lean declaration | Content |
+| --- | --- | --- |
+| Theorem A (label `theorem:convergence-of-rw-trace`) | `SpherePackings.theorem_A` | The walk started near `z` and stopped on leaving a bounded Lipschitz domain `U` converges in law to Brownian motion started at `z` and stopped on leaving `U`, for curves modulo time parametrization, uniformly in `z`. |
+| Theorem B(a) (label `theorem:convergence-of-the-dirichlet-problem`) | `SpherePackings.theorem_B_a` | The discrete harmonic extensions of `h_C` converge uniformly to `h_C` when `h_C` is harmonic near `closure U`. |
+| Theorem B(b) (label `theorem:convergence-of-the-dirichlet-problem`) | `SpherePackings.theorem_B_b` | The same when `U` is Lipschitz and `h_C` is harmonic on `U` and continuous on `closure U`. |
+| Proposition 1.1 (label `prop:min-max-edge-length`) | `SpherePackings.prop_1_1` | Almost surely, for all large `m`, the Voronoi cells of a Poisson process of intensity `m μ` that meet `U` lie between the balls of radii `m^(−8/β⁻)` and `m^(−1/(3β⁺))` about their sites. |
+| Proposition 1.1, "in particular" (label `prop:min-max-edge-length`) | `SpherePackings.prop_1_1_theorems_A_B` | Almost surely, Theorems A and B hold for these Poisson–Voronoi tilings. |
+| Theorem 4.1 (label `theorem:general-clt`) | `SpherePackings.theorem_4_1` | Under Assumption D, nearest-neighbour walks started at the nearest vertices and stopped on leaving a bounded Lipschitz domain converge to stopped Brownian motion, uniformly in the starting point. |
+| Theorem 6.1 (label `theorem:counter-example`) | `SpherePackings.theorem_6_1` | For every `d ≥ 3`, a sphere packing with radii `1` and `1/2`, each sphere tangent to boundedly many others, on which simple random walk does not converge to Brownian motion. |
 
-The statements are those of the corrected paper [`paper/rw-spheres-corrected.tex`](paper/rw-spheres-corrected.tex),
-with the corrections listed below.  Every labelled theorem, lemma and proposition of the paper has a
+**Theorem A (convergence of random walk, `theorem:convergence-of-rw-trace`).** Let `U ⊂ ℝ^d`
+be a bounded Lipschitz domain with `closure U ⊂ interior D`, and let `G_n` be orthogonal tilings
+of `D`. For `z ∈ D` let `z^n` be the vertex of `G_n` nearest to `z`. Assume that the mesh
+`ε_n = sup_v diam(P_v)` and `sup_{z ∈ D} ‖z^n − z‖` tend to `0`, and that one of the following
+holds:
+
+1. *Planarity (I).* `d = 2`.
+2. *No exponentially small tiles (II).* The smallest tile of `G_n` has volume at least
+   `exp(−o(ε_n⁻¹))`.
+3. *Polynomial diameters (III).* For some `α > 0`, the diameter of each tile `P_v` is
+   `O(max_w ‖w − v‖^α vol_{d−1}(P_w ∩ P_v)^α)`, the maximum over the edges `(v, w)` at `v`.
+
+Then, for each `z ∈ U`, as `n → ∞`, the linearly interpolated walk started at `z^n` and stopped
+on exiting `U` converges in law to standard Brownian motion started at `z` and stopped on exiting
+`U`, for the metric on curves modulo time parametrization, and the convergence is uniform in `z`.
+
+In Lean, `SpherePackings.theorem_A` takes the tilings as a `BouRabeeGwynne.TilingSequence`, the
+nearest vertices as `BouRabeeGwynne.NearestVertexData` with its approximation condition, the
+collar `closure U ⊆ interior D` as `BouRabeeGwynne.HasAmbientCollar`, and the disjunction of
+(I), (II) and (III) as `BouRabeeGwynne.PaperRegularity`. Every contact of dimension `d − 1` of
+two cells is an edge. The conclusion constructs a standard Brownian law
+(`BouRabeeGwynne.IsStandardBrownianLaw`), shows that Brownian motion started in `U` leaves `U`
+in finite time almost surely, and bounds the Lévy–Prokhorov distance between the stopped walk law
+and the stopped Brownian law by any `η > 0`, for all large `n` and every `z ∈ U`.
+
+**Theorem B (convergence of the Dirichlet problem, `theorem:convergence-of-the-dirichlet-problem`).**
+Let `U` be a bounded domain with `closure U ⊂ interior D`, let `h_C` be harmonic on `U`, and let
+`G_n` satisfy the hypotheses of Theorem A on the mesh and one of (I), (II) and (III). Let
+`h_D^n` be the discrete harmonic extension of `h_C` to the vertices of `G_n` in `U`.
+
+1. *Data harmonic near the closure.* If `h_C` is harmonic in a neighbourhood of `closure U`,
+   with boundary values `h_C(v)`, then `sup_{z ∈ V_n[U]} |h_D^n(z) − h_C(z)| → 0`.
+2. *Continuous data on a Lipschitz domain.* If `U` is Lipschitz and `h_C` is continuous on
+   `closure U`, with the boundary value at `v` equal to `h_C` at a nearest point of `closure U`,
+   then `sup_{z ∈ V_n[U]} |h_D^n(z) − h_C(z)| → 0`.
+
+In Lean, the two parts are `SpherePackings.theorem_B_a` and `SpherePackings.theorem_B_b`, with
+the tiling hypotheses of Theorem A. The conclusion `BouRabeeGwynne.DirichletApproximationTarget` also
+asserts that, for all large `n`, the discrete Dirichlet problem has a unique solution on the
+finitely many vertices concerned, and bounds the error of every solution. In part 2 the boundary
+points are any nearest points of `closure U` (`BouRabeeGwynne.NearestClosureBoundaryChoices`);
+the statement shows that such choices exist, that the chosen points lie on the boundary of `U`,
+and that, for all large `n`, they lie within twice the mesh of their vertices.
+
+**Proposition 1.1 (Poisson–Voronoi tilings, `prop:min-max-edge-length`).** Let `U` be a bounded
+domain, and let `μ` be a measure with `r^(β⁺) ≤ μ(B_r(z)) ≤ r^(β⁻)` for all sufficiently small
+`r ∈ (0, 1)` and every `z` in an open set `W ⊇ closure U`. Let `Λ_m` be a Poisson point process
+of intensity `m μ`. With probability one, for all sufficiently large `m`, every cell `C_s` of the
+Voronoi tessellation of `Λ_m` that meets `U` satisfies
+`B_{m^(−8/β⁻)}(s) ⊂ C_s ⊂ B_{m^(−1/(3β⁺))}(s)`. In particular, the conclusions of Theorem B and,
+if `U` is Lipschitz, of Theorem A hold as `m → ∞`, for the tiling by the Voronoi cells that meet
+a fixed bounded neighbourhood `D` of `closure U` with `closure D ⊂ W`.
+
+In Lean, the two parts are `SpherePackings.prop_1_1` and `SpherePackings.prop_1_1_theorems_A_B`.
+The mass bounds are `SpherePackings.HolderMassBounds μ W β⁺ β⁻`, and only the points in `W` are
+assumed to form a Poisson point process (`SpherePackings.IsPoissonPointProcess`), of intensity
+`m μ` restricted to `W`. The second part also assumes that every `Λ_m` is locally finite, and
+constructs, almost surely, a tiling sequence with the collar whose tilings are, for all large `m`,
+the Voronoi tilings of `Λ_m`.
+
+**Theorem 4.1 (central limit theorem under Assumption D, `theorem:general-clt`).** Suppose that
+Assumption D holds on `D`, and let `U ⊂ D` be a bounded Lipschitz domain. For `z ∈ U` let
+`Y^{z,n}` be the linear interpolation of the walk on `G_n` started at `z^n`, stopped at its first
+exit from the vertices in `U`, and let Brownian motion started at `z` be stopped at its first exit
+from `U`. Then the supremum over `z ∈ U` of the Prokhorov distance between the two stopped laws,
+for the metric on curves modulo time parametrization, tends to `0` as `n → ∞`.
+
+In Lean, `SpherePackings.theorem_4_1` holds for any nearest-neighbour walks on graphs in `ℝ^d`
+(`SpherePackings.NearestNeighbourWalk`) under Assumption D as printed
+(`SpherePackings.AssumptionD`), with `z^n` any nearest vertex. The existence of the discrete
+Dirichlet solutions is not assumed. The statement adds that, for all large `n`, the walk leaves
+the vertices in `U` almost surely from every starting vertex.
+
+**Theorem 6.1 (a counterexample for simple random walk, `theorem:counter-example`).** For all
+`d ≥ 3`, there is a sphere packing of `ℝ^d` on which simple random walk with unit conductances
+does not converge to Brownian motion modulo time parametrization in the scaling limit. The spheres
+all have radii `1` or `1/2`, and each is tangent to a bounded number of other spheres.
+
+In Lean, `SpherePackings.theorem_6_1` produces a `SpherePackings.SpherePacking` with a sphere
+centred at the origin from which the walk, rescaled by `1/n` and stopped on leaving the unit
+ball, has a law for every `n ≥ 1`, and shows that these laws do not converge to the law of
+Brownian motion stopped on leaving the unit ball, in the Lévy–Prokhorov distance on curves modulo
+time parametrization. In dimension three it adds that every sphere is covered: the tangent
+half-spaces at its contact points meet in a bounded set (`SpherePackings.SpherePacking.Covered`).
+
+Every labelled theorem, lemma and proposition of the paper has a
 registered statement; one proved only under a hypothesis stronger than the corrected paper's would
 be marked `PARTIAL` (in the status below).  Not formalized: the two remarks, the
 examples of Section 1.2 other than Voronoi tessellations, and the open problems.
 
 The paper-to-Lean correspondence, with every difference in formulation, is in
-[`CORRESPONDENCE.md`](CORRESPONDENCE.md).
+[`CORRESPONDENCE.md`](CORRESPONDENCE.md), and
+[Which Lean theorem proves which result](#which-lean-theorem-proves-which-result) maps every
+result to its registered statement.
 
 <!-- STATUS-BEGIN (generated by tools/sync_docs.py) -->
 
@@ -77,64 +162,6 @@ and no axiom added by this development.  3 labelled items have no registered sta
 These counts are generated from `ledger/manifest.yaml` by `python3 tools/sync_docs.py`.
 
 <!-- STATUS-END -->
-
-### Which Lean theorem proves which result
-
-The table links the paper's statements to the frozen Lean declarations.  "Form" is *as printed*,
-*corrected* (the statement of the corrected paper, where the printed one is changed; see the next section), *reformulated*
-(an equivalent or stronger variant in different terms) or *weakened*.  The table is generated from
-the manifest; it does not prove correspondence between the two sources.
-
-<!-- PAPER-MAP-BEGIN (generated by tools/sync_docs.py) -->
-
-| Paper result | Lean statement | Form | Proved by | Note |
-|---|---|---|---|---|
-| [Theorem A](paper/rw-spheres.tex#L259): Convergence of random walk<br>`theorem:convergence-of-rw-trace` | [SpherePackings.Frozen.theoremA](SpherePackings/Frozen/TheoremA.lean#L25) | corrected | leobon12 | Ambient collar `closure U ⊆ interior D`; every codimension-one contact of two cells is an edge (the paper's reading). |
-| [Theorem B(a)](paper/rw-spheres.tex#L297): Convergence of the Dirichlet problem, data harmonic near `closure U`<br>`theorem:convergence-of-the-dirichlet-problem` | [SpherePackings.Frozen.theoremB_a](SpherePackings/Frozen/TheoremBa.lean#L18) | corrected | leobon12 | Ambient collar; eventual existence and uniqueness of the discrete solution are part of the conclusion. |
-| [Theorem B(b)](paper/rw-spheres.tex#L297): Convergence of the Dirichlet problem, data continuous on `closure U`<br>`theorem:convergence-of-the-dirichlet-problem` | [SpherePackings.Frozen.theoremB_b](SpherePackings/Frozen/TheoremBb.lean#L21) | corrected | this repository | Ambient collar; boundary values sampled at nearest points of `closure U`. leobon12's statement, proved here. |
-| [Proposition 1.1](paper/rw-spheres.tex#L371): Voronoi cells of Poisson processes lie between two balls<br>`prop:min-max-edge-length` | [SpherePackings.Frozen.prop11_cells](SpherePackings/Frozen/Prop11Cells.lean#L24) | corrected | this repository | As in the corrected paper: the mass bounds (1.4) on a neighbourhood `W` of `closure U`; the printed version (on `U` only) is false (Lebesgue measure restricted to the unit ball: the cells of the extreme points are unbounded). Only the points in `W` are assumed to form a Poisson point process, of intensity `m μ|_W`. |
-| [Proposition 1.1](paper/rw-spheres.tex#L378): Theorems A and B for Poisson–Voronoi tilings<br>`prop:min-max-edge-length` | [SpherePackings.Frozen.prop11_theoremAB](SpherePackings/Frozen/Prop11TheoremAB.lean#L20) | corrected | this repository | The "in particular" clause; tilings of a neighbourhood of `closure U` by the cells meeting it. Hypotheses as in the first part, and `Λ_m` locally finite. |
-| [Lemma 2.1](paper/rw-spheres.tex#L633): Discrete divergence theorem<br>`lemma:discrete-divergence-theorem` | [SpherePackings.Frozen.lemma21FiniteDegrees](SpherePackings/Frozen/Lemma21FiniteDegrees.lean#L20) | corrected | this repository | Finite degree at the vertices of `A`; any simple graph. |
-| [Lemma 2.2](paper/rw-spheres.tex#L657): Affine functions are discrete harmonic<br>`lemma:linear-lie-in-kernel` | [SpherePackings.Frozen.lemma22_affine_kernel](SpherePackings/Frozen/Lemma22AffineKernel.lean#L18) | corrected | this repository | At vertices whose cell is complete (finitely many neighbours, boundary covered by the cells of the neighbours), as in the corrected paper; the printed identity is false at a cell with a facet shared with no other cell (two unit squares). |
-| [Lemma 2.3](paper/rw-spheres.tex#L684): Dual variational principle<br>`lemma:dual-variational-principle` | [SpherePackings.Frozen.lemma23_dual_variational](SpherePackings/Frozen/Lemma23DualVariational.lean#L20) | as printed | leobon12 (paper form here) | On any finite network with symmetric conductances; sums over `E[Ā]`. |
-| [Lemma 2.4](paper/rw-spheres.tex#L739): Volume of the dual polytope<br>`lemma:geometry-bound` | [SpherePackings.Frozen.lemma24_dual_volume](SpherePackings/Frozen/Lemma24DualVolume.lean#L16) | as printed | leobon12 |  |
-| [Lemma 2.5](paper/rw-spheres.tex#L769): Dual polytopes cover the cells<br>`lemma:easy-global-qe-bounds` | [SpherePackings.Frozen.lemma25_dual_coverage](SpherePackings/Frozen/Lemma25DualCoverage.lean#L19) | corrected | this repository (from leobon12) | `⋃_{v ∈ V[U]} P_v ⊆ ⋃_{e ∈ E[Ū]} Q_e` for complete cells of `V[U]`, as in the corrected paper, in place of the printed `U ⊆ ⋃_{e ∈ E[Ū]} Q_e`, which is false (a small ball inside one square of a grid contains no vertex); the upper inclusion as printed. |
-| [Proposition 2.6](paper/rw-spheres.tex#L822): Energy bound<br>`prop:energy-bound` | [SpherePackings.Frozen.prop26_energy](SpherePackings/Frozen/Prop26Energy.lean#L27) | corrected | this repository (from leobon12) | As in the corrected paper: complete cells of `V[U]`; `h_C` `C²` near the cells of `V̄[U]` and harmonic on the cells of `V[U]`; `M` bounds the Hessian on the cells of `V[U]` and, for each edge of `E[Ū]`, the finite Taylor remainder at one active endpoint. The printed version is false: two unit squares (without completeness), and a slit-domain harmonic function (check G2). |
-| [Lemma 3.1](paper/rw-spheres.tex#L937): Poincaré-type inequality<br>`lemma:ptype-inequality` | [SpherePackings.Frozen.lemma31_poincare](SpherePackings/Frozen/Lemma31Poincare.lean#L23) | corrected | leobon12 | Complete cells of `V[U]`, as in the corrected paper (the printed version is false without it: two unit squares, `f = 1`); columns in any direction and the bad set through projected cells (stronger). |
-| [Proposition 3.2](paper/rw-spheres.tex#L980): Closeness on columns<br>`prop:energy-poincare-bound` | [SpherePackings.Frozen.prop32_columns](SpherePackings/Frozen/Prop32Columns.lean#L26) | corrected | this repository (from leobon12) | The hypotheses of the corrected Proposition 2.6, as in the corrected paper. The printed version is false: two unit squares (without completeness), and a thin reflected Voronoi configuration (with complete cells). Threshold half the printed one (stronger). |
-| [Theorem 3.3](paper/rw-spheres.tex#L1030): Planar bound<br>`theorem:2d` | [SpherePackings.Frozen.theorem33_planar](SpherePackings/Frozen/Theorem33Planar.lean#L31) | corrected | this repository (from leobon12) | As in the corrected paper: `3 M₀ ε² + inf_k (6 k M ε vol(Û) + (M/2)(√2 k⁻¹ + ε)²)`, `M₀` the Hessian bound on the cells of `V̄[U]`, `M ≥ M₀` the finite Taylor constant of the internal edges; complete cells; no oscillation or Lipschitz hypothesis. The printed bound is false without completeness (check G4); with complete cells whether the published linear bound holds is not settled, and the theorem with the published cell Hessian constant alone is open. |
-| [Theorem 3.3](paper/rw-spheres.tex#L1050): Planar rate `C ε^{2/3}`<br>`theorem:2d` | [SpherePackings.Frozen.theorem33_rate](SpherePackings/Frozen/Theorem33Rate.lean#L29) | corrected | this repository (from leobon12) | As in the corrected paper: `sup |h_D - h_C| ≤ C ε^{2/3}` (hence `C ε^{1/2}`) for `ε ≤ 1/2`, `C = M (3 + 6 vol(B_{R₀+1}) + (√2 + 1)²/2)`, with the hypotheses of the bound. The printed rate is false with a constant uniform over all meshes (a product tiling with a large central cell), and false without completeness (check G4); with the published cell Hessian constant alone it is open. |
-| [Lemma 3.5](paper/rw-spheres.tex#L1128): Weighted gradient-energy estimate<br>`lemma:gradient-energy-estimate` | [SpherePackings.Frozen.lemma35_weighted_energy](SpherePackings/Frozen/Lemma35WeightedEnergy.lean#L16) | as printed | leobon12 | `d vol_d(Q_e)` written as `‖e‖ vol_{d-1}(H_e)` (Lemma 2.4). |
-| [Theorem 3.6](paper/rw-spheres.tex#L1147): General dimension, small cells<br>`theorem:generaldim` | [SpherePackings.Frozen.theorem36_rate](SpherePackings/Frozen/Theorem36Rate.lean#L33) | corrected | this repository (from leobon12) | As in the corrected paper: complete cells of `V[U]`; `M = M_U°(h_C) ∨ 1`, the Hessian bound on the cells of `V̄[U]` and the finite Taylor remainder on internal edges only. The bound `C M K ε log(1/ε) + D L` for `12 M ε ≤ 1`, `C` explicit in `d` and a bound on `U`, through leobon12's corrected iteration; the printed Step 2 completed at the exit cell. The printed version is false without completeness (check G4); with the published cell Hessian constant alone it is open. |
-| [Theorem 3.7](paper/rw-spheres.tex#L1314): General dimension, decay hypothesis<br>`theorem:generaldim-decay` | [SpherePackings.Frozen.theorem37_rate](SpherePackings/Frozen/Theorem37Rate.lean#L33) | corrected | this repository (from leobon12) | As in the corrected paper: complete cells of `V[U]`; `M = M_U°(h_C) ∨ 1`, the Hessian bound on the cells of `V̄[U]` and the finite Taylor remainder on internal edges only. The printed version is false without completeness (check G4); with the published cell Hessian constant alone it is open. The rate `C M ε log(1/ε)` for `ε < (C M)⁻¹`, `C` explicit in `d`, `F`, `α` and a bound on `U`, through leobon12's corrected iteration (the printed one has a gap, check G1). |
-| [Theorem 4.1](paper/rw-spheres.tex#L1481): Central limit theorem under Assumption D<br>`theorem:general-clt` | [SpherePackings.Frozen.theorem41](SpherePackings/Frozen/Theorem41.lean#L24) | as printed | this repository (from leobon12's proof of Theorem A) | Any nearest-neighbour walks on graphs in `ℝ^d` under Assumption D as printed (existence of the discrete Dirichlet solutions is not assumed, and (4.2) is required of every solution); `z^n` any nearest vertex; also: the walk eventually leaves `V_n[U]` almost surely. |
-| [Proposition 4.2](paper/rw-spheres.tex#L1511): Convergence of harmonic measure<br>`prop:convergence-of-harmonic-measure` | [SpherePackings.Frozen.prop42_general](SpherePackings/Frozen/Prop42General.lean#L23) | corrected | this repository | Any nearest-neighbour walks on graphs in `ℝ^d` under Assumption D as printed; any ball whose closure lies in `B_δ(D)` (the printed statement leaves this implicit and fails without it); Lévy–Prokhorov, uniformly over the ball. |
-| [Lemma 5.1(a)](paper/rw-spheres.tex#L1627): Inner balls of Voronoi cells<br>`lemma:geometric-constraint` | [SpherePackings.Frozen.lemma51a_inner](SpherePackings/Frozen/Lemma51Inner.lean#L18) | corrected | this repository | The grid points `x` whose cube `x + [-r, r]^d` meets `U`, as in the corrected paper; the printed version (grid points in `U`) is false: if `U` contains no grid point, its hypothesis is empty, while two sites of `U` at distance less than `r` violate its conclusion. |
-| [Lemma 5.1(b)](paper/rw-spheres.tex#L1635): Outer balls of Voronoi cells<br>`lemma:geometric-constraint` | [SpherePackings.Frozen.lemma51b_outer](SpherePackings/Frozen/Lemma51Outer.lean#L23) | corrected | this repository | As in the corrected paper: there are `δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that the grid points within `R k` of `U` suffice (proved with `δ = 1/10`, `R = max(2, 1.1√d)`), for any sets `U`, `S`. The printed radius `2k` fails for every `d ≥ 13` (counterexample in the corrected paper; check G3 for `d ≥ 14`); for `4 ≤ d ≤ 12` it also suffices, with a smaller `δ`, by a rounding argument not formalized here, so there the registered statement is weaker than the printed one. |
-| [Lemma 5.2](paper/rw-spheres.tex#L1650): Polar of a perturbed cross-polytope<br>`lemma:dual-polytope-bound` | [SpherePackings.Frozen.lemma52_dual_polytope](SpherePackings/Frozen/Lemma52DualPolytope.lean#L14) | as printed | this repository |  |
-| [Theorem 6.1](paper/rw-spheres.tex#L1791): Simple random walk counterexample<br>`theorem:counter-example` | [SpherePackings.Frozen.theorem61_counterexample](SpherePackings/Frozen/Theorem61Counterexample.lean#L26) | as printed | this repository | Non-convergence on the unit ball from the origin; modified packing for `d ≥ 4`. |
-
-Labelled items with no registered statement:
-
-| Paper item | Reason |
-|---|---|
-| [Remark 1.2](paper/rw-spheres.tex#L385) | A remark citing Berestycki, Theorem 3.26, for GMC measures; not formalized. |
-| [Remark 3.4](paper/rw-spheres.tex#L1100) | A remark on adapting the proof to orthodiagonal maps; not formalized. |
-| [Assumption D](paper/rw-spheres.tex#L1438) | A hypothesis, not a result: formalized as printed, for any nearest-neighbour walks, as the definition `SpherePackings.AssumptionD`, which is the hypothesis of Theorem 4.1 and Proposition 4.2 (the existence of the discrete Dirichlet solutions is not assumed, and (4.2) is required of every solution). `SpherePackings.TilingAssumptionD` is a localized variant for orthogonal tilings, used by an earlier tiling proof. The domain `D` of Assumption D need not be the domain of a tiling: the conductance walks on lattice Voronoi tilings of the ball of radius 2 satisfy Assumption D as printed with `D` the unit ball (`theorem41_hypotheses_satisfiable`). |
-
-Supporting statements that establish properties of the formal model:
-
-| Role | Lean statement |
-|---|---|
-| The open unit ball is a Lipschitz domain in the sense of `IsLipschitzDomain`. | [SpherePackings.isLipschitzDomain_ball](SpherePackings/Support/Guards/LipschitzBall.lean) |
-| The lattice `h ℤ^d` satisfies `GoodVoronoi` on every bounded set (its cells are cubes). | [SpherePackings.Voronoi.goodVoronoi_grid](SpherePackings/Support/Guards/LatticeVoronoi.lean) |
-| The hypotheses of Theorems A and B are satisfiable: lattice Voronoi tilings of a ball, with the collar, (1.3) and (II). | [SpherePackings.exists_lattice_tilingSequence](SpherePackings/Support/Guards/LatticeTilings.lean) |
-| The localized Assumption D (`TilingAssumptionD`, used by the earlier tiling proof of Theorem 4.1) holds under (1.3) and (I), (II) or (III), by Theorem B(a). | [SpherePackings.tilingAssumptionD_of_paperRegularity](SpherePackings/Support/Section4/AssumptionD.lean) |
-| Assumption D as printed holds for the conductance walks on lattice Voronoi tilings with nearest vertices (by Theorem B(a)); with the unit ball and a standard Brownian law, the hypotheses of Theorem 4.1 and Proposition 4.2 are satisfiable. | [SpherePackings.theorem41_hypotheses_satisfiable](SpherePackings/Support/Guards/AssumptionDLattice.lean) |
-| A standard Brownian law exists (leobon12). | [BouRabeeGwynne.isStandardBrownianLaw_euclideanWienerLaw](BouRabeeGwynne/EuclideanWienerLaw.lean) |
-| Lemma 2.1 applies to a star whose centre, a boundary vertex, has infinite degree. | [SphereSBPALocal.InfiniteStarCheck.checked_identity](SpherePackings/Support/Guards/Lemma21InfiniteStar.lean) |
-
-<!-- PAPER-MAP-END -->
 
 ## Corrections to the published version
 
@@ -264,7 +291,8 @@ Neither is needed for the registered statements, which are those of the correcte
    is taken as a hypothesis; see [`ASSUMPTIONS.md`](ASSUMPTIONS.md).
 3. **One registered statement per result.**  Every theorem, lemma and proposition of the paper is
    registered as a Lean declaration, one per statement (two for Theorem B, Proposition 1.1,
-   Theorem 3.3 and Lemma 5.1), with supporting statements about the model (the guards above).
+   Theorem 3.3 and Lemma 5.1), with supporting statements about the model (the guards listed under
+   [Which Lean theorem proves which result](#which-lean-theorem-proves-which-result)).
    `tools/check_coverage.py` confirms that every labelled result of `paper/rw-spheres.tex` is
    registered or listed as not formalized, with its reason; it is a review aid and does not prove
    equivalence between LaTeX and Lean.
@@ -291,6 +319,65 @@ The following words have fixed meanings.
 | **frozen statement** | the declaration's text between `-- FROZEN-STATEMENT-BEGIN` and `-- FROZEN-STATEMENT-END`, pinned by the SHA-256 of those bytes. |
 | **`PROVED`** | a complete proof, whose axiom closure contains only `propext`, `Classical.choice` and `Quot.sound`, of the printed statement, or of the statement of the corrected paper where the printed one is changed (documented above). |
 | **`PARTIAL`** | a complete proof of a statement weaker than the corrected paper's, under a stronger hypothesis. |
+
+## Which Lean theorem proves which result
+
+The table links the paper's statements to the frozen Lean declarations.  "Form" is *as printed*,
+*corrected* (the statement of the corrected paper, where the printed one is changed; see
+[Corrections to the published version](#corrections-to-the-published-version)), *reformulated*
+(an equivalent or stronger variant in different terms) or *weakened*.  The table is generated from
+the manifest; it does not prove correspondence between the two sources.
+
+<!-- PAPER-MAP-BEGIN (generated by tools/sync_docs.py) -->
+
+| Paper result | Lean statement | Form | Proved by | Note |
+|---|---|---|---|---|
+| [Theorem A](paper/rw-spheres.tex#L259): Convergence of random walk<br>`theorem:convergence-of-rw-trace` | [SpherePackings.Frozen.theoremA](SpherePackings/Frozen/TheoremA.lean#L25) | corrected | leobon12 | Ambient collar `closure U ⊆ interior D`; every codimension-one contact of two cells is an edge (the paper's reading). |
+| [Theorem B(a)](paper/rw-spheres.tex#L297): Convergence of the Dirichlet problem, data harmonic near `closure U`<br>`theorem:convergence-of-the-dirichlet-problem` | [SpherePackings.Frozen.theoremB_a](SpherePackings/Frozen/TheoremBa.lean#L18) | corrected | leobon12 | Ambient collar; eventual existence and uniqueness of the discrete solution are part of the conclusion. |
+| [Theorem B(b)](paper/rw-spheres.tex#L297): Convergence of the Dirichlet problem, data continuous on `closure U`<br>`theorem:convergence-of-the-dirichlet-problem` | [SpherePackings.Frozen.theoremB_b](SpherePackings/Frozen/TheoremBb.lean#L21) | corrected | this repository | Ambient collar; boundary values sampled at nearest points of `closure U`. leobon12's statement, proved here. |
+| [Proposition 1.1](paper/rw-spheres.tex#L371): Voronoi cells of Poisson processes lie between two balls<br>`prop:min-max-edge-length` | [SpherePackings.Frozen.prop11_cells](SpherePackings/Frozen/Prop11Cells.lean#L24) | corrected | this repository | As in the corrected paper: the mass bounds (1.4) on a neighbourhood `W` of `closure U`; the printed version (on `U` only) is false (Lebesgue measure restricted to the unit ball: the cells of the extreme points are unbounded). Only the points in `W` are assumed to form a Poisson point process, of intensity `m μ|_W`. |
+| [Proposition 1.1](paper/rw-spheres.tex#L378): Theorems A and B for Poisson–Voronoi tilings<br>`prop:min-max-edge-length` | [SpherePackings.Frozen.prop11_theoremAB](SpherePackings/Frozen/Prop11TheoremAB.lean#L20) | corrected | this repository | The "in particular" clause; tilings of a neighbourhood of `closure U` by the cells meeting it. Hypotheses as in the first part, and `Λ_m` locally finite. |
+| [Lemma 2.1](paper/rw-spheres.tex#L633): Discrete divergence theorem<br>`lemma:discrete-divergence-theorem` | [SpherePackings.Frozen.lemma21FiniteDegrees](SpherePackings/Frozen/Lemma21FiniteDegrees.lean#L20) | corrected | this repository | Finite degree at the vertices of `A`; any simple graph. |
+| [Lemma 2.2](paper/rw-spheres.tex#L657): Affine functions are discrete harmonic<br>`lemma:linear-lie-in-kernel` | [SpherePackings.Frozen.lemma22_affine_kernel](SpherePackings/Frozen/Lemma22AffineKernel.lean#L18) | corrected | this repository | At vertices whose cell is complete (finitely many neighbours, boundary covered by the cells of the neighbours), as in the corrected paper; the printed identity is false at a cell with a facet shared with no other cell (two unit squares). |
+| [Lemma 2.3](paper/rw-spheres.tex#L684): Dual variational principle<br>`lemma:dual-variational-principle` | [SpherePackings.Frozen.lemma23_dual_variational](SpherePackings/Frozen/Lemma23DualVariational.lean#L20) | as printed | leobon12 (paper form here) | On any finite network with symmetric conductances; sums over `E[Ā]`. |
+| [Lemma 2.4](paper/rw-spheres.tex#L739): Volume of the dual polytope<br>`lemma:geometry-bound` | [SpherePackings.Frozen.lemma24_dual_volume](SpherePackings/Frozen/Lemma24DualVolume.lean#L16) | as printed | leobon12 |  |
+| [Lemma 2.5](paper/rw-spheres.tex#L769): Dual polytopes cover the cells<br>`lemma:easy-global-qe-bounds` | [SpherePackings.Frozen.lemma25_dual_coverage](SpherePackings/Frozen/Lemma25DualCoverage.lean#L19) | corrected | this repository (from leobon12) | `⋃_{v ∈ V[U]} P_v ⊆ ⋃_{e ∈ E[Ū]} Q_e` for complete cells of `V[U]`, as in the corrected paper, in place of the printed `U ⊆ ⋃_{e ∈ E[Ū]} Q_e`, which is false (a small ball inside one square of a grid contains no vertex); the upper inclusion as printed. |
+| [Proposition 2.6](paper/rw-spheres.tex#L822): Energy bound<br>`prop:energy-bound` | [SpherePackings.Frozen.prop26_energy](SpherePackings/Frozen/Prop26Energy.lean#L27) | corrected | this repository (from leobon12) | As in the corrected paper: complete cells of `V[U]`; `h_C` `C²` near the cells of `V̄[U]` and harmonic on the cells of `V[U]`; `M` bounds the Hessian on the cells of `V[U]` and, for each edge of `E[Ū]`, the finite Taylor remainder at one active endpoint. The printed version is false: two unit squares (without completeness), and a slit-domain harmonic function (check G2). |
+| [Lemma 3.1](paper/rw-spheres.tex#L937): Poincaré-type inequality<br>`lemma:ptype-inequality` | [SpherePackings.Frozen.lemma31_poincare](SpherePackings/Frozen/Lemma31Poincare.lean#L23) | corrected | leobon12 | Complete cells of `V[U]`, as in the corrected paper (the printed version is false without it: two unit squares, `f = 1`); columns in any direction and the bad set through projected cells (stronger). |
+| [Proposition 3.2](paper/rw-spheres.tex#L980): Closeness on columns<br>`prop:energy-poincare-bound` | [SpherePackings.Frozen.prop32_columns](SpherePackings/Frozen/Prop32Columns.lean#L26) | corrected | this repository (from leobon12) | The hypotheses of the corrected Proposition 2.6, as in the corrected paper. The printed version is false: two unit squares (without completeness), and a thin reflected Voronoi configuration (with complete cells). Threshold half the printed one (stronger). |
+| [Theorem 3.3](paper/rw-spheres.tex#L1030): Planar bound<br>`theorem:2d` | [SpherePackings.Frozen.theorem33_planar](SpherePackings/Frozen/Theorem33Planar.lean#L31) | corrected | this repository (from leobon12) | As in the corrected paper: `3 M₀ ε² + inf_k (6 k M ε vol(Û) + (M/2)(√2 k⁻¹ + ε)²)`, `M₀` the Hessian bound on the cells of `V̄[U]`, `M ≥ M₀` the finite Taylor constant of the internal edges; complete cells; no oscillation or Lipschitz hypothesis. The printed bound is false without completeness (check G4); with complete cells whether the published linear bound holds is not settled, and the theorem with the published cell Hessian constant alone is open. |
+| [Theorem 3.3](paper/rw-spheres.tex#L1050): Planar rate `C ε^{2/3}`<br>`theorem:2d` | [SpherePackings.Frozen.theorem33_rate](SpherePackings/Frozen/Theorem33Rate.lean#L29) | corrected | this repository (from leobon12) | As in the corrected paper: `sup |h_D - h_C| ≤ C ε^{2/3}` (hence `C ε^{1/2}`) for `ε ≤ 1/2`, `C = M (3 + 6 vol(B_{R₀+1}) + (√2 + 1)²/2)`, with the hypotheses of the bound. The printed rate is false with a constant uniform over all meshes (a product tiling with a large central cell), and false without completeness (check G4); with the published cell Hessian constant alone it is open. |
+| [Lemma 3.5](paper/rw-spheres.tex#L1128): Weighted gradient-energy estimate<br>`lemma:gradient-energy-estimate` | [SpherePackings.Frozen.lemma35_weighted_energy](SpherePackings/Frozen/Lemma35WeightedEnergy.lean#L16) | as printed | leobon12 | `d vol_d(Q_e)` written as `‖e‖ vol_{d-1}(H_e)` (Lemma 2.4). |
+| [Theorem 3.6](paper/rw-spheres.tex#L1147): General dimension, small cells<br>`theorem:generaldim` | [SpherePackings.Frozen.theorem36_rate](SpherePackings/Frozen/Theorem36Rate.lean#L33) | corrected | this repository (from leobon12) | As in the corrected paper: complete cells of `V[U]`; `M = M_U°(h_C) ∨ 1`, the Hessian bound on the cells of `V̄[U]` and the finite Taylor remainder on internal edges only. The bound `C M K ε log(1/ε) + D L` for `12 M ε ≤ 1`, `C` explicit in `d` and a bound on `U`, through leobon12's corrected iteration; the printed Step 2 completed at the exit cell. The printed version is false without completeness (check G4); with the published cell Hessian constant alone it is open. |
+| [Theorem 3.7](paper/rw-spheres.tex#L1314): General dimension, decay hypothesis<br>`theorem:generaldim-decay` | [SpherePackings.Frozen.theorem37_rate](SpherePackings/Frozen/Theorem37Rate.lean#L33) | corrected | this repository (from leobon12) | As in the corrected paper: complete cells of `V[U]`; `M = M_U°(h_C) ∨ 1`, the Hessian bound on the cells of `V̄[U]` and the finite Taylor remainder on internal edges only. The printed version is false without completeness (check G4); with the published cell Hessian constant alone it is open. The rate `C M ε log(1/ε)` for `ε < (C M)⁻¹`, `C` explicit in `d`, `F`, `α` and a bound on `U`, through leobon12's corrected iteration (the printed one has a gap, check G1). |
+| [Theorem 4.1](paper/rw-spheres.tex#L1481): Central limit theorem under Assumption D<br>`theorem:general-clt` | [SpherePackings.Frozen.theorem41](SpherePackings/Frozen/Theorem41.lean#L24) | as printed | this repository (from leobon12's proof of Theorem A) | Any nearest-neighbour walks on graphs in `ℝ^d` under Assumption D as printed (existence of the discrete Dirichlet solutions is not assumed, and (4.2) is required of every solution); `z^n` any nearest vertex; also: the walk eventually leaves `V_n[U]` almost surely. |
+| [Proposition 4.2](paper/rw-spheres.tex#L1511): Convergence of harmonic measure<br>`prop:convergence-of-harmonic-measure` | [SpherePackings.Frozen.prop42_general](SpherePackings/Frozen/Prop42General.lean#L23) | corrected | this repository | Any nearest-neighbour walks on graphs in `ℝ^d` under Assumption D as printed; any ball whose closure lies in `B_δ(D)` (the printed statement leaves this implicit and fails without it); Lévy–Prokhorov, uniformly over the ball. |
+| [Lemma 5.1(a)](paper/rw-spheres.tex#L1627): Inner balls of Voronoi cells<br>`lemma:geometric-constraint` | [SpherePackings.Frozen.lemma51a_inner](SpherePackings/Frozen/Lemma51Inner.lean#L18) | corrected | this repository | The grid points `x` whose cube `x + [-r, r]^d` meets `U`, as in the corrected paper; the printed version (grid points in `U`) is false: if `U` contains no grid point, its hypothesis is empty, while two sites of `U` at distance less than `r` violate its conclusion. |
+| [Lemma 5.1(b)](paper/rw-spheres.tex#L1635): Outer balls of Voronoi cells<br>`lemma:geometric-constraint` | [SpherePackings.Frozen.lemma51b_outer](SpherePackings/Frozen/Lemma51Outer.lean#L23) | corrected | this repository | As in the corrected paper: there are `δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that the grid points within `R k` of `U` suffice (proved with `δ = 1/10`, `R = max(2, 1.1√d)`), for any sets `U`, `S`. The printed radius `2k` fails for every `d ≥ 13` (counterexample in the corrected paper; check G3 for `d ≥ 14`); for `4 ≤ d ≤ 12` it also suffices, with a smaller `δ`, by a rounding argument not formalized here, so there the registered statement is weaker than the printed one. |
+| [Lemma 5.2](paper/rw-spheres.tex#L1650): Polar of a perturbed cross-polytope<br>`lemma:dual-polytope-bound` | [SpherePackings.Frozen.lemma52_dual_polytope](SpherePackings/Frozen/Lemma52DualPolytope.lean#L14) | as printed | this repository |  |
+| [Theorem 6.1](paper/rw-spheres.tex#L1791): Simple random walk counterexample<br>`theorem:counter-example` | [SpherePackings.Frozen.theorem61_counterexample](SpherePackings/Frozen/Theorem61Counterexample.lean#L26) | as printed | this repository | Non-convergence on the unit ball from the origin; modified packing for `d ≥ 4`. |
+
+Labelled items with no registered statement:
+
+| Paper item | Reason |
+|---|---|
+| [Remark 1.2](paper/rw-spheres.tex#L385) | A remark citing Berestycki, Theorem 3.26, for GMC measures; not formalized. |
+| [Remark 3.4](paper/rw-spheres.tex#L1100) | A remark on adapting the proof to orthodiagonal maps; not formalized. |
+| [Assumption D](paper/rw-spheres.tex#L1438) | A hypothesis, not a result: formalized as printed, for any nearest-neighbour walks, as the definition `SpherePackings.AssumptionD`, which is the hypothesis of Theorem 4.1 and Proposition 4.2 (the existence of the discrete Dirichlet solutions is not assumed, and (4.2) is required of every solution). `SpherePackings.TilingAssumptionD` is a localized variant for orthogonal tilings, used by an earlier tiling proof. The domain `D` of Assumption D need not be the domain of a tiling: the conductance walks on lattice Voronoi tilings of the ball of radius 2 satisfy Assumption D as printed with `D` the unit ball (`theorem41_hypotheses_satisfiable`). |
+
+Supporting statements that establish properties of the formal model:
+
+| Role | Lean statement |
+|---|---|
+| The open unit ball is a Lipschitz domain in the sense of `IsLipschitzDomain`. | [SpherePackings.isLipschitzDomain_ball](SpherePackings/Support/Guards/LipschitzBall.lean) |
+| The lattice `h ℤ^d` satisfies `GoodVoronoi` on every bounded set (its cells are cubes). | [SpherePackings.Voronoi.goodVoronoi_grid](SpherePackings/Support/Guards/LatticeVoronoi.lean) |
+| The hypotheses of Theorems A and B are satisfiable: lattice Voronoi tilings of a ball, with the collar, (1.3) and (II). | [SpherePackings.exists_lattice_tilingSequence](SpherePackings/Support/Guards/LatticeTilings.lean) |
+| The localized Assumption D (`TilingAssumptionD`, used by the earlier tiling proof of Theorem 4.1) holds under (1.3) and (I), (II) or (III), by Theorem B(a). | [SpherePackings.tilingAssumptionD_of_paperRegularity](SpherePackings/Support/Section4/AssumptionD.lean) |
+| Assumption D as printed holds for the conductance walks on lattice Voronoi tilings with nearest vertices (by Theorem B(a)); with the unit ball and a standard Brownian law, the hypotheses of Theorem 4.1 and Proposition 4.2 are satisfiable. | [SpherePackings.theorem41_hypotheses_satisfiable](SpherePackings/Support/Guards/AssumptionDLattice.lean) |
+| A standard Brownian law exists (leobon12). | [BouRabeeGwynne.isStandardBrownianLaw_euclideanWienerLaw](BouRabeeGwynne/EuclideanWienerLaw.lean) |
+| Lemma 2.1 applies to a star whose centre, a boundary vertex, has infinite degree. | [SphereSBPALocal.InfiniteStarCheck.checked_identity](SpherePackings/Support/Guards/Lemma21InfiniteStar.lean) |
+
+<!-- PAPER-MAP-END -->
 
 ## Guarantees
 
@@ -460,6 +547,18 @@ tooling, hardware and review status are disclosed in [`formalization.yaml`](form
 following the [mathlib-initiative](https://github.com/mathlib-initiative/formalization.yaml)
 standard.  Theorem A and Theorem B(a) were formalized by leobon12.
 
+## Copied code
+
+The directory `BouRabeeGwynne/` contains code copied from Leonardo Bonanno's
+[`lean-formalizations`](https://github.com/leobon12/lean-formalizations), at commit `cf73d6e`.
+This code is copied source, not a dependency: the library builds without that repository.  Every
+copied file names its source file and commit in its header; 13 files also add
+`omit [Fintype V] in` before declarations that do not use finiteness, as their headers state.
+The files under `BouRabeeGwynne/Upstream/` and `BouRabeeGwynne/DyadicExitApprox.lean` were
+vendored by Leonardo Bonanno from Rémy Degenne's `brownian-motion` and `kolmogorov_extension4`
+projects, under the Apache License 2.0.  [`NOTICE`](NOTICE) gives the details, and
+[Acknowledgments](#acknowledgments) lists what the copied code proves.
+
 ## Authors and citation
 
 The Lean development is by **Ahmed Bou-Rabee**.  The paper is by Ahmed Bou-Rabee and Ewain
@@ -515,3 +614,4 @@ and `BouRabeeGwynne/DyadicExitApprox.lean` come from Rémy Degenne's Brownian-mo
 Kolmogorov-extension projects (see [Acknowledgments](#acknowledgments)) and keep their own
 Apache License 2.0 notices; see the `LICENSE` and `PROVENANCE.md` files in
 `BouRabeeGwynne/Upstream/BrownianMotion/` and `BouRabeeGwynne/Upstream/KolmogorovExtension/`.
+[`NOTICE`](NOTICE) lists the copied code and its sources.
