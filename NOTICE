@@ -1,0 +1,28 @@
+Random-Walk-On-Sphere-Packings
+
+BouRabeeGwynne/: copied from Leonardo Bonanno's lean-formalizations,
+https://github.com/leobon12/lean-formalizations, commit
+cf73d6e115827859895cbbd3a3556bf602db32d6, directory BouRabeeGwynne/ (the
+formalization of the paper described in results/bou-rabee-gwynne/ of that
+repository). Module paths and declaration names are unchanged. The 319 Lean files
+of BouRabeeGwynne/ are copied source, not a dependency: this repository builds
+without that repository. Each copied file names its source file and commit in its
+header. Apart from that header, the files are unchanged, except that 13 of them
+add `omit [Fintype V] in` before declarations that do not use the finiteness of
+the state space, as their headers state.
+
+The files under BouRabeeGwynne/Upstream/BrownianMotion/ and the excerpt
+BouRabeeGwynne/DyadicExitApprox.lean were vendored by Leonardo Bonanno from
+https://github.com/RemyDegenne/brownian-motion, commit
+314f04a34ff75e18fd383917ae7fe7d77beb1b6f, and the files under
+BouRabeeGwynne/Upstream/KolmogorovExtension/ from
+https://github.com/RemyDegenne/kolmogorov_extension4 (Rémy Degenne and Peter
+Pfaffelhuber), commit 7d76e184c3d2138a2741baf923b57e9a01b9cf25, both under the
+Apache License, Version 2.0. Their copyright and author lines are kept, and the
+LICENSE and PROVENANCE.md files of each directory under BouRabeeGwynne/Upstream/
+give the licence text and the provenance. BouRabeeGwynne/BrownianProjectiveLaw.lean
+adapts the extension proof of kolmogorov_extension4.
+
+SpherePackingsAudit/Vocabulary/BouRabeeGwynne/: declarations of the copied files
+of BouRabeeGwynne/, copied verbatim for the comparator challenges; each file names
+its source in its header.
