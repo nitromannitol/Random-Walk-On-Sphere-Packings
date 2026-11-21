@@ -512,7 +512,8 @@ SpherePackings/
   Audit/Nonvacuity/    the audit reviewers' nonvacuity examples
   Meta/                AxiomsAudit.lean
 BouRabeeGwynne/        leobon12's formalization of Theorems A and B(a), unchanged apart from a
-                       header naming the source (and, in 13 walk files, `omit [Fintype V] in`)
+                       header naming the source (and, in 13 walk files, `omit [Fintype V] in`; one
+                       `maxHeartbeats` option is removed)
 SpherePackings.lean    the root module
 SpherePackingsAudit/   Mathlib-only comparator challenges, solutions and vocabulary
 LICENSE                the Apache License 2.0
@@ -553,7 +554,8 @@ The directory `BouRabeeGwynne/` contains code copied from Leonardo Bonanno's
 [`lean-formalizations`](https://github.com/leobon12/lean-formalizations), at commit `cf73d6e`.
 This code is copied source, not a dependency: the library builds without that repository.  Every
 copied file names its source file and commit in its header; 13 files also add
-`omit [Fintype V] in` before declarations that do not use finiteness, as their headers state.
+`omit [Fintype V] in` before declarations that do not use finiteness, and one file drops a
+`set_option maxHeartbeats 800000 in` that its proof does not need, as their headers state.
 The files under `BouRabeeGwynne/Upstream/` and `BouRabeeGwynne/DyadicExitApprox.lean` were
 vendored by Leonardo Bonanno from Rémy Degenne's `brownian-motion` and `kolmogorov_extension4`
 projects, under the Apache License 2.0.  [`NOTICE`](NOTICE) gives the details, and
@@ -573,7 +575,8 @@ Much of this formalization is based on the formalization of the paper by **Leona
 
 - **Copied:** all 319 Lean files of `BouRabeeGwynne/`, unchanged apart from a header in each naming its
   source, and, in 13 walk files, `omit [Fintype V] in` before declarations whose proofs do not use
-  the finiteness of the state space (so that they apply to infinite graphs).  They contain leobon12's statements and proofs of **Theorem A**
+  the finiteness of the state space (so that they apply to infinite graphs), and, in `BrownianNextExit.lean`, one
+  removed `set_option maxHeartbeats 800000 in`.  They contain leobon12's statements and proofs of **Theorem A**
   (`BouRabeeGwynne.theoremA_proved`) and **Theorem B(a)** (`BouRabeeGwynne.theoremB_part_a`), the
   statement of **Theorem B(b)** (`BouRabeeGwynne.TheoremBPartBStatement`), and the internal results
   registered here as **Lemma 2.4, Lemma 3.1 and Lemma 3.5**, the qualitative forms of

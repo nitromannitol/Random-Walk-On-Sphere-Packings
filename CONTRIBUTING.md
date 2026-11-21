@@ -54,13 +54,14 @@ statement and guard.
 ## Conventions for Lean files
 
 - **`BouRabeeGwynne/` is a copy** of leobon12's files, unchanged apart from a header naming the
-  source and, in 13 walk files, `omit [Fintype V] in` before declarations that do not use
-  finiteness.  Do not edit it: `tools/check_manifest.py` checks the header, and the comparator
+  source, in 13 walk files `omit [Fintype V] in` before declarations that do not use
+  finiteness, and in `BrownianNextExit.lean` one removed `set_option maxHeartbeats 800000 in`.
+  Do not edit it: `tools/check_manifest.py` checks the header, and the comparator
   vocabulary under `SpherePackingsAudit/Vocabulary/` must stay byte-identical to its declarations
   (`python3 tools/check_vocabulary.py`).
 - No `sorry`, `admit`, `native_decide` or new `axiom` anywhere in the library
   (`tools/check_manifest.py` lists every forbidden token), and no `set_option maxHeartbeats` in
-  `SpherePackings/` (three of leobon12's files raise it).
+  `SpherePackings/` (two of leobon12's files raise it to 400000).
 - New files follow the conventions of the existing ones: Mathlib naming, a module docstring
   citing the paper's label, files under 700 lines, no warnings, and a header naming leobon12's
   source when the file adapts his code.

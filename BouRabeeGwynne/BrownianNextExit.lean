@@ -1,6 +1,6 @@
 -- Copied from Leonardo Bonanno's (leobon12) formalization of this paper,
 -- https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne
--- (file `BouRabeeGwynne/BrownianNextExit.lean` at commit cf73d6e); unchanged apart from this header.
+-- (file `BouRabeeGwynne/BrownianNextExit.lean` at commit cf73d6e); unchanged apart from this header and one removed `maxHeartbeats` option.
 import BouRabeeGwynne.BrownianPathFreezing
 import BouRabeeGwynne.BrownianExcursionKernel
 import BouRabeeGwynne.BrownianStoppingHistory
@@ -27,7 +27,6 @@ lemma le_brownianNextExitTime {d : ℕ} (U : Set (Euc d)) (z : Euc d)
     (τ : BrownianPath d → ℝ≥0∞) (ω : BrownianPath d) :
     τ ω ≤ brownianNextExitTime U z τ ω := le_add_of_nonneg_right bot_le
 
-set_option maxHeartbeats 800000 in
 lemma measurable_brownianNextExitTime {d : ℕ} {U : Set (Euc d)} (hU : IsOpen U)
     (z : Euc d) {τ : BrownianPath d → ℝ≥0∞} (hτ : Measurable τ) :
     Measurable (brownianNextExitTime U z τ) := by

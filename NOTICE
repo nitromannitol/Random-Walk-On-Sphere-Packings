@@ -9,7 +9,8 @@ of BouRabeeGwynne/ are copied source, not a dependency: this repository builds
 without that repository. Each copied file names its source file and commit in its
 header. Apart from that header, the files are unchanged, except that 13 of them
 add `omit [Fintype V] in` before declarations that do not use the finiteness of
-the state space, as their headers state.
+the state space, and BrownianNextExit.lean drops a `set_option maxHeartbeats 800000 in`
+that its proof does not need, as their headers state.
 
 The files under BouRabeeGwynne/Upstream/BrownianMotion/ and the excerpt
 BouRabeeGwynne/DyadicExitApprox.lean were vendored by Leonardo Bonanno from

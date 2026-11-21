@@ -60,10 +60,10 @@ related_formalizations:
       (commit cf73d6e), with the ambient-collar correction and the edge reading. Its
       319 BouRabeeGwynne/ files are copied unchanged apart from a header naming the
       source and, in 13 walk files, `omit [Fintype V] in` before declarations that do
-      not use finiteness; they also provide the statement of Theorem B(b), the results
-      registered here as Lemmas 2.4, 3.1 and 3.5, the qualitative forms of Theorems
-      3.6 and 3.7 (used for Theorem B(a)), and the corrected iteration behind the rate
-      of Theorem 3.7.
+      not use finiteness and, in one file, a removed `maxHeartbeats` option; they also
+      provide the statement of Theorem B(b), the results registered here as Lemmas 2.4,
+      3.1 and 3.5, the qualitative forms of Theorems 3.6 and 3.7 (used for Theorem B(a)),
+      and the corrected iteration behind the rate of Theorem 3.7.
 
 status:
   scope: >-
