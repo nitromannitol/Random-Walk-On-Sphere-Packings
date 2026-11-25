@@ -16,6 +16,7 @@ import SpherePackings.Frozen.Prop42General
 import SpherePackings.Frozen.Theorem41
 import SpherePackings.Frozen.Lemma51Inner
 import SpherePackings.Frozen.Lemma51Outer
+import SpherePackings.Support.Voronoi.GridRounding
 import SpherePackings.Frozen.Lemma52DualPolytope
 import SpherePackings.Support.Guards.LipschitzBall
 import SpherePackings.Support.Guards.LatticeVoronoi

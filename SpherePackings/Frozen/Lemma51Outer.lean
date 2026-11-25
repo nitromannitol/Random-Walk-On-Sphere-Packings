@@ -9,10 +9,9 @@ Corrected statement (`rw-spheres-corrected.tex`, Lemma 5.1(b)): there are consta
 `δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that, with the grid points of `k ℤ^d ∩ B_{Rk}(U)`, the
 same conclusion holds.  Stated here for arbitrary sets `U` and `S` (the paper's bounded domain `U`
 and locally finite `S` are not needed).  The proof takes `δ = 1/10` and `R = max(2, 1.1√d)`.  The
-published radius `2k` holds for `d ≤ 3` (then `R = 2`) and, with a smaller `δ`, for `4 ≤ d ≤ 12`
-(a separate rounding argument, not formalized: there the registered statement is weaker than the
-printed one).  It fails for every `d ≥ 13`: with `k = 1`, `s = (-1/100, 1/2, …, 1/2)`,
-`U = B_{1/1000}(s)` and `S = {s} ∪ (ℤ^d ∩ B_2(U))`, every tested cube contains a point of `S` for
+published radius `2k` holds for every `d ≤ 12`, with `δ = γ/(4√d)` and `γ = 5/5184`
+(`SpherePackings.Voronoi.geometric_constraint_outer_two`).  It fails for every `d ≥ 13`: with
+`k = 1`, `s = (-1/100, 1/2, …, 1/2)`, `U = B_{1/1000}(s)` and `S = {s} ∪ (ℤ^d ∩ B_2(U))`, every tested cube contains a point of `S` for
 every `δ > 0`, while `s + 5√d e₁ ∈ 𝒞_s`.
 -/
 import SpherePackings.Support.Voronoi.GeometricConstraint

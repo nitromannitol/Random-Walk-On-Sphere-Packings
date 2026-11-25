@@ -15,9 +15,8 @@ project:
     result is registered and proved, as printed or as in the corrected paper
     (paper/rw-spheres-corrected.tex), where the printed statement is false, not well
     defined, or changed with the published version open (README.md); Lemma 5.1(b) is
-    registered with dimension-dependent constants, which is weaker than the printed
-    statement in dimensions 4 to 12, where the printed radius also holds but is not
-    needed. Theorem A and
+    registered with dimension-dependent constants, and its printed radius is also proved
+    in every dimension where it holds, d ≤ 12. Theorem A and
     Theorem B(a) are Leonardo Bonanno's (leobon12) formalization, imported with
     attribution.
   authors:
@@ -201,8 +200,8 @@ fidelity:
     a neighbourhood W of closure U, with only the points in W assumed to form a Poisson
     process; in Lemma 5.1(a) the grid cubes that meet U, in Lemma 5.1(b)
     dimension-dependent constants δ(d), R(d) ≥ 2 (the printed radius 2k fails for d ≥
-    13; for 4 ≤ d ≤ 12 it also holds, with a smaller δ, by an argument not formalized,
-    so there the registered statement is weaker than the printed one); the natural inclusion of Lemma 2.5; a modified packing in Theorem 6.1 for d ≥
+    13; for d ≤ 12 the printed radius is also proved, with δ = γ/(4√d), γ = 5/5184,
+    SpherePackings.Voronoi.geometric_constraint_outer_two); the natural inclusion of Lemma 2.5; a modified packing in Theorem 6.1 for d ≥
     4, which does not cover ℝ^d (in dimension three every sphere is covered);
     Proposition 4.2 for balls whose closure lies in the δ-neighbourhood of D. The
     counterexamples are informal; four claims about the paper (a gap in the proof of the

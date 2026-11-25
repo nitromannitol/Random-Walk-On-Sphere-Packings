@@ -253,9 +253,11 @@ counterexamples are informal arguments, given here, in the corrected paper and i
    `r = 1` and `S = {0.1, -1.5}` satisfy its hypothesis but `B_1(0.1) ⊄ 𝒞_{0.1}`.  Part (b) is
    stated with dimension-dependent constants `δ(d) ∈ (0, 1)` and `R(d) ≥ 2`, testing the grid
    points within `R k` of `U` (the proof takes `δ = 1/10` and `R = max(2, 1.1√d)`, so `R = 2` for
-   `d ≤ 3`).  For `4 ≤ d ≤ 12` the published radius also suffices with a smaller `δ`, by a separate
-   rounding argument that is not needed here and not formalized; there the registered statement is
-   weaker than the published one.  The published radius `2k` fails for every `d ≥ 13`: for `k = 1`,
+   `d ≤ 3`).  For every `d ≤ 12` the published radius `2k` is also proved, with `δ = γ/(4√d)` and
+   `γ = 5/5184` (`SpherePackings.Voronoi.geometric_constraint_outer_two`): the corner of the unit
+   lattice cube containing `s + u/9` chosen by rounding the coordinates along a hyperplane is a grid
+   point within `2` of `s` with `(y - s) · u ≥ ‖y - s‖²/(8√d) + γ`, for every unit `u`.  The
+   published radius `2k` fails for every `d ≥ 13`: for `k = 1`,
    `s = (-1/100, 1/2, …, 1/2)`, `U = B_{1/1000}(s)` and `S = {s} ∪ (ℤ^d ∩ B_2(U))`, every tested cube
    contains a point of `S` for every `δ > 0`, but every tested grid point has first coordinate at most
    `0`, and `s + 5√d e₁ ∈ 𝒞_s` (for `d ≥ 14`, check G3: the whole ray `s + t e₁` lies in `𝒞_s`).  The
@@ -298,10 +300,9 @@ Neither is needed for the registered statements, which are those of the correcte
    equivalence between LaTeX and Lean.
 4. **The corrected statements.**  Where the printed statement is changed, the registered statement
    is the corrected paper's, or stronger; the list above says, for each change, whether the
-   printed version is false (with a counterexample) or open.  One registered statement is weaker
-   than the printed one in some cases: Lemma 5.1(b) in dimensions `4 ≤ d ≤ 12`, where the printed
-   radius is true but not needed (item 8).  The counterexamples are informal
-   arguments.
+   printed version is false (with a counterexample) or open.  Lemma 5.1(b) is registered with
+   dimension-dependent constants; its printed radius is also proved in every dimension where it
+   holds, `d ≤ 12` (item 8).  The counterexamples are informal arguments.
 5. **Total definitions.**  Lean's real-valued definitions are total (division by zero,
    `ENNReal.toReal ∞ = 0`, empty suprema, non-summable series), so the statements carry the
    positivity, finiteness and nonemptiness hypotheses they need; [`AUDIT.md`](AUDIT.md) records
@@ -353,7 +354,7 @@ the manifest; it does not prove correspondence between the two sources.
 | [Theorem 4.1](paper/rw-spheres.tex#L1481): Central limit theorem under Assumption D<br>`theorem:general-clt` | [SpherePackings.Frozen.theorem41](SpherePackings/Frozen/Theorem41.lean#L24) | as printed | this repository (from leobon12's proof of Theorem A) | Any nearest-neighbour walks on graphs in `ℝ^d` under Assumption D as printed (existence of the discrete Dirichlet solutions is not assumed, and (4.2) is required of every solution); `z^n` any nearest vertex; also: the walk eventually leaves `V_n[U]` almost surely. |
 | [Proposition 4.2](paper/rw-spheres.tex#L1511): Convergence of harmonic measure<br>`prop:convergence-of-harmonic-measure` | [SpherePackings.Frozen.prop42_general](SpherePackings/Frozen/Prop42General.lean#L23) | corrected | this repository | Any nearest-neighbour walks on graphs in `ℝ^d` under Assumption D as printed; any ball whose closure lies in `B_δ(D)` (the printed statement leaves this implicit and fails without it); Lévy–Prokhorov, uniformly over the ball. |
 | [Lemma 5.1(a)](paper/rw-spheres.tex#L1627): Inner balls of Voronoi cells<br>`lemma:geometric-constraint` | [SpherePackings.Frozen.lemma51a_inner](SpherePackings/Frozen/Lemma51Inner.lean#L18) | corrected | this repository | The grid points `x` whose cube `x + [-r, r]^d` meets `U`, as in the corrected paper; the printed version (grid points in `U`) is false: if `U` contains no grid point, its hypothesis is empty, while two sites of `U` at distance less than `r` violate its conclusion. |
-| [Lemma 5.1(b)](paper/rw-spheres.tex#L1635): Outer balls of Voronoi cells<br>`lemma:geometric-constraint` | [SpherePackings.Frozen.lemma51b_outer](SpherePackings/Frozen/Lemma51Outer.lean#L23) | corrected | this repository | As in the corrected paper: there are `δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that the grid points within `R k` of `U` suffice (proved with `δ = 1/10`, `R = max(2, 1.1√d)`), for any sets `U`, `S`. The printed radius `2k` fails for every `d ≥ 13` (counterexample in the corrected paper; check G3 for `d ≥ 14`); for `4 ≤ d ≤ 12` it also suffices, with a smaller `δ`, by a rounding argument not formalized here, so there the registered statement is weaker than the printed one. |
+| [Lemma 5.1(b)](paper/rw-spheres.tex#L1635): Outer balls of Voronoi cells<br>`lemma:geometric-constraint` | [SpherePackings.Frozen.lemma51b_outer](SpherePackings/Frozen/Lemma51Outer.lean#L22) | corrected | this repository | As in the corrected paper: there are `δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that the grid points within `R k` of `U` suffice (proved with `δ = 1/10`, `R = max(2, 1.1√d)`), for any sets `U`, `S`. The printed radius `2k` fails for every `d ≥ 13` (counterexample in the corrected paper; check G3 for `d ≥ 14`); for `d ≤ 12` the printed radius `2k` is also proved, with `δ = γ/(4√d)` and `γ = 5/5184` (`SpherePackings.Voronoi.geometric_constraint_outer_two`). |
 | [Lemma 5.2](paper/rw-spheres.tex#L1650): Polar of a perturbed cross-polytope<br>`lemma:dual-polytope-bound` | [SpherePackings.Frozen.lemma52_dual_polytope](SpherePackings/Frozen/Lemma52DualPolytope.lean#L14) | as printed | this repository |  |
 | [Theorem 6.1](paper/rw-spheres.tex#L1791): Simple random walk counterexample<br>`theorem:counter-example` | [SpherePackings.Frozen.theorem61_counterexample](SpherePackings/Frozen/Theorem61Counterexample.lean#L26) | as printed | this repository | Non-convergence on the unit ball from the origin; modified packing for `d ≥ 4`. |
 

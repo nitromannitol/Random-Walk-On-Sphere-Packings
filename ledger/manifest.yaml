@@ -292,8 +292,8 @@ nodes:
   note: 'As in the corrected paper: there are `δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that the grid
     points within `R k` of `U` suffice (proved with `δ = 1/10`, `R = max(2, 1.1√d)`), for any sets `U`,
     `S`. The printed radius `2k` fails for every `d ≥ 13` (counterexample in the corrected paper; check
-    G3 for `d ≥ 14`); for `4 ≤ d ≤ 12` it also suffices, with a smaller `δ`, by a rounding argument not
-    formalized here, so there the registered statement is weaker than the printed one.'
+    G3 for `d ≥ 14`); for `d ≤ 12` the printed radius `2k` is also proved, with `δ = γ/(4√d)` and `γ =
+    5/5184` (`SpherePackings.Voronoi.geometric_constraint_outer_two`).'
 - id: lem-5-2
   paper: Lemma 5.2
   title: Polar of a perturbed cross-polytope

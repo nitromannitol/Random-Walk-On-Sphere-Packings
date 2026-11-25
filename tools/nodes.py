@@ -74,7 +74,7 @@ NODES = [
   "The grid points `x` whose cube `x + [-r, r]^d` meets `U`, as in the corrected paper; the printed version (grid points in `U`) is false: if `U` contains no grid point, its hypothesis is empty, while two sites of `U` at distance less than `r` violate its conclusion."),
  ("lem-5-1-b", "Lemma 5.1(b)", "lemma:geometric-constraint", "1635-1641", "Outer balls of Voronoi cells",
   "Lemma51Outer", "lemma51b_outer", "corrected", "this repository",
-  "As in the corrected paper: there are `δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that the grid points within `R k` of `U` suffice (proved with `δ = 1/10`, `R = max(2, 1.1√d)`), for any sets `U`, `S`. The printed radius `2k` fails for every `d ≥ 13` (counterexample in the corrected paper; check G3 for `d ≥ 14`); for `4 ≤ d ≤ 12` it also suffices, with a smaller `δ`, by a rounding argument not formalized here, so there the registered statement is weaker than the printed one."),
+  "As in the corrected paper: there are `δ = δ(d) ∈ (0, 1)` and `R = R(d) ≥ 2` such that the grid points within `R k` of `U` suffice (proved with `δ = 1/10`, `R = max(2, 1.1√d)`), for any sets `U`, `S`. The printed radius `2k` fails for every `d ≥ 13` (counterexample in the corrected paper; check G3 for `d ≥ 14`); for `d ≤ 12` the printed radius `2k` is also proved, with `δ = γ/(4√d)` and `γ = 5/5184` (`SpherePackings.Voronoi.geometric_constraint_outer_two`)."),
  ("lem-5-2", "Lemma 5.2", "lemma:dual-polytope-bound", "1650-1653", "Polar of a perturbed cross-polytope",
   "Lemma52DualPolytope", "lemma52_dual_polytope", "as printed", "this repository", ""),
  ("thm-6-1", "Theorem 6.1", "theorem:counter-example", "1791-1794", "Simple random walk counterexample",
