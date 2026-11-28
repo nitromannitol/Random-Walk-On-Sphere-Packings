@@ -6,9 +6,10 @@ pins by SHA-256).  The README and CORRESPONDENCE blocks between `<!-- X-BEGIN --
 `<!-- X-END -->` are generated from the manifest.  With `--write` the files are rewritten; without
 it they are compared and the exit code is nonzero on any difference.
 """
-import textwrap
 import pathlib
+import re
 import sys
+import textwrap
 
 import yaml
 
@@ -61,33 +62,47 @@ def paper_link(paper: str, source: str) -> str:
 
 
 def status_block(data: dict) -> str:
+    """The README paragraph above the table of results, in plain words."""
     nodes = data["nodes"]
     full = [n for n in nodes if n["state"] == "PROVED"]
     partial = [n for n in nodes if n["state"] == "PARTIAL"]
-    phrase = {"as printed": "as printed",
-              "corrected": "as in the corrected paper, where the printed statement is changed, "
-                           "documented below"}
+    results = []
+    for n in nodes:
+        base = re.sub(r"\([a-z]\)$", "", n["paper"]).strip()
+        if base not in results:
+            results.append(base)
+    split = [r for r in results if sum(re.sub(r"\([a-z]\)$", "", n["paper"]).strip() == r
+                                       for n in nodes) > 1]
     forms = {}
     for n in full:
         forms[n["form"]] = forms.get(n["form"], 0) + 1
-    order = ["as printed", "corrected"] + sorted(k for k in forms if k not in ("as printed", "corrected"))
-    detail = ", ".join(f"{forms[k]} {phrase.get(k, k)}" for k in order if k in forms)
-    names = []
-    for n in partial:
-        if n["paper"] not in names:
-            names.append(n["paper"])
-    listed = [f"{x} (both statements)" if sum(n["paper"] == x for n in partial) > 1 else x for x in names]
-    which = ", ".join(listed[:-1]) + (" and " if len(listed) > 1 else "") + listed[-1] if listed else ""
-    np = len(partial)
-    partial_text = (f"  **{np} {'is' if np == 1 else 'are'} `PARTIAL`**: proved under a hypothesis stronger than "
-                    f"the corrected paper's ({which}; see \"Open\" below)." if np else
-                    "  None is `PARTIAL`.")
-    text = (f"Status: **{len(nodes)} registered statements.  {len(full)} are `PROVED`** ({detail})."
-            f"{partial_text}  Every axiom closure is exactly Lean's three standard axioms `propext`, "
-            "`Classical.choice` and `Quot.sound`: no `sorry`, and no axiom added by this development.  "
-            f"{len(data['not_formalized'])} labelled items have no registered statement (see below).  These "
-            "counts are generated from `ledger/manifest.yaml` by `python3 tools/sync_docs.py`.")
+    phrase = {"as printed": "as printed", "corrected": "as in the corrected paper"}
+    order = ["as printed", "corrected"] + sorted(k for k in forms if k not in phrase)
+    detail = " and ".join(f"{forms[k]} {phrase.get(k, k)}" for k in order if k in forms)
+    listed = ", ".join(split[:-1]) + (" and " if len(split) > 1 else "") + (split[-1] if split else "")
+    text = (f"The paper has {len(results)} labelled theorems, lemmas and propositions.")
+    if split:
+        text += (f"  {listed} {'is' if len(split) == 1 else 'are'} stated in two parts, so the table "
+                 f"has {len(nodes)} rows.")
+    if partial:
+        names = ", ".join(n["paper"] for n in partial)
+        text += (f"  {len(full)} of the {len(nodes)} statements are proved ({detail}), and "
+                 f"{len(partial)} only under a hypothesis stronger than the corrected paper's ({names}).")
+    else:
+        text += f"  All {len(nodes)} statements are proved, {detail}."
+    text += ("  Every proof uses only Lean's three standard axioms `propext`, `Classical.choice` and "
+             "`Quot.sound`.  This paragraph and the table are generated from `ledger/manifest.yaml` "
+             "by `python3 tools/sync_docs.py`.")
     return textwrap.fill(text, width=100, break_long_words=False, break_on_hyphens=False) + "\n"
+
+
+def readme_map(data: dict) -> str:
+    """The README table: one row per statement, the declaration that proves it, and who proved it."""
+    rows = ["| Paper | Lean declaration | Content | Form | Proved by |", "|---|---|---|---|---|"]
+    for n in data["nodes"]:
+        rows.append(f"| {paper_link(n['paper'], n['source'])} | {lean_link(n['file'], n['export'])} | "
+                    f"{n['title']} | {n['form']} | {n['provenance']} |")
+    return "\n".join(rows) + "\n"
 
 
 def paper_map(data: dict) -> str:
@@ -125,7 +140,7 @@ def main() -> int:
     data = yaml.safe_load(mtext)
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     readme = replace_block(readme, "STATUS", status_block(data))
-    readme = replace_block(readme, "PAPER-MAP", paper_map(data))
+    readme = replace_block(readme, "PAPER-MAP", readme_map(data))
     outputs[ROOT / "README.md"] = readme
     corr = (ROOT / "CORRESPONDENCE.md").read_text(encoding="utf-8")
     corr = replace_block(corr, "NODE-TABLE", paper_map(data))
