@@ -1,157 +1,147 @@
 # Random walk on sphere packings and Delaunay triangulations in arbitrary dimension
 
-A machine-checked **Lean 4** formalization of the paper
+[![CI](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions/workflows/build.yml)
+[![Comparator audit](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions/workflows/comparator.yml/badge.svg?branch=main)](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions/workflows/comparator.yml)
+
+A Lean 4 formalization of the paper
 
 > Ahmed Bou-Rabee and Ewain Gwynne,
-> *Random walk on sphere packings and Delaunay triangulations in arbitrary dimension*,
-> [arXiv:2405.11673](https://arxiv.org/abs/2405.11673).
+> [*Random walk on sphere packings and Delaunay triangulations in arbitrary dimension*](https://arxiv.org/abs/2405.11673),
+> arXiv:2405.11673 (version 2).
 
-Every labelled theorem, lemma and proposition of the paper is proved, as printed or, where the
-printed statement is false or not well defined, as in a corrected version of the paper.  The paper
-as posted on arXiv (version 2), the corrected version, their figures, bibliography and compiled
-PDFs are included under [`paper/`](paper/).
+Every labelled theorem, lemma and proposition of the paper is stated in Lean and proved, with no
+`sorry` and only the standard axioms. Where a printed statement is false or not well defined, the
+Lean statement is that of a corrected version of the paper, included under [`paper/`](paper/).
+No result from the literature is assumed.
 
 The development is built on [mathlib](https://github.com/leanprover-community/mathlib4) and on
 Leonardo Bonanno's (leobon12) formalization
 [`lean-formalizations/results/bou-rabee-gwynne`](https://github.com/leobon12/lean-formalizations/tree/main/results/bou-rabee-gwynne),
-which proves Theorem A and Theorem B(a); see [Acknowledgments](#acknowledgments).  This
+which proves Theorem A and Theorem B(a); see [Acknowledgments](#acknowledgments). This
 repository adds Theorem B(b), Proposition 1.1, Sections 5 and 6, and paper-facing statements of
 the results of Sections 2 to 4.
 
-[![CI](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions/workflows/build.yml)
-[![Comparator audit](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions/workflows/comparator.yml/badge.svg?branch=main)](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions/workflows/comparator.yml)
+## The paper
 
-## What is proved
+Cover a set `D ⊆ ℝᵈ` by convex polytopes `P_v` with disjoint interiors, each with a marked point
+`v` in its interior. Two vertices `v` and `w` are neighbours if their cells meet in a facet of
+dimension `d − 1`. The tiling is *orthogonal* if, for all neighbours, the vector `w − v` is
+orthogonal to the common facet. Voronoi tessellations, whose dual graphs are the Delaunay
+triangulations, and tangency graphs of sphere packings are orthogonal tilings.
 
-An *orthogonal tiling* of a set `D ⊆ ℝ^d` covers `D` by convex polytopes `P_v` with disjoint
-interiors, each with a marked interior point `v`, such that for neighbouring cells the vector
-`w - v` is orthogonal to the common facet.  The random walk jumps from `v` to a neighbour `w` with
-probability proportional to the conductance `vol_{d-1}(P_v ∩ P_w) / ‖w - v‖`.  Voronoi
-tessellations and tangency graphs of sphere packings are examples.
+The random walk on an orthogonal tiling jumps from `v` to a neighbour `w` with probability
+proportional to the conductance `a(v, w) = vol_{d−1}(P_v ∩ P_w) / ‖w − v‖`. With these weights
+the expected step of the walk is zero at every vertex whose cell is surrounded by the cells of its
+neighbours (Lemma 2.2). The *mesh* `ε_n` of a tiling `G_n` is the largest diameter of its cells.
+The paper's regularity hypotheses are mild; one of the following suffices:
 
-The two main theorems say that, as the mesh tends to zero and under one of three mild regularity
-hypotheses, (I) planarity, (II) no exponentially small tiles or (III) a polynomial control of the
-tile diameters, the walk stopped on leaving a bounded Lipschitz domain converges to stopped
-Brownian motion (Theorem A), and the discrete harmonic extensions of a harmonic function converge
-to it uniformly (Theorem B).  Proposition 1.1 shows that the Voronoi tessellations of Poisson
-processes satisfy hypothesis (II), Theorem 4.1 is a central limit theorem for nearest-neighbour
-walks under the paper's Assumption D, and Theorem 6.1 gives a bounded-degree sphere packing on
-which *simple* random walk does not converge to Brownian motion.  The model is stated precisely in
-[Standing assumptions and scope](#standing-assumptions-and-scope).
+- **(I)** planarity, `d = 2`;
+- **(II)** no exponentially small tiles: the smallest tile of `G_n` has volume at least
+  `exp(−o(ε_n⁻¹))`;
+- **(III)** polynomial diameters: for some `α > 0`, every tile has
+  `diam(P_v) = O(max_w ‖w − v‖^α vol_{d−1}(P_v ∩ P_w)^α)`, the maximum over the neighbours `w` of `v`.
 
-The statements are those of the corrected paper
-[`paper/rw-spheres-corrected.tex`](paper/rw-spheres-corrected.tex), with the corrections listed
-under [Corrections to the published version](#corrections-to-the-published-version).  The main
-results, formalized as stated in the corrected paper, are collected in
-[`SpherePackings/MainTheorems.lean`](SpherePackings/MainTheorems.lean), each proved by `exact` of
-its certified counterpart in [`SpherePackings/Frozen/`](SpherePackings/Frozen/).  Theorem A and
-Theorem B(a) are Leonardo Bonanno's theorems, in the copied code under `BouRabeeGwynne/` (see
-[Copied code](#copied-code)); the other results are proved in this repository.
+Curves are compared modulo time parametrization:
+`d(φ₁, φ₂) = inf_ψ sup_t |φ₁(t) − φ₂(ψ(t))|`, the infimum over increasing homeomorphisms `ψ`
+between the time intervals. The main results are:
 
-| Paper | Lean declaration | Content |
-| --- | --- | --- |
-| Theorem A (label `theorem:convergence-of-rw-trace`) | `SpherePackings.theorem_A` | The walk started near `z` and stopped on leaving a bounded Lipschitz domain `U` converges in law to Brownian motion started at `z` and stopped on leaving `U`, for curves modulo time parametrization, uniformly in `z`. |
-| Theorem B(a) (label `theorem:convergence-of-the-dirichlet-problem`) | `SpherePackings.theorem_B_a` | The discrete harmonic extensions of `h_C` converge uniformly to `h_C` when `h_C` is harmonic near `closure U`. |
-| Theorem B(b) (label `theorem:convergence-of-the-dirichlet-problem`) | `SpherePackings.theorem_B_b` | The same when `U` is Lipschitz and `h_C` is harmonic on `U` and continuous on `closure U`. |
-| Proposition 1.1 (label `prop:min-max-edge-length`) | `SpherePackings.prop_1_1` | Almost surely, for all large `m`, the Voronoi cells of a Poisson process of intensity `m μ` that meet `U` lie between the balls of radii `m^(−8/β⁻)` and `m^(−1/(3β⁺))` about their sites. |
-| Proposition 1.1, "in particular" (label `prop:min-max-edge-length`) | `SpherePackings.prop_1_1_theorems_A_B` | Almost surely, Theorems A and B hold for these Poisson–Voronoi tilings. |
-| Theorem 4.1 (label `theorem:general-clt`) | `SpherePackings.theorem_4_1` | Under Assumption D, nearest-neighbour walks started at the nearest vertices and stopped on leaving a bounded Lipschitz domain converge to stopped Brownian motion, uniformly in the starting point. |
-| Theorem 6.1 (label `theorem:counter-example`) | `SpherePackings.theorem_6_1` | For every `d ≥ 3`, a sphere packing with radii `1` and `1/2`, each sphere tangent to boundedly many others, on which simple random walk does not converge to Brownian motion. |
+- **Theorem A.** As the mesh tends to zero, the walk stopped on leaving a bounded Lipschitz domain
+  converges in law to Brownian motion stopped on leaving it, modulo time parametrization.
+- **Theorem B.** Under the same hypotheses, the discrete harmonic extensions of a harmonic
+  function converge to it uniformly.
+- **Proposition 1.1.** The Voronoi tessellations of Poisson processes satisfy (II), so Theorems A
+  and B apply to them.
+- **Theorem 4.1.** Nearest-neighbour walks for which the discrete Dirichlet problem converges in
+  balls (the paper's Assumption D) converge to Brownian motion modulo time parametrization.
+- **Theorem 6.1.** In every dimension `d ≥ 3` there is a sphere packing of bounded degree on which
+  *simple* random walk does not converge to Brownian motion.
 
-**Theorem A (convergence of random walk, `theorem:convergence-of-rw-trace`).** Let `U ⊂ ℝ^d`
-be a bounded Lipschitz domain with `closure U ⊂ interior D`, and let `G_n` be orthogonal tilings
-of `D`. For `z ∈ D` let `z^n` be the vertex of `G_n` nearest to `z`. Assume that the mesh
-`ε_n = sup_v diam(P_v)` and `sup_{z ∈ D} ‖z^n − z‖` tend to `0`, and that one of the following
-holds:
+Precisely, as in the corrected paper:
 
-1. *Planarity (I).* `d = 2`.
-2. *No exponentially small tiles (II).* The smallest tile of `G_n` has volume at least
-   `exp(−o(ε_n⁻¹))`.
-3. *Polynomial diameters (III).* For some `α > 0`, the diameter of each tile `P_v` is
-   `O(max_w ‖w − v‖^α vol_{d−1}(P_w ∩ P_v)^α)`, the maximum over the edges `(v, w)` at `v`.
+**Theorem A.** Let `U ⊂ ℝᵈ` be a bounded Lipschitz domain with `closure U ⊂ interior D`, and let
+`G_n` be orthogonal tilings of `D`. For `z ∈ D` let `zⁿ` be a vertex of `G_n` nearest to `z`.
+Assume that `ε_n + sup_{z ∈ D} ‖zⁿ − z‖ → 0` and that (I), (II) or (III) holds. Then, uniformly in
+`z ∈ U`, the linearly interpolated walk started at `zⁿ` and stopped on leaving `U` converges in law
+to standard Brownian motion started at `z` and stopped on leaving `U`.
 
-Then, for each `z ∈ U`, as `n → ∞`, the linearly interpolated walk started at `z^n` and stopped
-on exiting `U` converges in law to standard Brownian motion started at `z` and stopped on exiting
-`U`, for the metric on curves modulo time parametrization, and the convergence is uniform in `z`.
+**Theorem B.** Let `U` be a bounded domain with `closure U ⊂ interior D`, let `h_C` be harmonic on
+`U`, and let `G_n` satisfy the hypotheses of Theorem A. Let `h_Dⁿ` be the discrete harmonic
+function on the vertices in `U` with boundary values given by `h_C`. Then
+`sup_{z ∈ V_n[U]} |h_Dⁿ(z) − h_C(z)| → 0` in either of two cases:
 
-In Lean, `SpherePackings.theorem_A` takes the tilings as a `BouRabeeGwynne.TilingSequence`, the
-nearest vertices as `BouRabeeGwynne.NearestVertexData` with its approximation condition, the
-collar `closure U ⊆ interior D` as `BouRabeeGwynne.HasAmbientCollar`, and the disjunction of
-(I), (II) and (III) as `BouRabeeGwynne.PaperRegularity`. Every contact of dimension `d − 1` of
-two cells is an edge. The conclusion constructs a standard Brownian law
-(`BouRabeeGwynne.IsStandardBrownianLaw`), shows that Brownian motion started in `U` leaves `U`
-in finite time almost surely, and bounds the Lévy–Prokhorov distance between the stopped walk law
-and the stopped Brownian law by any `η > 0`, for all large `n` and every `z ∈ U`.
+- (a) `h_C` is harmonic near `closure U`, and the boundary value at `v` is `h_C(v)`;
+- (b) `U` is Lipschitz and `h_C` is continuous on `closure U`, and the boundary value at `v` is
+  `h_C` at a nearest point of `closure U`.
 
-**Theorem B (convergence of the Dirichlet problem, `theorem:convergence-of-the-dirichlet-problem`).**
-Let `U` be a bounded domain with `closure U ⊂ interior D`, let `h_C` be harmonic on `U`, and let
-`G_n` satisfy the hypotheses of Theorem A on the mesh and one of (I), (II) and (III). Let
-`h_D^n` be the discrete harmonic extension of `h_C` to the vertices of `G_n` in `U`.
+**Proposition 1.1.** Let `U` be a bounded domain, and let `μ` satisfy
+`r^{β⁺} ≤ μ(B_r(z)) ≤ r^{β⁻}` for all small `r` and all `z` in an open set `W ⊇ closure U`. Let `Λ_m`
+be a Poisson point process of intensity `m μ`. Almost surely, for all large `m`, every Voronoi cell
+`C_s` of `Λ_m` that meets `U` satisfies `B_{m^{−8/β⁻}}(s) ⊂ C_s ⊂ B_{m^{−1/(3β⁺)}}(s)`. In
+particular, Theorem B and, if `U` is Lipschitz, Theorem A hold as `m → ∞` for the tilings of a
+neighbourhood of `closure U` by the Voronoi cells that meet it.
 
-1. *Data harmonic near the closure.* If `h_C` is harmonic in a neighbourhood of `closure U`,
-   with boundary values `h_C(v)`, then `sup_{z ∈ V_n[U]} |h_D^n(z) − h_C(z)| → 0`.
-2. *Continuous data on a Lipschitz domain.* If `U` is Lipschitz and `h_C` is continuous on
-   `closure U`, with the boundary value at `v` equal to `h_C` at a nearest point of `closure U`,
-   then `sup_{z ∈ V_n[U]} |h_D^n(z) − h_C(z)| → 0`.
+**Theorem 4.1.** Assume Assumption D: for every ball `B` centred in a neighbourhood `B_δ(D)` of `D`,
+intersected with that neighbourhood, the vertices approximate `B`, and the discrete Dirichlet
+problem in `B` converges uniformly for data harmonic near `B`. Let `U ⊂ D` be a bounded
+Lipschitz domain. Then the Prokhorov distance between the law of the walk started at `zⁿ`, stopped
+on leaving `U`, and that of Brownian motion started at `z`, stopped on leaving `U`, tends to `0`
+uniformly in `z ∈ U`.
 
-In Lean, the two parts are `SpherePackings.theorem_B_a` and `SpherePackings.theorem_B_b`, with
-the tiling hypotheses of Theorem A. The conclusion `BouRabeeGwynne.DirichletApproximationTarget` also
-asserts that, for all large `n`, the discrete Dirichlet problem has a unique solution on the
-finitely many vertices concerned, and bounds the error of every solution. In part 2 the boundary
-points are any nearest points of `closure U` (`BouRabeeGwynne.NearestClosureBoundaryChoices`);
-the statement shows that such choices exist, that the chosen points lie on the boundary of `U`,
-and that, for all large `n`, they lie within twice the mesh of their vertices.
+**Theorem 6.1.** For every `d ≥ 3` there is a sphere packing in `ℝᵈ` with radii `1` and `1/2`, each
+sphere tangent to boundedly many others, on which simple random walk does not converge to
+Brownian motion modulo time parametrization.
 
-**Proposition 1.1 (Poisson–Voronoi tilings, `prop:min-max-edge-length`).** Let `U` be a bounded
-domain, and let `μ` be a measure with `r^(β⁺) ≤ μ(B_r(z)) ≤ r^(β⁻)` for all sufficiently small
-`r ∈ (0, 1)` and every `z` in an open set `W ⊇ closure U`. Let `Λ_m` be a Poisson point process
-of intensity `m μ`. With probability one, for all sufficiently large `m`, every cell `C_s` of the
-Voronoi tessellation of `Λ_m` that meets `U` satisfies
-`B_{m^(−8/β⁻)}(s) ⊂ C_s ⊂ B_{m^(−1/(3β⁺))}(s)`. In particular, the conclusions of Theorem B and,
-if `U` is Lipschitz, of Theorem A hold as `m → ∞`, for the tiling by the Voronoi cells that meet
-a fixed bounded neighbourhood `D` of `closure U` with `closure D ⊂ W`.
+## The main theorems in Lean
 
-In Lean, the two parts are `SpherePackings.prop_1_1` and `SpherePackings.prop_1_1_theorems_A_B`.
-The mass bounds are `SpherePackings.HolderMassBounds μ W β⁺ β⁻`, and only the points in `W` are
-assumed to form a Poisson point process (`SpherePackings.IsPoissonPointProcess`), of intensity
-`m μ` restricted to `W`. The second part also assumes that every `Λ_m` is locally finite, and
-constructs, almost surely, a tiling sequence with the collar whose tilings are, for all large `m`,
-the Voronoi tilings of `Λ_m`.
+The main theorems are in [`SpherePackings/MainTheorems.lean`](SpherePackings/MainTheorems.lean).
+Each is proved by `exact` of its frozen counterpart in [`SpherePackings/Frozen/`](SpherePackings/Frozen/).
+Theorem A and Theorem B(a) are proved by Leonardo Bonanno's code under `BouRabeeGwynne/` (see
+[Copied code](#copied-code)); the others are proved in this repository.
 
-**Theorem 4.1 (central limit theorem under Assumption D, `theorem:general-clt`).** Suppose that
-Assumption D holds on `D`, and let `U ⊂ D` be a bounded Lipschitz domain. For `z ∈ U` let
-`Y^{z,n}` be the linear interpolation of the walk on `G_n` started at `z^n`, stopped at its first
-exit from the vertices in `U`, and let Brownian motion started at `z` be stopped at its first exit
-from `U`. Then the supremum over `z ∈ U` of the Prokhorov distance between the two stopped laws,
-for the metric on curves modulo time parametrization, tends to `0` as `n → ∞`.
+| Paper | Lean declaration |
+| --- | --- |
+| Theorem A | `SpherePackings.theorem_A` |
+| Theorem B(a) | `SpherePackings.theorem_B_a` |
+| Theorem B(b) | `SpherePackings.theorem_B_b` |
+| Proposition 1.1, the cell bounds | `SpherePackings.prop_1_1` |
+| Proposition 1.1, Theorems A and B for Poisson–Voronoi tilings | `SpherePackings.prop_1_1_theorems_A_B` |
+| Theorem 4.1 | `SpherePackings.theorem_4_1` |
+| Theorem 6.1 | `SpherePackings.theorem_6_1` |
 
-In Lean, `SpherePackings.theorem_4_1` holds for any nearest-neighbour walks on graphs in `ℝ^d`
-(`SpherePackings.NearestNeighbourWalk`) under Assumption D as printed
-(`SpherePackings.AssumptionD`), with `z^n` any nearest vertex. The existence of the discrete
-Dirichlet solutions is not assumed. The statement adds that, for all large `n`, the walk leaves
-the vertices in `U` almost surely from every starting vertex.
+How to read the statements:
 
-**Theorem 6.1 (a counterexample for simple random walk, `theorem:counter-example`).** For all
-`d ≥ 3`, there is a sphere packing of `ℝ^d` on which simple random walk with unit conductances
-does not converge to Brownian motion modulo time parametrization in the scaling limit. The spheres
-all have radii `1` or `1/2`, and each is tangent to a bounded number of other spheres.
+- `Euc d` is `EuclideanSpace ℝ (Fin d)`. The tilings are a `BouRabeeGwynne.TilingSequence`, and the
+  nearest vertices a `BouRabeeGwynne.NearestVertexData` with its `ApproximationCondition`, the
+  hypothesis `ε_n + sup ‖zⁿ − z‖ → 0`.
+- The collar `closure U ⊆ interior D` is `BouRabeeGwynne.HasAmbientCollar`, and the disjunction of
+  (I), (II) and (III) is `BouRabeeGwynne.PaperRegularity`.
+- Theorem A constructs a standard Brownian law (`BouRabeeGwynne.IsStandardBrownianLaw`). It shows
+  that Brownian motion started in `U` leaves `U` almost surely, and that the Lévy–Prokhorov
+  distance between the two stopped laws is eventually below every `η > 0`, for all `z ∈ U`.
+- The conclusion `BouRabeeGwynne.DirichletApproximationTarget` of Theorem B also asserts that, for
+  all large `n`, the discrete Dirichlet problem has a unique solution. In part (b) the nearest
+  points are any choice (`BouRabeeGwynne.NearestClosureBoundaryChoices`). The statement shows that
+  choices exist, that they lie on the boundary of `U`, and that, for all large `n`, they lie within
+  twice the mesh of their vertices.
+- In Proposition 1.1 the mass bounds are `SpherePackings.HolderMassBounds μ W β⁺ β⁻`. Only the
+  points in `W` are assumed to form a Poisson point process (`SpherePackings.IsPoissonPointProcess`),
+  of intensity `m μ` restricted to `W`. The second part also assumes that every `Λ_m` is locally
+  finite.
+- Theorem 4.1 holds for any nearest-neighbour walks on graphs in `ℝᵈ`
+  (`SpherePackings.NearestNeighbourWalk`) under Assumption D as printed (`SpherePackings.AssumptionD`).
+  It adds that, for all large `n`, the walk leaves the vertices in `U` almost surely.
+- Theorem 6.1 produces a `SpherePackings.SpherePacking` with a sphere centred at the origin. The
+  walk from there, rescaled by `1/n` and stopped on leaving the unit ball, does not converge to
+  Brownian motion stopped on leaving the unit ball. In dimension three every sphere is also covered
+  (`SpherePackings.SpherePacking.Covered`).
 
-In Lean, `SpherePackings.theorem_6_1` produces a `SpherePackings.SpherePacking` with a sphere
-centred at the origin from which the walk, rescaled by `1/n` and stopped on leaving the unit
-ball, has a law for every `n ≥ 1`, and shows that these laws do not converge to the law of
-Brownian motion stopped on leaving the unit ball, in the Lévy–Prokhorov distance on curves modulo
-time parametrization. In dimension three it adds that every sphere is covered: the tangent
-half-spaces at its contact points meet in a bounded set (`SpherePackings.SpherePacking.Covered`).
+## All numbered results
 
-Every labelled theorem, lemma and proposition of the paper has a
-registered statement; one proved only under a hypothesis stronger than the corrected paper's would
-be marked `PARTIAL` (in the status below).  Not formalized: the two remarks, the
-examples of Section 1.2 other than Voronoi tessellations, and the open problems.
-
-The paper-to-Lean correspondence, with every difference in formulation, is in
-[`CORRESPONDENCE.md`](CORRESPONDENCE.md), and
-[Which Lean theorem proves which result](#which-lean-theorem-proves-which-result) maps every
-result to its registered statement.
+Each labelled theorem, lemma and proposition has a *registered statement*, a Lean declaration in a
+file of [`SpherePackings/Frozen/`](SpherePackings/Frozen/); Theorem B, Proposition 1.1, Theorem 3.3
+and Lemma 5.1 have two. A registered statement is `PROVED` if it has a complete proof, with only
+the standard axioms, of the printed statement or of the corrected paper's; it would be `PARTIAL` if
+proved only under a stronger hypothesis.
 
 <!-- STATUS-BEGIN (generated by tools/sync_docs.py) -->
 
@@ -163,171 +153,11 @@ These counts are generated from `ledger/manifest.yaml` by `python3 tools/sync_do
 
 <!-- STATUS-END -->
 
-## Corrections to the published version
+The table below lists each registered statement, its form (*as printed* or *corrected*), who proved
+it, and a note on its formulation. It is generated from `ledger/manifest.yaml`.
 
-The corrected paper, [`paper/rw-spheres-corrected.tex`](paper/rw-spheres-corrected.tex), is the
-arXiv v2 source with the corrections marked in comments; it is pinned by its SHA-256 in
-`ledger/manifest.yaml`, next to the unchanged source `paper/rw-spheres.tex`.  Its section
-*Corrections to the published version* lists the changes, and the registered statements are those
-of the corrected paper, or stronger.  The list below follows that section.  For each changed
-statement it says whether the published version is false, with a counterexample, or open.  The
-counterexamples are informal arguments, given here, in the corrected paper and in
-`CORRESPONDENCE.md`; none is formalized in Lean.
-
-1. **Ambient set and complete cells.**  Theorems A and B assume a neighbourhood of `closure U`
-   inside the covered set `D` (`closure U ⊆ interior D`, leobon12's statements).  The published
-   versions are false: on the square grid of mesh `1/n` (`n` odd) of `D = [0,1] × [0,2]`, with
-   `U = (0,1) × (1/2, 3/2)`, the walk cannot leave through the vertical sides, where the cells have
-   facets shared with no other cell, and for `h_C = cosh(π(x - 1/2)) cos(π(y - 1))` the discrete
-   solution is `0` while `h_C → 1` at the centre.  In Sections 2 and 3 the cells of `V[U]` are
-   *complete*: finitely many neighbours, and every boundary point of the cell lies in the cell of a
-   neighbour.  Without this, Lemmas 2.2 and 3.1, Propositions 2.6 and 3.2 and Theorems 3.3, 3.6 and
-   3.7 are false: for two unit squares and `ℓ(x) = x₁`, `Δ_a ℓ = 1` at the left square; with `U` a
-   small disk around its centre, the energy of `h_D - h_C` is `2` while the bound of Proposition 2.6
-   is `0`, and the bad set of Proposition 3.2 at threshold `0` has positive length; with `U`
-   containing both centres there is no boundary vertex, and `f = 1` has zero energy but a bad set of
-   positive length (Lemma 3.1); on the grid above the bounds of Theorems 3.3, 3.6 and 3.7 tend to `0`
-   while the error tends to `1` (check G4 in [`GAP-CHECKS.md`](GAP-CHECKS.md)).  A cell that meets
-   the boundary of `D` only in a lower-dimensional set can be complete.  Edges are read as in the
-   paper, which is not a correction: every contact of dimension `d - 1` of two cells is an edge, with
-   orthogonality on all of them (under the stricter reading, in which the contact must be a whole
-   facet of both cells, rows of unit squares staggered by `1/2` would confine the walk to horizontal
-   lines).
-2. **Theorem B(b) and Proposition 1.1.**  In Theorem B(b) the boundary value at an exterior vertex
-   `v` is "the nearest point in the cell `P_v` for which `h_C` is defined", which need not exist, so
-   the published prescription is not always defined; here it is a nearest point of `closure U`
-   (leobon12's statement).  Proposition 1.1 assumes the mass bounds (1.4) on a fixed neighbourhood
-   `W` of `closure U` and localizes the tiling there.  The published version, with (1.4) on `U`
-   only, is false: for `μ` the Lebesgue measure restricted to the unit ball `U`, the cells of the
-   extreme points of the (finite) process are unbounded and meet `U`.  The registered statements
-   assume only that the points of `Λ_m` in `W` form a Poisson point process of intensity `m μ|_W`
-   (and, for Theorems A and B, that `Λ_m` is locally finite), which follows from the published
-   hypothesis.  Remark 1.2 on Gaussian multiplicative chaos is correspondingly local; it is not
-   formalized.
-3. **Conventions.**  Lemma 2.1 needs finite degree at every vertex of `A`: for an infinite star its
-   sums are not defined (boundary vertices may have infinite degree).  The published first
-   inclusion of Lemma 2.5, `U ⊆ ⋃_{e ∈ E[Ū]} Q_e`, is false (a small ball inside one square of a
-   grid contains no vertex); it is replaced by the coverage of the cells of `V[U]`.  The energy and
-   the masses sum over undirected edges.  The pyramid map in the proof of Lemma 2.4 is corrected;
-   its statement is unchanged.  In Lemma 3.1 the function `f` is defined on `V̄[U]` (the printed
-   domain `V[U]` cannot carry the boundary condition), the cells are complete (item 1), and the
-   line argument of the proof treats the separate components of a line's intersection with the
-   cells.
-4. **Examples.**  The corrections to the examples of Section 1.2 (the sphere-packing cells form a
-   tiling only under a separate condition; the discrete-time generator; degenerate Voronoi duals)
-   concern no registered statement.
-5. **Taylor constant.**  Propositions 2.6 and 3.2 use a constant `M` that bounds the Hessian on the
-   cells and the finite Taylor remainder `|h(w) - h(v) - ∇h(v)·(w - v)| ≤ (M/2) ‖w - v‖²` at one
-   active endpoint of each edge of `E[Ū]`.  Both published versions are false, even for complete
-   cells.  For the energy bound (check G2 in [`GAP-CHECKS.md`](GAP-CHECKS.md)): in a planar Voronoi
-   tiling with four cocircular sites `v, y, z, w` at angles `−α, −α/3, α/3, α`, `V[U] = {v}`, the edge
-   `v ~ w` crosses the thin cell `P_z ⊄ Û`; for `h_C = Re F` with `F'' = R^{-1/2}(ζ − c)^{1/2}`, cut
-   through `P_z`, the Hessian on `Û` stays bounded while `h_C(w) − h_C(v)` tends to a nonzero jump,
-   so the energy grows like `α⁻¹` and the bound stays bounded.  A thin reflected Voronoi
-   configuration also refutes the column bound of Proposition 3.2.  Theorems 3.3, 3.6 and 3.7 use
-   the smaller constant `M_U°`: the Hessian bound on the cells and the finite Taylor inequality on
-   the internal edges only (both endpoints in `V[U]`); the Taylor remainder of a boundary edge is
-   bounded by the cell Hessian alone, along the broken segment through a contact point.  Whether
-   the three theorems hold with the published cell Hessian constant alone is open.
-6. **Theorem 3.3 and the iteration.**  The displayed bound of Theorem 3.3 is
-   `sup |h_D - h_C| ≤ 3 M₀ ε² + inf_{k > 0} (6 k M ε vol(Û) + (M/2)(√2 k⁻¹ + ε)²)`, with `M₀` the
-   Hessian bound on the cells and no local oscillation or Lipschitz hypothesis; it gives the rate
-   `C ε^{2/3}`, hence the stated `C ε^{1/2}`, for `ε ≤ 1/2`.  With a constant uniform over all meshes
-   the published rate is false: for large `ε`, a product tiling with a large central cell has an
-   error of order `ε`.  This replaces the published linear `L` term; whether the published linear
-   bound holds is not settled here.  Theorems 3.6 and 3.7 keep their rates, with
-   `M = M_U° ∨ 1`.  Their published proofs have gaps (in Theorem 3.6 the exit cell; in Theorem 3.7
-   the shrinking-scale argument uses estimates on boundary cells that the iteration does not
-   control, check G1); the proofs here use leobon12's corrected iteration.
-7. **Section 4.**  Proposition 4.2 is about the unit ball under Assumption D, which speaks only
-   about balls inside `B_δ(D)`.  If the unit ball does not lie in `B_δ(D)` the statement fails: on
-   `n⁻¹ ℤ^d`, let the walk be simple random walk at the vertices within distance `5` of a point `p`
-   with `|p| = 10`, and step deterministically by `n⁻¹ e₁` elsewhere; with `D = B_1(p)` and `δ = 1`,
-   Assumption D holds, while the discrete harmonic measure of the unit ball is a point mass.
-   Corrected: any ball whose closure lies in `B_δ(D)`.  Assumption D is formalized as printed, with
-   its conventions explicit: test functions are given on `ℝ^d`, the existence of the discrete
-   Dirichlet solutions is not assumed, and (4.2) is required of every solution.  Theorem 4.1 is as
-   printed.
-8. **Lemma 5.1.**  Part (a) tests the grid points `x` whose cube `x + [-r, r]^d` meets `U`.  The
-   published part (a), which tests only grid points in `U`, is false: in `ℝ`, `U = (0, 10)`,
-   `r = 1` and `S = {0.1, -1.5}` satisfy its hypothesis but `B_1(0.1) ⊄ 𝒞_{0.1}`.  Part (b) is
-   stated with dimension-dependent constants `δ(d) ∈ (0, 1)` and `R(d) ≥ 2`, testing the grid
-   points within `R k` of `U` (the proof takes `δ = 1/10` and `R = max(2, 1.1√d)`, so `R = 2` for
-   `d ≤ 3`).  For every `d ≤ 12` the published radius `2k` is also proved, with `δ = γ/(4√d)` and
-   `γ = 5/5184` (`SpherePackings.Voronoi.geometric_constraint_outer_two`): the corner of the unit
-   lattice cube containing `s + u/9` chosen by rounding the coordinates along a hyperplane is a grid
-   point within `2` of `s` with `(y - s) · u ≥ ‖y - s‖²/(8√d) + γ`, for every unit `u`.  The
-   published radius `2k` fails for every `d ≥ 13`: for `k = 1`,
-   `s = (-1/100, 1/2, …, 1/2)`, `U = B_{1/1000}(s)` and `S = {s} ∪ (ℤ^d ∩ B_2(U))`, every tested cube
-   contains a point of `S` for every `δ > 0`, but every tested grid point has first coordinate at most
-   `0`, and `s + 5√d e₁ ∈ 𝒞_s` (for `d ≥ 14`, check G3: the whole ray `s + t e₁` lies in `𝒞_s`).  The
-   polar bound of Lemma 5.2 is unchanged, with a direct proof.
-9. **Theorem 6.1** retains its statement.  In dimension at least four, a small middle sphere with
-   an odd coordinate beyond the third touches no big sphere, so the published computation does not
-   apply; the small spheres are placed at even coordinates beyond the third, and the proof uses the
-   harmonic function behind the published computation.  Only the proof changes.  In dimension three
-   the packing is the published one, and the registered statement adds that every sphere is
-   covered; for `d ≥ 4` the packing used here does not cover `ℝ^d` (the statement, like the
-   published one, does not ask it to).
-
-### Open
-
-- Whether Theorems 3.3, 3.6 and 3.7 hold with the published cell Hessian constant alone, that is,
-  with the Hessian bound on `Û` and no Taylor control on the internal edges (item 5).
-- Whether the published linear bound of Theorem 3.3, `inf_k (6 k M ε vol(Û) + 2(√2 k⁻¹ + ε) L)`,
-  holds (item 6).
-
-Neither is needed for the registered statements, which are those of the corrected paper.
-
-## Standing assumptions and scope
-
-1. **The formal objects.**  Tilings, polytopes, conductances, the discrete Dirichlet problem,
-   curves modulo time parametrization, the stopped walk and Brownian laws are leobon12's
-   definitions; the statements of Theorems A and B are leobon12's, and Theorem A and B(a) are
-   leobon12's theorems, whose proofs are in `BouRabeeGwynne/`.  Every contact of dimension `d - 1`
-   of two cells is an edge (the paper's reading).  The conventions are listed in
-   [`CORRESPONDENCE.md`](CORRESPONDENCE.md#conventions).
-2. **Axioms and incomplete proofs.**  The library contains no `sorry`, no `admit`, no
-   `native_decide` and no new `axiom`, and every registered statement depends on exactly
-   `propext`, `Classical.choice` and `Quot.sound`.  Nothing is assumed: no result the paper cites
-   is taken as a hypothesis; see [`ASSUMPTIONS.md`](ASSUMPTIONS.md).
-3. **One registered statement per result.**  Every theorem, lemma and proposition of the paper is
-   registered as a Lean declaration, one per statement (two for Theorem B, Proposition 1.1,
-   Theorem 3.3 and Lemma 5.1), with supporting statements about the model (the guards listed under
-   [Which Lean theorem proves which result](#which-lean-theorem-proves-which-result)).
-   `tools/check_coverage.py` confirms that every labelled result of `paper/rw-spheres.tex` is
-   registered or listed as not formalized, with its reason; it is a review aid and does not prove
-   equivalence between LaTeX and Lean.
-4. **The corrected statements.**  Where the printed statement is changed, the registered statement
-   is the corrected paper's, or stronger; the list above says, for each change, whether the
-   printed version is false (with a counterexample) or open.  Lemma 5.1(b) is registered with
-   dimension-dependent constants; its printed radius is also proved in every dimension where it
-   holds, `d ≤ 12` (item 8).  The counterexamples are informal arguments.
-5. **Total definitions.**  Lean's real-valued definitions are total (division by zero,
-   `ENNReal.toReal ∞ = 0`, empty suprema, non-summable series), so the statements carry the
-   positivity, finiteness and nonemptiness hypotheses they need; [`AUDIT.md`](AUDIT.md) records
-   the review of every definition for such junk values.
-6. **Statements without a formal counterpart.**  Remarks 1.2 and 3.4, the examples of Section 1.2
-   other than Voronoi tessellations, and the open problems.  Assumption D is a hypothesis, not a
-   result: it is formalized as printed, as a definition.  No Lean example constructs a Poisson point
-   process.
-
-The following words have fixed meanings.
-
-| term | meaning |
-|---|---|
-| **registered statement** (**node**) | one Lean declaration transcribing one statement of the paper, with an entry in `ledger/manifest.yaml`. |
-| **frozen statement** | the declaration's text between `-- FROZEN-STATEMENT-BEGIN` and `-- FROZEN-STATEMENT-END`, pinned by the SHA-256 of those bytes. |
-| **`PROVED`** | a complete proof, whose axiom closure contains only `propext`, `Classical.choice` and `Quot.sound`, of the printed statement, or of the statement of the corrected paper where the printed one is changed (documented above). |
-| **`PARTIAL`** | a complete proof of a statement weaker than the corrected paper's, under a stronger hypothesis. |
-
-## Which Lean theorem proves which result
-
-The table links the paper's statements to the frozen Lean declarations.  "Form" is *as printed*,
-*corrected* (the statement of the corrected paper, where the printed one is changed; see
-[Corrections to the published version](#corrections-to-the-published-version)), *reformulated*
-(an equivalent or stronger variant in different terms) or *weakened*.  The table is generated from
-the manifest; it does not prove correspondence between the two sources.
+<details>
+<summary>The 24 registered statements, the 3 labelled items without one, and the supporting statements</summary>
 
 <!-- PAPER-MAP-BEGIN (generated by tools/sync_docs.py) -->
 
@@ -380,87 +210,127 @@ Supporting statements that establish properties of the formal model:
 
 <!-- PAPER-MAP-END -->
 
-## Guarantees
+</details>
 
-- **No `sorry`.**  The library has none: `tools/check_manifest.py` fails on any `sorry`, `admit`,
-  `axiom`, `sorryAx`, `native_decide`, `implemented_by`, `extern`, `unsafe`, `opaque`,
-  `ofReduceBool`, `reduceBool` or `skipKernelTC` under `SpherePackings/` and `BouRabeeGwynne/`.
-  The six comparator challenges under `SpherePackingsAudit/` each contain one intentional
-  statement-level `sorry`, which the corresponding solution proves.
-- **Standard axioms only.**  The axiom report of every registered statement lists exactly
-  `propext`, `Classical.choice` and `Quot.sound`.
-  [`SpherePackings/Meta/AxiomsAudit.lean`](SpherePackings/Meta/AxiomsAudit.lean) prints the axioms
-  of the main theorems and `tools/check_axioms.py` those of every registered statement and guard,
-  failing on anything beyond the three standard axioms.  [`CERTIFICATE.md`](CERTIFICATE.md)
-  records the result with the SHA-256 of each frozen statement.
-- **Independent check of the statements.**  The main theorems are restated in comparator
-  challenges that import only Mathlib and vocabulary modules copying, verbatim and under their
-  repository names, exactly the declarations needed to state them
-  ([`SpherePackingsAudit/`](SpherePackingsAudit/README.md)); `tools/check_vocabulary.py` re-derives
-  the copies from the repository.  There is one pair each for Theorem A, Theorem B (both
-  alternatives), the cell bounds of Proposition 1.1, its conclusions for Theorems A and B,
-  Theorem 4.1 and Theorem 6.1.  [leanprover/comparator](https://github.com/leanprover/comparator)
-  checks that each solution proves the challenge statement, with the same dependency closure, using
-  only the permitted axioms, with the Lean kernel and the independent nanoda kernel; see
-  [`SpherePackingsAudit/COMPARATOR_RUNS.md`](SpherePackingsAudit/COMPARATOR_RUNS.md).
-- **Pinned toolchain and dependencies.**  Lean `v4.34.0-rc2` ([`lean-toolchain`](lean-toolchain)),
-  a release candidate, and Mathlib at the commit `a4c8ef0a69f52ec80525d5086bb3542f4660faaf`,
-  the pins of leobon12's release, recorded in [`lakefile.lean`](lakefile.lean) and
-  [`lake-manifest.json`](lake-manifest.json) (see [Building](#building)).
-- **The paper is part of the repository.**  [`paper/`](paper/) holds the arXiv source and the
-  corrected source, both pinned by SHA-256 in `ledger/manifest.yaml`, with their compiled PDFs.
-- **Audit of the adapted code.**  The 319 modules copied from Leonardo Bonanno's formalization, the
-  modules of `SpherePackings/` that adapt its code or put its results in paper form (Sections 2–4
-  and the general walk layer), and, in batches 22 and 23, the modules and frozen statements added
-  or changed for the corrected paper (complete cells, Propositions 2.6 and 3.2 and Theorems 3.3,
-  3.6 and 3.7 with the internal-edge Taylor layer, Lemma 5.1 and Proposition 1.1), 427 module
-  entries in 24 batches, were reviewed by a different model from the one that adapted them, for
-  definitions that do not mean what they say, vacuous or contradictory hypotheses, and statements
-  weaker than claimed.  [`AUDIT.md`](AUDIT.md) records the verdict for each module, and
-  `SpherePackings/Audit/Nonvacuity/` the reviewers' nonvacuity examples, which build with the
-  library.
-- **Continuous integration.**  The CI build rejects any warning in this repository's modules and
-  any `sorry`, checks the axiom reports of the main theorems and runs `tools/verify.py`; the
-  comparator workflow checks every pair (see [Running the comparators](#running-the-comparators)).
+## Corrections
 
-## Size
+The Lean statements follow a corrected version of the arXiv v2 source,
+[`paper/rw-spheres-corrected.tex`](paper/rw-spheres-corrected.tex). Each change is marked in the
+source by a comment `% CORRECTION n` or `% CLOSE n`, and the section *Corrections to the
+published version* of the corrected paper summarizes them in nine items. For each changed
+statement, [`CORRESPONDENCE.md`](CORRESPONDENCE.md) says whether the published version is false, with a
+counterexample, or open. The counterexamples are informal arguments, not formalized in Lean.
+[`GAP-CHECKS.md`](GAP-CHECKS.md) records independent checks of four claims about the printed paper.
 
-The library contains 181 Lean files with 23,768 physical lines (`SpherePackings.lean` and
-`SpherePackings/`), on top of leobon12's 319 files with 37,350 physical lines under
-`BouRabeeGwynne/` (including 21 files vendored from Rémy Degenne's Brownian-motion and
-Kolmogorov-extension projects) and mathlib.  The comparator sources under `SpherePackingsAudit/`
-are counted separately: 37 Lean files with 2,642 physical lines.
+- **Theorems A and B, Sections 2 to 4.** The theorems assume `closure U ⊆ interior D`, and the
+  estimates of Sections 2 and 3 assume *complete* cells: finitely many neighbours, and every
+  boundary point of the cell in the cell of a neighbour. Without these the published statements
+  are false, for example on a square grid of a rectangle.
+- **Theorem B(b).** The boundary value at a vertex is taken at a nearest point of `closure U`. The
+  published prescription, the nearest point of the cell `P_v` at which `h_C` is defined, need not
+  exist.
+- **Proposition 1.1.** The mass bounds are assumed on a neighbourhood `W` of `closure U`. With the
+  bounds on `U` only, the statement is false.
+- **Lemmas 2.1 and 2.5.** Lemma 2.1 needs finite degrees. The first inclusion of Lemma 2.5 is false
+  as printed and is replaced by a covering of the cells of `V[U]`.
+- **Propositions 2.6 and 3.2.** Their constant `M` also bounds the Taylor remainders along the
+  edges. Both published versions are false, even for complete cells.
+- **Theorem 3.3.** The displayed bound is changed, and the rate holds for `ε ≤ 1/2`. With a
+  constant uniform over all meshes the published rate is false.
+- **Theorems 3.6 and 3.7.** Their constant bounds the cell Hessian and the Taylor remainders on
+  the internal edges. The published proofs have gaps; the proofs here use Bonanno's corrected
+  iteration.
+- **Proposition 4.2.** It holds for balls whose closure lies in `B_δ(D)`, and is false otherwise.
+- **Lemma 5.1.** Part (a) tests the grid points whose cube meets `U`; as printed it is false. Part
+  (b) is stated with constants depending on `d`. The printed radius `2k` is also proved for every
+  `d ≤ 12` (`SpherePackings.Voronoi.geometric_constraint_outer_two`); it fails for every `d ≥ 13`.
+- **Theorem 6.1.** The statement is unchanged. For `d ≥ 4` some small spheres of the printed
+  packing touch no big sphere, so the small spheres are placed at even coordinates beyond the
+  third; only the proof changes.
+
+Two questions about the printed statements are open: whether Theorems 3.3, 3.6 and 3.7 hold with
+the published cell Hessian constant alone, and whether the published linear bound of Theorem 3.3
+holds. Neither is needed for the Lean statements.
+
+## Scope
+
+- **Edges.** Every contact of dimension `d − 1` of two cells is an edge, as the paper reads it, and
+  orthogonality is required on all of them.
+- **The formal objects.** Tilings, conductances, the discrete Dirichlet problem, curves modulo time
+  parametrization, the stopped walk and the Brownian laws are Bonanno's definitions. The
+  conventions are listed in [`CORRESPONDENCE.md`](CORRESPONDENCE.md#conventions).
+- **Nearest vertices.** `zⁿ` is any nearest vertex; the paper's lexicographic tie-breaking is one
+  choice.
+- **Assumption D** is a hypothesis, formalized as printed. Test functions are given on `ℝᵈ`, the
+  existence of the discrete Dirichlet solutions is not assumed, and (4.2) is required of every
+  solution.
+- **Total definitions.** Lean's real-valued definitions are total, so the statements carry the
+  positivity, finiteness and nonemptiness hypotheses they need. [`AUDIT.md`](AUDIT.md) records a
+  review of every definition for such junk values.
+- **Not formalized.** Remarks 1.2 and 3.4, the examples of Section 1.2 other than Voronoi
+  tessellations, and the open problems. No Lean example constructs a Poisson point process.
+
+## Checking the proofs
+
+- **No `sorry`.** The library has none. `tools/check_manifest.py` fails on any `sorry`, `admit`,
+  `sorryAx`, `axiom`, `native_decide`, `implemented_by`, `extern`, `unsafe`, `opaque` and similar
+  tokens under `SpherePackings/` and `BouRabeeGwynne/`. Each of the six comparator challenges
+  contains one intentional `sorry` at the statement, which the matching solution proves.
+- **Standard axioms only.** [`SpherePackings/Meta/AxiomsAudit.lean`](SpherePackings/Meta/AxiomsAudit.lean)
+  prints the axioms of the main theorems. `tools/check_axioms.py` checks those of every registered
+  statement and supporting statement, and fails on anything beyond `propext`, `Classical.choice`
+  and `Quot.sound`. [`CERTIFICATE.md`](CERTIFICATE.md) records the result.
+- **Frozen statements.** Each registered statement lies between `-- FROZEN-STATEMENT-BEGIN` and
+  `-- FROZEN-STATEMENT-END`. The SHA-256 of that text, and of both paper sources, is pinned in
+  `ledger/manifest.yaml` and checked by `tools/check_manifest.py`.
+- **Independent check of the statements.** The main theorems are restated in six comparator
+  challenges under [`SpherePackingsAudit/`](SpherePackingsAudit/README.md): Theorem A, Theorem B
+  (both parts), the two parts of Proposition 1.1, Theorem 4.1 and Theorem 6.1. The challenges import
+  only Mathlib and vocabulary modules that copy the needed declarations verbatim;
+  `tools/check_vocabulary.py` re-derives the copies. [leanprover/comparator](https://github.com/leanprover/comparator)
+  checks that each solution proves the challenge statement with only the permitted axioms, with
+  the Lean kernel and the independent nanoda kernel.
+- **The copied code.** [`AUDIT.md`](AUDIT.md) records a review of the modules copied or adapted
+  from Bonanno's formalization, for definitions that do not mean what they say, vacuous hypotheses
+  and statements weaker than claimed. The nonvacuity examples in `SpherePackings/Audit/Nonvacuity/`
+  build with the library.
+- **Continuous integration.** The **CI** workflow builds the library, rejects any warning in this
+  repository's modules and any `sorry`, checks the axiom reports and runs `tools/verify.py`. The
+  **Comparator audit** workflow checks the six pairs, one job per pair; see
+  [`CI_ARTIFACTS.md`](CI_ARTIFACTS.md).
+
+`SpherePackings/` and `SpherePackings.lean` contain 182 Lean files with 24,271 lines. Bonanno's
+`BouRabeeGwynne/` adds 319 files with 37,349 lines, including 21 files vendored from Rémy Degenne's
+Brownian-motion and Kolmogorov-extension projects. The comparator sources are 37 files with 2,642
+lines.
 
 ## Building
 
-The toolchain is pinned in [`lean-toolchain`](lean-toolchain), so
-[`elan`](https://github.com/leanprover/elan) installs it, and Lake fetches the pinned Mathlib.
+Install [elan](https://github.com/leanprover/elan). The toolchain, Lean `v4.34.0-rc2`, is pinned in
+[`lean-toolchain`](lean-toolchain), and Lake fetches Mathlib at the commit
+`a4c8ef0a69f52ec80525d5086bb3542f4660faaf`, the pins of Bonanno's release, recorded in
+[`lakefile.lean`](lakefile.lean) and [`lake-manifest.json`](lake-manifest.json).
 
 ```bash
 lake exe cache get   # prebuilt Mathlib
-lake build           # compile the project
-```
-
-To reproduce the axiom reports of the main theorems:
-
-```bash
+lake build           # the library
 lake env lean SpherePackings/Meta/AxiomsAudit.lean 2>&1 | tee .lake/axioms-audit.log
-python3 scripts/check_axioms.py .lake/axioms-audit.log
+python3 scripts/check_axioms.py .lake/axioms-audit.log   # the axiom reports of the main theorems
+lake build SpherePackingsAudit                           # the comparator pairs
 ```
 
 `import SpherePackings` loads the main theorems and what they use.
-`lake build SpherePackingsAudit` builds the comparator challenges and solutions.
 
-The checkers need Python 3.10 or newer and PyYAML (`python3 -m pip install -r
-tools/requirements.txt`).  `python3 tools/verify.py` runs them all and fails on the first failure.
+The checkers need Python 3.10 or newer and PyYAML (`python3 -m pip install -r tools/requirements.txt`).
+`python3 tools/verify.py` runs them all and stops at the first failure:
 
-| command | what it guarantees |
+| Command | What it checks |
 |---|---|
-| `python3 tools/check_manifest.py` | each node's frozen block has the pinned SHA-256 and declares the node's export; every frozen file belongs to a node; the paper matches its pin; no forbidden token in the library; every file of `BouRabeeGwynne/` names its source |
-| `python3 tools/check_coverage.py` | every labelled theorem, lemma and proposition of `paper/rw-spheres.tex` is registered or listed as not formalized |
-| `python3 tools/sync_docs.py` | the manifest, the status block and paper map above and the table in `CORRESPONDENCE.md` are current (`--write` regenerates them) |
-| `python3 tools/check_warnings.py` | `lake build SpherePackings` emits no warning in this repository's own modules |
-| `python3 tools/check_axioms.py` | every node and guard uses only `propext`, `Classical.choice`, `Quot.sound` |
+| `python3 tools/check_manifest.py` | the pinned SHA-256 of every frozen statement and of the paper; no forbidden token in the library; every file of `BouRabeeGwynne/` names its source |
+| `python3 tools/check_coverage.py` | every labelled result of `paper/rw-spheres.tex` is registered or listed as not formalized (a review aid, not a proof of equivalence) |
+| `python3 tools/sync_docs.py` | the manifest and the generated parts of this file and of `CORRESPONDENCE.md` are current (`--write` regenerates them) |
+| `python3 tools/check_warnings.py` | `lake build SpherePackings` emits no warning in this repository's modules |
+| `python3 tools/check_axioms.py` | every registered and supporting statement uses only the three standard axioms |
 | `python3 tools/check_vocabulary.py` | the comparator vocabulary modules are verbatim copies of the repository declarations |
 | `python3 tools/certificate.py` | regenerates `CERTIFICATE.md` after a successful axiom audit (`--check` compares) |
 
@@ -469,16 +339,11 @@ To build the paper, run `pdflatex` twice on `rw-spheres.tex` or `rw-spheres-corr
 
 ## Running the comparators
 
-Each pair under [`SpherePackingsAudit/`](SpherePackingsAudit/README.md) has a configuration
-`SpherePackingsAudit/<Pair>/comparator.json` that permits exactly `propext`, `Classical.choice` and
-`Quot.sound` and enables the nanoda kernel.  The comparator checks that the solution proves the
-challenge statement, compares their dependency closures, and replays the proof with the Lean
-kernel and the independent nanoda kernel.  The pinned toolchain does not bundle an exporter or
-external kernels, so the tools are built separately, at the revisions pinned in
-[`comparator.yml`](.github/workflows/comparator.yml): `leanprover/comparator`,
-`leanprover/lean4export` (at the project's toolchain), `ammkrn/nanoda_lib` and `Zouuup/landrun`.
-
-To run all six pairs locally:
+Each pair has a configuration `SpherePackingsAudit/<Pair>/comparator.json`, which permits exactly
+`propext`, `Classical.choice` and `Quot.sound` and enables the nanoda kernel. The pinned toolchain
+does not bundle an exporter or external kernels. Build `leanprover/comparator`,
+`leanprover/lean4export` (at the project's toolchain), `ammkrn/nanoda_lib` and `Zouuup/landrun` at
+the revisions pinned in [`comparator.yml`](.github/workflows/comparator.yml), then run
 
 ```bash
 COMPARATOR_BIN=<comparator> COMPARATOR_LANDRUN=<landrun> \
@@ -486,57 +351,35 @@ COMPARATOR_LEAN4EXPORT=<lean4export> COMPARATOR_NANODA=<nanoda_bin> \
   ./scripts/run_comparators.sh            # or: --pair TheoremA
 ```
 
-Logs are kept under `.lake/comparator-logs/`.  The runs recorded on a local machine are in
+Logs are kept under `.lake/comparator-logs/`. Recorded local runs are in
 [`SpherePackingsAudit/COMPARATOR_RUNS.md`](SpherePackingsAudit/COMPARATOR_RUNS.md).
 
-There are two continuous-integration workflows: **CI** builds the library, checks the axiom
-reports and runs the registry checks; **Comparator audit** checks all six challenge/solution pairs,
-one job per pair.  CI runs on pushes to `main` that change anything but the paper PDFs,
-`CITATION.cff`, `CONTRIBUTING.md` and `CI_ARTIFACTS.md`; the comparator audit runs on pushes that
-change Lean sources, `SpherePackingsAudit/`, `scripts/run_comparators.sh` or the build
-configuration.  Both can be started manually from the
-[Actions page](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions); see
-[`CI_ARTIFACTS.md`](CI_ARTIFACTS.md) and, for build conventions, [`CONTRIBUTING.md`](CONTRIBUTING.md).
+CI runs on pushes to `main` that change anything but the paper PDFs, `CITATION.cff`,
+`CONTRIBUTING.md` and `CI_ARTIFACTS.md`. The comparator audit runs on pushes that change Lean
+sources, `SpherePackingsAudit/`, `scripts/run_comparators.sh` or the build configuration. Both can
+be started manually from the [Actions page](https://github.com/nitromannitol/Random-Walk-On-Sphere-Packings/actions).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for build conventions.
 
 ## Repository layout
 
 ```text
-SpherePackings/
-  MainTheorems.lean    the main results, stated in full
-  Frozen/              the certified statement surface, one frozen statement per file
-  General/             Markov chains of an arbitrary kernel on a subset of ℝ^d, their Dirichlet
-                       problem, and the walk/Brownian coupling behind Theorem 4.1 (kept separate
-                       from the tiling code)
-  Support/             the proofs: Theorem B(b), complete cells (Complete/), Sections 2-3 paper
-                       forms, Section 4 for general walks, Voronoi cells and Poisson processes
-                       (Section 5), the counterexample (Section 6), guards
-  Audit/Nonvacuity/    the audit reviewers' nonvacuity examples
-  Meta/                AxiomsAudit.lean
-BouRabeeGwynne/        leobon12's formalization of Theorems A and B(a), unchanged apart from a
-                       header naming the source (and, in 13 walk files, `omit [Fintype V] in`; one
-                       `maxHeartbeats` option is removed)
 SpherePackings.lean    the root module
-SpherePackingsAudit/   Mathlib-only comparator challenges, solutions and vocabulary
-LICENSE                the Apache License 2.0
-lakefile.lean, lake-manifest.json, lean-toolchain
-                       the build configuration and the pinned dependencies
-ASSUMPTIONS.md         the cited results assumed (none)
-AUDIT.md               the audit of the code copied or adapted from leobon12
-GAP-CHECKS.md          the independent checks of four claims about the paper
-CORRESPONDENCE.md      paper ↔ Lean: conventions, corrections, node table
-CERTIFICATE.md         generated record of the toolchain, each node's axioms and hash
-CONTRIBUTING.md        building notes
-CI_ARTIFACTS.md        the continuous-integration jobs, caches and artifacts
-CITATION.cff           citation metadata
-formalization.yaml     models, tooling, review and fidelity disclosure
-ledger/manifest.yaml   one row per registered statement: hash, paper source, form
-ledger/audit/          the audit reports, one per batch
-paper/                 the paper (rw-spheres.tex, unchanged) and the corrected paper
-                       (rw-spheres-corrected.tex), both pinned by SHA-256 in ledger/manifest.yaml,
-                       with figures, bibliography and compiled PDFs
-tools/                 the checkers and generators listed under Building
-scripts/               the axiom-report check and the comparator runner
-.github/workflows/     the CI and comparator workflows (see CI_ARTIFACTS.md)
+SpherePackings/
+  MainTheorems.lean    the main theorems, stated in full
+  Frozen/              the registered statements, one per file
+  General/             Markov chains on subsets of ℝ^d and the walk/Brownian coupling behind Theorem 4.1
+  Support/             the proofs
+  Audit/Nonvacuity/    nonvacuity examples
+  Meta/                AxiomsAudit.lean
+BouRabeeGwynne/        Bonanno's formalization of Theorems A and B(a), copied (see Copied code)
+SpherePackingsAudit/   the Mathlib-only comparator challenges, solutions and vocabulary
+paper/                 the arXiv v2 source, the corrected paper, figures, bibliography and PDFs
+ledger/                manifest.yaml (one row per registered statement) and the audit reports
+CORRESPONDENCE.md      paper ↔ Lean: conventions, corrections, statement table
+GAP-CHECKS.md          the checks of four claims about the printed paper
+AUDIT.md               the review of the copied and adapted code
+CERTIFICATE.md         the toolchain, and the axioms and hash of each registered statement
+tools/, scripts/       the checkers and generators, the axiom check and the comparator runner
 ```
 
 ## How this was built
